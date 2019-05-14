@@ -1,0 +1,14 @@
+@import './assets/styles/main.scss';
+
+body {
+  background-color: $dark-blue;
+  margin: 0;
+  font-family: $apercu-pro;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: $apercu-mono, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
