@@ -1,0 +1,15 @@
+@tailwind preflight;
+@tailwind utilities;
+
+body {
+    background-color: theme('colors.bg');
+    color: theme('colors.fg');
+    font-family: theme('fontFamily.sans');
+    margin: 0;
+}
+
+a {
+    color: theme('colors.green');
+    border-bottom: 1px dotted theme('colors.green');
+    text-decoration: none;
+}
