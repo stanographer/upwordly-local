@@ -1,102 +1,48 @@
-import Link from 'next/link';
 import Layout from '../components/Layout';
 import React from 'react';
+import Typed from 'react-typed';
+import Link from 'next/link';
 
-// export default () => (
-//     <Layout>
-//         <div className="flex items-stretch bg-gray-200 h-24">
-//           <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">1</div>
-//           <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-//             <Link href="/signin"><a>Sign In</a></Link>
-//           </div>
-//           <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">3</div>
-//         </div>
-//     </Layout>
-// );
+const Index = props => (
+    <Layout>
+      <div
+          className="landing-wrapper"
+          id="landing-wrapper">
+        <section className="intro">
+          <div
+              className="content
+              inline-block
+              align-middle">
+            <h1 className="text-5xl landing-title">UPWORDLY</h1>
+            <p>
+              <Typed
+                  className="marquee"
+                  strings={[
+                    'One platform to sync, send, and integrate your real-time transcriptions.',
+                    'Web-based live stenography, anywhere.'
+                  ]}
+                  typeSpeed={40} />
+            </p>
+            <p style={{
+              padding: '0 4rem'
+            }}>
+              <Link href={`/view?user=stanley&job=mocj`}><a>hello</a></Link>
+              Upwordly is a real-time transcription delivery tool and a content management system (CMS) for real-time
+              stenographers. You login, create a job, connect your CAT software via a small helper app, and start
+              writing. Distribute your live feed to anyone via a short URL and that's it! Since it is web based, there's
+              no need for your consumers to install anything on their end. When the job is over, it's your choice to use
+              the variety of tools to save or disseminate the transcript or to delete it. Simple.
+            </p>
+          </div>
+        </section>
+      </div>
+    </Layout>
+);
 
-import { bubble as Menu } from 'react-burger-menu';
-
-const styles = {
-  bmBurgerButton: {
-    position: 'fixed',
-    width: '36px',
-    height: '30px',
-    right: '36px',
-    top: '36px'
-  },
-  bmBurgerBars: {
-    background: '#575b70'
-  },
-  bmBurgerBarsHover: {
-    background: '#a90000'
-  },
-  bmCrossButton: {
-    height: '40px',
-    width: '40px'
-  },
-  bmCross: {
-    background: '#bdc3c7'
-  },
-  bmMenuWrap: {
-    position: 'fixed',
-    height: '100%',
-  },
-  bmMenu: {
-    background: '#1a1b21',
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
-  },
-  bmMorphShape: {
-    fill: '#1a1b21'
-  },
-  bmItemList: {
-    color: '#b8b7ad',
-    overflow: 'hidden',
-    height: 'unset',
-    padding: '0.8em',
-    width: '100%',
-  },
-  bmItem: {
-    display: 'inline-block',
-    fontSize: '2.5rem',
-    padding: '1rem 0'
-  },
-  bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
-  }
+Index.getInitialProps = async function ({ pathname, req }) {
+  console.log('initial: ', pathname, req);
+  return { pathname: req.pathname || pathname  };
 };
 
-export default class Index extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentMenu: 'slide',
-      side: 'left'
-    };
-  }
+export default Index;
 
-  showSettings(event) {
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-        <Menu
-            styles={styles}
-            right
-            noOverlay
-            width="100%">
-          <Link href="/signin"><a className="menu-item">Sign In</a></Link>
-          <br />
-          <a id="home" className="menu-item" href="/">Home</a>
-          <br />
-          <a id="about" className="menu-item" href="/about">About</a>
-          <br />
-          <a id="contact" className="menu-item" href="/contact">Contact</a>
-          <br />
-          <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a>
-          <br />
-        </Menu>
-    );
-  }
-}

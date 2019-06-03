@@ -31,6 +31,7 @@
   "dependencies": {
     "@teamwork/sharedb": "^3.1.0",
     "@zeit/next-css": "^1.0.1",
+    "isomorphic-ws": "^4.0.1",
     "next": "^8.1.0",
     "ot-text": "^1.0.2",
     "react": "^16.8.6",
@@ -40,16 +41,18 @@
     "react-intersection-visible": "^2.1.0",
     "react-redux": "^7.0.3",
     "react-scroll": "^1.7.11",
+    "react-typed": "^1.1.2",
     "reactstrap": "^8.0.0",
     "reconnecting-websocket": "^4.1.10",
     "redux": "^4.0.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "ws": "^7.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.1",
     "cssnano": "^4.1.10",
-    "node-sass": "^4.12.0",
     "postcss-easy-import": "^3.0.0",
+    "prop-types": "^15.7.2",
     "require": "^2.4.20",
     "tailwindcss": "^1.0.1"
   }
