@@ -3,79 +3,106 @@
 @tailwind preflight;
 
 body {
-    background-color: theme('colors.bg');
-    color: theme('colors.fg');
-    font-family: theme('fontFamily.sans');
-    margin: 0;
+  background-color: theme('colors.bg');
+  color: theme('colors.fg');
+  font-family: theme('fontFamily.sans');
+  margin: 0;
 }
 
 a {
-    color: theme('colors.green');
-    border-bottom: 1px dotted theme('colors.green');
-    text-decoration: none;
+  color: theme('colors.green');
+  border-bottom: 1px dotted theme('colors.green');
+  text-decoration: none;
 }
 
 /*noinspection CssInvalidAtRule*/
 
 @tailwind utilities;
 
+.fade-in-out {
+  transition: opacity 3s ease-in-out;
+}
+
+.fixed-center {
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+}
+
 .icon {
-    bottom: 5vh;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .14));
-    height: 4.8rem;
-    opacity: 1;
-    position: fixed;
-    right: 5vw;
-    width: 4.8rem;
+  bottom: 5vh;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .14));
+  height: 4.8rem;
+  opacity: 1;
+  position: fixed;
+  right: 5vw;
+  width: 4.8rem;
 }
 
 .intro {
-    height: 90vh;
+  height: 90vh;
+}
+
+.invisible {
+  transition: opacity .5s linear;
+  opacity: 0;
 }
 
 .landing-section {
-    height: 90vh;
-    padding: 30% 0;
+  height: 90vh;
+  padding: 30% 0;
 }
 
 .landing-title {
-    color: theme('colors.green');
-    font-size: 4rem;
-    margin: 0;
+  color: theme('colors.green');
+  font-size: 4rem;
+  margin: 0;
 }
 
 .marquee {
-    color: theme('colors.blue');
-    font-family: 'Apercu Mono';
+  color: theme('colors.blue');
+  font-family: 'Apercu Mono', sans-serif;
 }
 
 .landing-wrapper {
-    text-align: center;
+  text-align: center;
 }
 
 .scroll-down {
-    position: fixed;
-    bottom: 3em;
-    right: 4em;
+  position: fixed;
+  bottom: 3em;
+  right: 4em;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .stroke {
-    stroke: #2d2d31;
-    transition: stroke .2s ease-out;
+  stroke: #2d2d31;
+  transition: stroke .2s ease-out;
 }
 
 .transcript {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.visible {
+  opacity: 1;
+  display: inline;
+  transition: opacity .5s ease-in-out;
 }
 
 .visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

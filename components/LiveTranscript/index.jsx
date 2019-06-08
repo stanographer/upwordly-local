@@ -55,7 +55,6 @@ class LiveTranscript extends Component {
   render() {
     const {loading} = this.state;
 
-    console.log('this.statedoc', this.state);
     return (
         <Fragment>
           {

@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ click, filter, href, id, path, title }) => {
+const Button = ({ click, filter, href, id, path, scrolling, title }) => {
   return (
-      <span style={ { transform: 'matrix(1, 0, 0, 1, 0, 0)' } } onClick={click}>
+      <span className={!scrolling ? 'visible' : 'invisible'}
+          style={{transform: 'matrix(1, 0, 0, 1, 0, 0)'}}
+            onClick={click}>
       <i className="icon">
         <svg
             viewBox="0 0 52 52"
