@@ -45,6 +45,7 @@
     "reactstrap": "^8.0.0",
     "reconnecting-websocket": "^4.1.10",
     "redux": "^4.0.1",
+    "styled-components": "^4.3.1",
     "uuid": "^3.3.2",
     "ws": "^7.0.0"
   },

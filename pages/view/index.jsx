@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import { withRouter } from 'next/router';
-import Layout from '../../components/Layout';
-import LiveTranscript from '../../components/LiveTranscript';
 import { animateScroll as scroll } from 'react-scroll';
 import 'react-intersection-visible';
 
-// Components
-import ScrollArrow from '../../components/Button';
+// Components.
+import { ButtonGroup, Nav } from '../../components/Controls';
 import TextArea from '../../components/LiveTranscript/TextArea';
+import LiveTranscript from '../../components/LiveTranscript';
+import ScrollArrow from '../../components/Button';
+import Layout from '../../components/Layout';
 
 class View extends React.Component {
   constructor(props) {
@@ -16,19 +17,24 @@ class View extends React.Component {
     this.state = {
       scrolling: true,
     };
-
   }
+
+  interval = 0;
 
   componentDidMount() {
     // On component load, begin auto-scrolling.
-    this.setScrolling();
     const {router} = this.props;
+    this.startScrolling();
 
     console.log(router.query);
 
   }
 
-  setScrolling = () => {
+  componentWillUnmount() {
+    this.stopScrolling();
+  }
+
+  startScrolling = () => {
     // Set the scrolling state to scrolling.
     this.setState({scrolling: true});
 
@@ -44,44 +50,47 @@ class View extends React.Component {
     }, 500);
   };
 
+  stopScrolling = () => {
+
+    // Stop auto-scrolling.
+    this.setState({scrolling: false});
+    clearInterval(this.interval);
+    console.log(this.interval);
+  };
+
   render() {
     const {scrolling} = this.state;
     const {router} = this.props;
 
     return (
         <Fragment>
-          <Layout>
-            <div className="px-8
+          <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
+            <Nav />
+          </div>
+          <div className="px-8
               py-8
               text-5xl"
-                 onTouchStart={() => {
-                   this.setState({
-                     scrolling: false
-                   });
-                   clearInterval(this.interval);
-                 }}>
-              <LiveTranscript
-                  user={router.query.user}
-                  job={router.query.job}
-                  render={(state) => (
-                      <TextArea {...state} />
-                  )}
-              />
-            </div>
-            {!scrolling
-                ? <ScrollArrow
-                    aria-label="Scroll to Bottom"
-                    click={() => {
-                      this.setScrolling();
-                    }}
-                    filter="scroll-top-a"
-                    href="scroll-top-b"
-                    id="scroll-top-b"
-                    path="M18 22l8 8 8-8"
-                    title="Scroll to Bottom" />
-                : null
-            }
-          </Layout>
+               onTouchStart={() => this.stopScrolling()}
+               onClick={() => this.stopScrolling()}>
+            <LiveTranscript
+                user={router.query.user}
+                job={router.query.job}
+                render={(state) => (
+                    <TextArea {...state} />
+                )}
+            />
+          </div>
+          <ScrollArrow
+              aria-label="Scroll to Bottom"
+              click={() => {
+                this.startScrolling();
+              }}
+              filter="scroll-top-a"
+              href="scroll-top-b"
+              id="scroll-top-b"
+              path="M18 22l8 8 8-8"
+              scrolling={scrolling}
+              title="Scroll to Bottom" />
         </Fragment>
     );
   }

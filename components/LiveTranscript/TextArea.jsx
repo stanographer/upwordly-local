@@ -12,7 +12,6 @@ function TextArea(props) {
   let binding;
 
   useEffect(() => {
-    console.log('doc in textarea', props.doc);
     doc.subscribe(err => {
       if (err) {
         setText('There was a connection error: ' + err);
@@ -22,7 +21,7 @@ function TextArea(props) {
     // Load document and bind it to local snapshot.
     doc.on('load', () => {
       binding = new Binding(doc.data, flag);
-      setText(binding.snapshot);
+      setText(binding.snapshot || 'Connection successful.');
     });
 
     // Apply remote ops to local snapshot.
@@ -42,7 +41,7 @@ function TextArea(props) {
 
   return (
       <div className="transcript">
-        {text || 'Loading...'}
+        {text || ''}
       </div>
   );
 }
