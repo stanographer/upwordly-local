@@ -1,6 +1,5 @@
 import '../style.css';
 import '../fonts.css';
-import { bubble as Menu } from 'react-burger-menu';
 import Link from 'next/link';
 import React from 'react';
 
@@ -56,21 +55,6 @@ const styles = {
 
 const Layout = props => (
     <div>
-      <Menu
-          styles={styles}
-          right
-          noOverlay
-          pageWrapId="landing-wrapper"
-          width="100%">
-        <Link href="/signin"><a className="text-5xl py-4">Sign In</a></Link>
-        <br />
-        <a id="home" className="menu-item" href="/">Home</a>
-        <br />
-        <a id="about" className="menu-item" href="/about">About</a>
-        <br />
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <br />
-      </Menu>
       {props.children}
     </div>
 );

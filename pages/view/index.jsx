@@ -1,14 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
 import 'react-intersection-visible';
 
 // Components.
-import { Modal, Nav } from '../../components/Controls';
 import TextArea from '../../components/LiveTranscript/TextArea';
 import LiveTranscript from '../../components/LiveTranscript';
-import ScrollArrow from '../../components/Button';
 import Layout from '../../components/Layout';
+
+// Dynamic imports.
+const ScrollButton = dynamic(() => import('../../components/Controls')
+    .then(el => el.ScrollButton));
+const Nav = dynamic(() => import('../../components/Controls')
+    .then(el => el.Nav));
 
 class View extends React.Component {
   constructor(props) {
@@ -63,8 +68,7 @@ class View extends React.Component {
     const {router} = this.props;
 
     return (
-        <Fragment>
-          <Modal />
+        <Layout>
           <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
             <Nav />
           </div>
@@ -81,7 +85,7 @@ class View extends React.Component {
                 )}
             />
           </div>
-          <ScrollArrow
+          <ScrollButton
               aria-label="Scroll to Bottom"
               click={() => {
                 this.startScrolling();
@@ -92,7 +96,7 @@ class View extends React.Component {
               path="M18 22l8 8 8-8"
               scrolling={scrolling}
               title="Scroll to Bottom" />
-        </Fragment>
+        </Layout>
     );
   }
 }
