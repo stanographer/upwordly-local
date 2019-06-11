@@ -1,4 +1,12 @@
 {
+  "../../components/Controls": [
+    {
+      "id": "./components/Controls/ButtonGroup.jsx",
+      "name": "./components/Controls/ButtonGroup.jsx",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
   "./noop": [
     {
       "id": "./node_modules/next/dist/client/noop.js",
