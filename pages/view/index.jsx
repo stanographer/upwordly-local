@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import 'react-intersection-visible';
 
 // Components.
-import { ButtonGroup, Nav } from '../../components/Controls';
+import { Modal, Nav } from '../../components/Controls';
 import TextArea from '../../components/LiveTranscript/TextArea';
 import LiveTranscript from '../../components/LiveTranscript';
 import ScrollArrow from '../../components/Button';
@@ -64,6 +64,7 @@ class View extends React.Component {
 
     return (
         <Fragment>
+          <Modal />
           <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
             <Nav />
           </div>

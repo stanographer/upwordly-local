@@ -363,6 +363,117 @@ var ButtonGroup = function ButtonGroup() {
 
 /***/ }),
 
+/***/ "./components/Controls/Modal.jsx":
+/*!***************************************!*\
+  !*** ./components/Controls/Modal.jsx ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/components/Controls/Modal.jsx";
+
+
+var Modal = function Modal() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-overlay absolute w-full h-full bg-gray-900 opacity-50 top-0 left-0 cursor-pointer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-close absolute top-0 right-0 cursor-pointer mt-2 mr-4 text-white font-bold",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, "[X] Close (or Esc)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "z-50 w-5/6 md:w-1/2 md:max-w-md bg-white rounded-lg shadow-2xl mx-2 md:mx-0 p-4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-title flex justify-between items-center pb-2",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "text-2xl font-bold",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, "Simple Modal!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-close cursor-pointer font-bold text-3xl",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, "x")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-body py-4 text-left",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, "Modal message can go here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, "...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-footer flex justify-end pt-2",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, "Action"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, "Close"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
+
+/***/ }),
+
 /***/ "./components/Controls/Nav.jsx":
 /*!*************************************!*\
   !*** ./components/Controls/Nav.jsx ***!
@@ -372,27 +483,92 @@ var ButtonGroup = function ButtonGroup() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Controls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Controls */ "./components/Controls/index.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "@fortawesome/free-solid-svg-icons");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__);
+
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/components/Controls/Nav.jsx";
 
 
-var Nav = function Nav() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "flex items-center justify-between flex-wrap bg-bg p-6",
+
+
+var icons = {
+  colors: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faFillDrip"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 14
+    },
+    __self: undefined
+  }),
+  lightDarkMode: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faAdjust"],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }),
+  font: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faFont"],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }),
+  fontSize: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faTextHeight"],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: undefined
+  }),
+  share: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faShareAlt"],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: undefined
+  }),
+  text: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faAlignJustify"],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: undefined
+  })
+};
+
+var Nav = function Nav() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+      mobileMenuOpen = _useState2[0],
+      setMobileMenuOpen = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("nav", {
+    className: "flex items-center justify-center md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "flex items-center flex-shrink-0 text-white mr-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 27
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
     style: {
       width: '2rem',
       margin: '0 1rem'
@@ -401,108 +577,122 @@ var Nav = function Nav() {
     alt: "Missile",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 28
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-semibold text-xl tracking-tight",
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: " font-semibold text-xl tracking-tight md:content-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 31
     },
     __self: this
-  }, "Upwordly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "block lg:hidden",
+  }, "Upword.ly")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: " flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 37
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white",
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "lg:flex-grow my-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 47
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
-    className: "fill-current h-3 w-3",
-    viewBox: "0 0 20 20",
-    xmlns: "http://www.w3.org/2000/svg",
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_2__["NavButton"], {
+    icon: icons.font,
+    title: "Font",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 48
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_2__["NavButton"], {
+    icon: icons.text,
+    title: "Text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 52
     },
     __self: this
-  }, "Menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z",
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_2__["NavButton"], {
+    icon: icons.colors,
+    title: "Colors",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 56
     },
     __self: this
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "w-full block flex-grow lg:flex lg:items-center lg:w-auto",
+  })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "my-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 61
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "text-sm lg:flex-grow",
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_2__["NavButton"], {
+    icon: icons.share,
+    title: "Share",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 62
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#responsive-header",
-    className: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Nav);
+
+/***/ }),
+
+/***/ "./components/Controls/NavButton.jsx":
+/*!*******************************************!*\
+  !*** ./components/Controls/NavButton.jsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/components/Controls/NavButton.jsx";
+
+
+
+var NavButton = function NavButton(_ref) {
+  var icon = _ref.icon,
+      title = _ref.title,
+      onClick = _ref.onClick;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    onClick: onClick,
+    className: " inline-block text-md mt-2 mx-0 px-3 py-2 sm:px-4 sm:py-2 md:mx-3 md:mt-1 lg:mt-0 leading-none border rounded text-teal-200 border-white hover:border-transparent hover:text-bg hover:bg-teal-200 ",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 6
     },
     __self: this
-  }, "Docs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#responsive-header",
-    className: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25
-    },
-    __self: this
-  }, "Examples"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#responsive-header",
-    className: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white",
+  }, icon, title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "ml-2",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
     },
     __self: this
-  }, "Blog")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
-    className: "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
-  }, "Download"))));
+  }, title) : '');
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Nav);
+NavButton.propTypes = {
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+/* harmony default export */ __webpack_exports__["default"] = (NavButton);
 
 /***/ }),
 
@@ -510,7 +700,7 @@ var Nav = function Nav() {
 /*!**************************************!*\
   !*** ./components/Controls/index.js ***!
   \**************************************/
-/*! exports provided: ButtonGroup, Nav */
+/*! exports provided: ButtonGroup, Modal, Nav, NavButton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -518,8 +708,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonGroup */ "./components/Controls/ButtonGroup.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonGroup", function() { return _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./components/Controls/Nav.jsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Nav", function() { return _Nav__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal */ "./components/Controls/Modal.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Modal", function() { return _Modal__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./components/Controls/Nav.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Nav", function() { return _Nav__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _NavButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavButton */ "./components/Controls/NavButton.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NavButton", function() { return _NavButton__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+
 
 
 
@@ -2102,17 +2300,23 @@ function (_React$Component) {
           lineNumber: 66
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-        className: !scrolling ? 'visible sticky' : 'invisible sticky',
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_12__["Modal"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 67
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_12__["Nav"], {
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
+        className: !scrolling ? 'visible sticky' : 'invisible sticky',
         __source: {
           fileName: _jsxFileName,
           lineNumber: 68
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_12__["Nav"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
@@ -2125,7 +2329,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 71
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_LiveTranscript__WEBPACK_IMPORTED_MODULE_14__["default"], {
@@ -2135,14 +2339,14 @@ function (_React$Component) {
           return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_LiveTranscript_TextArea__WEBPACK_IMPORTED_MODULE_13__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 79
+              lineNumber: 80
             },
             __self: this
           }));
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 76
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -2158,7 +2362,7 @@ function (_React$Component) {
         title: "Scroll to Bottom",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 84
         },
         __self: this
       }));
@@ -2192,6 +2396,28 @@ function (_React$Component) {
 
 module.exports = __webpack_require__(/*! /Users/stanleysakai/Developer/upwordly-local/pages/view/index.jsx */"./pages/view/index.jsx");
 
+
+/***/ }),
+
+/***/ "@fortawesome/free-solid-svg-icons":
+/*!****************************************************!*\
+  !*** external "@fortawesome/free-solid-svg-icons" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@fortawesome/free-solid-svg-icons");
+
+/***/ }),
+
+/***/ "@fortawesome/react-fontawesome":
+/*!*************************************************!*\
+  !*** external "@fortawesome/react-fontawesome" ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@fortawesome/react-fontawesome");
 
 /***/ }),
 
