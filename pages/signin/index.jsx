@@ -1,7 +1,7 @@
-import Layout from '../../components/Layout';
+import Provider from '../../components/Provider';
 
 export default () => (
-    <Layout>
+    <Provider>
       <div className="container mx-auto">
         <form className="w-full max-w-sm object-center">
           <div className="md:flex md:items-center mb-6">
@@ -79,5 +79,5 @@ export default () => (
           </div>
         </form>
       </div>
-    </Layout>
+    </Provider>
 );
