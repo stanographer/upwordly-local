@@ -7,13 +7,35 @@ import 'react-intersection-visible';
 // Components.
 import TextArea from '../../components/LiveTranscript/TextArea';
 import LiveTranscript from '../../components/LiveTranscript';
-import Layout from '../../components/Layout';
+import Provider from '../../components/Provider';
+import WidgetContext from '../../context/widget-context';
+
 
 // Dynamic imports.
 const ScrollButton = dynamic(() => import('../../components/Controls')
     .then(el => el.ScrollButton));
 const Nav = dynamic(() => import('../../components/Controls')
     .then(el => el.Nav));
+const Modal = dynamic(() => import('react-modal'));
+const ModalComponent = dynamic(() => import('../../components/Controls')
+    .then(el => el.Modal));
+
+
+const modalStyles = {
+  content: {
+    backgroundColor: '#282c34',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    boxShadow: '0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08)',
+  },
+  overlay: {
+    backgroundColor: 'rgb(0, 0, 0, 0.3)',
+  }
+};
 
 class View extends React.Component {
   constructor(props) {
@@ -21,6 +43,7 @@ class View extends React.Component {
 
     this.state = {
       scrolling: true,
+      modalOpen: false,
     };
   }
 
@@ -60,7 +83,14 @@ class View extends React.Component {
     // Stop auto-scrolling.
     this.setState({scrolling: false});
     clearInterval(this.interval);
-    console.log(this.interval);
+  };
+
+  openModal = () => {
+    this.setState({modalOpen: true});
+  };
+
+  closeModal = () => {
+    this.setState({modalOpen: false});
   };
 
   render() {
@@ -68,35 +98,52 @@ class View extends React.Component {
     const {router} = this.props;
 
     return (
-        <Layout>
-          <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
-            <Nav />
-          </div>
-          <div className="px-8
+        <Provider>
+          <WidgetContext.Consumer>
+            {context => (
+                <>
+                  <Modal
+                    isOpen={context.widgetOpen}
+                    onRequestClose={context.closeWidget}
+                    contentLabel="Example Modal"
+                    style={modalStyles}
+                    ariaHideApp={false}
+                >
+                  <ModalComponent title={context.currentWidget} />
+                </Modal>
+                  <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
+                    <Nav openModal={this.openModal} closeModal={this.closeModal} />
+                  </div>
+                  <div className="
+              px-8
               py-8
-              text-5xl"
-               onTouchStart={() => this.stopScrolling()}
-               onClick={() => this.stopScrolling()}>
-            <LiveTranscript
-                user={router.query.user}
-                job={router.query.job}
-                render={(state) => (
-                    <TextArea {...state} />
-                )}
-            />
-          </div>
-          <ScrollButton
-              aria-label="Scroll to Bottom"
-              click={() => {
-                this.startScrolling();
-              }}
-              filter="scroll-top-a"
-              href="scroll-top-b"
-              id="scroll-top-b"
-              path="M18 22l8 8 8-8"
-              scrolling={scrolling}
-              title="Scroll to Bottom" />
-        </Layout>
+              text-2xl
+              md:text-5xl"
+                       onTouchStart={() => this.stopScrolling()}
+                       onClick={() => this.stopScrolling()}>
+                    <LiveTranscript
+                        user={router.query.user}
+                        job={router.query.job}
+                        render={(state) => (
+                            <TextArea {...state} />
+                        )}
+                    />
+                  </div>
+                  <ScrollButton
+                      aria-label="Scroll to Bottom"
+                      click={() => {
+                        this.startScrolling();
+                      }}
+                      filter="scroll-top-a"
+                      href="scroll-top-b"
+                      id="scroll-top-b"
+                      path="M18 22l8 8 8-8"
+                      scrolling={scrolling}
+                      title="Scroll to Bottom" />
+                </>
+            )}
+          </WidgetContext.Consumer>
+        </Provider>
     );
   }
 }

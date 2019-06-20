@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
+import Provider from '../components/Provider';
 import React from 'react';
 import Typed from 'react-typed';
 import Link from 'next/link';
 
 const Index = props => (
-    <Layout>
+    <Provider>
       <div
           className="landing-wrapper"
           id="landing-wrapper">
@@ -36,12 +36,12 @@ const Index = props => (
           </div>
         </section>
       </div>
-    </Layout>
+    </Provider>
 );
 
-Index.getInitialProps = async function ({ pathname, req }) {
+Index.getInitialProps = async function ({pathname, req}) {
   console.log('initial: ', pathname, req);
-  return { pathname: req.pathname || pathname  };
+  return {pathname: req.pathname || pathname};
 };
 
 export default Index;

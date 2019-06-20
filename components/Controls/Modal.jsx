@@ -1,33 +1,38 @@
 import React from 'react';
+import styled from 'styled-components';
+import dynamic from 'next/dynamic';
 
-const Modal = () => {
+// Dynamically loaded components.
+const FontComponent = dynamic(() => import('../Modal/Font'));
+
+const Title = styled.div`
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
+  display: block;
+  width: 100%;
+`;
+
+const modals = {
+  font: {
+    header: 'Font',
+    component: <FontComponent />
+  }
+};
+
+const Modal = ({title}) => {
   return (
-      <div
-          className="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
-        <div className="modal-overlay absolute w-full h-full bg-gray-900 opacity-50 top-0 left-0 cursor-pointer" />
-        <div className="modal-close absolute top-0 right-0 cursor-pointer mt-2 mr-4 text-white font-bold">[X] Close (or
-                                                                                                          Esc)
-        </div>
-        <div className="z-50 w-5/6 md:w-1/2 md:max-w-md bg-white rounded-lg shadow-2xl mx-2 md:mx-0 p-4">
-
-          <div className="modal-title flex justify-between items-center pb-2">
-            <p className="text-2xl font-bold">Simple Modal!</p>
-            <div className="modal-close cursor-pointer font-bold text-3xl">x</div>
-          </div>
-
-          <div className="modal-body py-4 text-left">
-            <p>Modal message can go here</p>
-            <p>...</p>
-          </div>
-
-          <div className="modal-footer flex justify-end pt-2">
-            <button
-                className="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action
-            </button>
-            <button className="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close
-            </button>
-          </div>
-
+      <div>
+        <Title>{modals[title]['header']}</Title>
+        <div className="flex flex-grow-1 my-8">
+          {
+            modals[title]['component']
+          }
         </div>
       </div>
   );
