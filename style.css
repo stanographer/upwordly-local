@@ -29,6 +29,10 @@ a {
   transform: translateX(-50%);
 }
 
+.font-apercu {
+  font-family: theme('fontFamily.sans');
+}
+
 .icon {
   bottom: 5vh;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .14));
@@ -68,6 +72,15 @@ a {
   text-align: center;
 }
 
+.list-style-none {
+  list-style: none;
+}
+
+.mp-start-none {
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
 .scroll-down {
   position: fixed;
   bottom: 3em;
@@ -105,134 +118,4 @@ a {
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-
-
-.container {
-  max-width: 60rem;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.payment {
-  background-color: #ffffff;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
-  0 5px 15px 0 rgba(0, 0, 0, 0.08);
-  max-width: 20rem;
-}
-
-.payment__progress {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.payment__pagination {
-  background-color: #dedede;
-  border: none;
-  width: 0.5rem;
-  height: 0.5rem;
-  padding: 0;
-  border-radius: 50%;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-}
-
-.payment__picker {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.payment__picker > * {
-  flex: 1 1 100%;
-}
-
-.payment__methods {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-
-.payment__form-group + .payment__form-group {
-  border-top: 1px solid #eee;
-}
-
-.payment__pick {
-  display: none;
-}
-
-.payment__pick:checked + .payment__name-label {
-  background-color: #eee;
-}
-
-.payment__name-label {
-  display: flex;
-  align-items: center;
-  padding: 0.875rem 1.25rem;
-  cursor: pointer;
-}
-
-.payment__name-label:hover {
-  background-color: #eee;
-}
-
-.payment__name {
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #adabad;
-  font-size: 0.875rem;
-  order: 2;
-  margin-left: 1rem;
-}
-
-.payment__icon {
-  width: 3rem;
-  order: 1;
-}
-
-.payment__button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #598bdd;
-  color: #f5f8fd;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border: none;
-  position: relative;
-  user-select: none;
-  transition: all 0.15s ease;
-  cursor: pointer;
-}
-
-.payment__button:hover {
-  background-color: #5088f5;
-}
-
-.payment__button:active {
-  transform: translateY(1px);
-}
-
-.payment__button-text {
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-}
-
-.payment__button-icon {
-  width: 1rem;
-  margin-left: 0.25rem;
 }
