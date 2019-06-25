@@ -21,7 +21,6 @@ const icons = {
 };
 
 const Nav = () => {
-
   return (
       <WidgetContext.Consumer>
         {context => (
@@ -58,16 +57,28 @@ const Nav = () => {
                   <NavButton
                       icon={icons.text}
                       title="Text"
+                      onClick={e => {
+                        e.preventDefault();
+                        context.openWidget('text');
+                      }}
                   />
                   <NavButton
                       icon={icons.colors}
                       title="Colors"
+                      onClick={e => {
+                        e.preventDefault();
+                        context.openWidget('color');
+                      }}
                   />
                 </div>
                 <div className="my-2">
                   <NavButton
                       icon={icons.share}
                       title="Share"
+                      onClick={e => {
+                        e.preventDefault();
+                        context.openWidget('share');
+                      }}
                   />
                 </div>
               </div>

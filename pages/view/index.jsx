@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
-import 'react-intersection-visible';
 
 // Components.
 import TextArea from '../../components/LiveTranscript/TextArea';
 import LiveTranscript from '../../components/LiveTranscript';
 import Provider from '../../components/Provider';
 import WidgetContext from '../../context/widget-context';
-
 
 // Dynamic imports.
 const ScrollButton = dynamic(() => import('../../components/Controls')
@@ -50,12 +48,13 @@ class View extends React.Component {
   interval = 0;
 
   componentDidMount() {
+
     // On component load, begin auto-scrolling.
     const {router} = this.props;
     this.startScrolling();
 
     console.log(router.query);
-
+    console.log('props', this.props);
   }
 
   componentWillUnmount() {
@@ -101,24 +100,32 @@ class View extends React.Component {
         <Provider>
           <WidgetContext.Consumer>
             {context => (
-                <>
+                <Fragment>
                   <Modal
                     isOpen={context.widgetOpen}
                     onRequestClose={context.closeWidget}
-                    contentLabel="Example Modal"
+                    contentLabel="Widget Modal"
                     style={modalStyles}
                     ariaHideApp={false}
                 >
-                  <ModalComponent title={context.currentWidget} />
+                  <ModalComponent
+                      user={router.query.user}
+                      job={router.query.job}
+                      title={context.currentWidget}
+                  />
                 </Modal>
                   <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
-                    <Nav openModal={this.openModal} closeModal={this.closeModal} />
+                    <Nav
+                        openModal={this.openModal}
+                        closeModal={this.closeModal}
+                    />
                   </div>
-                  <div className="
-              px-8
-              py-8
-              text-2xl
-              md:text-5xl"
+                  {/*px-8 py-8 text-2xl md:text-5xl*/}
+                  <div style={{
+                    ...context.settings,
+                    fontSize: (context.settings.fontSize / 10) + 'rem',
+                    padding: context.settings.paddingY + 'rem' + ' ' + context.settings.paddingX + 'rem',
+                  }}
                        onTouchStart={() => this.stopScrolling()}
                        onClick={() => this.stopScrolling()}>
                     <LiveTranscript
@@ -140,7 +147,7 @@ class View extends React.Component {
                       path="M18 22l8 8 8-8"
                       scrolling={scrolling}
                       title="Scroll to Bottom" />
-                </>
+                </Fragment>
             )}
           </WidgetContext.Consumer>
         </Provider>

@@ -12,6 +12,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       bg: 'rgb(30,34,39)',
+      bg2: '#282c34',
       brightBlue: '#93ddfd',
       fg: '#fffce1',
       brightGreen: 'rgb(181, 244, 165)',

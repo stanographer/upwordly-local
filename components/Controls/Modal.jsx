@@ -4,6 +4,9 @@ import dynamic from 'next/dynamic';
 
 // Dynamically loaded components.
 const FontComponent = dynamic(() => import('../Modal/Font'));
+const TextComponent = dynamic(() => import('../Modal/Text'));
+const ColorComponent = dynamic(() => import('../Modal/Color'));
+const ShareComponent = dynamic(() => import('../Modal/Share'));
 
 const Title = styled.div`
   padding-top: 0.5rem;
@@ -18,14 +21,27 @@ const Title = styled.div`
   width: 100%;
 `;
 
-const modals = {
-  font: {
-    header: 'Font',
-    component: <FontComponent />
-  }
-};
 
-const Modal = ({title}) => {
+const Modal = ({title, user, job}) => {
+  const modals = {
+    color: {
+      header: 'Color',
+      component: <ColorComponent />,
+    },
+    font: {
+      header: 'Font',
+      component: <FontComponent />,
+    },
+    share: {
+      header: 'Share',
+      component: <ShareComponent user={user} job={job} />,
+    },
+    text: {
+      header: 'Text',
+      component: <TextComponent />,
+    },
+  };
+
   return (
       <div>
         <Title>{modals[title]['header']}</Title>

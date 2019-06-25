@@ -3,6 +3,8 @@ import ShareDB from '@teamwork/sharedb/lib/client';
 import ReconnectingWebSocket from 'reconnecting-websocket';
 import WS from 'isomorphic-ws';
 import otText from 'ot-text';
+import { ToastContainer } from 'react-toastify';
+import { DisconnectedToast, FetchingToast, LoadedToast, ReconnectedToast } from '../Toasts';
 
 class LiveTranscript extends Component {
   constructor(props, context) {
@@ -14,6 +16,8 @@ class LiveTranscript extends Component {
       flag: '≈',
       loading: true,
     };
+
+    this.hasDisconnected = false;
   }
 
   fetchDoc = (host) => {
@@ -27,7 +31,7 @@ class LiveTranscript extends Component {
       },
     };
 
-    const socket = new ReconnectingWebSocket(server.getAddress(), [], {
+    this.socket = new ReconnectingWebSocket(server.getAddress(), [], {
       WebSocket: WS,
       automaticOpen: true,
       maxReconnectionDelay: 2000,
@@ -39,7 +43,7 @@ class LiveTranscript extends Component {
 
     ShareDB.types.register(otText.type);
 
-    const connection = new ShareDB.Connection(socket);
+    const connection = new ShareDB.Connection(this.socket);
 
     this.setState({
       connection,
@@ -49,7 +53,31 @@ class LiveTranscript extends Component {
   };
 
   componentDidMount() {
+    // HasConnected makes sure that the disconnection message isn't
+    // shown to the user at start-up.
+
+
+    FetchingToast();
+
     this.fetchDoc(window.location.hostname);
+
+    // Will display a message to the user that the connection was lost.
+    this.socket.onclose = () => {
+      if (!this.hasDisconnected) {
+        DisconnectedToast();
+      }
+
+      this.hasDisconnected = true;
+    };
+
+    // Will display a message to the user that the connection is rectified.
+    this.socket.onopen = () => {
+      if (this.hasDisconnected) {
+        ReconnectedToast();
+      }
+
+      this.hasDisconnected = false;
+    };
   }
 
   render() {
@@ -57,10 +85,14 @@ class LiveTranscript extends Component {
 
     return (
         <Fragment>
+          <ToastContainer
+              draggable
+              autoClose={ 5000 }
+          />
           {
             !loading
                 ? this.props.render(this.state)
-                : null
+                : ''
           }
         </Fragment>
     );

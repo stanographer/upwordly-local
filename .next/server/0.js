@@ -126,39 +126,103 @@ var FontComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function
     modules: ['../Modal/Font']
   }
 });
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject());
-var modals = {
-  font: {
-    header: 'Font',
-    component: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(FontComponent, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24
-      },
-      __self: undefined
-    })
+var TextComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../Modal/Text */ "./components/Modal/Text.jsx"));
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Modal/Text */ "./components/Modal/Text.jsx")];
+    },
+    modules: ['../Modal/Text']
   }
-};
+});
+var ColorComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Modal/Color */ "./components/Modal/Color.jsx"));
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Modal/Color */ "./components/Modal/Color.jsx")];
+    },
+    modules: ['../Modal/Color']
+  }
+});
+var ShareComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../Modal/Share */ "./components/Modal/Share.jsx"));
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Modal/Share */ "./components/Modal/Share.jsx")];
+    },
+    modules: ['../Modal/Share']
+  }
+});
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject());
 
 var Modal = function Modal(_ref) {
-  var title = _ref.title;
+  var title = _ref.title,
+      user = _ref.user,
+      job = _ref.job;
+  var modals = {
+    color: {
+      header: 'Color',
+      component: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ColorComponent, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
+      })
+    },
+    font: {
+      header: 'Font',
+      component: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(FontComponent, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33
+        },
+        __self: this
+      })
+    },
+    share: {
+      header: 'Share',
+      component: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ShareComponent, {
+        user: user,
+        job: job,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      })
+    },
+    text: {
+      header: 'Text',
+      component: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TextComponent, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        },
+        __self: this
+      })
+    }
+  };
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 46
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Title, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 47
     },
     __self: this
   }, modals[title]['header']), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "flex flex-grow-1 my-8",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 48
     },
     __self: this
   }, modals[title]['component']));
@@ -246,7 +310,7 @@ var Nav = function Nav() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_widget_context__WEBPACK_IMPORTED_MODULE_4__["default"].Consumer, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 25
     },
     __self: this
   }, function (context) {
@@ -254,14 +318,14 @@ var Nav = function Nav() {
       className: "flex items-center justify-center md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 27
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "flex items-center flex-shrink-0 text-white mr-6",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 28
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -273,28 +337,28 @@ var Nav = function Nav() {
       alt: "Missile",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 29
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: " font-semibold text-xl tracking-tight md:content-center",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 32
       },
       __self: this
     }, "Upword.ly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: " flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 38
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "lg:flex-grow my-2",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -306,38 +370,50 @@ var Nav = function Nav() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 49
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
       icon: icons.text,
       title: "Text",
+      onClick: function onClick(e) {
+        e.preventDefault();
+        context.openWidget('text');
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 57
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
       icon: icons.colors,
       title: "Colors",
+      onClick: function onClick(e) {
+        e.preventDefault();
+        context.openWidget('color');
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62
+        lineNumber: 65
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "my-2",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 74
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Controls__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
       icon: icons.share,
       title: "Share",
+      onClick: function onClick(e) {
+        e.preventDefault();
+        context.openWidget('share');
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 75
       },
       __self: this
     }))));

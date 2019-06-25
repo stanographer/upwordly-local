@@ -7,6 +7,14 @@
       "publicPath": "static/chunks/1.js"
     }
   ],
+  "../Modal/Color": [
+    {
+      "id": "./components/Modal/Color.jsx",
+      "name": "./components/Modal/Color.jsx",
+      "file": "static/chunks/6.js",
+      "publicPath": "static/chunks/6.js"
+    }
+  ],
   "../Modal/Font": [
     {
       "id": "./components/Modal/Font.jsx",
@@ -15,12 +23,36 @@
       "publicPath": "static/chunks/3.js"
     }
   ],
+  "../Modal/Share": [
+    {
+      "id": "./components/Modal/Share.jsx",
+      "name": "./components/Modal/Share.jsx",
+      "file": "static/chunks/7.js",
+      "publicPath": "static/chunks/7.js"
+    }
+  ],
+  "../Modal/Text": [
+    {
+      "id": "./components/Modal/Text.jsx",
+      "name": "./components/Modal/Text.jsx",
+      "file": "static/chunks/4.js",
+      "publicPath": "static/chunks/4.js"
+    }
+  ],
   "./noop": [
     {
       "id": "./node_modules/next/dist/client/noop.js",
       "name": "./node_modules/next/dist/client/noop.js",
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
+    }
+  ],
+  "react-color": [
+    {
+      "id": "./node_modules/@icons/material/CheckIcon.js",
+      "name": "./node_modules/@icons/material/CheckIcon.js",
+      "file": "static/chunks/5.js",
+      "publicPath": "static/chunks/5.js"
     }
   ],
   "react-modal": [
