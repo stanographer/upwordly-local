@@ -1,10 +1,15 @@
 // Downloads transcripts to txt.
 
 function fetchTranscript(job, user) {
-  const fileName = `${ job } (${ user }).txt`;
+
+  // Added BOM so that it opens in UTF-8 encoding.
+  const BOM = '\uFEFF';
+  const fileName = `${job} (${user}).txt`;
   const node = document.querySelector('.transcript');
-  const transcript = node.textContent;
-  const transcriptBlob = new Blob([transcript], { type: 'text/plain' });
+  const transcript = BOM + node.textContent;
+  const transcriptBlob = new Blob([transcript], {
+    type: 'text/plain; charset=utf-8',
+  });
 
   // Create a hidden link.
   const downloadLink = document.createElement('a');

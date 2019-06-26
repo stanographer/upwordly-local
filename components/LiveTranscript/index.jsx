@@ -65,18 +65,16 @@ class LiveTranscript extends Component {
     this.socket.onclose = () => {
       if (!this.hasDisconnected) {
         DisconnectedToast();
+        this.hasDisconnected = true;
       }
-
-      this.hasDisconnected = true;
     };
 
     // Will display a message to the user that the connection is rectified.
     this.socket.onopen = () => {
       if (this.hasDisconnected) {
         ReconnectedToast();
+        this.hasDisconnected = false;
       }
-
-      this.hasDisconnected = false;
     };
   }
 

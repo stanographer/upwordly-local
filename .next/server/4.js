@@ -116,11 +116,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTranscript", function() { return fetchTranscript; });
 // Downloads transcripts to txt.
 function fetchTranscript(job, user) {
+  // Added BOM so that it opens in UTF-8 encoding.
+  var BOM = "\uFEFF";
   var fileName = "".concat(job, " (").concat(user, ").txt");
   var node = document.querySelector('.transcript');
-  var transcript = node.textContent;
+  var transcript = BOM + node.textContent;
   var transcriptBlob = new Blob([transcript], {
-    type: 'text/plain'
+    type: 'text/plain; charset=utf-8'
   }); // Create a hidden link.
 
   var downloadLink = document.createElement('a'); // Set the download file name.

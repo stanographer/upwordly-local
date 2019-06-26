@@ -23,7 +23,31 @@ var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/components/Moda
 
 
 
- // Dynamically-loaded components.
+
+var ModalCloseButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./components/Controls/index.js")).then(function (el) {
+    return el.ModalCloseButton;
+  });
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Controls */ "./components/Controls/index.js")];
+    },
+    modules: ['../Controls']
+  }
+});
+var ModalSaveButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./components/Controls/index.js")).then(function (el) {
+    return el.ModalSaveButton;
+  });
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Controls */ "./components/Controls/index.js")];
+    },
+    modules: ['../Controls']
+  }
+}); // Dynamically-loaded components.
 
 var SketchPicker = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
   return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.t.bind(null, /*! react-color */ "./node_modules/react-color/lib/index.js", 7)).then(function (el) {
@@ -47,35 +71,35 @@ var Color = function Color() {
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_context_widget_context__WEBPACK_IMPORTED_MODULE_3__["default"].Consumer, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 21
     },
     __self: this
   }, function (context) {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 23
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
       className: "w-full max-w-sm",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 24
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
       className: "flex list-style-none mp-start-none",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 25
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
       className: "flex-1 mx-2",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 26
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
@@ -87,14 +111,14 @@ var Color = function Color() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 27
       },
       __self: this
     }, "Foreground")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
       className: "flex-1 mx-2",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 36
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
@@ -106,14 +130,14 @@ var Color = function Color() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 37
       },
       __self: this
     }, "Background"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: bgFg === 'fg' ? 'px-3 pt-4' : 'visually-hidden',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 47
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
@@ -121,7 +145,7 @@ var Color = function Color() {
       htmlFor: "grid-last-name",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 50
       },
       __self: this
     }, "Foreground"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SketchPicker, {
@@ -131,14 +155,14 @@ var Color = function Color() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 54
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: bgFg === 'bg' ? 'px-3 pt-4' : 'visually-hidden',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 59
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
@@ -146,7 +170,7 @@ var Color = function Color() {
       htmlFor: "grid-last-name",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56
+        lineNumber: 62
       },
       __self: this
     }, "Background Color"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SketchPicker, {
@@ -156,29 +180,26 @@ var Color = function Color() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
+        lineNumber: 66
       },
       __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-      className: "border rounded text-teal-200 bg-bg2 border-bg2 hover:border-transparent hover:text-bg hover:bg-teal-200 hover:border-teal-200 text-lg mt-6 mx-0 px-3 py-2 font-apercu",
-      type: "button",
-      onClick: function onClick() {
-        return context.setSettings();
-      },
+    })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ModalSaveButton, {
+      context: context,
+      label: "Save Font Settings",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 71
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
-      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faSave"],
-      className: "pr-2",
+    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ModalCloseButton, {
+      context: context,
+      label: "Close",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 75
       },
       __self: this
-    }), "Save Settings")));
+    })));
   });
 };
 
