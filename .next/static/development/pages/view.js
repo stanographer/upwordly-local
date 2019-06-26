@@ -185,18 +185,16 @@ function (_Component) {
       this.socket.onclose = function () {
         if (!_this2.hasDisconnected) {
           Object(_Toasts__WEBPACK_IMPORTED_MODULE_13__["DisconnectedToast"])();
+          _this2.hasDisconnected = true;
         }
-
-        _this2.hasDisconnected = true;
       }; // Will display a message to the user that the connection is rectified.
 
 
       this.socket.onopen = function () {
         if (_this2.hasDisconnected) {
           Object(_Toasts__WEBPACK_IMPORTED_MODULE_13__["ReconnectedToast"])();
+          _this2.hasDisconnected = false;
         }
-
-        _this2.hasDisconnected = false;
       };
     }
   }, {
@@ -206,7 +204,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 85
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_12__["ToastContainer"], {
@@ -214,7 +212,7 @@ function (_Component) {
         autoClose: 5000,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 86
         },
         __self: this
       }), !loading ? this.props.render(this.state) : '');
@@ -581,7 +579,7 @@ var Fetching = function Fetching() {
 
 var Loaded = function Loaded() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "text-lg text-bg font-apercu",
+    className: "text-lg text-bg font-apercu p-3",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28
@@ -606,7 +604,7 @@ var Loaded = function Loaded() {
 
 var Disconnected = function Disconnected() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "text-lg text-bg font-apercu",
+    className: "text-lg text-bg font-apercu p-3",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 40
@@ -620,28 +618,22 @@ var Disconnected = function Disconnected() {
       lineNumber: 41
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 45
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
+  }, "Attempting to reconnect..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 46
     },
     __self: this
-  }, "Attempting to reconnect..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 47
     },
     __self: this
   }), "You can also try refreshing the page.");
@@ -649,10 +641,10 @@ var Disconnected = function Disconnected() {
 
 var Reconnected = function Reconnected() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "text-lg text-bg font-apercu",
+    className: "text-lg text-bg font-apercu p-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 55
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -660,31 +652,25 @@ var Reconnected = function Reconnected() {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faWifi"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
-    },
-    __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 56
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 60
     },
     __self: this
   }, "Connection Restored."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 61
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 62
     },
     __self: this
   }, "Whew! \uD83E\uDD84"));
@@ -697,7 +683,7 @@ var FetchingToast = function FetchingToast() {
   return toastId = Object(react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Fetching, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 72
     },
     __self: this
   }), {
@@ -714,7 +700,7 @@ var LoadedToast = function LoadedToast() {
   Object(react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Loaded, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 82
     },
     __self: this
   }), {
@@ -734,7 +720,7 @@ var DisconnectedToast = function DisconnectedToast() {
     toastId = Object(react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Disconnected, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 96
       },
       __self: this
     }), {
@@ -749,12 +735,12 @@ var DisconnectedToast = function DisconnectedToast() {
 };
 
 var ReconnectedToast = function ReconnectedToast() {
-  if (!react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].isActive(toastId)) {
+  if (react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].isActive(toastId)) {
     react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].dismiss(toastId);
     toastId = Object(react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Reconnected, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 111
       },
       __self: this
     }), {

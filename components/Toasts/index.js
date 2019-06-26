@@ -25,7 +25,7 @@ const Fetching = () => {
 
 const Loaded = () => {
   return (
-      <div className="text-lg text-bg font-apercu">
+      <div className="text-lg text-bg font-apercu p-3">
         <FontAwesomeIcon
             className="pr-2"
             icon={faCheck}
@@ -37,13 +37,12 @@ const Loaded = () => {
 
 const Disconnected = () => {
   return (
-      <div className="text-lg text-bg font-apercu">
+      <div className="text-lg text-bg font-apercu p-3">
         <FontAwesomeIcon
             className="pr-2"
             icon={faExclamation}
         />
-        <br />
-        <em>Attempting to reconnect...</em>
+        <strong>Attempting to reconnect...</strong>
         <br />
         <br />
         You can also try refreshing the page.
@@ -53,12 +52,11 @@ const Disconnected = () => {
 
 const Reconnected = () => {
   return (
-      <div className="text-lg text-bg font-apercu">
+      <div className="text-lg text-bg font-apercu p-3">
         <FontAwesomeIcon
             className="pr-2"
             icon={faWifi}
         />
-        <br />
         <strong>Connection Restored.</strong>
         <br />
         <em>Whew! 🦄</em>
@@ -108,7 +106,7 @@ const DisconnectedToast = () => {
 };
 
 const ReconnectedToast = () => {
-  if (!toast.isActive(toastId)) {
+  if (toast.isActive(toastId)) {
     toast.dismiss(toastId);
     toastId = toast(<Reconnected />, {
       autoClose: 1500,

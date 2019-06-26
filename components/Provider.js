@@ -149,8 +149,8 @@ class AppProvider extends React.Component {
               openWidget: this.openWidget,
               closeWidget: this.closeWidget,
               getSettings: this.getSettings,
-              setSettings: this.setSettings,
-            }}>
+              setSettings: this.setSettings,}}>
+
           {this.props.children}
         </WidgetContext.Provider>
     );
