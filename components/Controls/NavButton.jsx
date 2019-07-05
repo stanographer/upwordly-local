@@ -18,7 +18,7 @@ const NavButton = ({icon, title, onClick}) => {
          md:mt-1
          lg:mt-0
          leading-none
-         border
+         border-none
          rounded
          text-teal-200
          border-white

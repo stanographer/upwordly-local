@@ -4,7 +4,11 @@ import ReconnectingWebSocket from 'reconnecting-websocket';
 import WS from 'isomorphic-ws';
 import otText from 'ot-text';
 import { ToastContainer } from 'react-toastify';
-import { DisconnectedToast, FetchingToast, LoadedToast, ReconnectedToast } from '../Toasts';
+import {
+  DisconnectedToast,
+  FetchingToast,
+  ReconnectedToast
+} from '../Toasts';
 
 class LiveTranscript extends Component {
   constructor(props, context) {
@@ -53,10 +57,9 @@ class LiveTranscript extends Component {
   };
 
   componentDidMount() {
+
     // HasConnected makes sure that the disconnection message isn't
     // shown to the user at start-up.
-
-
     FetchingToast();
 
     this.fetchDoc(window.location.hostname);

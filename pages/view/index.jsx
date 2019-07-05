@@ -132,7 +132,10 @@ class View extends React.Component {
                         user={router.query.user}
                         job={router.query.job}
                         render={(state) => (
-                            <TextArea {...state} />
+                            <TextArea
+                                editable={false}
+                                {...state}
+                            />
                         )}
                     />
                   </div>

@@ -1,6 +1,6 @@
 /*noinspection CssInvalidAtRule*/
 
-@tailwind preflight;
+@tailwind base;
 
 body {
   background-color: theme('colors.bg');
@@ -13,6 +13,12 @@ a {
   color: theme('colors.green');
   border-bottom: 1px dotted theme('colors.green');
   text-decoration: none;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  width: 100%;
 }
 
 /*noinspection CssInvalidAtRule*/

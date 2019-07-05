@@ -1,26 +1,20 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
 
-/***/ "./components/Modal/Color.jsx":
-/*!************************************!*\
-  !*** ./components/Modal/Color.jsx ***!
-  \************************************/
+/***/ "./components/Modal/Font.jsx":
+/*!***********************************!*\
+  !*** ./components/Modal/Font.jsx ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/widget-context */ "./context/widget-context.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/widget-context */ "./context/widget-context.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/components/Modal/Color.jsx";
-
-
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/components/Modal/Font.jsx";
 
 
 
@@ -47,163 +41,94 @@ var ModalSaveButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(functi
     },
     modules: ['../Controls']
   }
-}); // Dynamically-loaded components.
-
-var SketchPicker = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.t.bind(null, /*! react-color */ "./node_modules/react-color/lib/index.js", 7)).then(function (el) {
-    return el.SketchPicker;
-  });
-}, {
-  loadableGenerated: {
-    webpack: function webpack() {
-      return [/*require.resolve*/(/*! react-color */ "./node_modules/react-color/lib/index.js")];
-    },
-    modules: ['react-color']
-  }
 });
 
-var Color = function Color() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('fg'),
-      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-      bgFg = _useState2[0],
-      setBgFg = _useState2[1];
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_context_widget_context__WEBPACK_IMPORTED_MODULE_3__["default"].Consumer, {
+var Font = function Font() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_widget_context__WEBPACK_IMPORTED_MODULE_1__["default"].Consumer, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 13
     },
     __self: this
   }, function (context) {
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 15
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "w-full max-w-sm",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 16
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
-      className: "flex list-style-none mp-start-none",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 17
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-      className: "flex-1 mx-2",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-      className: bgFg === 'fg' ? 'text-center block border border-brightGreen rounded py-2 px-4 bg-teal-200 text-bg' : 'text-center block border border-white rounded text-teal-200 hover:border-transparent hover:text-bg hover:bg-teal-200 py-2 px-4',
-      href: "#",
-      onClick: function onClick(e) {
-        e.preventDefault();
-        setBgFg('fg');
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    }, "Foreground")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-      className: "flex-1 mx-2",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-      className: bgFg === 'bg' ? 'text-center block border border-brightGreen rounded py-2 px-4 bg-teal-200 text-bg' : 'text-center block border border-white rounded text-teal-200 hover:border-transparent hover:text-bg hover:bg-teal-200 py-2 px-4',
-      href: "#",
-      onClick: function onClick(e) {
-        e.preventDefault();
-        setBgFg('bg');
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
-      },
-      __self: this
-    }, "Background"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: bgFg === 'fg' ? 'px-3 pt-4' : 'visually-hidden',
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 47
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "block uppercase tracking-wide text-brightGreen text-xs font-bold mb-2",
       htmlFor: "grid-last-name",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 18
       },
       __self: this
-    }, "Foreground"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SketchPicker, {
-      color: context.settings.color,
-      onChangeComplete: function onChangeComplete(color) {
-        return context.onChangeSettings('color', color.hex);
+    }, "Size"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
+      id: "grid-last-name",
+      type: "text",
+      name: "fontSize",
+      value: context.settings.fontSize || '',
+      onChange: function onChange(e) {
+        e.preventDefault();
+        context.onChangeSettings('fontSize', e.target.value);
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 22
       },
       __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: bgFg === 'bg' ? 'px-3 pt-4' : 'visually-hidden',
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "flex flex-grow-1 my-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 34
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "block uppercase tracking-wide text-brightGreen text-xs font-bold mb-2",
       htmlFor: "grid-last-name",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62
+        lineNumber: 35
       },
       __self: this
-    }, "Background Color"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SketchPicker, {
-      color: context.settings.backgroundColor,
-      onChangeComplete: function onChangeComplete(color) {
-        return context.onChangeSettings('backgroundColor', color.hex);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 66
-      },
-      __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ModalSaveButton, {
+    }, "Style")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalSaveButton, {
       context: context,
       label: "Save Font Settings",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 40
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ModalCloseButton, {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalCloseButton, {
       context: context,
       label: "Close",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 44
       },
       __self: this
     })));
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Color);
+/* harmony default export */ __webpack_exports__["default"] = (Font);
 
 /***/ })
 
