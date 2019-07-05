@@ -1,40 +1,24 @@
 {
-  "../../components/Controls": [
+  "../../components/Logos/NavLogo": [
     {
-      "id": "./components/Controls/ButtonGroup.jsx",
-      "name": "./components/Controls/ButtonGroup.jsx",
+      "id": "./components/Logos/NavLogo.jsx",
+      "name": "./components/Logos/NavLogo.jsx",
       "file": "static/chunks/1.js",
       "publicPath": "static/chunks/1.js"
     }
   ],
-  "../Modal/Color": [
+  "./Token": [
     {
-      "id": "./components/Modal/Color.jsx",
-      "name": "./components/Modal/Color.jsx",
-      "file": "static/chunks/6.js",
-      "publicPath": "static/chunks/6.js"
-    }
-  ],
-  "../Modal/Font": [
-    {
-      "id": "./components/Modal/Font.jsx",
-      "name": "./components/Modal/Font.jsx",
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/3.js",
       "publicPath": "static/chunks/3.js"
     }
   ],
-  "../Modal/Share": [
+  "./UserInfo": [
     {
-      "id": "./components/Modal/Share.jsx",
-      "name": "./components/Modal/Share.jsx",
-      "file": "static/chunks/7.js",
-      "publicPath": "static/chunks/7.js"
-    }
-  ],
-  "../Modal/Text": [
-    {
-      "id": "./components/Modal/Text.jsx",
-      "name": "./components/Modal/Text.jsx",
+      "id": "./pages/signup/UserInfo.jsx",
+      "name": "./pages/signup/UserInfo.jsx",
       "file": "static/chunks/4.js",
       "publicPath": "static/chunks/4.js"
     }
@@ -47,18 +31,10 @@
       "publicPath": "static/chunks/0.js"
     }
   ],
-  "react-color": [
+  "react-typed": [
     {
-      "id": "./node_modules/@icons/material/CheckIcon.js",
-      "name": "./node_modules/@icons/material/CheckIcon.js",
-      "file": "static/chunks/5.js",
-      "publicPath": "static/chunks/5.js"
-    }
-  ],
-  "react-modal": [
-    {
-      "id": "./node_modules/exenv/index.js",
-      "name": "./node_modules/exenv/index.js",
+      "id": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
+      "name": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
       "file": "static/chunks/2.js",
       "publicPath": "static/chunks/2.js"
     }

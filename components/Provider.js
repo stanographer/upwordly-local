@@ -103,8 +103,6 @@ class AppProvider extends React.Component {
       });
       console.log('this is the catch');
     }
-
-
   };
 
   onChangeSettings = (key, value) => {
@@ -149,8 +147,8 @@ class AppProvider extends React.Component {
               openWidget: this.openWidget,
               closeWidget: this.closeWidget,
               getSettings: this.getSettings,
-              setSettings: this.setSettings,}}>
-
+              setSettings: this.setSettings
+            }}>
           {this.props.children}
         </WidgetContext.Provider>
     );

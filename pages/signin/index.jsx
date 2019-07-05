@@ -1,83 +1,68 @@
+import React from 'react';
 import Provider from '../../components/Provider';
+import Head from 'next/head';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
-export default () => (
+const NavLogo = dynamic(() => import('../../components/Logos/NavLogo'));
+const Typed = dynamic(() => import('react-typed'));
+
+const Login = props => (
     <Provider>
-      <div className="container mx-auto">
-        <form className="w-full max-w-sm object-center">
-          <div className="md:flex md:items-center mb-6">
-            <div className="md:w-1/3">
-              <label className="block
-              font-bold
-              md:text-right
-              mb-1
-              md:mb-0
-              pr-4"
-                     htmlFor="username">
+      <Head>
+        <title>Sign in to Upword.ly</title>
+      </Head>
+      <div className="container mx-auto h-full flex flex-1 justify-center items-center">
+        <div className="w-full max-w-xs mt-20">
+          <NavLogo center={true} />
+          <div className="font-sans font-hairline mb-10 mt-2 text-center justify-center">
+            <Typed
+                className="marquee"
+                strings={[
+                  'Welcome back.',
+                  'Sign in here.'
+                ]}
+                typeSpeed={40} />
+          </div>
+          <form className="bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+              <label className="block text-grey-darker text-sm font-hairline mb-2" htmlFor="username">
                 Username
               </label>
+              <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="username"
+                     type="text" placeholder="Username" />
             </div>
-            <div className="md:w-2/3">
-              <input
-                  className="bg-gray-200
-                  appearance-none
-                  border-2
-                  border-solid
-                  border-gray-200
-                  rounded
-                  w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                  id="inline-full-name" type="text" />
-            </div>
-          </div>
-          <div className="md:flex md:items-center mb-6">
-            <div className="md:w-1/3">
-              <label
-                  className="block
-                    text-gray-500
-                    font-bold
-                    md:text-right
-                    mb-1
-                    md:mb-0
-                  pr-4"
-                  htmlFor="inline-username">
+            <div className="mb-6">
+              <label className="block text-grey-darker text-sm font-hairline mb-2" htmlFor="password">
                 Password
               </label>
+              <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="password"
+                     type="password" placeholder="******************" />
             </div>
-            <div className="md:w-2/3">
-              <input
-                  className="bg-gray-200
-                  appearance-none border-2
-                  border-gray-200
-                  border-solid
-                  rounded w-full
-                  py-2 px-4
-                  text-gray-700
-                  leading-tight
-                  focus:outline-none
-                  focus:bg-white
-                  focus:border-purple-500"
-                  id="inline-username" type="password" placeholder="******************" />
-            </div>
-          </div>
-          <div className="md:flex md:items-center mb-6">
-            <div className="md:w-1/3" />
-            <label className="md:w-2/3 block text-gray-500 font-bold">
-              <input className="mr-2 leading-tight" type="checkbox" />
-              <span className="text-sm">
-        Send me your newsletter!
-      </span>
-            </label>
-          </div>
-          <div className="md:flex md:items-center">
-            <div className="md:w-1/3" />
-            <div className="md:w-2/3">
+            <div className="flex items-center justify-between">
               <button
-                  className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                  className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200"
                   type="button">
-                Sign Up
+                Sign In
               </button>
+              <a className="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+                Forgot Password?
+              </a>
             </div>
-          </div>
-        </form>
+          </form>
+          <p className="text-center text-grey text-xs">
+            ©2019 Upword.ly. All rights reserved.
+          </p>
+        </div>
       </div>
     </Provider>
 );
+
+Login.getInitialProps = async function ({pathname, req}) {
+  console.log('initial: ', pathname, req);
+  return {pathname: req.pathname || pathname};
+};
+
+export default Login;
+
+

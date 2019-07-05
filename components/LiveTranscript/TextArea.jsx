@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Binding from './react-binding';
-import PropTypes from 'prop-types';
 import { LoadedToast } from '../Toasts';
+
+const PropTypes = dynamic(() => import('prop-types'));
 
 function TextArea(props) {
   const {
