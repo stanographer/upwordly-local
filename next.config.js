@@ -2,7 +2,7 @@ const withCSS = require('@zeit/next-css');
 const webpack = require('webpack');
 require('dotenv').config();
 
-module.exports = {
+module.exports = withCSS({
   webpack: config => {
     const env = Object.keys(process.env).reduce((acc, curr) => {
       acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
@@ -11,5 +11,4 @@ module.exports = {
     config.plugins.push(new webpack.DefinePlugin(env));
     return config;
   }
-};
-module.exports = withCSS();
+});

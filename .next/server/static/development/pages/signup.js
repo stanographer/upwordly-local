@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1251,6 +1251,70 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 /***/ }),
 
+/***/ "./pages/signup/ValidField.jsx":
+/*!*************************************!*\
+  !*** ./pages/signup/ValidField.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "@fortawesome/free-solid-svg-icons");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/ValidField.jsx";
+
+
+
+
+var ValidField = function ValidField(_ref) {
+  var message = _ref.message;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mb-4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex items-center bg-green-600 text-white text-sm font-bold px-4 py-3",
+    role: "alert",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCheck"],
+    className: "mx-2",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, message))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ValidField);
+
+/***/ }),
+
 /***/ "./pages/signup/index.jsx":
 /*!********************************!*\
   !*** ./pages/signup/index.jsx ***!
@@ -1264,16 +1328,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_Provider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Provider */ "./components/Provider.js");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/head */ "next/head");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_Provider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/Provider */ "./components/Provider.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _ValidField__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ValidField */ "./pages/signup/ValidField.jsx");
+
+
 
 
 
@@ -1285,7 +1352,7 @@ var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/in
 
 
 
-var NavLogo = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(function () {
+var NavLogo = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../../components/Logos/NavLogo */ "./components/Logos/NavLogo.jsx"));
 }, {
   loadableGenerated: {
@@ -1295,7 +1362,7 @@ var NavLogo = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(function () {
     modules: ['../../components/Logos/NavLogo']
   }
 });
-var Typed = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(function () {
+var Typed = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.t.bind(null, /*! react-typed */ "react-typed", 7));
 }, {
   loadableGenerated: {
@@ -1306,8 +1373,18 @@ var Typed = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(function () {
   }
 }); // Sign-up components.
 
-var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(function () {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Token */ "./pages/signup/Token.jsx"));
+var EmailComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Email */ "./pages/signup/Email.jsx"));
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ./Email */ "./pages/signup/Email.jsx")];
+    },
+    modules: ['./Email']
+  }
+});
+var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Token */ "./pages/signup/Token.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1316,8 +1393,8 @@ var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(functio
     modules: ['./Token']
   }
 });
-var UserInfoComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./UserInfo */ "./pages/signup/UserInfo.jsx"));
+var UserInfoComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./UserInfo */ "./pages/signup/UserInfo.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1326,11 +1403,21 @@ var UserInfoComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_9___default()(func
     modules: ['./UserInfo']
   }
 });
+var ValidFieldComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./ValidField */ "./pages/signup/ValidField.jsx"));
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ./ValidField */ "./pages/signup/ValidField.jsx")];
+    },
+    modules: ['./ValidField']
+  }
+});
 
 var SignUp =
 /*#__PURE__*/
 function (_React$Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(SignUp, _React$Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(SignUp, _React$Component);
 
   function SignUp(props) {
     var _this;
@@ -1338,8 +1425,53 @@ function (_React$Component) {
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, SignUp);
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(SignUp).call(this, props));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleInput", function (e) {
+      // Matches the token to the one in the environment variable.
+      // Trims and lower-cases. If there's a match, the tokenValid
+      // flag is switched to true.
+      if (e.target.name === 'token' && e.target.value.trim().toLowerCase() === "pusheen123".trim().toLowerCase()) {
+        var _this$setState;
+
+        _this.setState((_this$setState = {}, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(_this$setState, e.target.name, e.target.value.trim().toLowerCase()), Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(_this$setState, "tokenValid", true), _this$setState));
+      } else if (e.target.name === 'email') {
+        _this.setState({
+          email: e.target.value.trim().toLowerCase()
+        });
+      } else {
+        _this.setState(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])({}, e.target.name, e.target.value));
+      }
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "validateEmail", function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      if (re.test(String(email).trim().toLowerCase())) {
+        _this.setState({
+          emailValid: true,
+          step: _this.state.step += 1
+        });
+      }
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "verifyTokenAndContinue", function () {
+      var tokenValid = _this.state.tokenValid;
+
+      if (tokenValid) {
+        _this.setState({
+          step: _this.state.step += 1
+        });
+      }
+    });
+
     _this.state = {
-      step: 0
+      email: '',
+      emailValid: false,
+      password: '',
+      step: 0,
+      token: '',
+      tokenValid: false,
+      username: ''
     };
     return _this;
   }
@@ -1347,86 +1479,154 @@ function (_React$Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(SignUp, [{
     key: "render",
     value: function render() {
-      var step = this.state.step;
-      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_Provider__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      var _this2 = this;
+
+      var _this$state = this.state,
+          email = _this$state.email,
+          password = _this$state.password,
+          step = _this$state.step,
+          token = _this$state.token,
+          tokenValid = _this$state.tokenValid,
+          username = _this$state.username;
+
+      var stage = function stage() {
+        switch (step) {
+          case 0:
+            return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(TokenComponent, {
+              tokenValue: token,
+              handleInput: _this2.handleInput,
+              nextStep: _this2.verifyTokenAndContinue,
+              tokenValid: tokenValid,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 90
+              },
+              __self: this
+            });
+
+          case 1:
+            return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 98
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
+              message: "Your registration token \"".concat(token, "\" is valid."),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 99
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(EmailComponent, {
+              emailValue: email,
+              handleInput: _this2.handleInput,
+              nextStep: _this2.validateEmail,
+              tokenValid: tokenValid,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 102
+              },
+              __self: this
+            }));
+
+          case 2:
+            return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 112
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
+              message: "Your registration token \"".concat(token, "\" is valid."),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 113
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
+              message: "".concat(email, " is a valid and available email address."),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 116
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(UserInfoComponent, {
+              handleInput: _this2.handleInput,
+              passwordValue: password,
+              usernameValue: username,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 119
+              },
+              __self: this
+            }));
+
+          default:
+            break;
+        }
+      };
+
+      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components_Provider__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 132
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_9___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 133
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("title", {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 134
         },
         __self: this
-      }, "Sign up for Upword.ly")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+      }, "Create an Upword.ly account")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: "container mx-auto h-full flex flex-1 justify-center items-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 136
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-        className: "w-full max-w-xs mt-20",
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        className: "w-full max-w-sm mt-20",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 137
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(NavLogo, {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(NavLogo, {
         center: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 138
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-        className: "font-sans font-hairline mb-10 mt-2 text-center justify-center",
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        className: "font-sans mb-10 mt-2 text-center justify-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 139
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(Typed, {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Typed, {
         className: "marquee",
         strings: ['Welcome to Upword.ly.', 'Let\'s create you an account.'],
         typeSpeed: 40,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 140
         },
         __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("form", {
-        className: "bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4",
+      })), stage(), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("p", {
+        className: "text-center text-grey text-xs mt-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
-        },
-        __self: this
-      }, step === 0 ? react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(TokenComponent, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 47
-        },
-        __self: this
-      }) : react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(UserInfoComponent, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 48
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
-        className: "text-center text-grey text-xs",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 151
         },
         __self: this
       }, "\xA92019 Upword.ly. All rights reserved."))));
@@ -1434,7 +1634,7 @@ function (_React$Component) {
   }]);
 
   return SignUp;
-}(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_7___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (SignUp);
 
@@ -1451,7 +1651,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!**************************************!*\
   !*** multi ./pages/signup/index.jsx ***!
   \**************************************/
