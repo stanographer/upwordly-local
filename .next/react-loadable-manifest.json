@@ -3,24 +3,32 @@
     {
       "id": "./components/Logos/NavLogo.jsx",
       "name": "./components/Logos/NavLogo.jsx",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./Email": [
+    {
+      "id": "./pages/signup/Email.jsx",
+      "name": "./pages/signup/Email.jsx",
+      "file": "static/chunks/3.js",
+      "publicPath": "static/chunks/3.js"
     }
   ],
   "./Token": [
     {
-      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
-      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
-      "file": "static/chunks/3.js",
-      "publicPath": "static/chunks/3.js"
+      "id": "./pages/signup/Token.jsx",
+      "name": "./pages/signup/Token.jsx",
+      "file": "static/chunks/4.js",
+      "publicPath": "static/chunks/4.js"
     }
   ],
   "./UserInfo": [
     {
       "id": "./pages/signup/UserInfo.jsx",
       "name": "./pages/signup/UserInfo.jsx",
-      "file": "static/chunks/4.js",
-      "publicPath": "static/chunks/4.js"
+      "file": "static/chunks/5.js",
+      "publicPath": "static/chunks/5.js"
     }
   ],
   "./noop": [
@@ -35,8 +43,8 @@
     {
       "id": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
       "name": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
-      "file": "static/chunks/2.js",
-      "publicPath": "static/chunks/2.js"
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
     }
   ]
 }
