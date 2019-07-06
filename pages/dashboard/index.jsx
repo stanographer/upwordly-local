@@ -4,7 +4,7 @@ import withAuth from '../../src/helpers/withAuth';
 const Dashboard = () => {
   return (
       <div>
-        Dashboard
+        Dashboard you can't seee meeee
       </div>
   );
 };
