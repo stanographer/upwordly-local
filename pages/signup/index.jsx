@@ -9,6 +9,7 @@ const Typed = dynamic(() => import('react-typed'));
 
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));
+const NameAndLocation = dynamic(() => import('./NameAndLocation'));
 const TokenComponent = dynamic(() => import('./Token'));
 const UserInfoComponent = dynamic(() => import('./UserInfo'));
 const ValidFieldComponent = dynamic(() => import('./ValidField'));
@@ -20,6 +21,8 @@ class SignUp extends React.Component {
     this.state = {
       email: '',
       emailValid: false,
+      fullName: '',
+      location: '',
       password: '',
       step: 0,
       token: '',
@@ -74,9 +77,15 @@ class SignUp extends React.Component {
     }
   };
 
+  validateGeneric = () => {
+
+  };
+
   render() {
     const {
       email,
+      fullName,
+      location,
       password,
       step,
       token,
@@ -99,11 +108,11 @@ class SignUp extends React.Component {
                 <ValidFieldComponent
                     message={`Your registration token "${token}" is valid.`}
                 />
-                <EmailComponent
-                    emailValue={email}
+                <NameAndLocation
+                    fullNameValue={fullName}
                     handleInput={this.handleInput}
-                    nextStep={this.validateEmail}
-                    tokenValid={tokenValid}
+                    locationValue={location}
+                    nextStep={this.verifyTokenAndContinue}
                 />
               </Fragment>
           );
@@ -112,6 +121,26 @@ class SignUp extends React.Component {
               <Fragment>
                 <ValidFieldComponent
                     message={`Your registration token "${token}" is valid.`}
+                />
+                <ValidFieldComponent
+                    message={`Nice to meet you, ${fullName}! I hear the weather is great in ${location.description}!`}
+                />
+                <EmailComponent
+                    emailValue={email}
+                    handleInput={this.handleInput}
+                    nextStep={this.validateEmail}
+                    tokenValid={tokenValid}
+                />
+              </Fragment>
+          );
+        case 3:
+          return (
+              <Fragment>
+                <ValidFieldComponent
+                    message={`Your registration token "${token}" is valid.`}
+                />
+                <ValidFieldComponent
+                    message={`Nice to meet you, ${fullName}! I hear the weather is great in ${location}!`}
                 />
                 <ValidFieldComponent
                     message={`${email} is a valid and available email address.`}
@@ -132,6 +161,12 @@ class SignUp extends React.Component {
         <Provider>
           <Head>
             <title>Create an Upword.ly account</title>
+            <script
+                async
+                defer
+                type="text/javascript"
+                src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`}
+            />
           </Head>
           <div className="container mx-auto h-full flex flex-1 justify-center items-center">
             <div className="w-full max-w-sm mt-20">
@@ -141,7 +176,7 @@ class SignUp extends React.Component {
                     className="marquee"
                     strings={[
                       'Welcome to Upword.ly.',
-                      'Let\'s create you an account.'
+                      'Let\'s create you an account.',
                     ]}
                     typeSpeed={40} />
               </div>

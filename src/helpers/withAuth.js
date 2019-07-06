@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import router from 'next/router';
-import { auth } from '../firebase';
+import Firebase from '../firebase';
 import NeedsAuth from '../../components/NeedsAuth';
+
+const firebase = new Firebase();
 
 const withAuth = (Component) => {
   return class extends React.Component {
     constructor(props) {
       super(props);
+
       this.state = {
         status: 'LOADING',
       };
     }
 
     componentDidMount() {
-      auth.onAuthStateChanged(authUser => {
+      firebase.auth.onAuthStateChanged(authUser => {
         console.log(authUser);
         if (authUser) {
           this.setState({
@@ -36,11 +39,12 @@ const withAuth = (Component) => {
 
     render() {
       return (
-          <React.Fragment>
+          <Fragment>
             {this.renderContent()}
-          </React.Fragment>
+          </Fragment>
       );
     }
   };
 };
+
 export default withAuth;

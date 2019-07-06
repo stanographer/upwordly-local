@@ -1383,8 +1383,18 @@ var EmailComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(functi
     modules: ['./Email']
   }
 });
+var NameAndLocation = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./NameAndLocation */ "./pages/signup/NameAndLocation.jsx"));
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ./NameAndLocation */ "./pages/signup/NameAndLocation.jsx")];
+    },
+    modules: ['./NameAndLocation']
+  }
+});
 var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Token */ "./pages/signup/Token.jsx"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Token */ "./pages/signup/Token.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1394,7 +1404,7 @@ var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(functi
   }
 });
 var UserInfoComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_10___default()(function () {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./UserInfo */ "./pages/signup/UserInfo.jsx"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./UserInfo */ "./pages/signup/UserInfo.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1464,9 +1474,13 @@ function (_React$Component) {
       }
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "validateGeneric", function () {});
+
     _this.state = {
       email: '',
       emailValid: false,
+      fullName: '',
+      location: '',
       password: '',
       step: 0,
       token: '',
@@ -1483,6 +1497,8 @@ function (_React$Component) {
 
       var _this$state = this.state,
           email = _this$state.email,
+          fullName = _this$state.fullName,
+          location = _this$state.location,
           password = _this$state.password,
           step = _this$state.step,
           token = _this$state.token,
@@ -1499,7 +1515,7 @@ function (_React$Component) {
               tokenValid: tokenValid,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 99
               },
               __self: this
             });
@@ -1508,14 +1524,47 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 98
+                lineNumber: 107
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 99
+                lineNumber: 108
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(NameAndLocation, {
+              fullNameValue: fullName,
+              handleInput: _this2.handleInput,
+              locationValue: location,
+              nextStep: _this2.verifyTokenAndContinue,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 111
+              },
+              __self: this
+            }));
+
+          case 2:
+            return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 121
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
+              message: "Your registration token \"".concat(token, "\" is valid."),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 122
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
+              message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 125
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(EmailComponent, {
@@ -1525,30 +1574,37 @@ function (_React$Component) {
               tokenValid: tokenValid,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 102
+                lineNumber: 128
               },
               __self: this
             }));
 
-          case 2:
+          case 3:
             return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 112
+                lineNumber: 138
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 113
+                lineNumber: 139
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
+              message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location, "!"),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 142
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(ValidFieldComponent, {
               message: "".concat(email, " is a valid and available email address."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 116
+                lineNumber: 145
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(UserInfoComponent, {
@@ -1557,7 +1613,7 @@ function (_React$Component) {
               usernameValue: username,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 119
+                lineNumber: 148
               },
               __self: this
             }));
@@ -1570,47 +1626,57 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components_Provider__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 161
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_9___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 162
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 163
         },
         __self: this
-      }, "Create an Upword.ly account")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+      }, "Create an Upword.ly account"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("script", {
+        async: true,
+        defer: true,
+        type: "text/javascript",
+        src: "https://maps.googleapis.com/maps/api/js?key=".concat("AIzaSyDZ2XhfLVedwwG3NjMr2YCxZGVKypGjqXE", "&libraries=places"),
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 164
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: "container mx-auto h-full flex flex-1 justify-center items-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 171
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: "w-full max-w-sm mt-20",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 172
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(NavLogo, {
         center: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 173
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: "font-sans mb-10 mt-2 text-center justify-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 174
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Typed, {
@@ -1619,14 +1685,14 @@ function (_React$Component) {
         typeSpeed: 40,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 175
         },
         __self: this
       })), stage(), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("p", {
         className: "text-center text-grey text-xs mt-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 186
         },
         __self: this
       }, "\xA92019 Upword.ly. All rights reserved."))));
@@ -1869,6 +1935,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-geosuggest":
+/*!***********************************!*\
+  !*** external "react-geosuggest" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-geosuggest");
 
 /***/ }),
 
