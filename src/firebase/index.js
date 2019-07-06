@@ -1,4 +1,4 @@
-import firebase from 'firebase/app';
+import app from 'firebase/app';
 import 'firebase/auth';
 
 const config = {
@@ -10,12 +10,27 @@ const config = {
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(config);
+export default class Firebase {
+  constructor() {
+    if (!app.apps.length) {
+      app.initializeApp(config);
+    }
+
+    this.auth = app.auth();
+  }
+
+  doCreateUserWithEmailAndPassword = (email, password) => {
+    this.auth.createUserWithEmailAndPassword(email, password);
+  };
+
+  doSignInWithEmailAndPassword = (email, password) => {
+    this.auth.signInWithEmailAndPassword(email, password);
+  };
+
+  doSignOut = () => this.auth.signOut();
+
+  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+
+  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 }
-const auth = firebase.auth();
-export {
-  auth,
-  firebase
-};
 
