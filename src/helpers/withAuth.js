@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from 'next/router';
+import router from 'next/router';
 import { auth } from '../firebase';
 import NeedsAuth from '../../components/NeedsAuth';
 
@@ -20,7 +20,7 @@ const withAuth = (Component) => {
             status: 'SIGNED_IN'
           });
         } else {
-          Router.push('/');
+          router.push('/signin');
         }
       });
     }
@@ -28,7 +28,7 @@ const withAuth = (Component) => {
     renderContent() {
       const {status} = this.state;
       if (status === 'LOADING') {
-        return <NeedsAuth />
+        return <NeedsAuth />;
       } else if (status === 'SIGNED_IN') {
         return <Component {...this.props} />;
       }
