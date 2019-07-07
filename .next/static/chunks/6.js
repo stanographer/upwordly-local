@@ -11,46 +11,55 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/UserInfo.jsx";
+
+
 
 
 var UserInfo = function UserInfo(_ref) {
   var handleInput = _ref.handleInput,
+      nextStep = _ref.nextStep,
       passwordValue = _ref.passwordValue,
       usernameValue = _ref.usernameValue;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4",
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      nextStep(usernameValue, passwordValue);
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 7
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mb-4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 11
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "text-sm mb-4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 12
     },
     __self: this
   }, "Now create a username that is unique, all lowercase, and simple."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "text-sm mb-4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 13
     },
     __self: this
-  }, "Live transcript links you share will contain your username so making it unnecessarily long or complex will make your URLs harder to share."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, "Live transcript links you share will contain your username so making it unnecessarily long or complex will make your URLs harder to remember and more prone to typos."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "text-sm mb-4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 15
     },
     __self: this
   }, "Links look like this. The portion of the url that contains your username is highlighted in red: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -58,14 +67,14 @@ var UserInfo = function UserInfo(_ref) {
     className: "text-green-200 underline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 16
     },
     __self: this
   }, "upword.ly/", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "text-red-300",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 17
     },
     __self: this
   }, usernameValue || 'stanley'), "/coachella-2019")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -73,7 +82,7 @@ var UserInfo = function UserInfo(_ref) {
     htmlFor: "username",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 19
     },
     __self: this
   }, "Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -91,14 +100,14 @@ var UserInfo = function UserInfo(_ref) {
     required: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 22
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mb-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -106,7 +115,7 @@ var UserInfo = function UserInfo(_ref) {
     htmlFor: "password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 35
     },
     __self: this
   }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -122,7 +131,7 @@ var UserInfo = function UserInfo(_ref) {
     required: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 39
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -130,10 +139,18 @@ var UserInfo = function UserInfo(_ref) {
     type: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 50
     },
     __self: this
-  }, "Create Account"));
+  }, "Continue", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"],
+    className: "mx-2",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: this
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (UserInfo);
