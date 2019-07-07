@@ -9,34 +9,50 @@
   ],
   "./Email": [
     {
-      "id": "./pages/signup/Email.jsx",
-      "name": "./pages/signup/Email.jsx",
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/3.js",
       "publicPath": "static/chunks/3.js"
     }
   ],
   "./NameAndLocation": [
     {
-      "id": "./pages/signup/NameAndLocation.jsx",
-      "name": "./pages/signup/NameAndLocation.jsx",
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/4.js",
       "publicPath": "static/chunks/4.js"
     }
   ],
+  "./Payment": [
+    {
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "file": "static/chunks/8.js",
+      "publicPath": "static/chunks/8.js"
+    }
+  ],
   "./Token": [
     {
-      "id": "./pages/signup/Token.jsx",
-      "name": "./pages/signup/Token.jsx",
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/5.js",
       "publicPath": "static/chunks/5.js"
     }
   ],
   "./UserInfo": [
     {
-      "id": "./pages/signup/UserInfo.jsx",
-      "name": "./pages/signup/UserInfo.jsx",
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/6.js",
       "publicPath": "static/chunks/6.js"
+    }
+  ],
+  "./ValidField": [
+    {
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "file": "static/chunks/9.js",
+      "publicPath": "static/chunks/9.js"
     }
   ],
   "./noop": [

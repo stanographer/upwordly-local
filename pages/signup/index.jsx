@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import Provider from '../../components/Provider';
 import Head from 'next/head';
+import Router, { withRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import ValidField from './ValidField';
+import { auth, db } from '../../src/firebase';
+import * as ROUTES from '../../routes';
 
 const NavLogo = dynamic(() => import('../../components/Logos/NavLogo'));
 const Typed = dynamic(() => import('react-typed'));
@@ -10,6 +12,7 @@ const Typed = dynamic(() => import('react-typed'));
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));
 const NameAndLocation = dynamic(() => import('./NameAndLocation'));
+const PaymentComponent = dynamic(() => import('./Payment'));
 const TokenComponent = dynamic(() => import('./Token'));
 const UserInfoComponent = dynamic(() => import('./UserInfo'));
 const ValidFieldComponent = dynamic(() => import('./ValidField'));
@@ -25,6 +28,7 @@ const INITIAL_STATE = {
   locationValid: false,
   password: '',
   passwordValid: false,
+  payment: '',
   step: 0,
   token: '',
   tokenValid: false,
@@ -56,7 +60,7 @@ class SignUp extends React.Component {
       });
     } else if (e.target.name === 'username') {
       this.setState({
-        username: e.target.value.trim().toLowerCase(),
+        username: e.target.value.toLowerCase(),
       });
     } else {
       this.setState({
@@ -65,11 +69,58 @@ class SignUp extends React.Component {
     }
   };
 
+  handleSubmit = e => {
+
+    const {
+      email,
+      emailValid,
+      fullName,
+      fullNameValid,
+      location,
+      locationValid,
+      password,
+      passwordValid,
+      payment,
+      token,
+      tokenValid,
+      username,
+      usernameValid,
+    } = this.state;
+
+    if (emailValid && fullNameValid && locationValid && passwordValid && tokenValid && usernameValid) {
+      auth.doCreateUserWithEmailAndPassword(email, password)
+          .then(authUser => {
+            console.log(authUser);
+            console.log('location', location);
+            db.doCreateUser(email, fullName, JSON.stringify(location), authUser.user.uid, payment, token, username)
+                .then(() => {
+                  this.setState(() => ({...INITIAL_STATE}));
+                  Router.push('/dashboard');
+                })
+                .catch(err => this.setState({
+                  errors: [
+                    ...this.state.errors,
+                    err.message,
+                  ]
+                }));
+          })
+          .catch(err => this.setState({
+            errors: [
+              ...this.state.errors,
+              err.message,
+            ]
+          }));
+    }
+
+    e.preventDefault();
+  };
+
   validateStepZero = token => {
     if (token === process.env.REGISTRATION_TOKEN.trim().toLowerCase()) {
       this.setState({
         errors: [],
         step: this.state.step += 1,
+        tokenValid: true,
       });
     } else {
       this.setState({
@@ -105,6 +156,8 @@ class SignUp extends React.Component {
     } else {
       this.setState({
         errors: [],
+        fullNameValid: true,
+        locationValid: true,
         step: this.state.step += 1
       });
     }
@@ -122,12 +175,8 @@ class SignUp extends React.Component {
   };
 
   validateStepThree = (username, password) => {
-    const usernameRe = /^[a-z0-9\-_]+/;
+    const usernameRe = /^[a-zA-Z0-9_-]+$/;
     const passwordRe = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-
-
-    console.log('user', username.match(usernameRe));
-    console.log('passy', password.match(passwordRe));
 
     if (!username.match(usernameRe)) {
       this.setState({
@@ -146,10 +195,12 @@ class SignUp extends React.Component {
     } else {
       this.setState({
         errors: [],
+        step: this.state.step += 1,
+        usernameValid: true,
+        passwordValid: true,
       });
     }
   };
-
 
   render() {
     const {
@@ -158,6 +209,7 @@ class SignUp extends React.Component {
       fullName,
       location,
       password,
+      payment,
       step,
       token,
       username,
@@ -216,10 +268,37 @@ class SignUp extends React.Component {
                     message={`${email} is a valid and available email address.`}
                 />
                 <UserInfoComponent
+                    errors={errors}
                     handleInput={this.handleInput}
                     passwordValue={password}
                     usernameValue={username}
                     nextStep={this.validateStepThree}
+                />
+              </Fragment>
+          );
+        case 4:
+          return (
+              <Fragment>
+                <ValidFieldComponent
+                    message={`Your registration token "${token}" is valid.`}
+                />
+                <ValidFieldComponent
+                    message={`Nice to meet you, ${fullName}! I hear the weather is great in ${location.description}!`}
+                />
+                <ValidFieldComponent
+                    message={`${email} is a valid and available email address.`}
+                />
+                <ValidFieldComponent
+                    message={`${username} is a valid and available username!`}
+                />
+                <ValidFieldComponent
+                    message={`Nice and strong password!`}
+                />
+                <PaymentComponent
+                    errors={errors}
+                    handleInput={this.handleInput}
+                    paymentValue={payment}
+                    finish={this.handleSubmit}
                 />
               </Fragment>
           );
@@ -264,6 +343,6 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
 
 
