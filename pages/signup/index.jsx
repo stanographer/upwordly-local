@@ -14,20 +14,30 @@ const TokenComponent = dynamic(() => import('./Token'));
 const UserInfoComponent = dynamic(() => import('./UserInfo'));
 const ValidFieldComponent = dynamic(() => import('./ValidField'));
 
+const INITIAL_STATE = {
+  email: '',
+  emailValid: false,
+  errors: [],
+  formValid: false,
+  fullName: '',
+  fullNameValid: false,
+  location: {},
+  locationValid: false,
+  password: '',
+  passwordValid: false,
+  step: 0,
+  token: '',
+  tokenValid: false,
+  username: '',
+  usernameValid: false,
+};
+
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      emailValid: false,
-      fullName: '',
-      location: '',
-      password: '',
-      step: 0,
-      token: '',
-      tokenValid: false,
-      username: '',
+      ...INITIAL_STATE,
     };
   }
 
@@ -36,17 +46,17 @@ class SignUp extends React.Component {
     // Matches the token to the one in the environment variable.
     // Trims and lower-cases. If there's a match, the tokenValid
     // flag is switched to true.
-    if (
-        e.target.name === 'token' &&
-        e.target.value.trim().toLowerCase() === process.env.REGISTRATION_TOKEN.trim().toLowerCase()
-    ) {
+    if (e.target.name === 'token') {
       this.setState({
         [e.target.name]: e.target.value.trim().toLowerCase(),
-        tokenValid: true,
       });
     } else if (e.target.name === 'email') {
       this.setState({
         email: e.target.value.trim().toLowerCase(),
+      });
+    } else if (e.target.name === 'username') {
+      this.setState({
+        username: e.target.value.trim().toLowerCase(),
       });
     } else {
       this.setState({
@@ -55,7 +65,52 @@ class SignUp extends React.Component {
     }
   };
 
-  validateEmail = email => {
+  validateStepZero = token => {
+    if (token === process.env.REGISTRATION_TOKEN.trim().toLowerCase()) {
+      this.setState({
+        errors: [],
+        step: this.state.step += 1,
+      });
+    } else {
+      this.setState({
+        errors: [
+          'Sorry. Your token is invalid.'
+        ]
+      });
+    }
+  };
+
+  validateStepOne = () => {
+    const {
+      fullName,
+      location,
+    } = this.state;
+
+    const re = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/;
+
+    if (!fullName.match(re)) {
+      this.setState({
+        errors: [
+          ...this.state.errors,
+          'Your name can only contain alphanumeric characters.',
+        ]
+      });
+    } else if (location.description === undefined) {
+      this.setState({
+        errors: [
+          ...this.state.errors,
+          'Select the closest matching location.'
+        ]
+      });
+    } else {
+      this.setState({
+        errors: [],
+        step: this.state.step += 1
+      });
+    }
+  };
+
+  validateStepTwo = email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (re.test(String(email).trim().toLowerCase())) {
@@ -64,32 +119,47 @@ class SignUp extends React.Component {
         step: this.state.step += 1,
       });
     }
-
   };
 
-  verifyTokenAndContinue = () => {
-    const {tokenValid} = this.state;
+  validateStepThree = (username, password) => {
+    const usernameRe = /^[a-z0-9\-_]+/;
+    const passwordRe = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
-    if (tokenValid) {
+
+    console.log('user', username.match(usernameRe));
+    console.log('passy', password.match(passwordRe));
+
+    if (!username.match(usernameRe)) {
       this.setState({
-        step: this.state.step += 1,
+        errors: [
+          ...this.state.errors,
+          'Your username may only contain lowercase letters, numbers, hyphens, and underscores.'
+        ]
+      });
+    } else if (!password.match(passwordRe)) {
+      this.setState({
+        errors: [
+          ...this.state.errors,
+          'Your password needs at minimum eight characters, at least one letter, one number, and one special character.'
+        ]
+      });
+    } else {
+      this.setState({
+        errors: [],
       });
     }
   };
 
-  validateGeneric = () => {
-
-  };
 
   render() {
     const {
       email,
+      errors,
       fullName,
       location,
       password,
       step,
       token,
-      tokenValid,
       username,
     } = this.state;
 
@@ -97,10 +167,10 @@ class SignUp extends React.Component {
       switch (step) {
         case 0:
           return <TokenComponent
+              errors={errors}
               tokenValue={token}
               handleInput={this.handleInput}
-              nextStep={this.verifyTokenAndContinue}
-              tokenValid={tokenValid}
+              nextStep={this.validateStepZero}
           />;
         case 1:
           return (
@@ -109,10 +179,11 @@ class SignUp extends React.Component {
                     message={`Your registration token "${token}" is valid.`}
                 />
                 <NameAndLocation
+                    errors={errors}
                     fullNameValue={fullName}
                     handleInput={this.handleInput}
                     locationValue={location}
-                    nextStep={this.verifyTokenAndContinue}
+                    nextStep={this.validateStepOne}
                 />
               </Fragment>
           );
@@ -128,8 +199,7 @@ class SignUp extends React.Component {
                 <EmailComponent
                     emailValue={email}
                     handleInput={this.handleInput}
-                    nextStep={this.validateEmail}
-                    tokenValid={tokenValid}
+                    nextStep={this.validateStepTwo}
                 />
               </Fragment>
           );
@@ -140,7 +210,7 @@ class SignUp extends React.Component {
                     message={`Your registration token "${token}" is valid.`}
                 />
                 <ValidFieldComponent
-                    message={`Nice to meet you, ${fullName}! I hear the weather is great in ${location}!`}
+                    message={`Nice to meet you, ${fullName}! I hear the weather is great in ${location.description}!`}
                 />
                 <ValidFieldComponent
                     message={`${email} is a valid and available email address.`}
@@ -149,6 +219,7 @@ class SignUp extends React.Component {
                     handleInput={this.handleInput}
                     passwordValue={password}
                     usernameValue={username}
+                    nextStep={this.validateStepThree}
                 />
               </Fragment>
           );

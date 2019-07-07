@@ -1,12 +1,17 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const UserInfo = ({handleInput, passwordValue, usernameValue}) => {
+const UserInfo = ({handleInput, nextStep, passwordValue, usernameValue}) => {
   return (
-      <form className="bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form className="bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={e => {
+        e.preventDefault();
+        nextStep(usernameValue, passwordValue);
+      }}>
         <div className="mb-4">
           <p className="text-sm mb-4">Now create a username that is unique, all lowercase, and simple.</p>
           <p className="text-sm mb-4">Live transcript links you share will contain your username so making it
-                                      unnecessarily long or complex will make your URLs harder to share.</p>
+                                      unnecessarily long or complex will make your URLs harder to remember and more prone to typos.</p>
           <p className="text-sm mb-4">Links look like this. The portion of the url that contains your username is
                                       highlighted in red: <a href="https://upword.ly/stanley/coachella-2019"
                                                              className="text-green-200 underline">upword.ly/<span
@@ -45,7 +50,8 @@ const UserInfo = ({handleInput, passwordValue, usernameValue}) => {
         <button
             className="bg-blue w-full hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200"
             type="submit">
-          Create Account
+          Continue
+          <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
         </button>
       </form>
   );

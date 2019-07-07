@@ -1,9 +1,15 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const GeoSuggest = dynamic(() => import('react-geosuggest'));
 
-const NameAndLocation = ({fullNameValue, handleInput, locationValue, nextStep}) => {
+const NameAndLocation = ({errors, fullNameValue, handleInput, locationValue, nextStep}) => {
+  const errorMessages = errors.map((e, i) => (
+      <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
+  ));
+
   return (
       <form className="bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4"
             onSubmit={e => {
@@ -42,7 +48,6 @@ const NameAndLocation = ({fullNameValue, handleInput, locationValue, nextStep}) 
               name="location"
               placeholder="Location"
               autoComplete="off"
-              onBlur={val => console.log(val)}
               value={locationValue}
               style={{
                 'input': {
@@ -61,15 +66,23 @@ const NameAndLocation = ({fullNameValue, handleInput, locationValue, nextStep}) 
                 target: {
                   name: 'location',
                   value: val,
+                  type: 'input',
                 }
               })}
               highlightMatch={true}
+              required
           />
         </div>
+        {
+          !!errors
+              ? errorMessages
+              : ''
+        }
         <button
             className="bg-blue w-full hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200"
             type="submit">
           Continue
+          <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
         </button>
       </form>
   );
