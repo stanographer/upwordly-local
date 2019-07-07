@@ -2,7 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const UserInfo = ({handleInput, nextStep, passwordValue, usernameValue}) => {
+const UserInfo = ({errors, handleInput, nextStep, passwordValue, usernameValue}) => {
+  const errorMessages = errors.map((e, i) => (
+      <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
+  ));
+
   return (
       <form className="bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={e => {
         e.preventDefault();
@@ -47,6 +51,11 @@ const UserInfo = ({handleInput, nextStep, passwordValue, usernameValue}) => {
               required
           />
         </div>
+        {
+          !!errors
+              ? errorMessages
+              : ''
+        }
         <button
             className="bg-blue w-full hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200"
             type="submit">

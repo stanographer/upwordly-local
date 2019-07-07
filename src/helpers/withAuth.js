@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import router from 'next/router';
-import Firebase from '../firebase';
+import { auth } from '../firebase/firebase';
 import NeedsAuth from '../../components/NeedsAuth';
-
-const firebase = new Firebase();
 
 const withAuth = (Component) => {
   return class extends React.Component {
@@ -16,7 +14,7 @@ const withAuth = (Component) => {
     }
 
     componentDidMount() {
-      firebase.auth.onAuthStateChanged(authUser => {
+      auth.onAuthStateChanged(authUser => {
         console.log(authUser);
         if (authUser) {
           this.setState({
