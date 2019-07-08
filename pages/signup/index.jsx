@@ -70,7 +70,6 @@ class SignUp extends React.Component {
   };
 
   handleSubmit = e => {
-
     const {
       email,
       emailValid,
@@ -90,8 +89,6 @@ class SignUp extends React.Component {
     if (emailValid && fullNameValid && locationValid && passwordValid && tokenValid && usernameValid) {
       auth.doCreateUserWithEmailAndPassword(email, password)
           .then(authUser => {
-            console.log(authUser);
-            console.log('location', location);
             db.doCreateUser(
                 email,
                 fullName,
@@ -227,7 +224,7 @@ class SignUp extends React.Component {
         ]
       });
     } else {
-      db.checkDupeUsername(username, dupe => {
+      db.checkDupeUsername(username.trim().toLowerCase(), dupe => {
         if (dupe === true) {
           this.setState({
             errors: [
@@ -262,12 +259,14 @@ class SignUp extends React.Component {
     const stage = () => {
       switch (step) {
         case 0:
-          return <TokenComponent
-              errors={errors}
-              tokenValue={token}
-              handleInput={this.handleInput}
-              nextStep={this.validateStepZero}
-          />;
+          return (
+              <TokenComponent
+                  errors={errors}
+                  tokenValue={token}
+                  handleInput={this.handleInput}
+                  nextStep={this.validateStepZero}
+              />
+          );
         case 1:
           return (
               <Fragment>

@@ -30972,8 +30972,6 @@ function (_React$Component) {
 
       if (emailValid && fullNameValid && locationValid && passwordValid && tokenValid && usernameValid) {
         _src_firebase__WEBPACK_IMPORTED_MODULE_15__["auth"].doCreateUserWithEmailAndPassword(email, password).then(function (authUser) {
-          console.log(authUser);
-          console.log('location', location);
           _src_firebase__WEBPACK_IMPORTED_MODULE_15__["db"].doCreateUser(email, fullName, _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(location), authUser.user.uid, payment, token, username).then(function () {
             _this.setState(function () {
               return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, INITIAL_STATE);
@@ -31076,7 +31074,7 @@ function (_React$Component) {
           errors: [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_this.state.errors), ['Your password needs at minimum eight characters, at least one letter, one number, and one special character.'])
         });
       } else {
-        _src_firebase__WEBPACK_IMPORTED_MODULE_15__["db"].checkDupeUsername(username, function (dupe) {
+        _src_firebase__WEBPACK_IMPORTED_MODULE_15__["db"].checkDupeUsername(username.trim().toLowerCase(), function (dupe) {
           if (dupe === true) {
             _this.setState({
               errors: ['This username is already taken.']
@@ -31123,7 +31121,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepZero,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 265
+                lineNumber: 263
               },
               __self: this
             });
@@ -31132,14 +31130,14 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 273
+                lineNumber: 272
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 274
+                lineNumber: 273
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(NameAndLocation, {
@@ -31150,7 +31148,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepOne,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 277
+                lineNumber: 276
               },
               __self: this
             }));
@@ -31159,21 +31157,21 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 288
+                lineNumber: 287
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 289
+                lineNumber: 288
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 292
+                lineNumber: 291
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(EmailComponent, {
@@ -31183,7 +31181,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepTwo,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 295
+                lineNumber: 294
               },
               __self: this
             }));
@@ -31192,28 +31190,28 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 305
+                lineNumber: 304
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 306
+                lineNumber: 305
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 309
+                lineNumber: 308
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "".concat(email, " is a valid and available email address."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 312
+                lineNumber: 311
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(UserInfoComponent, {
@@ -31224,7 +31222,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepThree,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 315
+                lineNumber: 314
               },
               __self: this
             }));
@@ -31233,42 +31231,42 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 326
+                lineNumber: 325
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 327
+                lineNumber: 326
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 330
+                lineNumber: 329
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "".concat(email, " is a valid and available email address."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 333
+                lineNumber: 332
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "".concat(username, " is a valid and available username!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 336
+                lineNumber: 335
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice and strong password!",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 339
+                lineNumber: 338
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(PaymentComponent, {
@@ -31278,7 +31276,7 @@ function (_React$Component) {
               finish: _this2.handleSubmit,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 342
+                lineNumber: 341
               },
               __self: this
             }));
@@ -31291,19 +31289,19 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_Provider__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 356
+          lineNumber: 355
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_12___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 357
+          lineNumber: 356
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 358
+          lineNumber: 357
         },
         __self: this
       }, "Create an Upword.ly account"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("meta", {
@@ -31312,35 +31310,35 @@ function (_React$Component) {
         key: "viewport",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 359
+          lineNumber: 358
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "container mx-auto h-full flex flex-1 justify-center items-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 365
+          lineNumber: 364
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "w-full max-w-sm mt-20",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 366
+          lineNumber: 365
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(NavLogo, {
         center: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 367
+          lineNumber: 366
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "font-sans mb-10 mt-2 text-center justify-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 368
+          lineNumber: 367
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(Typed, {
@@ -31349,14 +31347,14 @@ function (_React$Component) {
         typeSpeed: 40,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 369
+          lineNumber: 368
         },
         __self: this
       })), stage(), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("p", {
         className: "text-center text-grey text-xs mt-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 380
+          lineNumber: 379
         },
         __self: this
       }, "\xA92019 Upword.ly. All rights reserved."))));
