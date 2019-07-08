@@ -7,7 +7,7 @@ const GeoSuggest = dynamic(() => import('react-geosuggest'));
 
 const NameAndLocation = ({errors, fullNameValue, handleInput, locationValue, nextStep}) => {
   const errorMessages = errors.map((e, i) => (
-      <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
+      <p className="text-sm text-red-400 mb-2" key={i}>{e}</p>
   ));
 
   return (
@@ -70,6 +70,7 @@ const NameAndLocation = ({errors, fullNameValue, handleInput, locationValue, nex
                 }
               })}
               highlightMatch={true}
+              type="text"
               required
           />
         </div>

@@ -3,11 +3,51 @@
     {
       "id": "./components/Logos/NavLogo.jsx",
       "name": "./components/Logos/NavLogo.jsx",
+      "file": "static/chunks/8.js",
+      "publicPath": "static/chunks/8.js"
+    }
+  ],
+  "../Modal/Color": [
+    {
+      "id": "./components/Modal/Color.jsx",
+      "name": "./components/Modal/Color.jsx",
+      "file": "static/chunks/14.js",
+      "publicPath": "static/chunks/14.js"
+    }
+  ],
+  "../Modal/Font": [
+    {
+      "id": "./components/Modal/Font.jsx",
+      "name": "./components/Modal/Font.jsx",
+      "file": "static/chunks/15.js",
+      "publicPath": "static/chunks/15.js"
+    }
+  ],
+  "../Modal/Share": [
+    {
+      "id": "./components/Modal/Share.jsx",
+      "name": "./components/Modal/Share.jsx",
+      "file": "static/chunks/13.js",
+      "publicPath": "static/chunks/13.js"
+    }
+  ],
+  "../Modal/Text": [
+    {
+      "id": "./components/Modal/Text.jsx",
+      "name": "./components/Modal/Text.jsx",
+      "file": "static/chunks/16.js",
+      "publicPath": "static/chunks/16.js"
+    }
+  ],
+  "./Email": [
+    {
+      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
+      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/2.js",
       "publicPath": "static/chunks/2.js"
     }
   ],
-  "./Email": [
+  "./NameAndLocation": [
     {
       "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
@@ -15,20 +55,12 @@
       "publicPath": "static/chunks/3.js"
     }
   ],
-  "./NameAndLocation": [
+  "./Payment": [
     {
       "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "file": "static/chunks/4.js",
       "publicPath": "static/chunks/4.js"
-    }
-  ],
-  "./Payment": [
-    {
-      "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
-      "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
-      "file": "static/chunks/8.js",
-      "publicPath": "static/chunks/8.js"
     }
   ],
   "./Token": [
@@ -51,8 +83,8 @@
     {
       "id": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
       "name": "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
+      "file": "static/chunks/7.js",
+      "publicPath": "static/chunks/7.js"
     }
   ],
   "./noop": [
@@ -63,12 +95,20 @@
       "publicPath": "static/chunks/0.js"
     }
   ],
+  "react-color": [
+    {
+      "id": "./node_modules/@icons/material/CheckIcon.js",
+      "name": "./node_modules/@icons/material/CheckIcon.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
+    }
+  ],
   "react-geosuggest": [
     {
       "id": "./node_modules/react-geosuggest/module/Geosuggest.esm.js",
       "name": "./node_modules/react-geosuggest/module/Geosuggest.esm.js",
-      "file": "static/chunks/7.js",
-      "publicPath": "static/chunks/7.js"
+      "file": "static/chunks/9.js",
+      "publicPath": "static/chunks/9.js"
     }
   ],
   "react-typed": [
@@ -77,6 +117,12 @@
       "name": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
       "file": "static/chunks/1.js",
       "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
+      "name": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
+      "file": "static/chunks/17.js",
+      "publicPath": "static/chunks/17.js"
     }
   ]
 }

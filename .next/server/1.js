@@ -23,8 +23,20 @@ var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/Em
 
 var Email = function Email(_ref) {
   var emailValue = _ref.emailValue,
+      errors = _ref.errors,
       handleInput = _ref.handleInput,
       nextStep = _ref.nextStep;
+  var errorMessages = errors.map(function (e, i) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "text-sm text-red-400 mb-4",
+      key: i,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      },
+      __self: this
+    }, e);
+  });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4",
     onSubmit: function onSubmit(e) {
@@ -33,14 +45,14 @@ var Email = function Email(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 11
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mb-4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 15
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -48,13 +60,13 @@ var Email = function Email(_ref) {
     htmlFor: "username",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 16
     },
     __self: this
   }, "Please enter your ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 17
     },
     __self: this
   }, "email address"), "."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -73,14 +85,14 @@ var Email = function Email(_ref) {
     required: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 19
     },
     __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), !!errors ? errorMessages : '', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex items-center justify-end",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 37
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -88,7 +100,7 @@ var Email = function Email(_ref) {
     type: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 38
     },
     __self: this
   }, "Continue", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
@@ -96,7 +108,7 @@ var Email = function Email(_ref) {
     className: "mx-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 42
     },
     __self: this
   }))));

@@ -17,7 +17,7 @@ const NeedsAuth = () => {
             <NavLogo center={true} />
             <div className="font-sans font-hairline mb-12 mt-12 text-center">
               <h1>Sorry. You must be signed in to view this page.</h1>
-              <p className="mt-2"><Link href="/signin" prefetch={true} withData><a className="text-green-200 underline">
+              <p className="mt-2"><Link href="/signin" prefetch={true}><a className="text-green-200 underline">
                 Click here</a></Link> to sign in.
               </p>
             </div>

@@ -10508,7 +10508,7 @@ var Token = function Token(_ref) {
       tokenValue = _ref.tokenValue;
   var errorMessages = errors.map(function (e, i) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      className: "text-sm text-red-400 mb-4",
+      className: "text-sm text-red-400 mb-2",
       key: i,
       __source: {
         fileName: _jsxFileName,

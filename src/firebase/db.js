@@ -11,6 +11,24 @@ export const doCreateUser = (email, fullName, location, id, payment, token, user
           username,
         });
 
+export const checkDupeEmail = (email, cb) => {
+  db.ref('users')
+      .orderByChild('email')
+      .equalTo(email)
+      .on('value', snapshot => {
+        cb(!!snapshot.val());
+      });
+};
+
+export const checkDupeUsername = (username, cb) => {
+  db.ref('users')
+      .orderByChild('username')
+      .equalTo(username)
+      .on('value', snapshot => {
+        cb(!!snapshot.val());
+      });
+};
+
 export const onceGetUsers = () =>
     db.ref('users')
         .once('value');

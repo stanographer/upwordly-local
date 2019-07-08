@@ -92,10 +92,18 @@ class SignUp extends React.Component {
           .then(authUser => {
             console.log(authUser);
             console.log('location', location);
-            db.doCreateUser(email, fullName, JSON.stringify(location), authUser.user.uid, payment, token, username)
+            db.doCreateUser(
+                email,
+                fullName,
+                JSON.stringify(location),
+                authUser.user.uid,
+                payment,
+                token,
+                username,
+            )
                 .then(() => {
                   this.setState(() => ({...INITIAL_STATE}));
-                  Router.push('/dashboard');
+                  Router.push(ROUTES.DASHBOARD);
                 })
                 .catch(err => this.setState({
                   errors: [
@@ -164,13 +172,39 @@ class SignUp extends React.Component {
   };
 
   validateStepTwo = email => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    try {
 
-    if (re.test(String(email).trim().toLowerCase())) {
-      this.setState({
-        emailValid: true,
-        step: this.state.step += 1,
-      });
+      // Regex to make sure that emails have @ signs and all that.
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      // Testing to see if the email matches the regex.
+      if (!re.test(String(email).trim().toLowerCase())) {
+        this.setState({
+          errors: [
+            'Your email is badly formatted.'
+          ]
+        });
+      } else {
+
+        // Makes sure that there's no duplicate emails.
+        db.checkDupeEmail(email, dupe => {
+          if (dupe === true) {
+            this.setState({
+              errors: [
+                'An account with this email address already exists.'
+              ]
+            });
+          } else {
+            this.setState({
+              emailValid: true,
+              errors: [],
+              step: this.state.step += 1,
+            });
+          }
+        });
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -193,12 +227,22 @@ class SignUp extends React.Component {
         ]
       });
     } else {
-      this.setState({
-        errors: [],
-        step: this.state.step += 1,
-        usernameValid: true,
-        passwordValid: true,
-      });
+      db.checkDupeUsername(username, dupe => {
+        if (dupe === true) {
+          this.setState({
+            errors: [
+              'This username is already taken.'
+            ]
+          });
+        } else {
+          this.setState({
+            errors: [],
+            step: this.state.step += 1,
+            usernameValid: true,
+            passwordValid: true,
+          });
+        }
+      })
     }
   };
 
@@ -250,6 +294,7 @@ class SignUp extends React.Component {
                 />
                 <EmailComponent
                     emailValue={email}
+                    errors={errors}
                     handleInput={this.handleInput}
                     nextStep={this.validateStepTwo}
                 />
@@ -311,11 +356,10 @@ class SignUp extends React.Component {
         <Provider>
           <Head>
             <title>Create an Upword.ly account</title>
-            <script
-                async
-                defer
-                type="text/javascript"
-                src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`}
+            <meta
+                name="viewport"
+                content="initial-scale=1.0, width=device-width"
+                key="viewport"
             />
           </Head>
           <div className="container mx-auto h-full flex flex-1 justify-center items-center">

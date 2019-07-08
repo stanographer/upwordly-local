@@ -1460,7 +1460,7 @@ var NameAndLocation = next_dynamic__WEBPACK_IMPORTED_MODULE_14___default()(funct
   }
 });
 var PaymentComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_14___default()(function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./Payment */ "./pages/signup/Payment.jsx"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Payment */ "./pages/signup/Payment.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1470,7 +1470,7 @@ var PaymentComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_14___default()(func
   }
 });
 var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_14___default()(function () {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Token */ "./pages/signup/Token.jsx"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./Token */ "./pages/signup/Token.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1480,7 +1480,7 @@ var TokenComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_14___default()(functi
   }
 });
 var UserInfoComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_14___default()(function () {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./UserInfo */ "./pages/signup/UserInfo.jsx"));
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./UserInfo */ "./pages/signup/UserInfo.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -1574,7 +1574,7 @@ function (_React$Component) {
               return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, INITIAL_STATE);
             });
 
-            next_router__WEBPACK_IMPORTED_MODULE_13___default.a.push('/dashboard');
+            next_router__WEBPACK_IMPORTED_MODULE_13___default.a.push(_routes__WEBPACK_IMPORTED_MODULE_16__["DASHBOARD"]);
           }).catch(function (err) {
             return _this.setState({
               errors: [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_this.state.errors), [err.message])
@@ -1629,13 +1629,32 @@ function (_React$Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "validateStepTwo", function (email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      try {
+        // Regex to make sure that emails have @ signs and all that.
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // Testing to see if the email matches the regex.
 
-      if (re.test(String(email).trim().toLowerCase())) {
-        _this.setState({
-          emailValid: true,
-          step: _this.state.step += 1
-        });
+        if (!re.test(String(email).trim().toLowerCase())) {
+          _this.setState({
+            errors: ['Your email is badly formatted.']
+          });
+        } else {
+          // Makes sure that there's no duplicate emails.
+          _src_firebase__WEBPACK_IMPORTED_MODULE_15__["db"].checkDupeEmail(email, function (dupe) {
+            if (dupe === true) {
+              _this.setState({
+                errors: ['An account with this email address already exists.']
+              });
+            } else {
+              _this.setState({
+                emailValid: true,
+                errors: [],
+                step: _this.state.step += 1
+              });
+            }
+          });
+        }
+      } catch (err) {
+        console.error(err);
       }
     });
 
@@ -1652,11 +1671,19 @@ function (_React$Component) {
           errors: [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_this.state.errors), ['Your password needs at minimum eight characters, at least one letter, one number, and one special character.'])
         });
       } else {
-        _this.setState({
-          errors: [],
-          step: _this.state.step += 1,
-          usernameValid: true,
-          passwordValid: true
+        _src_firebase__WEBPACK_IMPORTED_MODULE_15__["db"].checkDupeUsername(username, function (dupe) {
+          if (dupe === true) {
+            _this.setState({
+              errors: ['This username is already taken.']
+            });
+          } else {
+            _this.setState({
+              errors: [],
+              step: _this.state.step += 1,
+              usernameValid: true,
+              passwordValid: true
+            });
+          }
         });
       }
     });
@@ -1691,7 +1718,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepZero,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 221
+                lineNumber: 265
               },
               __self: this
             });
@@ -1700,14 +1727,14 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 229
+                lineNumber: 273
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 230
+                lineNumber: 274
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(NameAndLocation, {
@@ -1718,7 +1745,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepOne,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 233
+                lineNumber: 277
               },
               __self: this
             }));
@@ -1727,30 +1754,31 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 244
+                lineNumber: 288
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 245
+                lineNumber: 289
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 248
+                lineNumber: 292
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(EmailComponent, {
               emailValue: email,
+              errors: errors,
               handleInput: _this2.handleInput,
               nextStep: _this2.validateStepTwo,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 251
+                lineNumber: 295
               },
               __self: this
             }));
@@ -1759,28 +1787,28 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 260
+                lineNumber: 305
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 261
+                lineNumber: 306
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 264
+                lineNumber: 309
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "".concat(email, " is a valid and available email address."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 267
+                lineNumber: 312
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(UserInfoComponent, {
@@ -1791,7 +1819,7 @@ function (_React$Component) {
               nextStep: _this2.validateStepThree,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 270
+                lineNumber: 315
               },
               __self: this
             }));
@@ -1800,42 +1828,42 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10__["Fragment"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 281
+                lineNumber: 326
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Your registration token \"".concat(token, "\" is valid."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 282
+                lineNumber: 327
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice to meet you, ".concat(fullName, "! I hear the weather is great in ").concat(location.description, "!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 285
+                lineNumber: 330
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "".concat(email, " is a valid and available email address."),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 288
+                lineNumber: 333
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "".concat(username, " is a valid and available username!"),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 291
+                lineNumber: 336
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(ValidFieldComponent, {
               message: "Nice and strong password!",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 294
+                lineNumber: 339
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(PaymentComponent, {
@@ -1845,7 +1873,7 @@ function (_React$Component) {
               finish: _this2.handleSubmit,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 297
+                lineNumber: 342
               },
               __self: this
             }));
@@ -1858,57 +1886,56 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_Provider__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 311
+          lineNumber: 356
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_12___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 312
+          lineNumber: 357
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 313
+          lineNumber: 358
         },
         __self: this
-      }, "Create an Upword.ly account"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("script", {
-        async: true,
-        defer: true,
-        type: "text/javascript",
-        src: "https://maps.googleapis.com/maps/api/js?key=".concat("AIzaSyDZ2XhfLVedwwG3NjMr2YCxZGVKypGjqXE", "&libraries=places"),
+      }, "Create an Upword.ly account"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("meta", {
+        name: "viewport",
+        content: "initial-scale=1.0, width=device-width",
+        key: "viewport",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 314
+          lineNumber: 359
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "container mx-auto h-full flex flex-1 justify-center items-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 321
+          lineNumber: 365
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "w-full max-w-sm mt-20",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 322
+          lineNumber: 366
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(NavLogo, {
         center: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 323
+          lineNumber: 367
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "font-sans mb-10 mt-2 text-center justify-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 324
+          lineNumber: 368
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(Typed, {
@@ -1917,14 +1944,14 @@ function (_React$Component) {
         typeSpeed: 40,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 325
+          lineNumber: 369
         },
         __self: this
       })), stage(), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("p", {
         className: "text-center text-grey text-xs mt-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 336
+          lineNumber: 380
         },
         __self: this
       }, "\xA92019 Upword.ly. All rights reserved."))));
@@ -1942,18 +1969,20 @@ function (_React$Component) {
 /*!*************************!*\
   !*** ./routes/index.js ***!
   \*************************/
-/*! exports provided: DASHBOARD, EDITOR, SIGN_IN, SIGN_UP, VIEW */
+/*! exports provided: DASHBOARD, EDITOR, LANDING, SIGN_IN, SIGN_UP, VIEW */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DASHBOARD", function() { return DASHBOARD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDITOR", function() { return EDITOR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LANDING", function() { return LANDING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGN_IN", function() { return SIGN_IN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGN_UP", function() { return SIGN_UP; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VIEW", function() { return VIEW; });
 var DASHBOARD = '/dashboard';
 var EDITOR = '/editor';
+var LANDING = '/';
 var SIGN_IN = '/signin';
 var SIGN_UP = '/signup';
 var VIEW = '/view';
@@ -1998,12 +2027,14 @@ var doPasswordUpdate = function doPasswordUpdate(password) {
 /*!****************************!*\
   !*** ./src/firebase/db.js ***!
   \****************************/
-/*! exports provided: doCreateUser, onceGetUsers */
+/*! exports provided: doCreateUser, checkDupeEmail, checkDupeUsername, onceGetUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "doCreateUser", function() { return doCreateUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkDupeEmail", function() { return checkDupeEmail; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkDupeUsername", function() { return checkDupeUsername; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onceGetUsers", function() { return onceGetUsers; });
 /* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebase */ "./src/firebase/firebase.js");
 
@@ -2015,6 +2046,16 @@ var doCreateUser = function doCreateUser(email, fullName, location, id, payment,
     payment: payment,
     token: token,
     username: username
+  });
+};
+var checkDupeEmail = function checkDupeEmail(email, cb) {
+  _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref('users').orderByChild('email').equalTo(email).on('value', function (snapshot) {
+    cb(!!snapshot.val());
+  });
+};
+var checkDupeUsername = function checkDupeUsername(username, cb) {
+  _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref('users').orderByChild('username').equalTo(username).on('value', function (snapshot) {
+    cb(!!snapshot.val());
   });
 };
 var onceGetUsers = function onceGetUsers() {
