@@ -6,7 +6,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 const Token = ({errors, handleInput, nextStep, tokenValue}) => {
 
   const errorMessages = errors.map((e, i) => (
-      <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
+      <p className="text-sm text-red-400 mb-2" key={i}>{e}</p>
   ));
 
   return (

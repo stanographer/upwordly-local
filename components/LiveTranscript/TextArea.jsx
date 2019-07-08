@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import Binding from './react-binding';
 import { LoadedToast } from '../Toasts';
+import Proptypes from 'prop-types';
 
-const PropTypes = dynamic(() => import('prop-types'));
-
-function TextArea(props) {
-  const {
-    doc,
-    flag
-  } = props;
-
+function TextArea({doc, flag}) {
   let [text, setText] = useState('');
   let binding;
 

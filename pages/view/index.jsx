@@ -18,7 +18,6 @@ const Modal = dynamic(() => import('react-modal'));
 const ModalComponent = dynamic(() => import('../../components/Controls')
     .then(el => el.Modal));
 
-
 const modalStyles = {
   content: {
     backgroundColor: '#282c34',
@@ -50,11 +49,7 @@ class View extends React.Component {
   componentDidMount() {
 
     // On component load, begin auto-scrolling.
-    const {router} = this.props;
     this.startScrolling();
-
-    console.log(router.query);
-    console.log('props', this.props);
   }
 
   componentWillUnmount() {
@@ -62,6 +57,7 @@ class View extends React.Component {
   }
 
   startScrolling = () => {
+
     // Set the scrolling state to scrolling.
     this.setState({scrolling: true});
 

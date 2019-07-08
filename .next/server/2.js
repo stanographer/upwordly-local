@@ -42,7 +42,7 @@ var NameAndLocation = function NameAndLocation(_ref) {
       nextStep = _ref.nextStep;
   var errorMessages = errors.map(function (e, i) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      className: "text-sm text-red-400 mb-4",
+      className: "text-sm text-red-400 mb-2",
       key: i,
       __source: {
         fileName: _jsxFileName,
@@ -148,6 +148,7 @@ var NameAndLocation = function NameAndLocation(_ref) {
       });
     },
     highlightMatch: true,
+    type: "text",
     required: true,
     __source: {
       fileName: _jsxFileName,
@@ -159,7 +160,7 @@ var NameAndLocation = function NameAndLocation(_ref) {
     type: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 82
     },
     __self: this
   }, "Continue", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -167,7 +168,7 @@ var NameAndLocation = function NameAndLocation(_ref) {
     className: "mx-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 86
     },
     __self: this
   })));

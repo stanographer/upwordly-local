@@ -1,10 +1,10 @@
 exports.ids = [5];
 exports.modules = {
 
-/***/ "./pages/signup/Payment.jsx":
-/*!**********************************!*\
-  !*** ./pages/signup/Payment.jsx ***!
-  \**********************************/
+/***/ "./pages/signup/UserInfo.jsx":
+/*!***********************************!*\
+  !*** ./pages/signup/UserInfo.jsx ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16,16 +16,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "@fortawesome/free-solid-svg-icons");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/Payment.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/UserInfo.jsx";
 
 
 
 
-var Payment = function Payment(_ref) {
+var UserInfo = function UserInfo(_ref) {
   var errors = _ref.errors,
-      finish = _ref.finish,
-      paymentValue = _ref.paymentValue,
-      handleInput = _ref.handleInput;
+      handleInput = _ref.handleInput,
+      nextStep = _ref.nextStep,
+      passwordValue = _ref.passwordValue,
+      usernameValue = _ref.usernameValue;
   var errorMessages = errors.map(function (e, i) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "text-sm text-red-400 mb-4",
@@ -41,7 +42,7 @@ var Payment = function Payment(_ref) {
     className: "bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4",
     onSubmit: function onSubmit(e) {
       e.preventDefault();
-      finish(e);
+      nextStep(usernameValue, passwordValue);
     },
     __source: {
       fileName: _jsxFileName,
@@ -55,105 +56,119 @@ var Payment = function Payment(_ref) {
       lineNumber: 15
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    className: "block text-grey-darker text-md font-hairline mb-6",
-    htmlFor: "username",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "text-sm mb-4",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
-  }, "Please select a payment plan."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "inline-block relative w-64",
+  }, "Now create a username that is unique, all lowercase, and simple."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "text-sm mb-4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
+  }, "Live transcript links you share will contain your username so making it unnecessarily long or complex will make your URLs harder to remember and more prone to typos."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "text-sm mb-4",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    value: paymentValue,
-    onChange: function onChange(e) {
-      return handleInput(e);
-    },
-    name: "payment",
-    id: "payment",
-    className: "block appearance-none text-bg w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline",
+  }, "Links look like this. The portion of the url that contains your username is highlighted in red: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://upword.ly/stanley/coachella-2019",
+    className: "text-green-200 underline",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "32",
+  }, "upword.ly/", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-red-300",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, usernameValue || 'stanley'), "/coachella-2019")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "block text-grey-darker text-md mb-2",
+    htmlFor: "username",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, "Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    autoComplete: "off",
+    spellCheck: false,
+    className: "shadow appearance-none border rounded w-full py-2 px-3 text-bg focus:bg-blue-100 text-md font-mono tracking-wide",
+    id: "username",
+    name: "username",
+    type: "text",
+    placeholder: "Username",
+    value: usernameValue,
+    onChange: function onChange(e) {
+      return handleInput(e);
+    },
+    required: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26
     },
     __self: this
-  }, "Single user: $32 per month"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "59",
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mb-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 38
     },
     __self: this
-  }, "Agency option: $59 per month"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "0",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "block text-grey-darker text-md mb-2",
+    htmlFor: "password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 39
     },
     __self: this
-  }, "Admin or Evaluator")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
+  }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "shadow appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg text-md font-mono tracking-wide",
+    id: "password",
+    name: "password",
+    type: "password",
+    placeholder: "Password",
+    value: passwordValue,
+    onChange: function onChange(e) {
+      return handleInput(e);
     },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
-    className: "fill-current h-4 w-4",
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 20 20",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
-  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex items-center justify-end",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
-    },
-    __self: this
-  }, !!errors ? errorMessages : '', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "bg-blue w-full hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200",
-    type: "submit",
+    required: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 43
     },
     __self: this
-  }, "Create Account", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCheck"],
+  })), !!errors ? errorMessages : '', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "bg-blue w-full hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200",
+    type: "submit",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: this
+  }, "Continue", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"],
     className: "mx-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 63
     },
     __self: this
-  }))));
+  })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Payment);
+/* harmony default export */ __webpack_exports__["default"] = (UserInfo);
 
 /***/ })
 
