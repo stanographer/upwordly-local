@@ -1,7 +1,10 @@
 import React from 'react';
-import { db } from '../../firebase/firebase';
 
-const JobCreator = () => {
+const JobCreator = ({errors, job, setShortName}) => {
+  const errorMessages = errors.map((e, i) => (
+      <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
+  ));
+
   return (
       <form className="w-full lg:w-1/2 px-4">
         <div className="bg-bg2 border-t border-b sm:rounded sm:border shadow">
@@ -18,11 +21,17 @@ const JobCreator = () => {
               <input autoFocus={true}
                      autoComplete="off"
                      spellCheck={false}
-                     className="shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"
+                     className={
+                       !!errors && errors.length > 0
+                         ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
+                           : 'shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"'
+                     }
                      id="shortname"
                      name="shortname"
                      type="shortname"
                      placeholder="(i.e. coachella2019)"
+                     value={job.shortName}
+                     onChange={e => setShortName(e.target.value)}
                      required
               />
             </div>
@@ -53,6 +62,11 @@ const JobCreator = () => {
               />
             </div>
             <div className="text-center px-6 py-4">
+              {
+                !!errors
+                    ? errorMessages
+                    : ''
+              }
               <div className="py-8">
                 <div className="mb-4">
                   <button type="submit"
