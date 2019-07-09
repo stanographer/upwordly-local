@@ -38,10 +38,9 @@
     "firebase": "^6.2.4",
     "isomorphic-ws": "^4.0.1",
     "jumprope": "^1.2.1",
-    "next": "^8.1.0",
+    "next": "^9.0.0",
     "ot-text": "^1.0.2",
     "react": "^16.8.6",
-    "react-codemirror2": "^6.0.0",
     "react-color": "^2.17.3",
     "react-dom": "^16.8.6",
     "react-geosuggest": "^2.12.0",
@@ -54,16 +53,16 @@
     "redux": "^4.0.1",
     "styled-components": "^4.3.2",
     "uuid": "^3.3.2",
-    "ws": "^7.0.1"
+    "ws": "^7.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.0",
+    "autoprefixer": "^9.6.1",
     "cssnano": "^4.1.10",
     "dotenv": "^8.0.0",
     "postcss-easy-import": "^3.0.0",
     "prop-types": "^15.7.2",
     "require": "^2.4.20",
     "tailwindcss": "^1.0.4",
-    "webpack": "^4.35.2"
+    "webpack": "^4.35.3"
   }
 }

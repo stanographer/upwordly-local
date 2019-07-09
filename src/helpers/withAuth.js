@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react';
-import router from 'next/router';
+import dynamic from 'next/dynamic';
+import router from 'next/router'
 import { auth } from '../firebase/firebase';
-import NeedsAuth from '../../components/NeedsAuth';
+import * as ROUTES from '../constants/routes';
 
-const withAuth = (Component) => {
+const NavLogo = dynamic(() =>
+    import('../components/Logos/NavLogo'));
+
+const withAuth = Component => {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -15,21 +19,28 @@ const withAuth = (Component) => {
 
     componentDidMount() {
       auth.onAuthStateChanged(authUser => {
-        console.log(authUser);
         if (authUser) {
           this.setState({
             status: 'SIGNED_IN'
           });
         } else {
-          router.push('/signin');
+          router.push(ROUTES.SIGN_IN);
         }
       });
     }
 
     renderContent() {
       const {status} = this.state;
+
       if (status === 'LOADING') {
-        return <NeedsAuth />;
+        return (
+            <div className="container mx-auto h-full flex justify-center items-center">
+              <div className="w-full max-w-sm mt-20">
+                <NavLogo center={true} />
+                <p className="text-center mt-2">Loading...</p>
+              </div>
+            </div>
+        )
       } else if (status === 'SIGNED_IN') {
         return <Component {...this.props} />;
       }

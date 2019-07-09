@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
-import Provider from '../../components/Provider';
+import Provider from '../../src/components/Session/Provider';
 import Head from 'next/head';
 import Router, { withRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import { auth, db } from '../../src/firebase';
-import * as ROUTES from '../../routes';
+// import { auth, db } from '../../src/firebase';
+import { withFirebase } from '../../src/firebase/context';
+import * as ROUTES from '../../src/constants/routes';
 
-const NavLogo = dynamic(() => import('../../components/Logos/NavLogo'));
+const NavLogo = dynamic(() => import('../../src/components/Logos/NavLogo'));
 const Typed = dynamic(() => import('react-typed'));
 
 // Sign-up components.
@@ -386,6 +387,6 @@ class SignUp extends React.Component {
   }
 }
 
-export default withRouter(SignUp);
+export default withFirebase(withRouter(SignUp));
 
 

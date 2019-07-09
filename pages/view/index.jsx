@@ -4,18 +4,18 @@ import { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
 
 // Components.
-import TextArea from '../../components/LiveTranscript/TextArea';
-import LiveTranscript from '../../components/LiveTranscript';
-import Provider from '../../components/Provider';
-import WidgetContext from '../../context/widget-context';
+import TextArea from '../../src/components/LiveTranscript/TextArea';
+import LiveTranscript from '../../src/components/LiveTranscript';
+import Provider from '../../src/components/Session/Provider';
+import WidgetContext from '../../src/context/widget-context';
 
 // Dynamic imports.
-const ScrollButton = dynamic(() => import('../../components/Controls')
+const ScrollButton = dynamic(() => import('../../src/components/Controls')
     .then(el => el.ScrollButton));
-const Nav = dynamic(() => import('../../components/Controls')
+const Nav = dynamic(() => import('../../src/components/Controls')
     .then(el => el.Nav));
 const Modal = dynamic(() => import('react-modal'));
-const ModalComponent = dynamic(() => import('../../components/Controls')
+const ModalComponent = dynamic(() => import('../../src/components/Controls')
     .then(el => el.Modal));
 
 const modalStyles = {

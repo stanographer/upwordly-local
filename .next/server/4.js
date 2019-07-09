@@ -1,10 +1,10 @@
 exports.ids = [4];
 exports.modules = {
 
-/***/ "./pages/signup/Token.jsx":
-/*!********************************!*\
-  !*** ./pages/signup/Token.jsx ***!
-  \********************************/
+/***/ "./src/components/Modal/Text.jsx":
+/*!***************************************!*\
+  !*** ./src/components/Modal/Text.jsx ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12,127 +12,169 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "@fortawesome/free-solid-svg-icons");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/Token.jsx";
+/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Modal/Text.jsx";
 
 
 
-
-
-var Token = function Token(_ref) {
-  var errors = _ref.errors,
-      handleInput = _ref.handleInput,
-      nextStep = _ref.nextStep,
-      tokenValue = _ref.tokenValue;
-  var errorMessages = errors.map(function (e, i) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      className: "text-sm text-red-400 mb-2",
-      key: i,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 9
-      },
-      __self: this
-    }, e);
+var ModalCloseButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.js")).then(function (el) {
+    return el.ModalCloseButton;
   });
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    className: "bg-bg2 shadow-md rounded px-8 pt-6 pb-8 mb-4",
-    onSubmit: function onSubmit(e) {
-      e.preventDefault();
-      nextStep(tokenValue);
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.js")];
     },
+    modules: ['../Controls']
+  }
+});
+var ModalSaveButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.js")).then(function (el) {
+    return el.ModalSaveButton;
+  });
+}, {
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.js")];
+    },
+    modules: ['../Controls']
+  }
+});
+
+var Text = function Text() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_widget_context__WEBPACK_IMPORTED_MODULE_1__["default"].Consumer, {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "mb-4",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    className: "block text-grey-darker text-md font-hairline mb-6",
-    htmlFor: "username",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  }, "Please enter your ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: this
-  }, "Registration Token"), "."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    autoFocus: true,
-    autoComplete: "off",
-    spellCheck: false,
-    className: "shadow-lg appearance-none border rounded w-full py-2 px-3 text-bg font-mono focus:bg-blue-100 text-md tracking-wide",
-    id: "token",
-    name: "token",
-    type: "text",
-    placeholder: "Registration Token",
-    value: tokenValue,
-    onChange: function onChange(e) {
-      return handleInput(e);
-    },
-    required: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: this
-  })), !!errors ? errorMessages : '', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex items-center justify-between",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/signin",
-    prefetch: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "text-green-200 underline",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    },
-    __self: this
-  }, "Request a token")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "bg-blue hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200",
-    type: "submit",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43
-    },
-    __self: this
-  }, "Continue", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowRight"],
-    className: "mx-2",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: this
-  }))));
+  }, function (context) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "w-full max-w-sm",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "block uppercase tracking-wide text-brightGreen text-xs font-bold mb-2",
+      htmlFor: "grid-last-name",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, "Line Height"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
+      id: "grid-last-name",
+      type: "text",
+      name: "lineHeight",
+      value: context.settings.lineHeight || '',
+      onChange: function onChange(e) {
+        e.preventDefault();
+        context.onChangeSettings('lineHeight', e.target.value);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "mt-4",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "block uppercase tracking-wide text-brightGreen text-xs font-bold mb-2",
+      htmlFor: "grid-last-name",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "Horizontal Padding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
+      id: "grid-last-name",
+      type: "text",
+      name: "lineHeight",
+      value: context.settings.paddingX || '',
+      onChange: function onChange(e) {
+        e.preventDefault();
+        context.onChangeSettings('paddingX', e.target.value);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "mt-4",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "block uppercase tracking-wide text-brightGreen text-xs font-bold mb-2",
+      htmlFor: "grid-last-name",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }, "Vertical Padding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
+      id: "grid-last-name",
+      type: "text",
+      name: "lineHeight",
+      value: context.settings.paddingY || '',
+      onChange: function onChange(e) {
+        e.preventDefault();
+        context.onChangeSettings('paddingY', e.target.value);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalSaveButton, {
+      context: context,
+      label: "Save Text Settings",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalCloseButton, {
+      context: context,
+      label: "Close",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71
+      },
+      __self: this
+    })));
+  });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Token);
+/* harmony default export */ __webpack_exports__["default"] = (Text);
 
 /***/ })
 

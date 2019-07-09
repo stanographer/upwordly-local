@@ -1,11 +1,13 @@
 import * as auth from './auth';
 import * as db from './db';
-import * as firebase from './firebase';
+import * as Firebase from './firebase';
+import * as FirebaseContext from './context';
 
 export {
   auth,
   db,
-  firebase,
+  Firebase,
+  FirebaseContext,
 };
 
 
