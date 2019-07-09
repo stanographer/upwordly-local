@@ -8,10 +8,34 @@ const DashboardComponent = ({user}) => {
   console.log('dashboard props', user.uid);
 
   let [authUser, setAuthUser] = useState({});
+  let [job, setJob] = useState({});
+  let [errors, setErrors] = useState([]);
 
   const loadUser = user => {
     setAuthUser(user);
     console.log(user);
+  };
+
+  const setShortName = val => {
+    const re = /^[a-z0-9_\-]+$/i;
+
+    val = val.trim().toLowerCase();
+
+    if (!val.match(re) && val !== '') {
+      setJob({
+        shortName: val.trim().toLowerCase()
+      });
+
+      setErrors([
+        'Your job shortname may only contain lower-case letters, numbers, hyphens, and underscores',
+      ]);
+    } else {
+      setJob({
+        shortName: val.trim().toLowerCase()
+      });
+
+      setErrors([]);
+    }
   };
 
   useEffect(() => {
@@ -36,7 +60,12 @@ const DashboardComponent = ({user}) => {
             ? <p className="pt-4 pb-2 text-green-200">Logged in as {authUser.fullName}</p>
             : ''}
         <div className="flex flex-wrap -mx-4 my-10">
-          <JobCreator />
+          <p>{job.shortName} {job.title} {job.speakers}</p>
+          <JobCreator
+              errors={errors}
+              job={job}
+              setShortName={setShortName}
+          />
           <JobList />
         </div>
       </Fragment>
