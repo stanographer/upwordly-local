@@ -15,7 +15,6 @@ import * as ROUTES from '../../constants/routes';
 
 const NavDashboard = ({setActive}) => {
   return (
-
       <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky">
         <NavLogo />
         <div className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
@@ -30,7 +29,7 @@ const NavDashboard = ({setActive}) => {
             />
             <NavButton
                 icon={<FontAwesomeIcon icon={faUser} />}
-                title="Account"
+                title="My Account"
                 onClick={e => {
                   e.preventDefault();
                   setActive(1);

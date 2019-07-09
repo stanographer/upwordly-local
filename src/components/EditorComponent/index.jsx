@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { attachTextarea } from '../../ShareDB/textarea';
-import dynamic from 'next/dynamic';
-
 
 class EditorComponent extends Component {
   constructor(props, context) {
@@ -23,10 +21,7 @@ class EditorComponent extends Component {
   };
 
   componentDidMount() {
-
-
     this.attachDocument();
-
   };
 
   componentWillUnmount() {

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import dynamic from 'next/dynamic';
-import router from 'next/router'
+import router from 'next/router';
 import { auth } from '../firebase/firebase';
 import * as ROUTES from '../constants/routes';
 
@@ -14,6 +14,7 @@ const withAuth = Component => {
 
       this.state = {
         status: 'LOADING',
+        user: {},
       };
     }
 
@@ -21,7 +22,8 @@ const withAuth = Component => {
       auth.onAuthStateChanged(authUser => {
         if (authUser) {
           this.setState({
-            status: 'SIGNED_IN'
+            status: 'SIGNED_IN',
+            user: auth.currentUser,
           });
         } else {
           router.push(ROUTES.SIGN_IN);
@@ -30,7 +32,10 @@ const withAuth = Component => {
     }
 
     renderContent() {
-      const {status} = this.state;
+      const {
+        status,
+        user,
+      } = this.state;
 
       if (status === 'LOADING') {
         return (
@@ -40,9 +45,14 @@ const withAuth = Component => {
                 <p className="text-center mt-2">Loading...</p>
               </div>
             </div>
-        )
+        );
       } else if (status === 'SIGNED_IN') {
-        return <Component {...this.props} />;
+        return (
+            <Component
+                {...this.props}
+                user={user}
+            />
+        )
       }
     }
 
