@@ -29,6 +29,16 @@ export const checkDupeUsername = (username, cb) => {
       });
 };
 
+export const getUser = (uid, cb) => {
+  db.ref(`users/${uid}`)
+      .once('value', snapshot => {
+        cb(snapshot.val());
+      })
+      .catch(err => {
+        cb(err);
+      })
+};
+
 export const onceGetUsers = () =>
     db.ref('users')
         .once('value');

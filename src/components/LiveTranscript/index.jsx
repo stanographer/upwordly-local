@@ -38,9 +38,9 @@ class LiveTranscript extends Component {
     this.socket = new ReconnectingWebSocket(server.getAddress(), [], {
       WebSocket: WS,
       automaticOpen: true,
-      maxReconnectionDelay: 2000,
-      reconnectInterval: 2000,
-      maxReconnectInterval: 3000,
+      maxReconnectionDelay: 1000,
+      reconnectInterval: 1000,
+      maxReconnectInterval: 2000,
       timeoutInterval: 2000,
       maxRetries: Infinity,
     });

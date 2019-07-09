@@ -39,18 +39,24 @@ class SignInComponent extends Component {
 
     e.preventDefault();
 
-    auth.doSignInWithEmailAndPassword(email, password)
-        .then(() => {
-          this.setState({...INITIAL_STATE});
-          router.push(ROUTES.DASHBOARD);
-        })
-        .catch(error => {
-          this.setState({error});
-        });
+   try {
+     auth.doSignInWithEmailAndPassword(email, password)
+         .then(() => {
+           this.setState({...INITIAL_STATE});
+           router.push(ROUTES.DASHBOARD);
+         })
+         .catch(error => {
+           this.setState({error});
+         });
+   } catch (err) {
+     this.setState({err});
+   }
   };
 
   onChange = event => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
 
   render() {

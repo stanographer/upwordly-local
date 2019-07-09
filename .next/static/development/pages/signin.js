@@ -40566,7 +40566,7 @@ var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signin/in
 
 
 var NavLogo = next_dynamic__WEBPACK_IMPORTED_MODULE_12___default()(function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../../src/components/Logos/NavLogo */ "./src/components/Logos/NavLogo.jsx"));
+  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../../src/components/Logos/NavLogo */ "./src/components/Logos/NavLogo.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -40576,7 +40576,7 @@ var NavLogo = next_dynamic__WEBPACK_IMPORTED_MODULE_12___default()(function () {
   }
 });
 var Typed = next_dynamic__WEBPACK_IMPORTED_MODULE_12___default()(function () {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.t.bind(null, /*! react-typed */ "./node_modules/react-typed/dist/react-typed.js", 7));
+  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.t.bind(null, /*! react-typed */ "./node_modules/react-typed/dist/react-typed.js", 7));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -40625,15 +40625,22 @@ function (_Component) {
           email = _this$state.email,
           password = _this$state.password;
       e.preventDefault();
-      _src_firebase__WEBPACK_IMPORTED_MODULE_16__["auth"].doSignInWithEmailAndPassword(email, password).then(function () {
-        _this.setState(Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, INITIAL_STATE));
 
-        next_router__WEBPACK_IMPORTED_MODULE_13___default.a.push(_src_constants_routes__WEBPACK_IMPORTED_MODULE_17__["DASHBOARD"]);
-      })["catch"](function (error) {
-        _this.setState({
-          error: error
+      try {
+        _src_firebase__WEBPACK_IMPORTED_MODULE_16__["auth"].doSignInWithEmailAndPassword(email, password).then(function () {
+          _this.setState(Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, INITIAL_STATE));
+
+          next_router__WEBPACK_IMPORTED_MODULE_13___default.a.push(_src_constants_routes__WEBPACK_IMPORTED_MODULE_17__["DASHBOARD"]);
+        })["catch"](function (error) {
+          _this.setState({
+            error: error
+          });
         });
-      });
+      } catch (err) {
+        _this.setState({
+          err: err
+        });
+      }
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "onChange", function (event) {
@@ -40657,47 +40664,47 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_src_components_Session_Provider__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_10___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 74
         },
         __self: this
       }, "Sign in to Upword.ly")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "container mx-auto h-full flex flex-1 justify-center items-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 76
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "w-full max-w-sm mt-20",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 77
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(NavLogo, {
         center: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 78
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "font-sans font-hairline mb-10 mt-2 text-center justify-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 79
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Typed, {
@@ -40706,7 +40713,7 @@ function (_Component) {
         typeSpeed: 40,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 80
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("form", {
@@ -40716,14 +40723,14 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 88
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "mb-4",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 89
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("label", {
@@ -40731,7 +40738,7 @@ function (_Component) {
         htmlFor: "username",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 90
         },
         __self: this
       }, "Email"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
@@ -40746,14 +40753,14 @@ function (_Component) {
         required: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 94
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "mb-6",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 105
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("label", {
@@ -40761,7 +40768,7 @@ function (_Component) {
         htmlFor: "password",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 106
         },
         __self: this
       }, "Password"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
@@ -40775,14 +40782,14 @@ function (_Component) {
         required: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 110
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "flex items-center justify-between",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 120
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("a", {
@@ -40790,7 +40797,7 @@ function (_Component) {
         href: "#",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 121
         },
         __self: this
       }, "Forgot Password?"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("button", {
@@ -40799,7 +40806,7 @@ function (_Component) {
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 125
         },
         __self: this
       }, "Sign In", react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"], {
@@ -40807,20 +40814,20 @@ function (_Component) {
         className: "mx-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 130
         },
         __self: this
       }))), error && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 134
         },
         __self: this
       }, error.message), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "text-center mt-6",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 130
+          lineNumber: 136
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -40828,21 +40835,21 @@ function (_Component) {
         prefetch: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 137
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("a", {
         className: "text-green-200 underline",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 137
         },
         __self: this
       }, "Create an account")))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
         className: "text-center text-grey text-xs mt-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 142
         },
         __self: this
       }, "\xA92019 Upword.ly. All rights reserved."))));
@@ -41151,7 +41158,7 @@ var withFirebase = function withFirebase(Component) {
 /*!****************************!*\
   !*** ./src/firebase/db.js ***!
   \****************************/
-/*! exports provided: doCreateUser, checkDupeEmail, checkDupeUsername, onceGetUsers */
+/*! exports provided: doCreateUser, checkDupeEmail, checkDupeUsername, getUser, onceGetUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41159,6 +41166,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "doCreateUser", function() { return doCreateUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkDupeEmail", function() { return checkDupeEmail; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkDupeUsername", function() { return checkDupeUsername; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onceGetUsers", function() { return onceGetUsers; });
 /* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebase */ "./src/firebase/firebase.js");
 
@@ -41180,6 +41188,13 @@ var checkDupeEmail = function checkDupeEmail(email, cb) {
 var checkDupeUsername = function checkDupeUsername(username, cb) {
   _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref('users').orderByChild('username').equalTo(username).on('value', function (snapshot) {
     cb(!!snapshot.val());
+  });
+};
+var getUser = function getUser(uid, cb) {
+  _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref("users/".concat(uid)).once('value', function (snapshot) {
+    cb(snapshot.val());
+  })["catch"](function (err) {
+    cb(err);
   });
 };
 var onceGetUsers = function onceGetUsers() {
@@ -41250,7 +41265,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /*!********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fsignin&absolutePagePath=%2FUsers%2Fstanleysakai%2FDeveloper%2Fupwordly-local%2Fpages%2Fsignin%2Findex.jsx ***!
   \********************************************************************************************************************************************************/
@@ -41273,5 +41288,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=signin.js.map

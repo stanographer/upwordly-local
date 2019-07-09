@@ -10,14 +10,15 @@ const DashboardComponent = dynamic(() =>
 const SettingsComponent = dynamic(() =>
     import('../../src/components/DashboardPages/SettingsComponent'));
 
-const Dashboard = () => {
+const Dashboard = props => {
   let [active, setActive] = useState(0);
+  console.log(props);
 
   // Switches the active component based on the number.
   const ActiveComponent = number => {
     switch (number) {
       case 0:
-        return <DashboardComponent />;
+        return <DashboardComponent {...props} />;
       case 1:
         return <AccountComponent />;
       case 2:

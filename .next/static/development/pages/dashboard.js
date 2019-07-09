@@ -41223,21 +41223,23 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _src_helpers_withAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src/helpers/withAuth */ "./src/helpers/withAuth.js");
-/* harmony import */ var _src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/components/Controls/NavDashboard */ "./src/components/Controls/NavDashboard.jsx");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _src_helpers_withAuth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/helpers/withAuth */ "./src/helpers/withAuth.js");
+/* harmony import */ var _src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/components/Controls/NavDashboard */ "./src/components/Controls/NavDashboard.jsx");
+
 
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/dashboard/index.jsx";
 
 
 
 
-var AccountComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../../src/components/DashboardPages/AccountComponent */ "./src/components/DashboardPages/AccountComponent.jsx"));
+var AccountComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../../src/components/DashboardPages/AccountComponent */ "./src/components/DashboardPages/AccountComponent.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41246,8 +41248,8 @@ var AccountComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(funct
     modules: ['../../src/components/DashboardPages/AccountComponent']
   }
 });
-var DashboardComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../../src/components/DashboardPages/DashboardComponent */ "./src/components/DashboardPages/DashboardComponent.jsx"));
+var DashboardComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../../src/components/DashboardPages/DashboardComponent */ "./src/components/DashboardPages/DashboardComponent.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41256,8 +41258,8 @@ var DashboardComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(fun
     modules: ['../../src/components/DashboardPages/DashboardComponent']
   }
 });
-var SettingsComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../../src/components/DashboardPages/SettingsComponent */ "./src/components/DashboardPages/SettingsComponent.jsx"));
+var SettingsComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../../src/components/DashboardPages/SettingsComponent */ "./src/components/DashboardPages/SettingsComponent.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41267,69 +41269,70 @@ var SettingsComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(func
   }
 });
 
-var Dashboard = function Dashboard() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(0),
-      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+var Dashboard = function Dashboard(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
       active = _useState2[0],
-      setActive = _useState2[1]; // Switches the active component based on the number.
+      setActive = _useState2[1];
 
+  console.log(props); // Switches the active component based on the number.
 
   var ActiveComponent = function ActiveComponent(number) {
     switch (number) {
       case 0:
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(DashboardComponent, {
+        return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(DashboardComponent, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 20
+            lineNumber: 21
           },
           __self: this
-        });
+        }));
 
       case 1:
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(AccountComponent, {
+        return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(AccountComponent, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 23
           },
           __self: this
         });
 
       case 2:
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SettingsComponent, {
+        return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SettingsComponent, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 25
           },
           __self: this
         });
     }
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    active: active,
-    setActive: setActive,
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 30
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("section", {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    active: active,
+    setActive: setActive,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
     className: "container mx-auto px-16 py-32",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 35
     },
     __self: this
   }, ActiveComponent(active)));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_src_helpers_withAuth__WEBPACK_IMPORTED_MODULE_3__["default"])(Dashboard));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_src_helpers_withAuth__WEBPACK_IMPORTED_MODULE_4__["default"])(Dashboard));
 
 /***/ }),
 
@@ -41447,7 +41450,7 @@ function _templateObject() {
  // Dynamically loaded components.
 
 var FontComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../Modal/Font */ "./src/components/Modal/Font.jsx"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Modal/Font */ "./src/components/Modal/Font.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41457,7 +41460,7 @@ var FontComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function
   }
 });
 var TextComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Modal/Text */ "./src/components/Modal/Text.jsx"));
+  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../Modal/Text */ "./src/components/Modal/Text.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41467,7 +41470,7 @@ var TextComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function
   }
 });
 var ColorComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../Modal/Color */ "./src/components/Modal/Color.jsx"));
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../Modal/Color */ "./src/components/Modal/Color.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41477,7 +41480,7 @@ var ColorComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(functio
   }
 });
 var ShareComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../Modal/Share */ "./src/components/Modal/Share.jsx"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Modal/Share */ "./src/components/Modal/Share.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
@@ -41922,27 +41925,27 @@ var NavDashboard = function NavDashboard(_ref) {
     className: "flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 18
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logos_NavLogo__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 19
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 20
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lg:flex-grow my-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 21
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -41950,7 +41953,7 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faTasks"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 23
       },
       __self: this
     }),
@@ -41961,7 +41964,7 @@ var NavDashboard = function NavDashboard(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 22
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -41969,18 +41972,18 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faUser"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 31
       },
       __self: this
     }),
-    title: "Account",
+    title: "My Account",
     onClick: function onClick(e) {
       e.preventDefault();
       setActive(1);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -41988,7 +41991,7 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faCog"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 39
       },
       __self: this
     }),
@@ -41999,14 +42002,14 @@ var NavDashboard = function NavDashboard(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 38
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "my-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -42014,7 +42017,7 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faSignOutAlt"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 49
       },
       __self: this
     }),
@@ -42027,7 +42030,7 @@ var NavDashboard = function NavDashboard(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 48
     },
     __self: this
   }))));
@@ -42496,7 +42499,8 @@ var withAuth = function withAuth(Component) {
 
         _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(_class).call(this, props));
         _this.state = {
-          status: 'LOADING'
+          status: 'LOADING',
+          user: {}
         };
         return _this;
       }
@@ -42509,7 +42513,8 @@ var withAuth = function withAuth(Component) {
           _firebase_firebase__WEBPACK_IMPORTED_MODULE_9__["auth"].onAuthStateChanged(function (authUser) {
             if (authUser) {
               _this2.setState({
-                status: 'SIGNED_IN'
+                status: 'SIGNED_IN',
+                user: _firebase_firebase__WEBPACK_IMPORTED_MODULE_9__["auth"].currentUser
               });
             } else {
               next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push(_constants_routes__WEBPACK_IMPORTED_MODULE_10__["SIGN_IN"]);
@@ -42519,43 +42524,46 @@ var withAuth = function withAuth(Component) {
       }, {
         key: "renderContent",
         value: function renderContent() {
-          var status = this.state.status;
+          var _this$state = this.state,
+              status = _this$state.status,
+              user = _this$state.user;
 
           if (status === 'LOADING') {
             return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
               className: "container mx-auto h-full flex justify-center items-center",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 37
+                lineNumber: 42
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
               className: "w-full max-w-sm mt-20",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 38
+                lineNumber: 43
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(NavLogo, {
               center: true,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 39
+                lineNumber: 44
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("p", {
               className: "text-center mt-2",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 40
+                lineNumber: 45
               },
               __self: this
             }, "Loading...")));
           } else if (status === 'SIGNED_IN') {
             return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.props, {
+              user: user,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 45
+                lineNumber: 51
               },
               __self: this
             }));
@@ -42567,7 +42575,7 @@ var withAuth = function withAuth(Component) {
           return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 51
+              lineNumber: 61
             },
             __self: this
           }, this.renderContent());
@@ -42583,7 +42591,7 @@ var withAuth = function withAuth(Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 2:
 /*!**************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdashboard&absolutePagePath=%2FUsers%2Fstanleysakai%2FDeveloper%2Fupwordly-local%2Fpages%2Fdashboard%2Findex.jsx ***!
   \**************************************************************************************************************************************************************/
@@ -42606,5 +42614,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dashboard.js.map

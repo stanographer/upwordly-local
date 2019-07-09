@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
 
-/***/ "./src/components/Modal/Text.jsx":
+/***/ "./src/components/Modal/Font.jsx":
 /*!***************************************!*\
-  !*** ./src/components/Modal/Text.jsx ***!
+  !*** ./src/components/Modal/Font.jsx ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Modal/Text.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Modal/Font.jsx";
 
 
 
@@ -43,7 +43,7 @@ var ModalSaveButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(functi
   }
 });
 
-var Text = function Text() {
+var Font = function Font() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_widget_context__WEBPACK_IMPORTED_MODULE_1__["default"].Consumer, {
     __source: {
       fileName: _jsxFileName,
@@ -78,15 +78,15 @@ var Text = function Text() {
         lineNumber: 18
       },
       __self: this
-    }, "Line Height"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, "Size"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
       id: "grid-last-name",
       type: "text",
-      name: "lineHeight",
-      value: context.settings.lineHeight || '',
+      name: "fontSize",
+      value: context.settings.fontSize || '',
       onChange: function onChange(e) {
         e.preventDefault();
-        context.onChangeSettings('lineHeight', e.target.value);
+        context.onChangeSettings('fontSize', e.target.value);
       },
       __source: {
         fileName: _jsxFileName,
@@ -94,7 +94,7 @@ var Text = function Text() {
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "mt-4",
+      className: "flex flex-grow-1 my-8",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 34
@@ -108,57 +108,12 @@ var Text = function Text() {
         lineNumber: 35
       },
       __self: this
-    }, "Horizontal Padding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
-      id: "grid-last-name",
-      type: "text",
-      name: "lineHeight",
-      value: context.settings.paddingX || '',
-      onChange: function onChange(e) {
-        e.preventDefault();
-        context.onChangeSettings('paddingX', e.target.value);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "mt-4",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: "block uppercase tracking-wide text-brightGreen text-xs font-bold mb-2",
-      htmlFor: "grid-last-name",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
-    }, "Vertical Padding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      className: "appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 min-w-0",
-      id: "grid-last-name",
-      type: "text",
-      name: "lineHeight",
-      value: context.settings.paddingY || '',
-      onChange: function onChange(e) {
-        e.preventDefault();
-        context.onChangeSettings('paddingY', e.target.value);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalSaveButton, {
+    }, "Style")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalSaveButton, {
       context: context,
-      label: "Save Text Settings",
+      label: "Save Font Settings",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 40
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ModalCloseButton, {
@@ -166,14 +121,14 @@ var Text = function Text() {
       label: "Close",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 44
       },
       __self: this
     })));
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Text);
+/* harmony default export */ __webpack_exports__["default"] = (Font);
 
 /***/ })
 
