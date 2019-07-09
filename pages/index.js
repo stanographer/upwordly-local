@@ -1,4 +1,4 @@
-import Provider from '../components/Provider';
+import Provider from '../src/components/Session/Provider';
 import React from 'react';
 import Typed from 'react-typed';
 import Link from 'next/link';

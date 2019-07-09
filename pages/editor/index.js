@@ -1,9 +1,9 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
-import EditorComponent from '../../components/EditorComponent';
+import EditorComponent from '../../src/components/EditorComponent';
 
-const LiveTranscript = dynamic(() => import('../../components/LiveTranscript'));
+const LiveTranscript = dynamic(() => import('../../src/components/LiveTranscript'));
 
 const Editor = props => {
   const {router} = props;
