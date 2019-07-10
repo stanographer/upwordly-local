@@ -8501,7 +8501,7 @@ var withFirebase = function withFirebase(Component) {
 /*!****************************!*\
   !*** ./src/firebase/db.js ***!
   \****************************/
-/*! exports provided: doCreateUser, checkDupeEmail, checkDupeUsername, getUser, onceGetUsers */
+/*! exports provided: doCreateUser, checkDupeEmail, checkDupeUsername, getUser, onceGetUsers, findJob, createJob */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8511,7 +8511,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkDupeUsername", function() { return checkDupeUsername; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onceGetUsers", function() { return onceGetUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findJob", function() { return findJob; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createJob", function() { return createJob; });
 /* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebase */ "./src/firebase/firebase.js");
+ // User methods.
 
 var doCreateUser = function doCreateUser(email, fullName, location, id, payment, token, username) {
   return _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref("users/".concat(id)).set({
@@ -8542,6 +8545,13 @@ var getUser = function getUser(uid, cb) {
 };
 var onceGetUsers = function onceGetUsers() {
   return _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref('users').once('value');
+}; // Job methods.
+
+var findJob = function findJob(shortName) {
+  _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref('jobs').orderByChild('shortName').equalTo(shortName);
+};
+var createJob = function createJob() {
+  _firebase__WEBPACK_IMPORTED_MODULE_0__["db"].ref('jobs');
 };
 
 /***/ }),

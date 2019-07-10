@@ -1,5 +1,6 @@
 import { db } from './firebase';
 
+// User methods.
 export const doCreateUser = (email, fullName, location, id, payment, token, username) =>
     db.ref(`users/${id}`)
         .set({
@@ -42,3 +43,16 @@ export const getUser = (uid, cb) => {
 export const onceGetUsers = () =>
     db.ref('users')
         .once('value');
+
+// Job methods.
+
+export const findJob = shortName => {
+  db.ref('jobs')
+      .orderByChild('shortName')
+      .equalTo(shortName);
+};
+
+export const createJob = () => {
+  db.ref('jobs')
+
+};
