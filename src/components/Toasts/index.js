@@ -17,7 +17,7 @@ const Copied = () => {
       <div className="text-lg text-bg font-apercu pl-2">
         <FontAwesomeIcon
             icon={faCopy}
-            size="md"
+            size="lg"
         />
         <p className="font-bold ml-4 inline">Link has been copied to your clipboard!</p>
       </div>
@@ -29,7 +29,7 @@ const Fetching = () => {
       <div className="text-lg text-bg font-apercu pl-2">
         <FontAwesomeIcon
             icon={faRunning}
-            size="md"
+            size="lg"
         />
         <p className="font-bold ml-4 inline">Fetching job!</p>
       </div>

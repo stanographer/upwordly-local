@@ -98,18 +98,18 @@ class View extends React.Component {
             {context => (
                 <Fragment>
                   <Modal
-                    isOpen={context.widgetOpen}
-                    onRequestClose={context.closeWidget}
-                    contentLabel="Widget Modal"
-                    style={modalStyles}
-                    ariaHideApp={false}
-                >
-                  <ModalComponent
-                      user={router.query.user}
-                      job={router.query.job}
-                      title={context.currentWidget}
-                  />
-                </Modal>
+                      isOpen={context.widgetOpen}
+                      onRequestClose={context.closeWidget}
+                      contentLabel="Widget Modal"
+                      style={modalStyles}
+                      ariaHideApp={false}
+                  >
+                    <ModalComponent
+                        user={router.query.user}
+                        job={router.query.job}
+                        title={context.currentWidget}
+                    />
+                  </Modal>
                   <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
                     <Nav
                         openModal={this.openModal}

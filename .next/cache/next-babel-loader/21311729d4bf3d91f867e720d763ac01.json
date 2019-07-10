@@ -1,0 +1,1 @@
+{"ast":null,"code":"import * as auth from './auth';\nimport * as db from './db';\nimport * as Firebase from './firebase';\nimport * as FirebaseContext from './context';\nexport { auth, db, Firebase, FirebaseContext };","map":null,"metadata":{},"sourceType":"module"}

@@ -1,169 +1,11 @@
 {
-  "../../src/components/Controls": [
-    {
-      "id": "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js",
-      "name": "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js",
-      "name": "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js",
-      "name": "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
-      "name": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@emotion/memoize/dist/memoize.browser.esm.js",
-      "name": "./node_modules/@emotion/memoize/dist/memoize.browser.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
-      "name": "./node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@fortawesome/free-solid-svg-icons/index.js",
-      "name": "./node_modules/@fortawesome/free-solid-svg-icons/index.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/@fortawesome/react-fontawesome/index.js",
-      "name": "./node_modules/@fortawesome/react-fontawesome/index.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/core-js/library/fn/object/define-properties.js",
-      "name": "./node_modules/core-js/library/fn/object/define-properties.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/core-js/library/fn/object/freeze.js",
-      "name": "./node_modules/core-js/library/fn/object/freeze.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/core-js/library/modules/es6.object.define-properties.js",
-      "name": "./node_modules/core-js/library/modules/es6.object.define-properties.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/core-js/library/modules/es6.object.freeze.js",
-      "name": "./node_modules/core-js/library/modules/es6.object.freeze.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/is-what/dist/index.esm.js",
-      "name": "./node_modules/is-what/dist/index.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/memoize-one/dist/memoize-one.esm.js",
-      "name": "./node_modules/memoize-one/dist/memoize-one.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/merge-anything/dist/index.esm.js",
-      "name": "./node_modules/merge-anything/dist/index.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/styled-components/dist/styled-components.browser.esm.js",
-      "name": "./node_modules/styled-components/dist/styled-components.browser.esm.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/stylis-rule-sheet/index.js",
-      "name": "./node_modules/stylis-rule-sheet/index.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./node_modules/stylis/stylis.min.js",
-      "name": "./node_modules/stylis/stylis.min.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/ButtonGroup.jsx",
-      "name": "./src/components/Controls/ButtonGroup.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/Modal.jsx",
-      "name": "./src/components/Controls/Modal.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/ModalCloseButton.jsx",
-      "name": "./src/components/Controls/ModalCloseButton.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/ModalSaveButton.jsx",
-      "name": "./src/components/Controls/ModalSaveButton.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/Nav.jsx",
-      "name": "./src/components/Controls/Nav.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/NavButton.jsx",
-      "name": "./src/components/Controls/NavButton.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/ScrollButton.jsx",
-      "name": "./src/components/Controls/ScrollButton.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Controls/index.js",
-      "name": "./src/components/Controls/index.js",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    },
-    {
-      "id": "./src/components/Logos/NavLogo.jsx",
-      "name": "./src/components/Logos/NavLogo.jsx",
-      "file": "static/chunks/9.js",
-      "publicPath": "static/chunks/9.js"
-    }
-  ],
   "../../src/components/DashboardPages/AccountComponent": [
+    {
+      "id": "./node_modules/react-typed/dist/react-typed.js",
+      "name": "./node_modules/react-typed/dist/react-typed.js",
+      "file": "static/chunks/4.js",
+      "publicPath": "static/chunks/4.js"
+    },
     {
       "id": "./src/components/DashboardPages/AccountComponent.jsx",
       "name": "./src/components/DashboardPages/AccountComponent.jsx",
@@ -172,6 +14,12 @@
     }
   ],
   "../../src/components/DashboardPages/DashboardComponent": [
+    {
+      "id": "./node_modules/@babel/runtime-corejs2/core-js/map.js",
+      "name": "./node_modules/@babel/runtime-corejs2/core-js/map.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
     {
       "id": "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js",
       "name": "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js",
@@ -197,6 +45,12 @@
       "publicPath": "static/chunks/12.js"
     },
     {
+      "id": "./node_modules/@babel/runtime-corejs2/helpers/interopRequireWildcard.js",
+      "name": "./node_modules/@babel/runtime-corejs2/helpers/interopRequireWildcard.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
       "id": "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js",
       "name": "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js",
       "file": "static/chunks/12.js",
@@ -215,6 +69,12 @@
       "publicPath": "static/chunks/12.js"
     },
     {
+      "id": "./node_modules/core-js/library/fn/map.js",
+      "name": "./node_modules/core-js/library/fn/map.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
       "id": "./node_modules/core-js/library/fn/object/get-own-property-descriptor.js",
       "name": "./node_modules/core-js/library/fn/object/get-own-property-descriptor.js",
       "file": "static/chunks/12.js",
@@ -227,8 +87,128 @@
       "publicPath": "static/chunks/12.js"
     },
     {
+      "id": "./node_modules/core-js/library/modules/es6.map.js",
+      "name": "./node_modules/core-js/library/modules/es6.map.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/es6.object.get-own-property-descriptor.js",
       "name": "./node_modules/core-js/library/modules/es6.object.get-own-property-descriptor.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/es7.map.from.js",
+      "name": "./node_modules/core-js/library/modules/es7.map.from.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/es7.map.of.js",
+      "name": "./node_modules/core-js/library/modules/es7.map.of.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/es7.map.to-json.js",
+      "name": "./node_modules/core-js/library/modules/es7.map.to-json.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/define-properties/index.js",
+      "name": "./node_modules/define-properties/index.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/function-bind/implementation.js",
+      "name": "./node_modules/function-bind/implementation.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/function-bind/index.js",
+      "name": "./node_modules/function-bind/index.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/has-symbols/shams.js",
+      "name": "./node_modules/has-symbols/shams.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/has/src/index.js",
+      "name": "./node_modules/has/src/index.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/next/dist/client/link.js",
+      "name": "./node_modules/next/dist/client/link.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/next/link.js",
+      "name": "./node_modules/next/link.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object-keys/implementation.js",
+      "name": "./node_modules/object-keys/implementation.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object-keys/index.js",
+      "name": "./node_modules/object-keys/index.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object-keys/isArguments.js",
+      "name": "./node_modules/object-keys/isArguments.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object.assign/implementation.js",
+      "name": "./node_modules/object.assign/implementation.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object.assign/index.js",
+      "name": "./node_modules/object.assign/index.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object.assign/polyfill.js",
+      "name": "./node_modules/object.assign/polyfill.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/object.assign/shim.js",
+      "name": "./node_modules/object.assign/shim.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/prop-types-exact/build/helpers/isPlainObject.js",
+      "name": "./node_modules/prop-types-exact/build/helpers/isPlainObject.js",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
+      "id": "./node_modules/prop-types-exact/build/index.js",
+      "name": "./node_modules/prop-types-exact/build/index.js",
       "file": "static/chunks/12.js",
       "publicPath": "static/chunks/12.js"
     },
@@ -269,14 +249,20 @@
       "publicPath": "static/chunks/12.js"
     },
     {
+      "id": "./src/components/Widgets/JobItem.jsx",
+      "name": "./src/components/Widgets/JobItem.jsx",
+      "file": "static/chunks/12.js",
+      "publicPath": "static/chunks/12.js"
+    },
+    {
       "id": "./src/components/Widgets/JobList.jsx",
       "name": "./src/components/Widgets/JobList.jsx",
       "file": "static/chunks/12.js",
       "publicPath": "static/chunks/12.js"
     },
     {
-      "id": "./src/firebase/context.js",
-      "name": "./src/firebase/context.js",
+      "id": "./src/components/Widgets/JobsNull.jsx",
+      "name": "./src/components/Widgets/JobsNull.jsx",
       "file": "static/chunks/12.js",
       "publicPath": "static/chunks/12.js"
     },
@@ -285,20 +271,28 @@
       "name": "./src/firebase/db.js",
       "file": "static/chunks/12.js",
       "publicPath": "static/chunks/12.js"
-    },
-    {
-      "id": "./src/firebase/index.js",
-      "name": "./src/firebase/index.js",
-      "file": "static/chunks/12.js",
-      "publicPath": "static/chunks/12.js"
     }
   ],
   "../../src/components/DashboardPages/SettingsComponent": [
+    {
+      "id": "./node_modules/react-typed/dist/react-typed.js",
+      "name": "./node_modules/react-typed/dist/react-typed.js",
+      "file": "static/chunks/5.js",
+      "publicPath": "static/chunks/5.js"
+    },
     {
       "id": "./src/components/DashboardPages/SettingsComponent.jsx",
       "name": "./src/components/DashboardPages/SettingsComponent.jsx",
       "file": "static/chunks/5.js",
       "publicPath": "static/chunks/5.js"
+    }
+  ],
+  "../../src/components/Logos/NavLogo": [
+    {
+      "id": "./src/components/Logos/NavLogo.jsx",
+      "name": "./src/components/Logos/NavLogo.jsx",
+      "file": "static/chunks/13.js",
+      "publicPath": "static/chunks/13.js"
     }
   ],
   "../Modal/Color": [
@@ -1795,72 +1789,66 @@
       "publicPath": "static/chunks/1.js"
     }
   ],
-  "react-modal": [
+  "react-typed": [
     {
-      "id": "./node_modules/exenv/index.js",
-      "name": "./node_modules/exenv/index.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
+      "name": "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/components/Modal.js",
-      "name": "./node_modules/react-modal/lib/components/Modal.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/@emotion/memoize/dist/memoize.browser.esm.js",
+      "name": "./node_modules/@emotion/memoize/dist/memoize.browser.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/components/ModalPortal.js",
-      "name": "./node_modules/react-modal/lib/components/ModalPortal.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
+      "name": "./node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/helpers/ariaAppHider.js",
-      "name": "./node_modules/react-modal/lib/helpers/ariaAppHider.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/is-what/dist/index.esm.js",
+      "name": "./node_modules/is-what/dist/index.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/helpers/classList.js",
-      "name": "./node_modules/react-modal/lib/helpers/classList.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/memoize-one/dist/memoize-one.esm.js",
+      "name": "./node_modules/memoize-one/dist/memoize-one.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/helpers/focusManager.js",
-      "name": "./node_modules/react-modal/lib/helpers/focusManager.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/merge-anything/dist/index.esm.js",
+      "name": "./node_modules/merge-anything/dist/index.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/helpers/safeHTMLElement.js",
-      "name": "./node_modules/react-modal/lib/helpers/safeHTMLElement.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/react-typed/dist/react-typed.js",
+      "name": "./node_modules/react-typed/dist/react-typed.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/helpers/scopeTab.js",
-      "name": "./node_modules/react-modal/lib/helpers/scopeTab.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "name": "./node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/helpers/tabbable.js",
-      "name": "./node_modules/react-modal/lib/helpers/tabbable.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/stylis-rule-sheet/index.js",
+      "name": "./node_modules/stylis-rule-sheet/index.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     },
     {
-      "id": "./node_modules/react-modal/lib/index.js",
-      "name": "./node_modules/react-modal/lib/index.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
-    },
-    {
-      "id": "./node_modules/warning/warning.js",
-      "name": "./node_modules/warning/warning.js",
-      "file": "static/chunks/10.js",
-      "publicPath": "static/chunks/10.js"
+      "id": "./node_modules/stylis/stylis.min.js",
+      "name": "./node_modules/stylis/stylis.min.js",
+      "file": "static/chunks/11.js",
+      "publicPath": "static/chunks/11.js"
     }
   ]
 }

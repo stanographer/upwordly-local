@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from 'react';\nexport default React.createContext({\n  currentWidget: '',\n  onChangeSettings: function onChangeSettings() {},\n  settings: {},\n  widgetOpen: false,\n  openWidget: function openWidget(widget) {},\n  closeWidget: function closeWidget(widget) {}\n});","map":null,"metadata":{},"sourceType":"module"}

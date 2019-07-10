@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import dynamic from 'next/dynamic';
 import withAuth from '../../src/helpers/withAuth';
+import Head from 'next/head';
 import NavDashboard from '../../src/components/Controls/NavDashboard';
 
 const AccountComponent = dynamic(() =>
@@ -28,11 +29,14 @@ const Dashboard = props => {
 
   return (
       <Fragment>
+        <Head>
+          <title>Upword.ly Dashboard</title>
+        </Head>
         <NavDashboard
             active={active}
             setActive={setActive}
         />
-        <section className="container mx-auto px-16 py-32">
+        <section className="container mx-auto px-16 py-32 sm:py-24">
           {ActiveComponent(active)}
         </section>
       </Fragment>
