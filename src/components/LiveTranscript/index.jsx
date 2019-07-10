@@ -24,13 +24,12 @@ class LiveTranscript extends Component {
     this.hasDisconnected = false;
   }
 
-  fetchDoc = (host) => {
+  fetchDoc = host => {
     const server = {
       host: process.env.REACT_APP_ENV === 'production' ? 'upword.ly/ws' : host,
       port: process.env.REACT_APP_ENV === 'production' ? '' : ':9090',
       protocol: process.env.REACT_APP_ENV === 'production' ? 'wss://' : 'ws://',
       getAddress: function () {
-        console.log(this.protocol + this.host + this.port);
         return this.protocol + this.host + this.port;
       },
     };

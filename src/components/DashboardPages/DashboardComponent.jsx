@@ -27,7 +27,11 @@ const DashboardComponent = ({user}) => {
       });
 
       setErrors([
-        'Your job shortname may only contain lower-case letters, numbers, hyphens, and underscores',
+        'Your job shortname may only contain lower-case letters, numbers, hyphens, and underscores.',
+      ]);
+    } else if (val.length > 100) {
+      setErrors([
+        'Your job shortname may not exceed 100 characters in length.',
       ]);
     } else {
       setJob({
@@ -36,6 +40,27 @@ const DashboardComponent = ({user}) => {
 
       setErrors([]);
     }
+  };
+
+  const setTitleAndSpeakers = (key, val) => {
+    // Replaces backticks with single quotes.
+    if (val.includes('`')) {
+      val = val.replace('`', '\'');
+    }
+
+    // Escapes curly braces.
+    if (val.includes('{')) {
+      val = val.replace('{', '\{');
+    }
+
+    if (val.includes('}')) {
+      val = val.replace('{', '\}');
+    }
+
+    setJob({
+      ...job,
+      [key]: val,
+    });
   };
 
   useEffect(() => {
@@ -60,11 +85,12 @@ const DashboardComponent = ({user}) => {
             ? <p className="pt-4 pb-2 text-green-200">Logged in as {authUser.fullName}</p>
             : ''}
         <div className="flex flex-wrap -mx-4 my-10">
-          <p>{job.shortName} {job.title} {job.speakers}</p>
           <JobCreator
+              authUser={authUser}
               errors={errors}
               job={job}
               setShortName={setShortName}
+              setTitleAndSpeakers={setTitleAndSpeakers}
           />
           <JobList />
         </div>

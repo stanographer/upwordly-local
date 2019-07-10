@@ -7,7 +7,6 @@ import {
   faTasks,
   faUser,
 } from '@fortawesome/free-solid-svg-icons/index';
-import WidgetContext from '../../context/widget-context';
 import NavLogo from '../Logos/NavLogo';
 import router from 'next/router';
 import { doSignOut } from '../../firebase/auth';

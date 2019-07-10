@@ -1309,14 +1309,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "@fortawesome/free-solid-svg-icons/index");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
-/* harmony import */ var _Logos_NavLogo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Logos/NavLogo */ "./src/components/Logos/NavLogo.jsx");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../firebase/auth */ "./src/firebase/auth.js");
-/* harmony import */ var _constants_routes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constants/routes */ "./src/constants/routes.js");
+/* harmony import */ var _Logos_NavLogo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Logos/NavLogo */ "./src/components/Logos/NavLogo.jsx");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../firebase/auth */ "./src/firebase/auth.js");
+/* harmony import */ var _constants_routes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constants/routes */ "./src/constants/routes.js");
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/NavDashboard.jsx";
-
 
 
 
@@ -1332,27 +1330,27 @@ var NavDashboard = function NavDashboard(_ref) {
     className: "flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 17
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logos_NavLogo__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logos_NavLogo__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 18
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 19
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lg:flex-grow my-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 20
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -1360,7 +1358,7 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faTasks"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 22
       },
       __self: this
     }),
@@ -1371,7 +1369,7 @@ var NavDashboard = function NavDashboard(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 21
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -1379,7 +1377,7 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faUser"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 30
       },
       __self: this
     }),
@@ -1390,7 +1388,7 @@ var NavDashboard = function NavDashboard(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 29
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -1398,7 +1396,7 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faCog"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 38
       },
       __self: this
     }),
@@ -1409,14 +1407,14 @@ var NavDashboard = function NavDashboard(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 37
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "my-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 46
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_1__["NavButton"], {
@@ -1424,20 +1422,20 @@ var NavDashboard = function NavDashboard(_ref) {
       icon: _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__["faSignOutAlt"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 48
       },
       __self: this
     }),
     title: "Sign out",
     onClick: function onClick(e) {
       e.preventDefault();
-      Object(_firebase_auth__WEBPACK_IMPORTED_MODULE_7__["doSignOut"])().then(function () {
-        return next_router__WEBPACK_IMPORTED_MODULE_6___default.a.push(_constants_routes__WEBPACK_IMPORTED_MODULE_8__["SIGN_IN"]);
+      Object(_firebase_auth__WEBPACK_IMPORTED_MODULE_6__["doSignOut"])().then(function () {
+        return next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push(_constants_routes__WEBPACK_IMPORTED_MODULE_7__["SIGN_IN"]);
       });
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 47
     },
     __self: this
   }))));
@@ -2012,6 +2010,17 @@ module.exports = __webpack_require__(/*! /Users/stanleysakai/Developer/upwordly-
 
 /***/ }),
 
+/***/ "@fortawesome/free-solid-svg-icons":
+/*!****************************************************!*\
+  !*** external "@fortawesome/free-solid-svg-icons" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@fortawesome/free-solid-svg-icons");
+
+/***/ }),
+
 /***/ "@fortawesome/free-solid-svg-icons/index":
 /*!**********************************************************!*\
   !*** external "@fortawesome/free-solid-svg-icons/index" ***!
@@ -2020,6 +2029,17 @@ module.exports = __webpack_require__(/*! /Users/stanleysakai/Developer/upwordly-
 /***/ (function(module, exports) {
 
 module.exports = require("@fortawesome/free-solid-svg-icons/index");
+
+/***/ }),
+
+/***/ "@fortawesome/react-fontawesome":
+/*!*************************************************!*\
+  !*** external "@fortawesome/react-fontawesome" ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@fortawesome/react-fontawesome");
 
 /***/ }),
 
@@ -2111,6 +2131,28 @@ module.exports = require("core-js/library/fn/object/freeze");
 
 /***/ }),
 
+/***/ "core-js/library/fn/object/get-own-property-descriptor":
+/*!************************************************************************!*\
+  !*** external "core-js/library/fn/object/get-own-property-descriptor" ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/get-own-property-symbols":
+/*!*********************************************************************!*\
+  !*** external "core-js/library/fn/object/get-own-property-symbols" ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/get-own-property-symbols");
+
+/***/ }),
+
 /***/ "core-js/library/fn/object/get-prototype-of":
 /*!*************************************************************!*\
   !*** external "core-js/library/fn/object/get-prototype-of" ***!
@@ -2119,6 +2161,17 @@ module.exports = require("core-js/library/fn/object/freeze");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/get-prototype-of");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/keys":
+/*!*************************************************!*\
+  !*** external "core-js/library/fn/object/keys" ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/keys");
 
 /***/ }),
 
@@ -2240,6 +2293,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-color");
+
+/***/ }),
+
+/***/ "react-copy-to-clipboard":
+/*!******************************************!*\
+  !*** external "react-copy-to-clipboard" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-copy-to-clipboard");
 
 /***/ }),
 

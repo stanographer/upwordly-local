@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { db } from '../../firebase/firebase';
 
-const JobCreator = ({errors, job, setShortName}) => {
+const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers}) => {
+  let [copied, setCopied] = useState(false);
+
+  const copiedLink = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  const createJob = () => {
+
+  };
+
   const errorMessages = errors.map((e, i) => (
       <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
   ));
@@ -23,14 +38,14 @@ const JobCreator = ({errors, job, setShortName}) => {
                      spellCheck={false}
                      className={
                        !!errors && errors.length > 0
-                         ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
-                           : 'shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"'
+                           ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
+                           : 'shadow-lg bg-orange-200 appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"'
                      }
                      id="shortname"
                      name="shortname"
                      type="shortname"
                      placeholder="(i.e. coachella2019)"
-                     value={job.shortName}
+                     value={job.shortName || ''}
                      onChange={e => setShortName(e.target.value)}
                      required
               />
@@ -46,6 +61,8 @@ const JobCreator = ({errors, job, setShortName}) => {
                      name="title"
                      type="title"
                      placeholder="(i.e. Spreadsheets IRL: The How and Why)"
+                     value={job.title || ''}
+                     onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
               />
             </div>
             <div className="mb-4 px-8">
@@ -59,12 +76,36 @@ const JobCreator = ({errors, job, setShortName}) => {
                      name="speakers"
                      type="speakers"
                      placeholder="(i.e. Christopher Hagan, Stanley Sakai)"
+                     value={job.speakers || ''}
+                     onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
               />
+              {
+                !errors.length && job.shortName && job.shortName.length > 0
+                    ? <CopyToClipboard
+                        text={`${document.location.protocol}//${document.location.host}/${authUser.username}/${job.shortName}`}
+                        onCopy={() => copiedLink()}
+                    >
+                      <p className={
+                        copied
+                            ? 'underline border py-4 px-4 mt-6 bg-green-200 text-bg2 font-mono break-words cursor-pointer'
+                            : 'underline border py-4 px-4 mt-6 text-teal-200 font-mono break-words cursor-pointer'
+                      }>
+                        <FontAwesomeIcon className="mx-4" icon={faClipboard} />
+                        {`${document.location.protocol}//${document.location.host}/${authUser.username}/${job.shortName}`}
+                      </p>
+                    </CopyToClipboard>
+                    : ''
+              }
             </div>
             <div className="text-center px-6 py-4">
               {
                 !!errors
                     ? errorMessages
+                    : ''
+              }
+              {
+                copied
+                    ? <p className="text-sm text-green-400 mb-4">Link copied to clipboard!</p>
                     : ''
               }
               <div className="py-8">
