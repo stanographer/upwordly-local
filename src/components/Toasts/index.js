@@ -4,21 +4,34 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheck,
+  faCopy,
   faExclamation,
   faRunning,
   faWifi,
 } from '@fortawesome/free-solid-svg-icons';
 
-// Toast contents.
+// Toast content components.
+
+const Copied = () => {
+  return (
+      <div className="text-lg text-bg font-apercu pl-2">
+        <FontAwesomeIcon
+            icon={faCopy}
+            size="md"
+        />
+        <p className="font-bold ml-4 inline">Link has been copied to your clipboard!</p>
+      </div>
+  );
+};
 
 const Fetching = () => {
   return (
-      <div className="text-lg text-bg font-apercu">
+      <div className="text-lg text-bg font-apercu pl-2">
         <FontAwesomeIcon
-            className="pr-2"
             icon={faRunning}
+            size="md"
         />
-        <strong>Fetching job!</strong>
+        <p className="font-bold ml-4 inline">Fetching job!</p>
       </div>
   );
 };
@@ -65,9 +78,22 @@ const Reconnected = () => {
   );
 };
 
-// Toast components.
+// Toasts.
 
 let toastId = null;
+
+const CopiedToast = () => {
+  if (toast.isActive(toastId)) {
+    toast.dismiss(toastId);
+    toastId = toast(<Copied />, {
+      autoClose: 1500,
+      position: 'top-center',
+      type: toast.TYPE.SUCCESS,
+      closeOnClick: true,
+      draggable: true
+    });
+  }
+};
 
 const FetchingToast = () => toastId = toast(<Fetching />, {
   autoClose: false,
@@ -119,6 +145,7 @@ const ReconnectedToast = () => {
 };
 
 export {
+  CopiedToast,
   DisconnectedToast,
   FetchingToast,
   LoadedToast,

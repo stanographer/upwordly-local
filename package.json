@@ -42,6 +42,7 @@
     "ot-text": "^1.0.2",
     "react": "^16.8.6",
     "react-color": "^2.17.3",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.6",
     "react-geosuggest": "^2.12.0",
     "react-modal": "^3.8.2",
