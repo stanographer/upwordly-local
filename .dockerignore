@@ -1,36 +1,50 @@
+node_modules
+npm-debug.log
+Dockerfile
+.travis.yml
+build_docker_image.sh
+
+.idea/
+.DS_Store
+deployment/tmp
+deployment/cookbooks
+manifest.yml
+
+# next.js
+.next
+
+# git
 .git
+.gitignore
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.idea/
+
+# testing
+/coverage
+
+# production
+/build
+.yo-rc.json
+
+# misc
+.DS_Store
+
+# Docker
+.dockerignore
+
+# tmp
 tmp
 log
 doc
 spec
 media
-.openshift
 .bundle
-vendor/bundle
-db/*.sqlite3
-public/system/*
 coverage
-.travis.yml
-build_docker_image.sh
 
-# Copied from .gitignore
-*.rbc
-*.sassc
-.sass-cache
-capybara-*.html
-.rspec
-!/tmp/.gitkeep
-**.orig
-rerun.txt
-pickle-email-*.html
-.idea/
-.DS_Store
-deployment/tmp
-deployment/cookbooks
-.vagrant
-.*un~
-.ruby-gemset
-.ruby-version
-manifest.yml
-config/unicorn.rb
-db/schema.rb
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

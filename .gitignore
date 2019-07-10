@@ -6,11 +6,15 @@
 .pnp.js
 .idea/
 
+# next.js
+.next
+
 # testing
 /coverage
 
 # production
 /build
+.yo-rc.json
 
 # misc
 .DS_Store

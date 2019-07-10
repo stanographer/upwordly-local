@@ -1,23 +1,19 @@
 FROM node:10-alpine
 
-ENV PORT 3000
-
-# Create app directory.
-RUN mkdir -p /usr/src/app
-
-# Set working dir.
+# Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /usr/src/app
 
-# Install app dependencies.
-COPY package*.json /usr/src/app/
+# Copy package.json
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
-# Bundle app source.
-COPY . /usr/src/app
+# Copying source files
+COPY . .
 
+# Building app
 RUN npm run build
 
-EXPOSE 3000
-
+# Running the app
 CMD [ "npm", "start" ]
