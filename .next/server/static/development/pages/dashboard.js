@@ -635,10 +635,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _src_helpers_withAuth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/helpers/withAuth */ "./src/helpers/withAuth.js");
-/* harmony import */ var _src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/components/Controls/NavDashboard */ "./src/components/Controls/NavDashboard.jsx");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/components/Controls/NavDashboard */ "./src/components/Controls/NavDashboard.jsx");
 
 
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/dashboard/index.jsx";
+
 
 
 
@@ -688,7 +691,7 @@ var Dashboard = function Dashboard(props) {
         return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(DashboardComponent, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 22
           },
           __self: this
         }));
@@ -697,7 +700,7 @@ var Dashboard = function Dashboard(props) {
         return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(AccountComponent, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 24
           },
           __self: this
         });
@@ -706,7 +709,7 @@ var Dashboard = function Dashboard(props) {
         return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SettingsComponent, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 26
           },
           __self: this
         });
@@ -716,22 +719,34 @@ var Dashboard = function Dashboard(props) {
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 31
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  }, "Upword.ly Dashboard")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Controls_NavDashboard__WEBPACK_IMPORTED_MODULE_6__["default"], {
     active: active,
     setActive: setActive,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 35
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
-    className: "container mx-auto px-16 py-32",
+    className: "container mx-auto px-16 py-32 sm:py-24",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 39
     },
     __self: this
   }, ActiveComponent(active)));
@@ -2076,6 +2091,17 @@ module.exports = require("core-js/library/fn/get-iterator");
 
 /***/ }),
 
+/***/ "core-js/library/fn/map":
+/*!*****************************************!*\
+  !*** external "core-js/library/fn/map" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/map");
+
+/***/ }),
+
 /***/ "core-js/library/fn/object/assign":
 /*!***************************************************!*\
   !*** external "core-js/library/fn/object/assign" ***!
@@ -2186,6 +2212,17 @@ module.exports = require("core-js/library/fn/object/set-prototype-of");
 
 /***/ }),
 
+/***/ "core-js/library/fn/reflect/construct":
+/*!*******************************************************!*\
+  !*** external "core-js/library/fn/reflect/construct" ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/reflect/construct");
+
+/***/ }),
+
 /***/ "core-js/library/fn/symbol":
 /*!********************************************!*\
   !*** external "core-js/library/fn/symbol" ***!
@@ -2241,6 +2278,61 @@ module.exports = require("firebase/database");
 
 /***/ }),
 
+/***/ "next-server/dist/lib/request-context":
+/*!*******************************************************!*\
+  !*** external "next-server/dist/lib/request-context" ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/dist/lib/request-context");
+
+/***/ }),
+
+/***/ "next-server/dist/lib/router-context":
+/*!******************************************************!*\
+  !*** external "next-server/dist/lib/router-context" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/dist/lib/router-context");
+
+/***/ }),
+
+/***/ "next-server/dist/lib/router/rewrite-url-for-export":
+/*!*********************************************************************!*\
+  !*** external "next-server/dist/lib/router/rewrite-url-for-export" ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/dist/lib/router/rewrite-url-for-export");
+
+/***/ }),
+
+/***/ "next-server/dist/lib/router/router":
+/*!*****************************************************!*\
+  !*** external "next-server/dist/lib/router/router" ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/dist/lib/router/router");
+
+/***/ }),
+
+/***/ "next-server/dist/lib/utils":
+/*!*********************************************!*\
+  !*** external "next-server/dist/lib/utils" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/dist/lib/utils");
+
+/***/ }),
+
 /***/ "next/dynamic":
 /*!*******************************!*\
   !*** external "next/dynamic" ***!
@@ -2249,6 +2341,17 @@ module.exports = require("firebase/database");
 /***/ (function(module, exports) {
 
 module.exports = require("next/dynamic");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 
@@ -2271,6 +2374,17 @@ module.exports = require("next/router");
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
+
+/***/ }),
+
+/***/ "prop-types-exact":
+/*!***********************************!*\
+  !*** external "prop-types-exact" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types-exact");
 
 /***/ }),
 
@@ -2326,6 +2440,17 @@ module.exports = require("react-typed");
 /***/ (function(module, exports) {
 
 module.exports = require("styled-components");
+
+/***/ }),
+
+/***/ "url":
+/*!**********************!*\
+  !*** external "url" ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("url");
 
 /***/ })
 

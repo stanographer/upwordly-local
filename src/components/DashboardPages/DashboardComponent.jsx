@@ -2,18 +2,20 @@ import React, { Fragment, useEffect, useState } from 'react';
 import JobCreator from '../../components/Widgets/JobCreator';
 import JobList from '../../components/Widgets/JobList';
 import Typed from 'react-typed';
-import { db } from '../../firebase';
+import { getUser, getAllJobsByUser } from '../../firebase/db';
 
 const DashboardComponent = ({user}) => {
   console.log('dashboard props', user.uid);
 
   let [authUser, setAuthUser] = useState({});
+  let [jobList, setJobList] = useState({});
   let [job, setJob] = useState({});
   let [errors, setErrors] = useState([]);
 
   const loadUser = user => {
     setAuthUser(user);
-    console.log(user);
+    console.log('username', user.username);
+    getAllJobsByUser(user.username, jobs => setJobList(jobs));
   };
 
   const setShortName = val => {
@@ -64,12 +66,11 @@ const DashboardComponent = ({user}) => {
   };
 
   useEffect(() => {
-    try {
-      db.getUser(user.uid, loadUser);
-    } catch (err) {
-      console.error('error', err);
-    }
-
+      try {
+        getUser(user.uid, loadUser);
+      } catch (err) {
+        console.error('error', err);
+      }
   }, []);
 
   return (
@@ -91,8 +92,11 @@ const DashboardComponent = ({user}) => {
               job={job}
               setShortName={setShortName}
               setTitleAndSpeakers={setTitleAndSpeakers}
+              uid={user.uid}
           />
-          <JobList />
+          <JobList
+            jobList={jobList}
+          />
         </div>
       </Fragment>
   );

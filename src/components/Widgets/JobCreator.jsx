@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { db } from '../../firebase/firebase';
+import { createJob } from '../../firebase/db';
 
-const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers}) => {
+const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers, uid}) => {
   let [copied, setCopied] = useState(false);
 
   const copiedLink = () => {
@@ -12,20 +12,29 @@ const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers}) 
     setTimeout(() => setCopied(false), 1500);
   };
 
-  const createJob = () => {
-
-  };
-
   const errorMessages = errors.map((e, i) => (
       <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
   ));
 
   return (
-      <form className="w-full lg:w-1/2 px-4">
+      <form className="w-full lg:w-1/2 px-4" onSubmit={e => {
+        e.preventDefault();
+        createJob(job, authUser.username, uid);
+      }}>
         <div className="bg-bg2 border-t border-b sm:rounded sm:border shadow">
           <div className="border-b">
             <div className="flex justify-between px-6 -mb-px">
               <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
+              <div className="flex">
+                <button type="button"
+                        className="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-3">
+                  List
+                </button>
+                <button type="button"
+                        className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark">
+                  Chart
+                </button>
+              </div>
             </div>
           </div>
           <div>
@@ -105,7 +114,7 @@ const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers}) 
               }
               {
                 copied
-                    ? <p className="text-sm text-green-400 mb-4">Link copied to clipboard!</p>
+                    ? <p className="text-lg text-green-400 mb-4">Link copied to clipboard!</p>
                     : ''
               }
               <div className="py-8">

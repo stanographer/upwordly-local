@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var DASHBOARD = '/dashboard';\nexport var EDITOR = '/editor';\nexport var LANDING = '/';\nexport var SIGN_IN = '/signin';\nexport var SIGN_UP = '/signup';\nexport var VIEW = '/view';","map":null,"metadata":{},"sourceType":"module"}

@@ -3,7 +3,7 @@ import Provider from '../../src/components/Session/Provider';
 import Head from 'next/head';
 import Router, { withRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-// import { auth, db } from '../../src/firebase';
+import { auth, db } from '../../src/firebase';
 import { withFirebase } from '../../src/firebase/context';
 import * as ROUTES from '../../src/constants/routes';
 
