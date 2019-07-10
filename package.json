@@ -1,5 +1,5 @@
 {
-  "name": "upwordly-local",
+  "name": "upwordly-frontend",
   "version": "1.0.0",
   "description": "Front-end for Upword.ly.",
   "main": "index.js",
@@ -22,12 +22,12 @@
     "captions",
     "transcript"
   ],
-  "author": "Stanley Sakai",
+  "author": "Stanley Sakai <stanley@stanographer.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stanographer/upwordly-local/issues"
   },
-  "homepage": "https://github.com/stanographer/upwordly-local#readme",
+  "homepage": "https://upword.ly",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
