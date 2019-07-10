@@ -7,7 +7,7 @@
 .idea/
 
 # next.js
-.next
+.next/
 
 # testing
 /coverage
