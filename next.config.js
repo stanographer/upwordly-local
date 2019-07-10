@@ -3,6 +3,9 @@ const webpack = require('webpack');
 require('dotenv').config();
 
 module.exports = withCSS({
+  cssLoaderOptions: {
+    url: false,
+  },
   webpack: config => {
     const env = Object.keys(process.env).reduce((acc, curr) => {
       acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
@@ -10,5 +13,5 @@ module.exports = withCSS({
     }, {});
     config.plugins.push(new webpack.DefinePlugin(env));
     return config;
-  }
+  },
 });

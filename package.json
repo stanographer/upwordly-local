@@ -4,10 +4,10 @@
   "description": "Front-end for Upword.ly.",
   "main": "index.js",
   "scripts": {
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "dev": "next",
     "test": "next test",
-    "start": "NODE_ENV=production next start"
+    "start": "next start"
   },
   "repository": {
     "type": "git",
