@@ -26,9 +26,9 @@ class LiveTranscript extends Component {
 
   fetchDoc = host => {
     const server = {
-      host: process.env.REACT_APP_ENV === 'production' ? 'upword.ly/ws' : host,
-      port: process.env.REACT_APP_ENV === 'production' ? '' : ':9090',
-      protocol: process.env.REACT_APP_ENV === 'production' ? 'wss://' : 'ws://',
+      host: process.env.NODE_ENV === 'production' ? 'upword.ly/ws' : host,
+      port: process.env.NODE_ENV === 'production' ? '' : ':9090',
+      protocol: process.env.NODE_ENV === 'production' ? 'wss://' : 'ws://',
       getAddress: function () {
         return this.protocol + this.host + this.port;
       },
