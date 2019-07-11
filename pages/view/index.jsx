@@ -125,6 +125,7 @@ class View extends React.Component {
                        onTouchStart={() => this.stopScrolling()}
                        onClick={() => this.stopScrolling()}>
                     <LiveTranscript
+                        toasts={true}
                         user={router.query.user}
                         job={router.query.job}
                         render={(state) => (

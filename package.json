@@ -4,10 +4,11 @@
   "description": "Front-end for Upword.ly.",
   "main": "index.js",
   "scripts": {
+    "env": "scp ~/Developer/upwordly-local/.env stanley@upword.ly:/~/upwordly-local",
     "build": "NODE_ENV=production next build",
     "dev": "next",
     "test": "next test",
-    "start": "next start"
+    "start": "NODE_ENVIRONMENT=production next start"
   },
   "repository": {
     "type": "git",
