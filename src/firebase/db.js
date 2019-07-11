@@ -50,8 +50,22 @@ export const onceGetUsers = () =>
     db.ref('users')
         .once('value');
 
+export const batchCreateJobs = (user, uid, batch, cb) => {
+  const lines = batch.split('\n');
+
+  lines.map(entry => {
+    const job = {
+      shortName: entry.split('::')[0],
+      title: entry.split('::')[1],
+      speakers: entry.split('::')[2],
+    };
+    createJob(job, user, uid, cb);
+    console.log(user, uid, job);
+  });
+};
+
 // Job methods ===========================================================
-export const createJob = (job, user, uid) => {
+export const createJob = (job, user, uid, cb) => {
   const newJob = {
     createdTime: new Date().toUTCString(),
     completedTime: '',
@@ -71,6 +85,11 @@ export const createJob = (job, user, uid) => {
               key: job.key,
               shortName: newJob.shortName,
             });
+        cb(true);
+      })
+      .catch(err => {
+        cb(false);
+        console.err(err);
       });
 };
 
@@ -88,6 +107,20 @@ export const checkDupeJob = (shortName, user, cb) => {
       .catch(err => err);
 };
 
+export const deleteJob = (uid, id, cb) => {
+  db.ref(`jobs/${id}`)
+      .remove()
+      .then(deleted => {
+        db.ref(`users/${uid}/jobs/${deleted.key}`)
+            .remove()
+            .then(() => cb(true))
+            .catch(err => cb(err));
+      })
+      .catch(err => cb(err));
+
+
+};
+
 export const getAllJobsByUser = (user, cb) => {
   db.ref('jobs')
       .orderByChild('username')
@@ -95,6 +128,13 @@ export const getAllJobsByUser = (user, cb) => {
       .once('value', snapshot => {
         cb(snapshot.val());
       })
+      .catch(err => err);
+};
+
+export const startJob = (id, cb) => {
+  db.ref(`jobs/${id}`)
+      .update({started: true})
+      .then(() => cb(true))
       .catch(err => err);
 };
 

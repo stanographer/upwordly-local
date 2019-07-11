@@ -4,12 +4,23 @@ import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { createJob } from '../../firebase/db';
 
-const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers, uid}) => {
+const JobCreator = ({authUser, errors, job, setErrors, setShortName, setTitleAndSpeakers, uid}) => {
   let [copied, setCopied] = useState(false);
+  let [jobCreated, setJobCreated] = useState(false);
 
   const copiedLink = () => {
     setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const scheduledJob = status => {
+    if (status === true) {
+      setJobCreated(true);
+      setTimeout(() => setJobCreated(false), 2000);
+    } else {
+      setErrors(['There was an error scheduling that job.']);
+      setTimeout(() => setErrors(['']), 1500);
+    }
   };
 
   const errorMessages = errors.map((e, i) => (
@@ -18,8 +29,8 @@ const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers, u
 
   return (
       <form className="w-full lg:w-1/2 px-4" onSubmit={e => {
-        e.preventDefault();
-        createJob(job, authUser.username, uid);
+        createJob(job, authUser.username, uid, scheduledJob);
+        // e.preventDefault();
       }}>
         <div className="bg-bg2 border-t border-b sm:rounded sm:border shadow">
           <div className="border-b">
@@ -27,12 +38,8 @@ const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers, u
               <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
               <div className="flex">
                 <button type="button"
-                        className="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-3">
-                  List
-                </button>
-                <button type="button"
-                        className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark">
-                  Chart
+                        className="appearance-none py-4 text-orange-200 border-b border-blue-dark mr-3">
+                  Batch Style
                 </button>
               </div>
             </div>
@@ -117,11 +124,16 @@ const JobCreator = ({authUser, errors, job, setShortName, setTitleAndSpeakers, u
                     ? <p className="text-lg text-green-400 mb-4">Link copied to clipboard!</p>
                     : ''
               }
+              {
+                jobCreated
+                    ? <p className="text-lg text-green-400 mb-4">Job scheduled successfully!</p>
+                    : ''
+              }
               <div className="py-8">
                 <div className="mb-4">
                   <button type="submit"
                           className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4">
-                    Create Job
+                    Schedule Job
                   </button>
                 </div>
               </div>

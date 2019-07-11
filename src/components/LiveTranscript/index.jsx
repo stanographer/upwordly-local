@@ -85,10 +85,14 @@ class LiveTranscript extends Component {
 
     return (
         <Fragment>
-          <ToastContainer
-              draggable
-              autoClose={ 5000 }
-          />
+          {
+            this.props.toasts
+              ? <ToastContainer
+                    draggable
+                    autoClose={ 5000 }
+                />
+                : ''
+          }
           {
             !loading
                 ? this.props.render(this.state)

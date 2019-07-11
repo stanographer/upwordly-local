@@ -9,9 +9,10 @@ const Editor = props => {
 
   return (
       <div>
-        <div className="flex bg-gray-200">
-          <div className="flex-1 text-green-200 text-center bg-gray-400 h-screen ">
+        <div className="flex bg-gray-200 h-screen">
+          <div className="flex-1 text-green-200 text-center bg-gray-400 h-auto">
             <LiveTranscript
+                toasts={false}
                 user={router.query.user}
                 job={router.query.job}
                 render={(state) => (
@@ -21,9 +22,7 @@ const Editor = props => {
                 )}
             />
           </div>
-          <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">3</div>
         </div>
-
       </div>
   );
 };

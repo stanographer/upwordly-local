@@ -2,7 +2,11 @@ import React, { Fragment, useEffect, useState } from 'react';
 import JobCreator from '../../components/Widgets/JobCreator';
 import JobList from '../../components/Widgets/JobList';
 import Typed from 'react-typed';
-import { getUser, getAllJobsByUser } from '../../firebase/db';
+import {
+  startJob,
+  getUser,
+  getAllJobsByUser
+} from '../../firebase/db';
 
 const DashboardComponent = ({user}) => {
   console.log('dashboard props', user.uid);
@@ -66,11 +70,11 @@ const DashboardComponent = ({user}) => {
   };
 
   useEffect(() => {
-      try {
-        getUser(user.uid, loadUser);
-      } catch (err) {
-        console.error('error', err);
-      }
+    try {
+      getUser(user.uid, loadUser);
+    } catch (err) {
+      console.error('error', err);
+    }
   }, []);
 
   return (
@@ -90,12 +94,14 @@ const DashboardComponent = ({user}) => {
               authUser={authUser}
               errors={errors}
               job={job}
+              setErrors={setErrors}
               setShortName={setShortName}
               setTitleAndSpeakers={setTitleAndSpeakers}
               uid={user.uid}
           />
           <JobList
-            jobList={jobList}
+              startJob={startJob}
+              jobList={jobList}
           />
         </div>
       </Fragment>
