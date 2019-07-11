@@ -18,7 +18,7 @@ const JobArchiveItem = ({id, job, deleteAJob}) => {
       <div className="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4">
         <div className="w-1/4 md:w/12 px-4 flex items-center">
           <span className="text-md font-mono text-orange-200">
-            {job.shortName} {id}
+            {job.shortName}
           </span>
         </div>
         <div className="flex w-1/4 md:w/12">
