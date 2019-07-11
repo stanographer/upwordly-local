@@ -4,8 +4,12 @@ import withAuth from '../../src/helpers/withAuth';
 import Head from 'next/head';
 import NavDashboard from '../../src/components/Controls/NavDashboard';
 
+const ArchiveComponent = dynamic(() =>
+    import('../../src/components/DashboardPages/ArchiveComponent'));
 const AccountComponent = dynamic(() =>
     import('../../src/components/DashboardPages/AccountComponent'));
+const BatchJobCreatorComponent = dynamic(() =>
+    import('../../src/components/DashboardPages/BatchJobCreator'));
 const DashboardComponent = dynamic(() =>
     import('../../src/components/DashboardPages/DashboardComponent'));
 const SettingsComponent = dynamic(() =>
@@ -24,6 +28,10 @@ const Dashboard = props => {
         return <AccountComponent />;
       case 2:
         return <SettingsComponent />;
+      case 4:
+        return <ArchiveComponent {...props} />;
+      case 5:
+        return <BatchJobCreatorComponent {...props} />
     }
   };
 
@@ -36,7 +44,7 @@ const Dashboard = props => {
             active={active}
             setActive={setActive}
         />
-        <section className="container mx-auto px-16 py-32 sm:py-24">
+        <section className="container mx-auto px-16 py-14 lg:py-13">
           {ActiveComponent(active)}
         </section>
       </Fragment>

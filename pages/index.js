@@ -3,7 +3,7 @@ import React from 'react';
 import Typed from 'react-typed';
 import Link from 'next/link';
 
-const Index = props => (
+const Index = () => (
     <Provider>
       <div
           className="landing-wrapper"

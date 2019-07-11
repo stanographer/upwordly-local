@@ -2,7 +2,9 @@ import React from 'react';
 import { NavButton } from './index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import {
+  faArchive,
   faCog,
+  faLayerGroup,
   faSignOutAlt,
   faTasks,
   faUser,
@@ -14,9 +16,11 @@ import * as ROUTES from '../../constants/routes';
 
 const NavDashboard = ({setActive}) => {
   return (
-      <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky">
+      <nav
+          className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky">
         <NavLogo />
-        <div className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
+        <div
+            className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
           <div className="lg:flex-grow my-2">
             <NavButton
                 icon={<FontAwesomeIcon icon={faTasks} />}
@@ -24,6 +28,22 @@ const NavDashboard = ({setActive}) => {
                 onClick={e => {
                   e.preventDefault();
                   setActive(0);
+                }}
+            />
+            <NavButton
+                icon={<FontAwesomeIcon icon={faArchive} />}
+                title="Archive"
+                onClick={e => {
+                  e.preventDefault();
+                  setActive(4);
+                }}
+            />
+            <NavButton
+                icon={<FontAwesomeIcon icon={faLayerGroup} />}
+                title="Batch Jobs"
+                onClick={e => {
+                  e.preventDefault();
+                  setActive(5);
                 }}
             />
             <NavButton

@@ -51,8 +51,6 @@ export default class Binding {
     // I think this test is O(1), so its worth doing.
     if (snap === change) return;
 
-    console.log(doc.type);
-
     let start = 0;
 
     // Scan the document. While all characters in the change document
