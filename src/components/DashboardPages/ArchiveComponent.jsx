@@ -29,7 +29,7 @@ const ArchiveComponent = ({user}) => {
 
     deleteShareDbJob(url, user, shortName)
         .then(() => deleteJob(user.uid, id, deleteSuccessMessage))
-        .catch(err => deleteSuccessMessage(false))
+        .catch(err => deleteSuccessMessage(false));
   };
 
   useEffect(() => {
@@ -51,16 +51,24 @@ const ArchiveComponent = ({user}) => {
             typeSpeed={40} />
         {
           errors
-              ? <p className="text-lg text-green-400 mb-4">{errors}</p>
+              ? <p className="text-lg text-green-400 mb-4"
+                   data-test="archive-component-errors">
+                {errors}
+              </p>
               : ''
         }
-        <div className="flex flex-wrap -mx-4 my-10">
-          <JobArchiveList
-              jobList={pastJobs}
-              deleteAJob={deleteAJob}
-              deleteSuccess={deleteSuccess}
-          />
-        </div>
+        {
+          user
+            ? <div className="flex flex-wrap -mx-4 my-10">
+                <JobArchiveList
+                    data-test="archive-component-list"
+                    jobList={pastJobs}
+                    deleteAJob={deleteAJob}
+                    deleteSuccess={deleteSuccess}
+                />
+              </div>
+              : ''
+        }
       </Fragment>
   );
 };
