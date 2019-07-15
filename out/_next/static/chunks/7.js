@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
@@ -19,25 +19,25 @@ var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/
 
 
 var ModalCloseButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.js")).then(function (el) {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.jsx")).then(function (el) {
     return el.ModalCloseButton;
   });
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.js")];
+      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.jsx")];
     },
     modules: ['../Controls']
   }
 });
 var ModalSaveButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.js")).then(function (el) {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.jsx")).then(function (el) {
     return el.ModalSaveButton;
   });
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.js")];
+      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.jsx")];
     },
     modules: ['../Controls']
   }

@@ -5,15 +5,15 @@ import Head from 'next/head';
 import NavDashboard from '../../src/components/Controls/NavDashboard';
 
 const ArchiveComponent = dynamic(() =>
-    import('../../src/components/DashboardPages/ArchiveComponent'));
+    import('../../src/components/DashboardComponents/ArchiveComponent'));
 const AccountComponent = dynamic(() =>
-    import('../../src/components/DashboardPages/AccountComponent'));
+    import('../../src/components/DashboardComponents/AccountComponent'));
 const BatchJobCreatorComponent = dynamic(() =>
-    import('../../src/components/DashboardPages/BatchJobCreator'));
+    import('../../src/components/DashboardComponents/BatchJobCreator'));
 const DashboardComponent = dynamic(() =>
-    import('../../src/components/DashboardPages/DashboardComponent'));
+    import('../../src/components/DashboardComponents/DashboardComponent'));
 const SettingsComponent = dynamic(() =>
-    import('../../src/components/DashboardPages/SettingsComponent'));
+    import('../../src/components/DashboardComponents/SettingsComponent'));
 
 const Dashboard = props => {
   let [active, setActive] = useState(0);

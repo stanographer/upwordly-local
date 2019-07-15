@@ -57,18 +57,14 @@ const ArchiveComponent = ({user}) => {
               </p>
               : ''
         }
-        {
-          user
-            ? <div className="flex flex-wrap -mx-4 my-10">
-                <JobArchiveList
-                    data-test="archive-component-list"
-                    jobList={pastJobs}
-                    deleteAJob={deleteAJob}
-                    deleteSuccess={deleteSuccess}
-                />
-              </div>
-              : ''
-        }
+        <div className="flex flex-wrap -mx-4 my-10">
+          <JobArchiveList
+              data-test="archive-component-list"
+              jobList={pastJobs}
+              deleteAJob={deleteAJob}
+              deleteSuccess={deleteSuccess}
+          />
+        </div>
       </Fragment>
   );
 };

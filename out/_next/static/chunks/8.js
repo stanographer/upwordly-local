@@ -9158,9 +9158,9 @@ var _iconsCache = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontAwesomeIcon", function() { return FontAwesomeIcon; });
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -9699,7 +9699,7 @@ $export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_colle
 
 /***/ "./node_modules/define-properties/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/define-properties/index.js ***!
+  !*** ./node_modules/define-properties/index.jsx ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9707,7 +9707,7 @@ $export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_colle
 "use strict";
 
 
-var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.js");
+var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.jsx");
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
@@ -9833,7 +9833,7 @@ module.exports = function bind(that) {
 
 /***/ "./node_modules/function-bind/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/function-bind/index.js ***!
+  !*** ./node_modules/function-bind/index.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9904,7 +9904,7 @@ module.exports = function hasSymbols() {
 
 /***/ "./node_modules/has/src/index.js":
 /*!***************************************!*\
-  !*** ./node_modules/has/src/index.js ***!
+  !*** ./node_modules/has/src/index.jsx ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9912,7 +9912,7 @@ module.exports = function hasSymbols() {
 "use strict";
 
 
-var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.jsx");
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
@@ -9952,9 +9952,9 @@ var _map = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2
 
 var _url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
 
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
 
 var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
 
@@ -10211,7 +10211,7 @@ Link.defaultProps = {
 if (true) {
   var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
 
-  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.jsx");
 
   Link.propTypes = exact({
     href: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
@@ -10386,7 +10386,7 @@ module.exports = keysShim;
 
 /***/ "./node_modules/object-keys/index.js":
 /*!*******************************************!*\
-  !*** ./node_modules/object-keys/index.js ***!
+  !*** ./node_modules/object-keys/index.jsx ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10468,8 +10468,8 @@ module.exports = function isArguments(value) {
 
 
 // modified from https://github.com/es-shims/es6-shim
-var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.js");
-var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.jsx");
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.jsx");
 var canBeObject = function (obj) {
 	return typeof obj !== 'undefined' && obj !== null;
 };
@@ -10512,7 +10512,7 @@ module.exports = function assign(target, source1) {
 
 /***/ "./node_modules/object.assign/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/object.assign/index.js ***!
+  !*** ./node_modules/object.assign/index.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10520,7 +10520,7 @@ module.exports = function assign(target, source1) {
 "use strict";
 
 
-var defineProperties = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.js");
+var defineProperties = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.jsx");
 
 var implementation = __webpack_require__(/*! ./implementation */ "./node_modules/object.assign/implementation.js");
 var getPolyfill = __webpack_require__(/*! ./polyfill */ "./node_modules/object.assign/polyfill.js");
@@ -10612,7 +10612,7 @@ module.exports = function getPolyfill() {
 "use strict";
 
 
-var define = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.js");
+var define = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.jsx");
 var getPolyfill = __webpack_require__(/*! ./polyfill */ "./node_modules/object.assign/polyfill.js");
 
 module.exports = function shimAssign() {
@@ -10847,7 +10847,7 @@ module.exports = exports['default'];
 
 /***/ "./node_modules/prop-types-exact/build/index.js":
 /*!******************************************************!*\
-  !*** ./node_modules/prop-types-exact/build/index.js ***!
+  !*** ./node_modules/prop-types-exact/build/index.jsx ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10857,11 +10857,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports['default'] = forbidExtraProps;
 
-var _object = __webpack_require__(/*! object.assign */ "./node_modules/object.assign/index.js");
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/object.assign/index.jsx");
 
 var _object2 = _interopRequireDefault(_object);
 
-var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.js");
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.jsx");
 
 var _has2 = _interopRequireDefault(_has);
 
@@ -10908,7 +10908,7 @@ function forbidExtraProps(propTypes) {
   }())));
 }
 module.exports = exports['default'];
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.jsx.map
 
 /***/ }),
 
@@ -11194,7 +11194,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
