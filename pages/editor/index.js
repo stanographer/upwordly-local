@@ -2,6 +2,8 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
 import EditorComponent from '../../src/components/EditorComponent';
+import withAuth from '../../src/helpers/withAuth';
+
 const LiveTranscript = dynamic(() => import('../../src/components/LiveTranscript'));
 
 const Editor = props => {
@@ -27,4 +29,4 @@ const Editor = props => {
   );
 };
 
-export default withRouter(Editor);
+export default withAuth(withRouter(Editor));

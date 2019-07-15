@@ -12,6 +12,7 @@ export const doCreateUser = (email, fullName, location, id, payment, token, user
           username,
         });
 
+// Checks in /users for a duplicate email address. Used at sign-up.
 export const checkDupeEmail = (email, cb) => {
   db.ref('users')
       .orderByChild('email')
@@ -21,6 +22,7 @@ export const checkDupeEmail = (email, cb) => {
       });
 };
 
+// Checks in /users for a duplicate username. Used at sign-up.
 export const checkDupeUsername = (username, cb) => {
   db.ref('users')
       .orderByChild('username')
@@ -30,6 +32,7 @@ export const checkDupeUsername = (username, cb) => {
       });
 };
 
+// Returns user information based on Firebase uid.
 export const getUser = (uid, cb) => {
   db.ref(`users/${uid}`)
       .once('value', snapshot => {
@@ -40,6 +43,7 @@ export const getUser = (uid, cb) => {
       });
 };
 
+// Returns a user object by searching by username.
 export const findUser = username => {
   db.ref('users')
       .orderByChild('username')
@@ -50,6 +54,7 @@ export const onceGetUsers = () =>
     db.ref('users')
         .once('value');
 
+// Allows jobs to be created as a batch rather than individually.
 export const batchCreateJobs = (user, uid, batch, cb) => {
   const lines = batch.split('\n');
 
@@ -117,8 +122,6 @@ export const deleteJob = (uid, id, cb) => {
             .catch(err => cb(err));
       })
       .catch(err => cb(err));
-
-
 };
 
 export const getAllJobsByUser = (user, cb) => {
