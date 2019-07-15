@@ -5,7 +5,7 @@ import {
   faRetweet
 } from '@fortawesome/free-solid-svg-icons/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
-import { fetchTranscript } from '../../../utils/fetchTranscript';
+import { fetchTranscript } from '../../utils/fetchTranscript';
 
 const Share = ({job, user}) => {
   return (

@@ -15,8 +15,7 @@ const ScrollButton = dynamic(() => import('../../src/components/Controls')
 const Nav = dynamic(() => import('../../src/components/Controls')
     .then(el => el.Nav));
 const Modal = dynamic(() => import('react-modal'));
-const ModalComponent = dynamic(() => import('../../src/components/Controls')
-    .then(el => el.Modal));
+const ModalComponent = dynamic(() => import('../../src/components/Modal/ModalComponent'));
 
 const modalStyles = {
   content: {

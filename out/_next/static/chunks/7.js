@@ -2,7 +2,7 @@
 
 /***/ "./src/components/Modal/Text.jsx":
 /*!***************************************!*\
-  !*** ./src/components/Modal/Text.jsx ***!
+  !*** ./src/components/ModalComponent/Text.jsx ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Modal/Text.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/ModalComponent/Text.jsx";
 
 
 
