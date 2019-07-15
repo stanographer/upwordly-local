@@ -50,7 +50,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ "./node_modules/react-modal/lib/components/Modal.js":
 /*!**********************************************************!*\
-  !*** ./node_modules/react-modal/lib/components/Modal.js ***!
+  !*** ./node_modules/react-modal/lib/components/ModalComponent.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -603,11 +603,11 @@ var ModalPortal = function (_Component) {
       if (true) {
         if (prevProps.bodyOpenClassName !== this.props.bodyOpenClassName) {
           // eslint-disable-next-line no-console
-          console.warn('React-Modal: "bodyOpenClassName" prop has been modified. ' + "This may cause unexpected behavior when multiple modals are open.");
+          console.warn('React-ModalComponent: "bodyOpenClassName" prop has been modified. ' + "This may cause unexpected behavior when multiple modals are open.");
         }
         if (prevProps.htmlOpenClassName !== this.props.htmlOpenClassName) {
           // eslint-disable-next-line no-console
-          console.warn('React-Modal: "htmlOpenClassName" prop has been modified. ' + "This may cause unexpected behavior when multiple modals are open.");
+          console.warn('React-ModalComponent: "htmlOpenClassName" prop has been modified. ' + "This may cause unexpected behavior when multiple modals are open.");
         }
       }
 
@@ -791,7 +791,7 @@ function setElement(element) {
 
 function validateElement(appElement) {
   if (!appElement && !globalElement) {
-    (0, _warning2.default)(false, ["react-modal: App element is not defined.", "Please use `Modal.setAppElement(el)` or set `appElement={el}`.", "This is needed so screen readers don't see main content", "when modal is opened. It is not recommended, but you can opt-out", "by setting `ariaHideApp={false}`."].join(" "));
+    (0, _warning2.default)(false, ["react-modal: App element is not defined.", "Please use `ModalComponent.setAppElement(el)` or set `appElement={el}`.", "This is needed so screen readers don't see main content", "when modal is opened. It is not recommended, but you can opt-out", "by setting `ariaHideApp={false}`."].join(" "));
 
     return false;
   }
@@ -1255,7 +1255,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Modal = __webpack_require__(/*! ./components/Modal */ "./node_modules/react-modal/lib/components/Modal.js");
+var _Modal = __webpack_require__(/*! ./components/ModalComponent */ "./node_modules/react-modal/lib/components/ModalComponent.js");
 
 var _Modal2 = _interopRequireDefault(_Modal);
 

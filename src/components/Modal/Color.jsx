@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import dynamic from 'next/dynamic';
 import WidgetContext from '../../context/widget-context';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
-import { faSave } from '@fortawesome/free-solid-svg-icons/index';
 
 const ModalCloseButton = dynamic(() => import('../Controls')
     .then(el => el.ModalCloseButton))

@@ -2,7 +2,7 @@
 
 /***/ "./src/components/Modal/Color.jsx":
 /*!****************************************!*\
-  !*** ./src/components/Modal/Color.jsx ***!
+  !*** ./src/components/ModalComponent/Color.jsx ***!
   \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/index.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5__);
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Modal/Color.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/ModalComponent/Color.jsx";
 
 
 

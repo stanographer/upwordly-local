@@ -2,7 +2,7 @@
 
 /***/ "./src/components/Modal/Share.jsx":
 /*!****************************************!*\
-  !*** ./src/components/Modal/Share.jsx ***!
+  !*** ./src/components/ModalComponent/Share.jsx ***!
   \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -17,7 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/index.js");
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _utils_fetchTranscript__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/fetchTranscript */ "./utils/fetchTranscript.js");
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Modal/Share.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/ModalComponent/Share.jsx";
 
 
 

@@ -10466,7 +10466,7 @@ var ButtonGroup = function ButtonGroup() {
 
 /***/ "./src/components/Controls/Modal.jsx":
 /*!*******************************************!*\
-  !*** ./src/components/Controls/Modal.jsx ***!
+  !*** ./src/components/Controls/ModalComponentComponent.jsx ***!
   \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10480,7 +10480,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_3__);
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/Modal.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/ModalComponentComponent.jsx";
 
 function _templateObject() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  padding-top: 0.5rem;\n  padding-bottom: 2rem;\n  text-align: center;\n  text-transform: uppercase;\n  font-weight: 700;\n  line-height: 1.2;\n  font-size: 1.2rem;\n  border-bottom: 1px solid #eee;\n  display: block;\n  width: 100%;\n"]);
@@ -10497,43 +10497,43 @@ function _templateObject() {
  // Dynamically loaded components.
 
 var FontComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../Modal/Font */ "./src/components/Modal/Font.jsx"));
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../ModalComponent/Font */ "./src/components/ModalComponent/Font.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Modal/Font */ "./src/components/Modal/Font.jsx")];
+      return [/*require.resolve*/(/*! ../ModalComponent/Font */ "./src/components/ModalComponent/Font.jsx")];
     },
-    modules: ['../Modal/Font']
+    modules: ['../ModalComponent/Font']
   }
 });
 var TextComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Modal/Text */ "./src/components/Modal/Text.jsx"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../ModalComponent/Text */ "./src/components/ModalComponent/Text.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Modal/Text */ "./src/components/Modal/Text.jsx")];
+      return [/*require.resolve*/(/*! ../ModalComponent/Text */ "./src/components/ModalComponent/Text.jsx")];
     },
-    modules: ['../Modal/Text']
+    modules: ['../ModalComponent/Text']
   }
 });
 var ColorComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../Modal/Color */ "./src/components/Modal/Color.jsx"));
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../ModalComponent/Color */ "./src/components/ModalComponent/Color.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Modal/Color */ "./src/components/Modal/Color.jsx")];
+      return [/*require.resolve*/(/*! ../ModalComponent/Color */ "./src/components/ModalComponent/Color.jsx")];
     },
-    modules: ['../Modal/Color']
+    modules: ['../ModalComponent/Color']
   }
 });
 var ShareComponent = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(function () {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../Modal/Share */ "./src/components/Modal/Share.jsx"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../ModalComponent/Share */ "./src/components/ModalComponent/Share.jsx"));
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Modal/Share */ "./src/components/Modal/Share.jsx")];
+      return [/*require.resolve*/(/*! ../ModalComponent/Share */ "./src/components/ModalComponent/Share.jsx")];
     },
-    modules: ['../Modal/Share']
+    modules: ['../ModalComponent/Share']
   }
 });
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
@@ -11125,7 +11125,7 @@ ScrollButton.propTypes = {
 /*!******************************************!*\
   !*** ./src/components/Controls/index.js ***!
   \******************************************/
-/*! exports provided: ButtonGroup, Modal, ModalCloseButton, ModalSaveButton, Nav, NavButton, ScrollButton */
+/*! exports provided: ButtonGroup, ModalComponent, ModalCloseButton, ModalSaveButton, Nav, NavButton, ScrollButton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11133,8 +11133,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonGroup */ "./src/components/Controls/ButtonGroup.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonGroup", function() { return _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal */ "./src/components/Controls/Modal.jsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Modal", function() { return _Modal__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalComponent */ "./src/components/Controls/ModalComponent.jsxonent.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModalComponent", function() { return _Modal__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 /* harmony import */ var _ModalCloseButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalCloseButton */ "./src/components/Controls/ModalCloseButton.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModalCloseButton", function() { return _ModalCloseButton__WEBPACK_IMPORTED_MODULE_2__["default"]; });
