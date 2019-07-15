@@ -1,3 +1,6 @@
+// Component that tells users that they need to be logged in
+// if they try to navigate to a protected route unauthenticated.
+
 import React from 'react';
 import Provider from '../Session/Provider';
 import Head from 'next/head';

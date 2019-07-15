@@ -80,7 +80,12 @@ class LiveTranscript extends Component {
     };
   }
 
+  checkConnection = () => {
+    setInterval()
+  };
+
   render() {
+
     const {loading} = this.state;
 
     return (

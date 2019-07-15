@@ -3,6 +3,7 @@ import Typed from 'react-typed';
 import { deleteJob, getAllJobsByUser, getUser } from '../../firebase/db';
 import { deleteShareDbJob } from '../../ShareDB/actions';
 import JobArchiveList from '../Widgets/JobArchiveList';
+import PropTypes from 'prop-types';
 
 const ArchiveComponent = ({user}) => {
   let [pastJobs, setPastJobs] = useState([]);
@@ -62,6 +63,10 @@ const ArchiveComponent = ({user}) => {
         </div>
       </Fragment>
   );
+};
+
+ArchiveComponent.propTypes = {
+  user: PropTypes.object,
 };
 
 export default ArchiveComponent;
