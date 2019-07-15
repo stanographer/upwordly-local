@@ -7,8 +7,16 @@
     "env": "scp ~/Developer/upwordly-local/.env stanley@upword.ly:~/upwordly-local",
     "build": "NODE_ENV=production next build",
     "dev": "next",
-    "test": "next test",
+    "test": "jest --watchAll",
     "start": "NODE_ENVIRONMENT=production next start"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "repository": {
     "type": "git",
