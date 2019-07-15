@@ -10,14 +10,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
-/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/index.js");
+/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/index.jsx");
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/index.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/index.jsx");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_5__);
 
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/ModalComponent/Color.jsx";
@@ -27,38 +27,38 @@ var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/
 
 
 var ModalCloseButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.js")).then(function (el) {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.jsx")).then(function (el) {
     return el.ModalCloseButton;
   });
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.js")];
+      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.jsx")];
     },
     modules: ['../Controls']
   }
 });
 var ModalSaveButton = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.js")).then(function (el) {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../Controls */ "./src/components/Controls/index.jsx")).then(function (el) {
     return el.ModalSaveButton;
   });
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.js")];
+      return [/*require.resolve*/(/*! ../Controls */ "./src/components/Controls/index.jsx")];
     },
     modules: ['../Controls']
   }
 }); // Dynamically-loaded components.
 
 var SketchPicker = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.t.bind(null, /*! react-color */ "./node_modules/react-color/lib/index.js", 7)).then(function (el) {
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.t.bind(null, /*! react-color */ "./node_modules/react-color/lib/index.jsx", 7)).then(function (el) {
     return el.SketchPicker;
   });
 }, {
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! react-color */ "./node_modules/react-color/lib/index.js")];
+      return [/*require.resolve*/(/*! react-color */ "./node_modules/react-color/lib/index.jsx")];
     },
     modules: ['react-color']
   }

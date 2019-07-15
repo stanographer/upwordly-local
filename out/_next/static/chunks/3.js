@@ -2,7 +2,7 @@
 
 /***/ "./node_modules/exenv/index.js":
 /*!*************************************!*\
-  !*** ./node_modules/exenv/index.js ***!
+  !*** ./node_modules/exenv/index.jsx ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -67,15 +67,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.jsx");
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -345,11 +345,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -1059,7 +1059,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.canUseDOM = undefined;
 
-var _exenv = __webpack_require__(/*! exenv */ "./node_modules/exenv/index.js");
+var _exenv = __webpack_require__(/*! exenv */ "./node_modules/exenv/index.jsx");
 
 var _exenv2 = _interopRequireDefault(_exenv);
 
@@ -1243,7 +1243,7 @@ module.exports = exports["default"];
 
 /***/ "./node_modules/react-modal/lib/index.js":
 /*!***********************************************!*\
-  !*** ./node_modules/react-modal/lib/index.js ***!
+  !*** ./node_modules/react-modal/lib/index.jsx ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
