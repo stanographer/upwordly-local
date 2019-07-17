@@ -70,46 +70,62 @@ export const batchCreateJobs = (user, uid, batch, cb) => {
 };
 
 // Job methods ===========================================================
-export const createJob = (job, user, uid, cb) => {
-  const newJob = {
-    createdTime: new Date().toUTCString(),
-    completedTime: '',
-    locked: false,
-    shortName: job.shortName.trim().toLowerCase(),
-    speakers: !!job.speakers && job.speakers.trim(),
-    started: null,
-    title: !!job.title && job.title.trim(),
-    username: user,
-  };
+export const createJob = (job, user, uid) => {
+  return new Promise((resolve, reject) => {
+    const newJob = {
+      createdTime: new Date().toUTCString(),
+      completedTime: '',
+      locked: false,
+      shortName: job.shortName.trim().toLowerCase(),
+      speakers: !!job.speakers && job.speakers.trim(),
+      started: null,
+      title: !!job.title && job.title.trim(),
+      username: user,
+    };
 
-  db.ref('jobs')
-      .push(newJob)
-      .then(job => {
-        db.ref(`users/${uid}/jobs`)
-            .push({
-              key: job.key,
-              shortName: newJob.shortName,
-            });
-        cb(true);
-      })
-      .catch(err => {
-        cb(false);
-        console.err(err);
-      });
+    checkDupeJob(newJob.shortName, user)
+        .then(() => {
+          db.ref('jobs')
+              .push(newJob)
+              .then(job => {
+                db.ref(`users/${uid}/jobs`)
+                    .push({
+                      key: job.key,
+                      shortName: newJob.shortName,
+                    });
+                resolve('Job created successfully.');
+              })
+              .catch(err => {
+                reject('Could not push job to the database.', err);
+              });
+        })
+        .catch(err => {
+          reject('Duplicate job found. Job shortnames must be unique.', err);
+        });
+  });
 };
 
-export const checkDupeJob = (shortName, user, cb) => {
-  db.ref('jobs')
-      .orderByChild('shortName')
-      .equalTo(shortName)
-      .once('value', snapshot => {
-        if (!snapshot.val()) {
-          cb();
-        } else if (snapshot.val().username === user) {
-          return new Error('That job by that user already exists.');
-        }
-      })
-      .catch(err => err);
+export const checkDupeJob = (shortName, user) => {
+  return new Promise((resolve, reject) => {
+    db.ref('jobs')
+        .orderByChild('shortName')
+        .equalTo(shortName)
+        .once('value', snapshot => {
+          if (!snapshot.val()) {
+            console.log('no existing node was found; everything is good!');
+            resolve(true);
+          } else {
+            const node = snapshot.val();
+            const key = Object.keys(snapshot.val())[0];
+            const jobUsername = node[key]['username'];
+
+            if (user === jobUsername) {
+              reject(false);
+            }
+          }
+        })
+        .catch(err => err);
+  });
 };
 
 export const deleteJob = (uid, id, cb) => {

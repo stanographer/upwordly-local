@@ -33,9 +33,9 @@ class ConnectionProvider extends Component {
           this.socket = new ReconnectingWebSocket(url, [], {
             WebSocket: WS,
             connectionTimeout: 1000,
-            minReconnectionDelay: 1000 + Math.random() * 4000,
+            minReconnectionDelay: 400 + Math.random() * 4000,
             minUptime: 8000,
-            maxReconnectionDelay: 7000,
+            maxReconnectionDelay: 3000,
             maxRetries: Infinity,
             reconnectionDelayGrowFactor: 1.2,
           });

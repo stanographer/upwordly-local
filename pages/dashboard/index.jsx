@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import withAuth from '../../src/components/Session/WithAuth';
 import Head from 'next/head';
 import NavDashboard from '../../src/components/General/NavDashboard';
+import Footer from '../../src/components/General/Footer';
 
 const ArchiveComponent = dynamic(() =>
     import('../../src/components/Dashboard/ArchiveComponent'));
@@ -31,7 +32,7 @@ const Dashboard = props => {
       case 4:
         return <ArchiveComponent {...props} />;
       case 5:
-        return <BatchJobCreatorComponent {...props} />
+        return <BatchJobCreatorComponent {...props} />;
     }
   };
 
@@ -47,6 +48,7 @@ const Dashboard = props => {
         <section className="container mx-auto px-16 py-14 lg:py-13">
           {ActiveComponent(active)}
         </section>
+        <Footer />
       </Fragment>
   );
 };
