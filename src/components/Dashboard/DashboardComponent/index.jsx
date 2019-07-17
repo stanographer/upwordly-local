@@ -5,59 +5,13 @@ import Typed from 'react-typed';
 import {
   startJob,
 } from '../../../firebase/db';
+import { setShortName, setTitleAndSpeakers } from './utils/funcs';
 
-const DashboardComponent = ({auth, jobs, user}) => {
+const DashboardComponent = ({auth, getUserData, jobs, user}) => {
   console.log('dashboard props', user.uid);
 
   let [job, setJob] = useState({});
   let [errors, setErrors] = useState([]);
-
-  const setShortName = val => {
-    const re = /^[a-z0-9_\-]+$/i;
-
-    val = val.trim().toLowerCase();
-
-    if (!val.match(re) && val !== '') {
-      setJob({
-        shortName: val.trim().toLowerCase()
-      });
-
-      setErrors([
-        'Your job shortname may only contain lower-case letters, numbers, hyphens, and underscores.',
-      ]);
-    } else if (val.length > 100) {
-      setErrors([
-        'Your job shortname may not exceed 100 characters in length.',
-      ]);
-    } else {
-      setJob({
-        shortName: val.trim().toLowerCase()
-      });
-
-      setErrors([]);
-    }
-  };
-
-  const setTitleAndSpeakers = (key, val) => {
-    // Replaces backticks with single quotes.
-    if (val.includes('`')) {
-      val = val.replace('`', '\'');
-    }
-
-    // Escapes curly braces.
-    if (val.includes('{')) {
-      val = val.replace('{', '\{');
-    }
-
-    if (val.includes('}')) {
-      val = val.replace('{', '\}');
-    }
-
-    setJob({
-      ...job,
-      [key]: val,
-    });
-  };
 
   return (
       <Fragment>
@@ -73,8 +27,10 @@ const DashboardComponent = ({auth, jobs, user}) => {
             : ''}
         <div className="flex flex-wrap -mx-4 my-10">
           <JobCreator
+              auth={auth}
               user={user}
               errors={errors}
+              getUserData={getUserData}
               job={job}
               setErrors={setErrors}
               setShortName={setShortName}

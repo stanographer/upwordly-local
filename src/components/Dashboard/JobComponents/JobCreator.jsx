@@ -3,23 +3,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons/index';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { createJob } from '../../../firebase/db';
+import { auth as currentAuth } from '../../../firebase/firebase';
 
-const JobCreator = ({user, errors, job, setErrors, setShortName, setTitleAndSpeakers, uid}) => {
+const JobCreator = ({
+                      auth,
+                      user,
+                      errors,
+                      getUserData,
+                      job,
+                      setErrors,
+                      setShortName,
+                      setTitleAndSpeakers,
+                      uid
+                    }) => {
+
   let [copied, setCopied] = useState(false);
-  let [jobCreated, setJobCreated] = useState(false);
+  let [message, setMessage] = useState(false);
 
   const copiedLink = () => {
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCopied(false), 5000);
   };
 
-  const scheduledJob = status => {
+  const scheduleJobOutcome = (status, message) => {
     if (status === true) {
-      setJobCreated(true);
-      setTimeout(() => setJobCreated(false), 2000);
+      setMessage(message);
+      setTimeout(() => setMessage(''), 5000);
+      getUserData(currentAuth, {uid: auth.uid});
     } else {
-      setErrors(['There was an error scheduling that job.']);
-      setTimeout(() => setErrors(['']), 1500);
+      setErrors([message]);
+      setTimeout(() => setErrors(['']), 5000);
     }
   };
 
@@ -29,8 +42,10 @@ const JobCreator = ({user, errors, job, setErrors, setShortName, setTitleAndSpea
 
   return (
       <form className="w-full lg:w-1/2 px-4" onSubmit={e => {
-        createJob(job, user.username, uid, scheduledJob);
-        // e.preventDefault();
+        e.preventDefault();
+        createJob(job, user.username, uid)
+            .then(res => scheduleJobOutcome(true, res))
+            .catch(err => scheduleJobOutcome(false, err));
       }}>
         <div className="bg-bg2 border-t border-b sm:rounded sm:border shadow">
           <div className="border-b">
@@ -115,7 +130,7 @@ const JobCreator = ({user, errors, job, setErrors, setShortName, setTitleAndSpea
             </div>
             <div className="text-center px-6 py-4">
               {
-                !!errors
+                errors
                     ? errorMessages
                     : ''
               }
@@ -125,8 +140,8 @@ const JobCreator = ({user, errors, job, setErrors, setShortName, setTitleAndSpea
                     : ''
               }
               {
-                jobCreated
-                    ? <p className="text-lg text-green-400 mb-4">Job scheduled successfully!</p>
+                message
+                    ? <p className="text-lg text-green-400 mb-4">{message}</p>
                     : ''
               }
               <div className="py-8">
@@ -134,6 +149,10 @@ const JobCreator = ({user, errors, job, setErrors, setShortName, setTitleAndSpea
                   <button type="submit"
                           className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4">
                     Schedule Job
+                  </button>
+                  <button type="button"
+                          className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4 mx-4">
+                   Reset
                   </button>
                 </div>
               </div>

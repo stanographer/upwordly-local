@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
-import Provider from '../../src/components/Session/Provider';
 import Head from 'next/head';
 import Router, { withRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { auth, db } from '../../src/firebase';
-import { withFirebase } from '../../src/firebase/context';
 import * as ROUTES from '../../src/constants/routes';
+import Footer from '../../src/components/General/Footer';
 
 const NavLogo = dynamic(() => import('../../src/components/Logos/NavLogo'));
 const Typed = dynamic(() => import('react-typed'));
@@ -240,7 +239,7 @@ class SignUp extends React.Component {
             passwordValid: true,
           });
         }
-      })
+      });
     }
   };
 
@@ -353,7 +352,7 @@ class SignUp extends React.Component {
     };
 
     return (
-        <Provider>
+        <Fragment>
           <Head>
             <title>Create an Upword.ly account</title>
             <meta
@@ -364,29 +363,27 @@ class SignUp extends React.Component {
           </Head>
           <div className="container mx-auto h-full flex flex-1 justify-center items-center">
             <div className="w-full max-w-sm mt-20">
-              <NavLogo center={true} />
-              <div className="font-sans mb-10 mt-2 text-center justify-center">
-                <Typed
-                    className="marquee"
-                    strings={[
-                      'Welcome to Upword.ly.',
-                      'Let\'s create you an account.',
-                    ]}
-                    typeSpeed={40} />
+              <div className="my-4 lg:my-8">
+                <NavLogo center={true} />
+                <div className="font-sans mb-10 mt-4 text-center justify-center">
+                  <Typed
+                      className="marquee"
+                      strings={[
+                        'Welcome to Upword.ly.',
+                        'Let\'s create you an account.',
+                      ]}
+                      typeSpeed={40} />
+                </div>
               </div>
-
               {stage()}
-
-              <p className="text-center text-grey text-xs mt-10">
-                ©2019 Upword.ly. All rights reserved.
-              </p>
+              <Footer />
             </div>
           </div>
-        </Provider>
+        </Fragment>
     );
   }
 }
 
-export default withFirebase(withRouter(SignUp));
+export default withRouter(SignUp);
 
 

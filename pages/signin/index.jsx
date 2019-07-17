@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { auth } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
+import Footer from '../../src/components/General/Footer';
 
 const NavLogo = dynamic(() => import('../../src/components/Logos/NavLogo'));
 const Typed = dynamic(() => import('react-typed'));
@@ -39,18 +40,18 @@ class SignInComponent extends Component {
 
     e.preventDefault();
 
-   try {
-     auth.doSignInWithEmailAndPassword(email, password)
-         .then(() => {
-           this.setState({...INITIAL_STATE});
-           router.push(ROUTES.DASHBOARD);
-         })
-         .catch(error => {
-           this.setState({error});
-         });
-   } catch (err) {
-     this.setState({err});
-   }
+    try {
+      auth.doSignInWithEmailAndPassword(email, password)
+          .then(() => {
+            this.setState({...INITIAL_STATE});
+            router.push(ROUTES.DASHBOARD);
+          })
+          .catch(error => {
+            this.setState({error});
+          });
+    } catch (err) {
+      this.setState({err});
+    }
   };
 
   onChange = event => {
@@ -139,9 +140,7 @@ class SignInComponent extends Component {
                   </a></Link>
                 </div>
               </form>
-              <p className="text-center text-grey text-xs mt-10">
-                ©2019 Upword.ly. All rights reserved.
-              </p>
+              <Footer />
             </div>
           </div>
         </Provider>
