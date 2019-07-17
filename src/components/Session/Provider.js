@@ -1,5 +1,5 @@
 import React from 'react';
-import WidgetContext from '../../context/widget-context';
+import WidgetContext from '../../providers/WidgetContext';
 
 class AppProvider extends React.Component {
   state = {

@@ -95,7 +95,7 @@ module.exports = __webpack_require__(/*! core-js/library/fn/set */ "./node_modul
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/index.jsx");
+module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -543,7 +543,7 @@ module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/cor
 
 /***/ "./node_modules/core-js/library/fn/symbol/index.js":
 /*!*********************************************************!*\
-  !*** ./node_modules/core-js/library/fn/symbol/index.jsx ***!
+  !*** ./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -659,7 +659,7 @@ module.exports = function (iter, ITERATOR) {
 // true  -> Array#includes
 var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
 var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/library/modules/_to-length.js");
-var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-index.jsx");
+var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx");
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -1118,7 +1118,7 @@ module.exports = function (object, index, value) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// optional / simple context binding
+// optional / simple providers binding
 var aFunction = __webpack_require__(/*! ./_a-function */ "./node_modules/core-js/library/modules/_a-function.js");
 module.exports = function (fn, that, length) {
   aFunction(fn);
@@ -1266,7 +1266,7 @@ var $export = function (type, name, source) {
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
     exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
+    // bind timers to global for call from export providers
     : IS_BIND && own ? ctx(out, global)
     // wrap global constructors for prevent change them in library
     : IS_WRAP && target[key] == out ? (function (C) {
@@ -2322,7 +2322,7 @@ module.exports = function (TO_STRING) {
 
 /***/ "./node_modules/core-js/library/modules/_to-absolute-index.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/_to-absolute-index.jsx ***!
+  !*** ./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3147,7 +3147,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ "./node_modules/next-server/dist/lib/amp-context.js":
 /*!**********************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/amp-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/amp-providers.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3173,7 +3173,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.AmpStateContext = React.createContext({});
 
@@ -3203,9 +3203,9 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/next-server/dist/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-providers */ "./node_modules/next-server/dist/lib/amp-providers.js");
 
 function isInAmpMode() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -3233,7 +3233,7 @@ exports.useAmp = useAmp;
 
 /***/ "./node_modules/next-server/dist/lib/head-manager-context.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/head-manager-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/head-manager-providers.js ***!
   \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3259,7 +3259,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.HeadManagerContext = React.createContext(null);
 
@@ -3291,13 +3291,13 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var side_effect_1 = __importDefault(__webpack_require__(/*! ./side-effect */ "./node_modules/next-server/dist/lib/side-effect.js"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/next-server/dist/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-providers */ "./node_modules/next-server/dist/lib/amp-providers.js");
 
-var head_manager_context_1 = __webpack_require__(/*! ./head-manager-context */ "./node_modules/next-server/dist/lib/head-manager-context.js");
+var head_manager_context_1 = __webpack_require__(/*! ./head-manager-providers */ "./node_modules/next-server/dist/lib/head-manager-providers.js");
 
 var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/next-server/dist/lib/amp.js");
 
@@ -3476,7 +3476,7 @@ var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runt
   value: true
 });
 
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var isServer = "object" === 'undefined';
 
@@ -3613,7 +3613,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/help
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var _head = _interopRequireDefault(__webpack_require__(/*! next-server/head */ "./node_modules/next-server/head.js"));
 
@@ -3714,12 +3714,12 @@ var styles = {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/react/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/ConnectionProvider.jsx");
 
 /***/ }),
 

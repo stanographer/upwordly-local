@@ -1,5 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import '../fonts.css';
 import '../style.css';
 
@@ -19,6 +21,10 @@ class MyApp extends App {
 
     return (
         <Container>
+          <ToastContainer
+              draggable
+              autoClose={5000}
+          />
           <Component {...pageProps} />
         </Container>
     );

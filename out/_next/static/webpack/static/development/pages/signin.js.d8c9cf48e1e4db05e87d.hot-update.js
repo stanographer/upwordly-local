@@ -2,7 +2,7 @@ webpackHotUpdate("static/development/pages/signin.js",{
 
 /***/ "./pages/signin/index.jsx":
 /*!********************************!*\
-  !*** ./pages/signin/index.jsx ***!
+  !*** ./pages/signin/ConnectionProvider.jsx ***!
   \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -17,7 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _src_components_Session_Provider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../src/components/Session/Provider */ "./src/components/Session/Provider.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/head */ "./node_modules/next-server/dist/lib/head.js");
@@ -30,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _src_firebase__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../src/firebase */ "./src/firebase/index.jsx");
+/* harmony import */ var _src_firebase__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../src/firebase */ "./src/firebase/ConnectionProvider.jsx");
 /* harmony import */ var _src_constants_routes__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../src/constants/routes */ "./src/constants/routes.js");
 
 
@@ -40,7 +40,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signin/index.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signin/ConnectionProvider.jsx";
 
 
 
