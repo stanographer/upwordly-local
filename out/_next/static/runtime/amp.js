@@ -161,7 +161,7 @@ var runtime = (function (exports) {
   exports.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
+  // record like providers.tryEntries[i].completion. This interface could
   // have been (and was previously) designed to take a closure to be
   // invoked without arguments, but in all the cases we care about we
   // already have an existing method we want to call, so there's no need
@@ -380,7 +380,7 @@ var runtime = (function (exports) {
         }
 
         if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
+          // Setting providers._sent for legacy support of Babel's
           // function.sent implementation.
           context.sent = context._sent = context.arg;
 
@@ -418,7 +418,7 @@ var runtime = (function (exports) {
         } else if (record.type === "throw") {
           state = GenStateCompleted;
           // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
+          // providers.dispatchException(providers.arg) call above.
           context.method = "throw";
           context.arg = record.arg;
         }
@@ -426,10 +426,10 @@ var runtime = (function (exports) {
     };
   }
 
-  // Call delegate.iterator[context.method](context.arg) and handle the
+  // Call delegate.iterator[providers.method](providers.arg) and handle the
   // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
+  // delegate iterator, or by modifying providers.method and providers.arg,
+  // setting providers.delegate to null, and returning the ContinueSentinel.
   function maybeInvokeDelegate(delegate, context) {
     var method = delegate.iterator[context.method];
     if (method === undefined) {
@@ -447,7 +447,7 @@ var runtime = (function (exports) {
           maybeInvokeDelegate(delegate, context);
 
           if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
+            // If maybeInvokeDelegate(providers) changed providers.method from
             // "return" to "throw", let that override the TypeError below.
             return ContinueSentinel;
           }
@@ -487,10 +487,10 @@ var runtime = (function (exports) {
       // Resume execution at the desired location (see delegateYield).
       context.next = delegate.nextLoc;
 
-      // If context.method was "throw" but the delegate handled the
+      // If providers.method was "throw" but the delegate handled the
       // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
+      // providers.method was "next", forget providers.arg since it has been
+      // "consumed" by the delegate iterator. If providers.method was
       // "return", allow the original .return call to continue in the
       // outer generator.
       if (context.method !== "return") {
@@ -632,7 +632,7 @@ var runtime = (function (exports) {
     reset: function(skipTempReset) {
       this.prev = 0;
       this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
+      // Resetting providers._sent for legacy support of Babel's
       // function.sent implementation.
       this.sent = this._sent = undefined;
       this.done = false;
@@ -804,7 +804,7 @@ var runtime = (function (exports) {
         }
       }
 
-      // The context.catch method must only be called with a location
+      // The providers.catch method must only be called with a location
       // argument that corresponds to a known catch block.
       throw new Error("illegal catch attempt");
     },
@@ -860,7 +860,7 @@ try {
 
 /***/ "./node_modules/@babel/runtime-corejs2/regenerator/index.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/regenerator/index.jsx ***!
+  !*** ./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1016,7 +1016,7 @@ module.exports = function (it) {
 // true  -> Array#includes
 var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
 var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/library/modules/_to-length.js");
-var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-index.jsx");
+var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx");
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -1109,7 +1109,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// optional / simple context binding
+// optional / simple providers binding
 var aFunction = __webpack_require__(/*! ./_a-function */ "./node_modules/core-js/library/modules/_a-function.js");
 module.exports = function (fn, that, length) {
   aFunction(fn);
@@ -1231,7 +1231,7 @@ var $export = function (type, name, source) {
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
     exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
+    // bind timers to global for call from export providers
     : IS_BIND && own ? ctx(out, global)
     // wrap global constructors for prevent change them in library
     : IS_WRAP && target[key] == out ? (function (C) {
@@ -2375,7 +2375,7 @@ module.exports = {
 
 /***/ "./node_modules/core-js/library/modules/_to-absolute-index.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/_to-absolute-index.jsx ***!
+  !*** ./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3084,7 +3084,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 var _interopRequireDefault2 = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault2(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault2(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
@@ -3164,7 +3164,7 @@ function _tryApplyUpdates() {
 
           case 8:
             _data = _context.sent;
-            curPage = page === '/' ? 'index.jsx' : page;
+            curPage = page === '/' ? 'ConnectionProvider.jsx.jsx' : page;
             pageUpdated = (0, _keys["default"])(_data.c).some(function (mod) {
               return mod.indexOf("pages" + (curPage.substr(0, 1) === '/' ? curPage : "/" + curPage)) !== -1 || mod.indexOf(("pages" + (curPage.substr(0, 1) === '/' ? curPage : "/" + curPage)).replace(/\//g, '\\')) !== -1;
             });

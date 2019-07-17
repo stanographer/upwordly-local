@@ -1145,7 +1145,7 @@ var perf = {
 
 /**
  * Internal helper to bind a function known to have 4 arguments
- * to a given context.
+ * to a given providers.
  */
 
 var bindInternal4 = function bindInternal4(func, thisContext) {
@@ -1162,7 +1162,7 @@ var bindInternal4 = function bindInternal4(func, thisContext) {
  * @param  {Object}   subject      The object to reduce over.
  * @param  {Function} fn           The reducer function.
  * @param  {mixed}    initialValue The initial value for the reducer, defaults to subject[0].
- * @param  {Object}   thisContext  The context for the reducer.
+ * @param  {Object}   thisContext  The providers for the reducer.
  * @return {mixed}                 The final result.
  */
 
@@ -9158,9 +9158,9 @@ var _iconsCache = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontAwesomeIcon", function() { return FontAwesomeIcon; });
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -9699,7 +9699,7 @@ $export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_colle
 
 /***/ "./node_modules/define-properties/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/define-properties/index.jsx ***!
+  !*** ./node_modules/define-properties/ConnectionProvider.jsx ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9707,7 +9707,7 @@ $export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_colle
 "use strict";
 
 
-var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.jsx");
+var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/ConnectionProvider.jsx");
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
@@ -9833,7 +9833,7 @@ module.exports = function bind(that) {
 
 /***/ "./node_modules/function-bind/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/function-bind/index.jsx ***!
+  !*** ./node_modules/function-bind/ConnectionProvider.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9904,7 +9904,7 @@ module.exports = function hasSymbols() {
 
 /***/ "./node_modules/has/src/index.js":
 /*!***************************************!*\
-  !*** ./node_modules/has/src/index.jsx ***!
+  !*** ./node_modules/has/src/ConnectionProvider.jsx ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9912,7 +9912,7 @@ module.exports = function hasSymbols() {
 "use strict";
 
 
-var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.jsx");
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/ConnectionProvider.jsx");
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
@@ -9952,9 +9952,9 @@ var _map = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2
 
 var _url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
 
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"));
 
 var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
 
@@ -10211,7 +10211,7 @@ Link.defaultProps = {
 if (true) {
   var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
 
-  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.jsx");
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/ConnectionProvider.jsx");
 
   Link.propTypes = exact({
     href: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
@@ -10386,7 +10386,7 @@ module.exports = keysShim;
 
 /***/ "./node_modules/object-keys/index.js":
 /*!*******************************************!*\
-  !*** ./node_modules/object-keys/index.jsx ***!
+  !*** ./node_modules/object-keys/ConnectionProvider.jsx ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10468,8 +10468,8 @@ module.exports = function isArguments(value) {
 
 
 // modified from https://github.com/es-shims/es6-shim
-var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.jsx");
-var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.jsx");
+var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/ConnectionProvider.jsx");
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/ConnectionProvider.jsx");
 var canBeObject = function (obj) {
 	return typeof obj !== 'undefined' && obj !== null;
 };
@@ -10512,7 +10512,7 @@ module.exports = function assign(target, source1) {
 
 /***/ "./node_modules/object.assign/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/object.assign/index.jsx ***!
+  !*** ./node_modules/object.assign/ConnectionProvider.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10520,7 +10520,7 @@ module.exports = function assign(target, source1) {
 "use strict";
 
 
-var defineProperties = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.jsx");
+var defineProperties = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/ConnectionProvider.jsx");
 
 var implementation = __webpack_require__(/*! ./implementation */ "./node_modules/object.assign/implementation.js");
 var getPolyfill = __webpack_require__(/*! ./polyfill */ "./node_modules/object.assign/polyfill.js");
@@ -10612,7 +10612,7 @@ module.exports = function getPolyfill() {
 "use strict";
 
 
-var define = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.jsx");
+var define = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/ConnectionProvider.jsx");
 var getPolyfill = __webpack_require__(/*! ./polyfill */ "./node_modules/object.assign/polyfill.js");
 
 module.exports = function shimAssign() {
@@ -10690,7 +10690,7 @@ function runTimeout(fun) {
             // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
             return cachedSetTimeout.call(null, fun, 0);
         } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our providers correct otherwise it will throw a global error
             return cachedSetTimeout.call(this, fun, 0);
         }
     }
@@ -10715,7 +10715,7 @@ function runClearTimeout(marker) {
             // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
             return cachedClearTimeout.call(null, marker);
         } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our providers correct otherwise it will throw a global error.
             // Some versions of I.E. have different rules for clearTimeout vs setTimeout
             return cachedClearTimeout.call(this, marker);
         }
@@ -10847,7 +10847,7 @@ module.exports = exports['default'];
 
 /***/ "./node_modules/prop-types-exact/build/index.js":
 /*!******************************************************!*\
-  !*** ./node_modules/prop-types-exact/build/index.jsx ***!
+  !*** ./node_modules/prop-types-exact/build/ConnectionProvider.jsx ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10857,11 +10857,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports['default'] = forbidExtraProps;
 
-var _object = __webpack_require__(/*! object.assign */ "./node_modules/object.assign/index.jsx");
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/object.assign/ConnectionProvider.jsx");
 
 var _object2 = _interopRequireDefault(_object);
 
-var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.jsx");
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/ConnectionProvider.jsx");
 
 var _has2 = _interopRequireDefault(_has);
 
@@ -10908,7 +10908,7 @@ function forbidExtraProps(propTypes) {
   }())));
 }
 module.exports = exports['default'];
-//# sourceMappingURL=index.jsx.map
+//# sourceMappingURL=ConnectionProvider.jsx.map
 
 /***/ }),
 
@@ -11194,7 +11194,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);

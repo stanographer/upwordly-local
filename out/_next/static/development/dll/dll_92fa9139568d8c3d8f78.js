@@ -89,7 +89,7 @@ var dll_7aff549c98b978433226 =
 
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/object-assign/index.jsx ***!
+  !*** ./node_modules/object-assign/ConnectionProvider.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /*! all exports used */
@@ -235,7 +235,7 @@ if (true) {
  *
  * @param {object} typeSpecs Map of name to a ReactPropType
  * @param {object} values Runtime values that need to be type-checked
- * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} location e.g. "prop", "providers", "child providers"
  * @param {string} componentName Name of the component for error messages.
  * @param {?Function} getStack Returns the component stack.
  * @private
@@ -356,10 +356,10 @@ if (true) {
   (function() {
 'use strict';
 
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
-var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.jsx");
+var React = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
+var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/ConnectionProvider.jsx");
 var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
-var scheduler = __webpack_require__(/*! scheduler */ "./node_modules/scheduler/index.jsx");
+var scheduler = __webpack_require__(/*! scheduler */ "./node_modules/scheduler/ConnectionProvider.jsx");
 var tracing = __webpack_require__(/*! scheduler/tracing */ "./node_modules/scheduler/tracing.js");
 
 /**
@@ -434,7 +434,7 @@ var invokeGuardedCallbackImpl = function (name, func, context, a, b, c, d, e, f)
   // DOM node, and call the user-provided callback from inside an event handler
   // for that fake event. If the callback throws, the error is "captured" using
   // a global event handler. But because the error happens in a different
-  // event loop context, it does not interrupt the normal program flow.
+  // event loop providers, it does not interrupt the normal program flow.
   // Effectively, this gives us try-catch behavior without actually using
   // try-catch. Neat!
 
@@ -588,7 +588,7 @@ var reporter = {
  *
  * @param {String} name of the guard to use for logging or debugging
  * @param {Function} func The function to invoke
- * @param {*} context The context to use when calling the function
+ * @param {*} context The providers to use when calling the function
  * @param {...*} args Arguments for function
  */
 function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
@@ -604,7 +604,7 @@ function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
  *
  * @param {String} name of the guard to use for logging or debugging
  * @param {Function} func The function to invoke
- * @param {*} context The context to use when calling the function
+ * @param {*} context The providers to use when calling the function
  * @param {...*} args Arguments for function
  */
 function invokeGuardedCallbackAndCatchFirstError(name, func, context, a, b, c, d, e, f) {
@@ -2744,7 +2744,7 @@ var describeComponentFrame = function (name, source, ownerName) {
     var fileName = path.replace(BEFORE_SLASH_RE, '');
     {
       // In DEV, include code for a common special case:
-      // prefer "folder/index.jsx" instead of just "index.jsx".
+      // prefer "folder/ConnectionProvider.jsx" instead of just "ConnectionProvider.jsx".
       if (/^index\./.test(fileName)) {
         var match = path.match(BEFORE_SLASH_RE);
         if (match) {
@@ -9262,7 +9262,7 @@ function clearSuspenseBoundaryFromContainer(container, suspenseInstance) {
 
 function hideInstance(instance) {
   // TODO: Does this work for all element types? What about MathML? Should we
-  // pass host context to this method?
+  // pass host providers to this method?
   instance = instance;
   instance.style.display = 'none';
 }
@@ -9946,21 +9946,21 @@ var emptyContextObject = {};
   Object.freeze(emptyContextObject);
 }
 
-// A cursor to the current merged context object on the stack.
+// A cursor to the current merged providers object on the stack.
 var contextStackCursor = createCursor(emptyContextObject);
-// A cursor to a boolean indicating whether the context has changed.
+// A cursor to a boolean indicating whether the providers has changed.
 var didPerformWorkStackCursor = createCursor(false);
-// Keep track of the previous context object that was on the stack.
-// We use this to get access to the parent context after we have already
-// pushed the next context provider, and now need to merge their contexts.
+// Keep track of the previous providers object that was on the stack.
+// We use this to get access to the parent providers after we have already
+// pushed the next providers provider, and now need to merge their contexts.
 var previousContext = emptyContextObject;
 
 function getUnmaskedContext(workInProgress, Component, didPushOwnContextIfProvider) {
   if (didPushOwnContextIfProvider && isContextProvider(Component)) {
-    // If the fiber is a context provider itself, when we read its context
-    // we may have already pushed its own child context on the stack. A context
-    // provider should not "see" its own child context. Therefore we read the
-    // previous (parent) context instead for a context provider.
+    // If the fiber is a providers provider itself, when we read its providers
+    // we may have already pushed its own child providers on the stack. A providers
+    // provider should not "see" its own child providers. Therefore we read the
+    // previous (parent) providers instead for a providers provider.
     return previousContext;
   }
   return contextStackCursor.current;
@@ -9979,7 +9979,7 @@ function getMaskedContext(workInProgress, unmaskedContext) {
     return emptyContextObject;
   }
 
-  // Avoid recreating masked context unless unmasked context has changed.
+  // Avoid recreating masked providers unless unmasked providers has changed.
   // Failing to do this will result in unnecessary calls to componentWillReceiveProps.
   // This may trigger infinite loops if componentWillReceiveProps calls setState.
   var instance = workInProgress.stateNode;
@@ -9997,7 +9997,7 @@ function getMaskedContext(workInProgress, unmaskedContext) {
     checkPropTypes(contextTypes, context, 'context', name, getCurrentFiberStackInDev);
   }
 
-  // Cache unmasked context so we can avoid recreating masked context unless necessary.
+  // Cache unmasked providers so we can avoid recreating masked providers unless necessary.
   // Context is created before the class component is instantiated so check for instance.
   if (instance) {
     cacheContext(workInProgress, unmaskedContext, context);
@@ -10026,7 +10026,7 @@ function popTopLevelContextObject(fiber) {
 }
 
 function pushTopLevelContextObject(fiber, context, didChange) {
-  !(contextStackCursor.current === emptyContextObject) ? invariant(false, 'Unexpected context found on stack. This error is likely caused by a bug in React. Please file an issue.') : void 0;
+  !(contextStackCursor.current === emptyContextObject) ? invariant(false, 'Unexpected providers found on stack. This error is likely caused by a bug in React. Please file an issue.') : void 0;
 
   push(contextStackCursor, context, fiber);
   push(didPerformWorkStackCursor, didChange, fiber);
@@ -10065,10 +10065,10 @@ function processChildContext(fiber, type, parentContext) {
   }
   {
     var name = getComponentName(type) || 'Unknown';
-    checkPropTypes(childContextTypes, childContext, 'child context', name,
+    checkPropTypes(childContextTypes, childContext, 'child providers', name,
     // In practice, there is one case in which we won't get a stack. It's when
     // somebody calls unstable_renderSubtreeIntoContainer() and we process
-    // context from the parent component instance. The stack will be missing
+    // providers from the parent component instance. The stack will be missing
     // because it's outside of the reconciliation, and so the pointer has not
     // been set. This is rare and doesn't matter. We'll also remove that API.
     getCurrentFiberStackInDev);
@@ -10079,12 +10079,12 @@ function processChildContext(fiber, type, parentContext) {
 
 function pushContextProvider(workInProgress) {
   var instance = workInProgress.stateNode;
-  // We push the context as early as possible to ensure stack integrity.
+  // We push the providers as early as possible to ensure stack integrity.
   // If the instance does not exist yet, we will push null at first,
-  // and replace it on the stack later when invalidating the context.
+  // and replace it on the stack later when invalidating the providers.
   var memoizedMergedChildContext = instance && instance.__reactInternalMemoizedMergedChildContext || emptyContextObject;
 
-  // Remember the parent context so we can merge with it later.
+  // Remember the parent providers so we can merge with it later.
   // Inherit the parent's did-perform-work value to avoid inadvertently blocking updates.
   previousContext = contextStackCursor.current;
   push(contextStackCursor, memoizedMergedChildContext, workInProgress);
@@ -10098,17 +10098,17 @@ function invalidateContextProvider(workInProgress, type, didChange) {
   !instance ? invariant(false, 'Expected to have an instance by this point. This error is likely caused by a bug in React. Please file an issue.') : void 0;
 
   if (didChange) {
-    // Merge parent and own context.
+    // Merge parent and own providers.
     // Skip this if we're not updating due to sCU.
     // This avoids unnecessarily recomputing memoized values.
     var mergedContext = processChildContext(workInProgress, type, previousContext);
     instance.__reactInternalMemoizedMergedChildContext = mergedContext;
 
-    // Replace the old (or empty) context with the new one.
-    // It is important to unwind the context in the reverse order.
+    // Replace the old (or empty) providers with the new one.
+    // It is important to unwind the providers in the reverse order.
     pop(didPerformWorkStackCursor, workInProgress);
     pop(contextStackCursor, workInProgress);
-    // Now push the new context and mark that it has changed.
+    // Now push the new providers and mark that it has changed.
     push(contextStackCursor, mergedContext, workInProgress);
     push(didPerformWorkStackCursor, didChange, workInProgress);
   } else {
@@ -10678,7 +10678,7 @@ function assignFiberPropertiesInDEV(target, source) {
   target.return = source.return;
   target.child = source.child;
   target.sibling = source.sibling;
-  target.index = source.index;
+  target.index = source.ConnectionProvider;
   target.ref = source.ref;
   target.pendingProps = source.pendingProps;
   target.memoizedProps = source.memoizedProps;
@@ -11083,7 +11083,7 @@ var ReactStrictModeWarnings = {
       var sortedNames = setToSortedString(uniqueNames);
       var strictRootComponentStack = getStackByFiberInDevAndProd(strictRoot);
 
-      warningWithoutStack$1(false, 'Legacy context API has been detected within a strict-mode tree: %s' + '\n\nPlease update the following components: %s' + '\n\nLearn more about this warning here:' + '\nhttps://fb.me/react-strict-mode-warnings', strictRootComponentStack, sortedNames);
+      warningWithoutStack$1(false, 'Legacy providers API has been detected within a strict-mode tree: %s' + '\n\nPlease update the following components: %s' + '\n\nLearn more about this warning here:' + '\nhttps://fb.me/react-strict-mode-warnings', strictRootComponentStack, sortedNames);
     });
   };
 }
@@ -11745,7 +11745,7 @@ function constructClassInstance(workInProgress, ctor, props, renderExpirationTim
     }
   }
 
-  // Cache unmasked context so we can avoid recreating masked context unless necessary.
+  // Cache unmasked providers so we can avoid recreating masked providers unless necessary.
   // ReactFiberContext usually updates this cache but can't for newly-created instances.
   if (isLegacyContextConsumer) {
     cacheContext(workInProgress, unmaskedContext, context);
@@ -11952,7 +11952,7 @@ function resumeMountClassInstance(workInProgress, ctor, newProps, renderExpirati
     workInProgress.memoizedState = newState;
   }
 
-  // Update the existing instance's state, props, and context pointers even
+  // Update the existing instance's state, props, and providers pointers even
   // if shouldComponentUpdate returns false.
   instance.props = newProps;
   instance.state = newState;
@@ -12065,7 +12065,7 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
     workInProgress.memoizedState = newState;
   }
 
-  // Update the existing instance's state, props, and context pointers even
+  // Update the existing instance's state, props, and providers pointers even
   // if shouldComponentUpdate returns false.
   instance.props = newProps;
   instance.state = newState;
@@ -12238,7 +12238,7 @@ function ChildReconciler(shouldTrackSideEffects) {
       if (existingChild.key !== null) {
         existingChildren.set(existingChild.key, existingChild);
       } else {
-        existingChildren.set(existingChild.index, existingChild);
+        existingChildren.set(existingChild.ConnectionProvider, existingChild);
       }
       existingChild = existingChild.sibling;
     }
@@ -12565,7 +12565,7 @@ function ChildReconciler(shouldTrackSideEffects) {
     var newIdx = 0;
     var nextOldFiber = null;
     for (; oldFiber !== null && newIdx < newChildren.length; newIdx++) {
-      if (oldFiber.index > newIdx) {
+      if (oldFiber.ConnectionProvider > newIdx) {
         nextOldFiber = oldFiber;
         oldFiber = null;
       } else {
@@ -12716,7 +12716,7 @@ function ChildReconciler(shouldTrackSideEffects) {
 
     var step = newChildren.next();
     for (; oldFiber !== null && !step.done; newIdx++, step = newChildren.next()) {
-      if (oldFiber.index > newIdx) {
+      if (oldFiber.ConnectionProvider > newIdx) {
         nextOldFiber = oldFiber;
         oldFiber = null;
       } else {
@@ -13016,7 +13016,7 @@ var contextFiberStackCursor = createCursor(NO_CONTEXT);
 var rootInstanceStackCursor = createCursor(NO_CONTEXT);
 
 function requiredContext(c) {
-  !(c !== NO_CONTEXT) ? invariant(false, 'Expected host context to exist. This error is likely caused by a bug in React. Please file an issue.') : void 0;
+  !(c !== NO_CONTEXT) ? invariant(false, 'Expected host providers to exist. This error is likely caused by a bug in React. Please file an issue.') : void 0;
   return c;
 }
 
@@ -13029,11 +13029,11 @@ function pushHostContainer(fiber, nextRootInstance) {
   // Push current root instance onto the stack;
   // This allows us to reset root when portals are popped.
   push(rootInstanceStackCursor, nextRootInstance, fiber);
-  // Track the context and the Fiber that provided it.
+  // Track the providers and the Fiber that provided it.
   // This enables us to pop only Fibers that provide unique contexts.
   push(contextFiberStackCursor, fiber, fiber);
 
-  // Finally, we need to push the host context to the stack.
+  // Finally, we need to push the host providers to the stack.
   // However, we can't just call getRootHostContext() and push it because
   // we'd have a different number of entries on the stack depending on
   // whether getRootHostContext() throws somewhere in renderer code or not.
@@ -13061,19 +13061,19 @@ function pushHostContext(fiber) {
   var context = requiredContext(contextStackCursor$1.current);
   var nextContext = getChildHostContext(context, fiber.type, rootInstance);
 
-  // Don't push this Fiber's context unless it's unique.
+  // Don't push this Fiber's providers unless it's unique.
   if (context === nextContext) {
     return;
   }
 
-  // Track the context and the Fiber that provided it.
+  // Track the providers and the Fiber that provided it.
   // This enables us to pop only Fibers that provide unique contexts.
   push(contextFiberStackCursor, fiber, fiber);
   push(contextStackCursor$1, nextContext, fiber);
 }
 
 function popHostContext(fiber) {
-  // Do not pop unless this Fiber provided the current context.
+  // Do not pop unless this Fiber provided the current providers.
   // pushHostContext() only pushes Fibers that provide unique contexts.
   if (contextFiberStackCursor.current !== fiber) {
     return;
@@ -13259,7 +13259,7 @@ function renderWithHooks(current, workInProgress, Component, props, refOrContext
   // This is tricky because it's valid for certain types of components (e.g. React.lazy)
 
   // Using nextCurrentHook to differentiate between mount/update only works if at least one stateful hook is used.
-  // Non-stateful hooks (e.g. context) don't get added to memoizedState,
+  // Non-stateful hooks (e.g. providers) don't get added to memoizedState,
   // so nextCurrentHook would be null during updates and mounts.
   {
     if (nextCurrentHook !== null) {
@@ -13321,7 +13321,7 @@ function renderWithHooks(current, workInProgress, Component, props, refOrContext
   }
 
   // This check uses currentHook so that it works the same in DEV and prod bundles.
-  // hookTypesDev could catch more cases (e.g. context) but only in DEV bundles.
+  // hookTypesDev could catch more cases (e.g. providers) but only in DEV bundles.
   var didRenderTooFewHooks = currentHook !== null && currentHook.next !== null;
 
   renderExpirationTime = NoWork;
@@ -14412,7 +14412,7 @@ function stopProfilerTimerIfRunningAndRecordDelta(fiber, overrideBaseTime) {
   }
 }
 
-// The deepest Fiber on the stack involved in a hydration context.
+// The deepest Fiber on the stack involved in a hydration providers.
 // This may have been an insertion or a hydration.
 var hydrationParentFiber = null;
 var nextHydratableInstance = null;
@@ -14625,7 +14625,7 @@ function prepareToHydrateHostTextInstance(fiber) {
   var shouldUpdate = hydrateTextInstance(textInstance, textContent, fiber);
   {
     if (shouldUpdate) {
-      // We assume that prepareToHydrateHostTextInstance is called in a context where the
+      // We assume that prepareToHydrateHostTextInstance is called in a providers where the
       // hydration parent is the parent host component of this host text.
       var returnFiber = hydrationParentFiber;
       if (returnFiber !== null) {
@@ -14673,12 +14673,12 @@ function popHydrationState(fiber) {
     return false;
   }
   if (fiber !== hydrationParentFiber) {
-    // We're deeper than the current hydration context, inside an inserted
+    // We're deeper than the current hydration providers, inside an inserted
     // tree.
     return false;
   }
   if (!isHydrating) {
-    // If we're not currently hydrating but we're in a hydration context, then
+    // If we're not currently hydrating but we're in a hydration providers, then
     // we were an insertion and now need to pop up reenter hydration of our
     // siblings.
     popToNextHostParent(fiber);
@@ -14999,9 +14999,9 @@ function updateClassComponent(current$$1, workInProgress, Component, nextProps, 
     }
   }
 
-  // Push context providers early to prevent context stack mismatches.
-  // During mounting we don't know the child context yet as the instance doesn't exist.
-  // We will invalidate the child context in finishClassComponent() right after rendering.
+  // Push providers providers early to prevent providers stack mismatches.
+  // During mounting we don't know the child providers yet as the instance doesn't exist.
+  // We will invalidate the child providers in finishClassComponent() right after rendering.
   var hasContext = void 0;
   if (isContextProvider(Component)) {
     hasContext = true;
@@ -15103,7 +15103,7 @@ function finishClassComponent(current$$1, workInProgress, Component, shouldUpdat
   // TODO: Restructure so we never read values from the instance.
   workInProgress.memoizedState = instance.state;
 
-  // The context might have changed so we need to recalculate it.
+  // The providers might have changed so we need to recalculate it.
   if (hasContext) {
     invalidateContextProvider(workInProgress, Component, true);
   }
@@ -15305,9 +15305,9 @@ function mountIncompleteClassComponent(_current, workInProgress, Component, next
 
   // The rest of this function is a fork of `updateClassComponent`
 
-  // Push context providers early to prevent context stack mismatches.
-  // During mounting we don't know the child context yet as the instance doesn't exist.
-  // We will invalidate the child context in finishClassComponent() right after rendering.
+  // Push providers providers early to prevent providers stack mismatches.
+  // During mounting we don't know the child providers yet as the instance doesn't exist.
+  // We will invalidate the child providers in finishClassComponent() right after rendering.
   var hasContext = void 0;
   if (isContextProvider(Component)) {
     hasContext = true;
@@ -15370,9 +15370,9 @@ function mountIndeterminateComponent(_current, workInProgress, Component, render
     // Throw out any hooks that were used.
     resetHooks();
 
-    // Push context providers early to prevent context stack mismatches.
-    // During mounting we don't know the child context yet as the instance doesn't exist.
-    // We will invalidate the child context in finishClassComponent() right after rendering.
+    // Push providers providers early to prevent providers stack mismatches.
+    // During mounting we don't know the child providers yet as the instance doesn't exist.
+    // We will invalidate the child providers in finishClassComponent() right after rendering.
     var hasContext = false;
     if (isContextProvider(Component)) {
       hasContext = true;
@@ -15676,8 +15676,8 @@ function updateDehydratedSuspenseComponent(current$$1, workInProgress, renderExp
     workInProgress.expirationTime = Never;
     return null;
   }
-  // We use childExpirationTime to indicate that a child might depend on context, so if
-  // any context has changed, we need to treat is as if the input might have changed.
+  // We use childExpirationTime to indicate that a child might depend on providers, so if
+  // any providers has changed, we need to treat is as if the input might have changed.
   var hasContextChanged$$1 = current$$1.childExpirationTime >= renderExpirationTime;
   if (didReceiveUpdate || hasContextChanged$$1) {
     // This boundary has changed since the first render. This means that we are now unable to
@@ -15772,7 +15772,7 @@ function updateContextProvider(current$$1, workInProgress, renderExpirationTime)
         return bailoutOnAlreadyFinishedWork(current$$1, workInProgress, renderExpirationTime);
       }
     } else {
-      // The context value changed. Search for matching consumers and schedule
+      // The providers value changed. Search for matching consumers and schedule
       // them to update.
       propagateContextChange(workInProgress, context, changedBits, renderExpirationTime);
     }
@@ -15791,7 +15791,7 @@ function updateContextConsumer(current$$1, workInProgress, renderExpirationTime)
   // DEV mode, we create a separate object for Context.Consumer that acts
   // like a proxy to Context. This proxy object adds unnecessary code in PROD
   // so we use the old behaviour (Context.Consumer references Context) to
-  // reduce size and overhead. The separate object references context via
+  // reduce size and overhead. The separate object references providers via
   // a property called "_context", which also gives us the ability to check
   // in DEV mode if this property exists or not and warn if it does not.
   {
@@ -15813,7 +15813,7 @@ function updateContextConsumer(current$$1, workInProgress, renderExpirationTime)
   var render = newProps.children;
 
   {
-    !(typeof render === 'function') ? warningWithoutStack$1(false, 'A context consumer was rendered with multiple children, or a child ' + "that isn't a function. A context consumer expects a single child " + 'that is a function. If you did pass a function, make sure there ' + 'is no trailing or leading whitespace around it.') : void 0;
+    !(typeof render === 'function') ? warningWithoutStack$1(false, 'A providers consumer was rendered with multiple children, or a child ' + "that isn't a function. A providers consumer expects a single child " + 'that is a function. If you did pass a function, make sure there ' + 'is no trailing or leading whitespace around it.') : void 0;
   }
 
   prepareToReadContext(workInProgress, renderExpirationTime);
@@ -15840,7 +15840,7 @@ function bailoutOnAlreadyFinishedWork(current$$1, workInProgress, renderExpirati
   cancelWorkTimer(workInProgress);
 
   if (current$$1 !== null) {
-    // Reuse previous context list
+    // Reuse previous providers list
     workInProgress.contextDependencies = current$$1.contextDependencies;
   }
 
@@ -15872,7 +15872,7 @@ function beginWork(current$$1, workInProgress, renderExpirationTime) {
     var newProps = workInProgress.pendingProps;
 
     if (oldProps !== newProps || hasContextChanged()) {
-      // If props or context changed, mark the fiber as having performed work.
+      // If props or providers changed, mark the fiber as having performed work.
       // This may be unset if the props are determined to be equal later (memo).
       didReceiveUpdate = true;
     } else if (updateExpirationTime < renderExpirationTime) {
@@ -16055,7 +16055,7 @@ var valueCursor = createCursor(null);
 
 var rendererSigil = void 0;
 {
-  // Use this to detect multiple renderers using the same context
+  // Use this to detect multiple renderers using the same providers
   rendererSigil = {};
 }
 
@@ -16096,7 +16096,7 @@ function pushProvider(providerFiber, nextValue) {
 
     context._currentValue = nextValue;
     {
-      !(context._currentRenderer === undefined || context._currentRenderer === null || context._currentRenderer === rendererSigil) ? warningWithoutStack$1(false, 'Detected multiple renderers concurrently rendering the ' + 'same context provider. This is currently unsupported.') : void 0;
+      !(context._currentRenderer === undefined || context._currentRenderer === null || context._currentRenderer === rendererSigil) ? warningWithoutStack$1(false, 'Detected multiple renderers concurrently rendering the ' + 'same providers provider. This is currently unsupported.') : void 0;
       context._currentRenderer = rendererSigil;
     }
   } else {
@@ -16104,7 +16104,7 @@ function pushProvider(providerFiber, nextValue) {
 
     context._currentValue2 = nextValue;
     {
-      !(context._currentRenderer2 === undefined || context._currentRenderer2 === null || context._currentRenderer2 === rendererSigil) ? warningWithoutStack$1(false, 'Detected multiple renderers concurrently rendering the ' + 'same context provider. This is currently unsupported.') : void 0;
+      !(context._currentRenderer2 === undefined || context._currentRenderer2 === null || context._currentRenderer2 === rendererSigil) ? warningWithoutStack$1(false, 'Detected multiple renderers concurrently rendering the ' + 'same providers provider. This is currently unsupported.') : void 0;
       context._currentRenderer2 = rendererSigil;
     }
   }
@@ -16175,7 +16175,7 @@ function propagateContextChange(workInProgress, context, changedBits, renderExpi
 
       var dependency = list.first;
       while (dependency !== null) {
-        // Check if the context matches.
+        // Check if the providers matches.
         if (dependency.context === context && (dependency.observedBits & changedBits) !== 0) {
           // Match! Schedule an update on this fiber.
 
@@ -16216,7 +16216,7 @@ function propagateContextChange(workInProgress, context, changedBits, renderExpi
       nextFiber = fiber.type === workInProgress.type ? null : fiber.child;
     } else if (enableSuspenseServerRenderer && fiber.tag === DehydratedSuspenseComponent) {
       // If a dehydrated suspense component is in this subtree, we don't know
-      // if it will have any context consumers in it. The best we can do is
+      // if it will have any providers consumers in it. The best we can do is
       // mark it as having updates on its children.
       if (fiber.expirationTime < renderExpirationTime) {
         fiber.expirationTime = renderExpirationTime;
@@ -16228,7 +16228,7 @@ function propagateContextChange(workInProgress, context, changedBits, renderExpi
       // This is intentionally passing this fiber as the parent
       // because we want to schedule this fiber as having work
       // on its children. We'll use the childExpirationTime on
-      // this fiber to indicate that a context has changed.
+      // this fiber to indicate that a providers has changed.
       scheduleWorkOnParentPath(fiber, renderExpirationTime);
       nextFiber = fiber.sibling;
     } else {
@@ -16280,13 +16280,13 @@ function prepareToReadContext(workInProgress, renderExpirationTime) {
 
 function readContext(context, observedBits) {
   {
-    // This warning would fire if you read context inside a Hook like useMemo.
+    // This warning would fire if you read providers inside a Hook like useMemo.
     // Unlike the class check below, it's not enforced in production for perf.
     !!isDisallowedContextReadInDEV ? warning$1(false, 'Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().') : void 0;
   }
 
   if (lastContextWithAllBitsObserved === context) {
-    // Nothing to do. We already observe everything in this context.
+    // Nothing to do. We already observe everything in this providers.
   } else if (observedBits === false || observedBits === 0) {
     // Do not observe any updates.
   } else {
@@ -16315,7 +16315,7 @@ function readContext(context, observedBits) {
         expirationTime: NoWork
       };
     } else {
-      // Append a new context item.
+      // Append a new providers item.
       lastContextDependency = lastContextDependency.next = contextItem;
     }
   }
@@ -16756,7 +16756,7 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
 
   // Set the remaining expiration time to be whatever is remaining in the queue.
   // This should be fine because the only two other things that contribute to
-  // expiration time are props and context. We're already in the middle of the
+  // expiration time are props and providers. We're already in the middle of the
   // begin phase by the time we start processing the queue, so we've already
   // dealt with the props. Context in components that specify
   // shouldComponentUpdate is tricky; but we'll have to account for
@@ -17224,7 +17224,7 @@ function completeWork(current, workInProgress, renderExpirationTime) {
           }
 
           var currentHostContext = getHostContext();
-          // TODO: Move createInstance to beginWork and keep it on a context
+          // TODO: Move createInstance to beginWork and keep it on a providers
           // "stack" as the parent. Then append children as we go in beginWork
           // or completeWork depending on we want to add then top->down or
           // bottom->up. Top->down is faster in IE11.
@@ -19820,7 +19820,7 @@ function renderRoot(root, isYieldy) {
         if (returnFiber === null) {
           // This is the root. The root could capture its own errors. However,
           // we don't know if it errors before or after we pushed the host
-          // context. This information is needed to avoid a stack mismatch.
+          // providers. This information is needed to avoid a stack mismatch.
           // Because we're not sure, treat this as a fatal error. We could track
           // which phase it fails in, but doesn't seem worth it. At least
           // for now.
@@ -21623,7 +21623,7 @@ module.exports = reactDom;
 
 /***/ "./node_modules/react-dom/index.js":
 /*!*****************************************!*\
-  !*** ./node_modules/react-dom/index.jsx ***!
+  !*** ./node_modules/react-dom/ConnectionProvider.jsx ***!
   \*****************************************/
 /*! no static exports found */
 /*! all exports used */
@@ -21693,7 +21693,7 @@ if (true) {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.jsx");
+var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/ConnectionProvider.jsx");
 var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
 
 // TODO: this is special because it gets imported during build.
@@ -21997,9 +21997,9 @@ Component.prototype.isReactComponent = {};
  *
  * When a function is provided to setState, it will be called at some point in
  * the future (not synchronously). It will be called with the up to date
- * component arguments (state, props, context). These values can be different
+ * component arguments (state, props, providers). These values can be different
  * from this.* because your function may be called after receiveProps but before
- * shouldComponentUpdate, and this new state, props, and context will not yet be
+ * shouldComponentUpdate, and this new state, props, and providers will not yet be
  * assigned to this.
  *
  * @param {object|function} partialState Next partial state or function to
@@ -22121,7 +22121,7 @@ var describeComponentFrame = function (name, source, ownerName) {
     var fileName = path.replace(BEFORE_SLASH_RE, '');
     {
       // In DEV, include code for a common special case:
-      // prefer "folder/index.jsx" instead of just "index.jsx".
+      // prefer "folder/ConnectionProvider.jsx" instead of just "ConnectionProvider.jsx".
       if (/^index\./.test(fileName)) {
         var match = path.match(BEFORE_SLASH_RE);
         if (match) {
@@ -22931,10 +22931,10 @@ function createContext(defaultValue, calculateChangedBits) {
     // some renderers as primary and others as secondary. We only expect
     // there to be two concurrent renderers at most: React Native (primary) and
     // Fabric (secondary); React DOM (primary) and React ART (secondary).
-    // Secondary renderers store their context values on separate fields.
+    // Secondary renderers store their providers values on separate fields.
     _currentValue: defaultValue,
     _currentValue2: defaultValue,
-    // Used to track how many concurrent renderers this context currently
+    // Used to track how many concurrent renderers this providers currently
     // supports within in a single renderer. Such as parallel server rendering.
     _threadCount: 0,
     // These are circular
@@ -22951,7 +22951,7 @@ function createContext(defaultValue, calculateChangedBits) {
   var hasWarnedAboutUsingConsumerProvider = false;
 
   {
-    // A separate object, but proxies back to the original context object for
+    // A separate object, but proxies back to the original providers object for
     // backwards compatibility. It has a different $$typeof, so we can properly
     // warn for the incorrect usage of Context as a Consumer.
     var Consumer = {
@@ -23583,7 +23583,7 @@ module.exports = react;
 
 /***/ "./node_modules/react/index.js":
 /*!*************************************!*\
-  !*** ./node_modules/react/index.jsx ***!
+  !*** ./node_modules/react/ConnectionProvider.jsx ***!
   \*************************************/
 /*! no static exports found */
 /*! all exports used */
@@ -24750,7 +24750,7 @@ exports.unstable_getFirstCallbackNode = unstable_getFirstCallbackNode;
 
 /***/ "./node_modules/scheduler/index.js":
 /*!*****************************************!*\
-  !*** ./node_modules/scheduler/index.jsx ***!
+  !*** ./node_modules/scheduler/ConnectionProvider.jsx ***!
   \*****************************************/
 /*! no static exports found */
 /*! all exports used */

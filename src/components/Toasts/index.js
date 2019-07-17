@@ -1,6 +1,5 @@
 import React from 'react';
-import { toast } from 'react-toastify/index';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheck,
@@ -52,7 +51,7 @@ const Disconnected = () => {
   return (
       <div className="text-lg text-bg font-apercu p-3">
         <FontAwesomeIcon
-            className="pr-2"
+            className="mr-4"
             icon={faExclamation}
         />
         <strong>Attempting to reconnect...</strong>
@@ -67,7 +66,7 @@ const Reconnected = () => {
   return (
       <div className="text-lg text-bg font-apercu p-3">
         <FontAwesomeIcon
-            className="pr-2"
+            className="mr-4"
             icon={faWifi}
         />
         <strong>Connection Restored.</strong>

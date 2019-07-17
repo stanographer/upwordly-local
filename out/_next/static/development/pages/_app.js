@@ -117,7 +117,7 @@ module.exports = __webpack_require__(/*! core-js/library/fn/reflect/construct */
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/index.jsx");
+module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -711,7 +711,7 @@ var runtime = (function (exports) {
   exports.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
+  // record like providers.tryEntries[i].completion. This interface could
   // have been (and was previously) designed to take a closure to be
   // invoked without arguments, but in all the cases we care about we
   // already have an existing method we want to call, so there's no need
@@ -930,7 +930,7 @@ var runtime = (function (exports) {
         }
 
         if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
+          // Setting providers._sent for legacy support of Babel's
           // function.sent implementation.
           context.sent = context._sent = context.arg;
 
@@ -968,7 +968,7 @@ var runtime = (function (exports) {
         } else if (record.type === "throw") {
           state = GenStateCompleted;
           // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
+          // providers.dispatchException(providers.arg) call above.
           context.method = "throw";
           context.arg = record.arg;
         }
@@ -976,10 +976,10 @@ var runtime = (function (exports) {
     };
   }
 
-  // Call delegate.iterator[context.method](context.arg) and handle the
+  // Call delegate.iterator[providers.method](providers.arg) and handle the
   // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
+  // delegate iterator, or by modifying providers.method and providers.arg,
+  // setting providers.delegate to null, and returning the ContinueSentinel.
   function maybeInvokeDelegate(delegate, context) {
     var method = delegate.iterator[context.method];
     if (method === undefined) {
@@ -997,7 +997,7 @@ var runtime = (function (exports) {
           maybeInvokeDelegate(delegate, context);
 
           if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
+            // If maybeInvokeDelegate(providers) changed providers.method from
             // "return" to "throw", let that override the TypeError below.
             return ContinueSentinel;
           }
@@ -1037,10 +1037,10 @@ var runtime = (function (exports) {
       // Resume execution at the desired location (see delegateYield).
       context.next = delegate.nextLoc;
 
-      // If context.method was "throw" but the delegate handled the
+      // If providers.method was "throw" but the delegate handled the
       // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
+      // providers.method was "next", forget providers.arg since it has been
+      // "consumed" by the delegate iterator. If providers.method was
       // "return", allow the original .return call to continue in the
       // outer generator.
       if (context.method !== "return") {
@@ -1182,7 +1182,7 @@ var runtime = (function (exports) {
     reset: function(skipTempReset) {
       this.prev = 0;
       this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
+      // Resetting providers._sent for legacy support of Babel's
       // function.sent implementation.
       this.sent = this._sent = undefined;
       this.done = false;
@@ -1354,7 +1354,7 @@ var runtime = (function (exports) {
         }
       }
 
-      // The context.catch method must only be called with a location
+      // The providers.catch method must only be called with a location
       // argument that corresponds to a known catch block.
       throw new Error("illegal catch attempt");
     },
@@ -1410,7 +1410,7 @@ try {
 
 /***/ "./node_modules/@babel/runtime-corejs2/regenerator/index.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/regenerator/index.jsx ***!
+  !*** ./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1564,7 +1564,7 @@ module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/
 
 /***/ "./node_modules/core-js/library/fn/symbol/index.js":
 /*!*********************************************************!*\
-  !*** ./node_modules/core-js/library/fn/symbol/index.jsx ***!
+  !*** ./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1662,7 +1662,7 @@ module.exports = function (it) {
 // true  -> Array#includes
 var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
 var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/library/modules/_to-length.js");
-var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-index.jsx");
+var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx");
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -1792,7 +1792,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// optional / simple context binding
+// optional / simple providers binding
 var aFunction = __webpack_require__(/*! ./_a-function */ "./node_modules/core-js/library/modules/_a-function.js");
 module.exports = function (fn, that, length) {
   aFunction(fn);
@@ -1940,7 +1940,7 @@ var $export = function (type, name, source) {
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
     exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
+    // bind timers to global for call from export providers
     : IS_BIND && own ? ctx(out, global)
     // wrap global constructors for prevent change them in library
     : IS_WRAP && target[key] == out ? (function (C) {
@@ -3275,7 +3275,7 @@ module.exports = {
 
 /***/ "./node_modules/core-js/library/modules/_to-absolute-index.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/_to-absolute-index.jsx ***!
+  !*** ./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -4488,7 +4488,7 @@ exports["default"] = mitt;
 
 /***/ "./node_modules/next-server/dist/lib/request-context.js":
 /*!**************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/request-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/request-providers.js ***!
   \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -4514,7 +4514,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.RequestContext = React.createContext(null);
 
@@ -4522,7 +4522,7 @@ exports.RequestContext = React.createContext(null);
 
 /***/ "./node_modules/next-server/dist/lib/router-context.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/router-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/router-providers.js ***!
   \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -4548,7 +4548,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.RouterContext = React.createContext(null);
 
@@ -4610,7 +4610,7 @@ exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js"));
 
@@ -4989,7 +4989,7 @@ function () {
         var Component = routeInfo.Component;
 
         if (true) {
-          var _require = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx"),
+          var _require = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx"),
               isValidElementType = _require.isValidElementType;
 
           if (!isValidElementType(Component)) {
@@ -5437,7 +5437,7 @@ exports.getRouteRegex = getRouteRegex;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _keys = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js"));
 
@@ -5667,15 +5667,15 @@ var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-co
 
 var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var _router2 = _interopRequireDefault(__webpack_require__(/*! next-server/dist/lib/router/router */ "./node_modules/next-server/dist/lib/router/router.js"));
 
 exports.Router = _router2["default"];
 
-var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-context */ "./node_modules/next-server/dist/lib/router-context.js");
+var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-providers */ "./node_modules/next-server/dist/lib/router-providers.js");
 
-var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-context */ "./node_modules/next-server/dist/lib/request-context.js");
+var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-providers */ "./node_modules/next-server/dist/lib/request-providers.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
@@ -5858,9 +5858,9 @@ exports["default"] = withRouter;
 
 var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/extends */ "./node_modules/@babel/runtime-corejs2/helpers/extends.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"));
 
 function withRouter(ComposedComponent) {
   var WithRouteWrapper =
@@ -5927,7 +5927,7 @@ var _getPrototypeOf2 = _interopRequireDefault2(__webpack_require__(/*! @babel/ru
 
 var _inherits2 = _interopRequireDefault2(__webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js"));
 
-var _regenerator = _interopRequireDefault2(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault2(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
@@ -5940,9 +5940,9 @@ var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-co
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"));
 
 var _utils = __webpack_require__(/*! next-server/dist/lib/utils */ "./node_modules/next-server/dist/lib/utils.js");
 
@@ -6694,12 +6694,12 @@ module.exports = function(module) {
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/object-assign/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/object-assign/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/object-assign/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -6731,8 +6731,8 @@ module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226
 
 
 
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.jsx");
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/ConnectionProvider.jsx");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
@@ -6767,7 +6767,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   /**
    * Returns the iterator method function contained on the iterable object.
    *
-   * Be sure to invoke the function with the iterable as context:
+   * Be sure to invoke the function with the iterable as providers:
    *
    *     var iteratorFn = getIteratorFn(myIterable);
    *     if (iteratorFn) {
@@ -7319,7 +7319,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 /***/ "./node_modules/prop-types/index.js":
 /*!******************************************!*\
-  !*** ./node_modules/prop-types/index.jsx ***!
+  !*** ./node_modules/prop-types/ConnectionProvider.jsx ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7332,7 +7332,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -7549,7 +7549,7 @@ var objectKeys = Object.keys || function (obj) {
 
 /***/ "./node_modules/querystring-es3/index.js":
 /*!***********************************************!*\
-  !*** ./node_modules/querystring-es3/index.jsx ***!
+  !*** ./node_modules/querystring-es3/ConnectionProvider.jsx ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7804,7 +7804,7 @@ exports.isSuspense = isSuspense;
 
 /***/ "./node_modules/react-is/index.js":
 /*!****************************************!*\
-  !*** ./node_modules/react-is/index.jsx ***!
+  !*** ./node_modules/react-is/ConnectionProvider.jsx ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7821,12 +7821,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/react/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -7937,7 +7937,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/index.jsx");
+    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/ConnectionProvider.jsx");
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -8611,7 +8611,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx");
 /* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
@@ -8620,7 +8620,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_9__);

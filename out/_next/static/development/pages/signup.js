@@ -183,7 +183,7 @@ module.exports = __webpack_require__(/*! core-js/library/fn/set */ "./node_modul
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/index.jsx");
+module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -886,7 +886,7 @@ var runtime = (function (exports) {
   exports.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
+  // record like providers.tryEntries[i].completion. This interface could
   // have been (and was previously) designed to take a closure to be
   // invoked without arguments, but in all the cases we care about we
   // already have an existing method we want to call, so there's no need
@@ -1105,7 +1105,7 @@ var runtime = (function (exports) {
         }
 
         if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
+          // Setting providers._sent for legacy support of Babel's
           // function.sent implementation.
           context.sent = context._sent = context.arg;
 
@@ -1143,7 +1143,7 @@ var runtime = (function (exports) {
         } else if (record.type === "throw") {
           state = GenStateCompleted;
           // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
+          // providers.dispatchException(providers.arg) call above.
           context.method = "throw";
           context.arg = record.arg;
         }
@@ -1151,10 +1151,10 @@ var runtime = (function (exports) {
     };
   }
 
-  // Call delegate.iterator[context.method](context.arg) and handle the
+  // Call delegate.iterator[providers.method](providers.arg) and handle the
   // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
+  // delegate iterator, or by modifying providers.method and providers.arg,
+  // setting providers.delegate to null, and returning the ContinueSentinel.
   function maybeInvokeDelegate(delegate, context) {
     var method = delegate.iterator[context.method];
     if (method === undefined) {
@@ -1172,7 +1172,7 @@ var runtime = (function (exports) {
           maybeInvokeDelegate(delegate, context);
 
           if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
+            // If maybeInvokeDelegate(providers) changed providers.method from
             // "return" to "throw", let that override the TypeError below.
             return ContinueSentinel;
           }
@@ -1212,10 +1212,10 @@ var runtime = (function (exports) {
       // Resume execution at the desired location (see delegateYield).
       context.next = delegate.nextLoc;
 
-      // If context.method was "throw" but the delegate handled the
+      // If providers.method was "throw" but the delegate handled the
       // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
+      // providers.method was "next", forget providers.arg since it has been
+      // "consumed" by the delegate iterator. If providers.method was
       // "return", allow the original .return call to continue in the
       // outer generator.
       if (context.method !== "return") {
@@ -1357,7 +1357,7 @@ var runtime = (function (exports) {
     reset: function(skipTempReset) {
       this.prev = 0;
       this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
+      // Resetting providers._sent for legacy support of Babel's
       // function.sent implementation.
       this.sent = this._sent = undefined;
       this.done = false;
@@ -1529,7 +1529,7 @@ var runtime = (function (exports) {
         }
       }
 
-      // The context.catch method must only be called with a location
+      // The providers.catch method must only be called with a location
       // argument that corresponds to a known catch block.
       throw new Error("illegal catch attempt");
     },
@@ -1585,7 +1585,7 @@ try {
 
 /***/ "./node_modules/@babel/runtime-corejs2/regenerator/index.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/regenerator/index.jsx ***!
+  !*** ./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1831,7 +1831,7 @@ module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/cor
 
 /***/ "./node_modules/core-js/library/fn/symbol/index.js":
 /*!*********************************************************!*\
-  !*** ./node_modules/core-js/library/fn/symbol/index.jsx ***!
+  !*** ./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1947,7 +1947,7 @@ module.exports = function (iter, ITERATOR) {
 // true  -> Array#includes
 var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
 var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/library/modules/_to-length.js");
-var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-index.jsx");
+var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx");
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -2443,7 +2443,7 @@ module.exports = function (object, index, value) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// optional / simple context binding
+// optional / simple providers binding
 var aFunction = __webpack_require__(/*! ./_a-function */ "./node_modules/core-js/library/modules/_a-function.js");
 module.exports = function (fn, that, length) {
   aFunction(fn);
@@ -2591,7 +2591,7 @@ var $export = function (type, name, source) {
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
     exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
+    // bind timers to global for call from export providers
     : IS_BIND && own ? ctx(out, global)
     // wrap global constructors for prevent change them in library
     : IS_WRAP && target[key] == out ? (function (C) {
@@ -3990,7 +3990,7 @@ module.exports = {
 
 /***/ "./node_modules/core-js/library/modules/_to-absolute-index.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/_to-absolute-index.jsx ***!
+  !*** ./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5315,7 +5315,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ "./node_modules/next-server/dist/lib/amp-context.js":
 /*!**********************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/amp-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/amp-providers.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5341,7 +5341,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.AmpStateContext = React.createContext({});
 
@@ -5371,9 +5371,9 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/next-server/dist/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-providers */ "./node_modules/next-server/dist/lib/amp-providers.js");
 
 function isInAmpMode() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -5429,7 +5429,7 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var loadable_1 = __importDefault(__webpack_require__(/*! ./loadable */ "./node_modules/next-server/dist/lib/loadable.js"));
 
@@ -5561,7 +5561,7 @@ exports["default"] = dynamic;
 
 /***/ "./node_modules/next-server/dist/lib/head-manager-context.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/head-manager-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/head-manager-providers.js ***!
   \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5587,7 +5587,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.HeadManagerContext = React.createContext(null);
 
@@ -5619,13 +5619,13 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var side_effect_1 = __importDefault(__webpack_require__(/*! ./side-effect */ "./node_modules/next-server/dist/lib/side-effect.js"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/next-server/dist/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-providers */ "./node_modules/next-server/dist/lib/amp-providers.js");
 
-var head_manager_context_1 = __webpack_require__(/*! ./head-manager-context */ "./node_modules/next-server/dist/lib/head-manager-context.js");
+var head_manager_context_1 = __webpack_require__(/*! ./head-manager-providers */ "./node_modules/next-server/dist/lib/head-manager-providers.js");
 
 var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/next-server/dist/lib/amp.js");
 
@@ -5772,7 +5772,7 @@ exports["default"] = Head;
 
 /***/ "./node_modules/next-server/dist/lib/loadable-context.js":
 /*!***************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/loadable-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/loadable-providers.js ***!
   \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5798,7 +5798,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx")); // @ts-ignore for some reason the React types don't like this, but it's correct.
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx")); // @ts-ignore for some reason the React types don't like this, but it's correct.
 
 
 exports.LoadableContext = React.createContext(null);
@@ -5871,9 +5871,9 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var loadable_context_1 = __webpack_require__(/*! ./loadable-context */ "./node_modules/next-server/dist/lib/loadable-context.js");
+var loadable_context_1 = __webpack_require__(/*! ./loadable-providers */ "./node_modules/next-server/dist/lib/loadable-providers.js");
 
 var ALL_INITIALIZERS = [];
 var READY_INITIALIZERS = [];
@@ -6257,7 +6257,7 @@ exports["default"] = mitt;
 
 /***/ "./node_modules/next-server/dist/lib/request-context.js":
 /*!**************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/request-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/request-providers.js ***!
   \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6283,7 +6283,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.RequestContext = React.createContext(null);
 
@@ -6291,7 +6291,7 @@ exports.RequestContext = React.createContext(null);
 
 /***/ "./node_modules/next-server/dist/lib/router-context.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/router-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/router-providers.js ***!
   \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6317,7 +6317,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.RouterContext = React.createContext(null);
 
@@ -6379,7 +6379,7 @@ exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js"));
 
@@ -6758,7 +6758,7 @@ function () {
         var Component = routeInfo.Component;
 
         if (true) {
-          var _require = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx"),
+          var _require = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx"),
               isValidElementType = _require.isValidElementType;
 
           if (!isValidElementType(Component)) {
@@ -7228,7 +7228,7 @@ var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runt
   value: true
 });
 
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var isServer = "object" === 'undefined';
 
@@ -7315,7 +7315,7 @@ exports["default"] = function () {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _keys = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js"));
 
@@ -7493,11 +7493,11 @@ exports.formatWithValidation = formatWithValidation;
 
 
     (window.__NEXT_P=window.__NEXT_P||[]).push(["/signup", function() {
-      var page = __webpack_require__(/*! ./pages/signup/index.jsx */ "./pages/signup/index.jsx")
+      var page = __webpack_require__(/*! ./pages/signup/ConnectionProvider.jsx */ "./pages/signup/ConnectionProvider.jsx")
       if(true) {
-        module.hot.accept(/*! ./pages/signup/index.jsx */ "./pages/signup/index.jsx", function() {
+        module.hot.accept(/*! ./pages/signup/ConnectionProvider.jsx */ "./pages/signup/ConnectionProvider.jsx", function() {
           if(!next.router.components["/signup"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/signup/index.jsx */ "./pages/signup/index.jsx")
+          var updatedPage = __webpack_require__(/*! ./pages/signup/ConnectionProvider.jsx */ "./pages/signup/ConnectionProvider.jsx")
           next.router.update("/signup", updatedPage.default || updatedPage)
         })
       }
@@ -7533,15 +7533,15 @@ var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-co
 
 var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var _router2 = _interopRequireDefault(__webpack_require__(/*! next-server/dist/lib/router/router */ "./node_modules/next-server/dist/lib/router/router.js"));
 
 exports.Router = _router2["default"];
 
-var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-context */ "./node_modules/next-server/dist/lib/router-context.js");
+var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-providers */ "./node_modules/next-server/dist/lib/router-providers.js");
 
-var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-context */ "./node_modules/next-server/dist/lib/request-context.js");
+var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-providers */ "./node_modules/next-server/dist/lib/request-providers.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
@@ -7724,9 +7724,9 @@ exports["default"] = withRouter;
 
 var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/extends */ "./node_modules/@babel/runtime-corejs2/helpers/extends.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"));
 
 function withRouter(ComposedComponent) {
   var WithRouteWrapper =
@@ -8368,12 +8368,12 @@ module.exports = function(module) {
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/object-assign/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/object-assign/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/object-assign/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -8405,8 +8405,8 @@ module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226
 
 
 
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.jsx");
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/ConnectionProvider.jsx");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
@@ -8441,7 +8441,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   /**
    * Returns the iterator method function contained on the iterable object.
    *
-   * Be sure to invoke the function with the iterable as context:
+   * Be sure to invoke the function with the iterable as providers:
    *
    *     var iteratorFn = getIteratorFn(myIterable);
    *     if (iteratorFn) {
@@ -8993,7 +8993,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 /***/ "./node_modules/prop-types/index.js":
 /*!******************************************!*\
-  !*** ./node_modules/prop-types/index.jsx ***!
+  !*** ./node_modules/prop-types/ConnectionProvider.jsx ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9006,7 +9006,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -9223,7 +9223,7 @@ var objectKeys = Object.keys || function (obj) {
 
 /***/ "./node_modules/querystring-es3/index.js":
 /*!***********************************************!*\
-  !*** ./node_modules/querystring-es3/index.jsx ***!
+  !*** ./node_modules/querystring-es3/ConnectionProvider.jsx ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9478,7 +9478,7 @@ exports.isSuspense = isSuspense;
 
 /***/ "./node_modules/react-is/index.js":
 /*!****************************************!*\
-  !*** ./node_modules/react-is/index.jsx ***!
+  !*** ./node_modules/react-is/ConnectionProvider.jsx ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9495,12 +9495,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/react/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -9611,7 +9611,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/index.jsx");
+    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/ConnectionProvider.jsx");
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -10278,7 +10278,7 @@ module.exports = {
 
 /***/ "./pages/signup/index.jsx":
 /*!********************************!*\
-  !*** ./pages/signup/index.jsx ***!
+  !*** ./pages/signup/ConnectionProvider.jsx ***!
   \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10296,7 +10296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _src_components_Session_Provider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../src/components/Session/Provider */ "./src/components/Session/Provider.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! next/head */ "./node_modules/next-server/dist/lib/head.js");
@@ -10305,7 +10305,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _src_firebase_context__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../src/firebase/context */ "./src/firebase/context.js");
+/* harmony import */ var _src_firebase_context__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../src/firebase/providers */ "./src/firebase/providers.js");
 /* harmony import */ var _src_constants_routes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../src/constants/routes */ "./src/constants/routes.js");
 
 
@@ -10317,7 +10317,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/index.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signup/ConnectionProvider.jsx";
 
 
 
@@ -10890,9 +10890,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
+/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../providers/widget-providers */ "./src/providers/widget-providers.js");
 
 
 
@@ -11058,14 +11058,14 @@ var VIEW = '/view';
 
 /***/ "./src/context/widget-context.js":
 /*!***************************************!*\
-  !*** ./src/context/widget-context.js ***!
+  !*** ./src/providers/widget-providers.js ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
@@ -11081,7 +11081,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ "./src/firebase/context.js":
 /*!*********************************!*\
-  !*** ./src/firebase/context.js ***!
+  !*** ./src/firebase/providers.js ***!
   \*********************************/
 /*! exports provided: default, withFirebase */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11090,10 +11090,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withFirebase", function() { return withFirebase; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/firebase/context.js";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/firebase/providers.js";
 
 var FirebaseContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.createContext(null);
 

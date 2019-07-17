@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -65,7 +65,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -3874,7 +3874,7 @@ function initCloneArray(array) {
       result = new array.constructor(length);
 
   // Add properties assigned by `RegExp#exec`.
-  if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index.jsx')) {
+  if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'ConnectionProvider.jsx.jsx')) {
     result.index = array.index;
     result.input = array.input;
   }
@@ -7316,15 +7316,15 @@ exports.AlphaPicker = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _AlphaPointer = __webpack_require__(/*! ./AlphaPointer */ "./node_modules/react-color/lib/components/alpha/AlphaPointer.js");
 
@@ -7399,11 +7399,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.AlphaPointer = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -7452,15 +7452,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Block = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -7472,7 +7472,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _BlockSwatches = __webpack_require__(/*! ./BlockSwatches */ "./node_modules/react-color/lib/components/block/BlockSwatches.js");
 
@@ -7617,11 +7617,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BlockSwatches = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -7629,7 +7629,7 @@ var _map = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js")
 
 var _map2 = _interopRequireDefault(_map);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7695,15 +7695,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Chrome = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -7711,7 +7711,7 @@ var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merg
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _ChromeFields = __webpack_require__(/*! ./ChromeFields */ "./node_modules/react-color/lib/components/chrome/ChromeFields.js");
 
@@ -7923,11 +7923,11 @@ exports.ChromeFields = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -7935,7 +7935,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _UnfoldMoreHorizontalIcon = __webpack_require__(/*! @icons/material/UnfoldMoreHorizontalIcon */ "./node_modules/@icons/material/UnfoldMoreHorizontalIcon.js");
 
@@ -8277,11 +8277,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ChromePointer = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -8323,11 +8323,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ChromePointerCircle = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -8368,15 +8368,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Circle = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -8392,7 +8392,7 @@ var _materialColors = __webpack_require__(/*! material-colors */ "./node_modules
 
 var material = _interopRequireWildcard(_materialColors);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _CircleSwatch = __webpack_require__(/*! ./CircleSwatch */ "./node_modules/react-color/lib/components/circle/CircleSwatch.js");
 
@@ -8482,15 +8482,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CircleSwatch = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8573,11 +8573,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -8742,11 +8742,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Checkboard = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -8810,7 +8810,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -8922,11 +8922,11 @@ exports.EditableInput = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9135,11 +9135,11 @@ exports.Hue = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9290,15 +9290,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Raised = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9422,11 +9422,11 @@ exports.Saturation = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9594,11 +9594,11 @@ exports.Swatch = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9677,7 +9677,7 @@ exports.default = (0, _interaction.handleFocus)(Swatch);
 
 /***/ "./node_modules/react-color/lib/components/common/index.js":
 /*!*****************************************************************!*\
-  !*** ./node_modules/react-color/lib/components/common/index.jsx ***!
+  !*** ./node_modules/react-color/lib/components/common/ConnectionProvider.jsx ***!
   \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9780,15 +9780,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Compact = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9804,7 +9804,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _CompactColor = __webpack_require__(/*! ./CompactColor */ "./node_modules/react-color/lib/components/compact/CompactColor.js");
 
@@ -9910,11 +9910,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CompactColor = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -9922,7 +9922,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10004,15 +10004,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CompactFields = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10148,15 +10148,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Github = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -10168,7 +10168,7 @@ var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merg
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _GithubSwatch = __webpack_require__(/*! ./GithubSwatch */ "./node_modules/react-color/lib/components/github/GithubSwatch.js");
 
@@ -10324,15 +10324,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.GithubSwatch = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10395,15 +10395,15 @@ exports.HuePicker = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -10411,7 +10411,7 @@ var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merg
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _HuePointer = __webpack_require__(/*! ./HuePointer */ "./node_modules/react-color/lib/components/hue/HuePointer.js");
 
@@ -10491,11 +10491,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SliderPointer = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -10544,11 +10544,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Material = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -10560,7 +10560,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10726,15 +10726,15 @@ exports.Photoshop = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -10742,7 +10742,7 @@ var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merg
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _PhotoshopFields = __webpack_require__(/*! ./PhotoshopFields */ "./node_modules/react-color/lib/components/photoshop/PhotoshopFields.js");
 
@@ -10948,11 +10948,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PhotoshopButton = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11013,11 +11013,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PhotoshopPicker = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11025,7 +11025,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11217,11 +11217,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PhotoshopPointerCircle = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11303,11 +11303,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PhotoshopPointerCircle = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11355,11 +11355,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PhotoshopPreviews = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11438,15 +11438,15 @@ exports.Sketch = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11454,7 +11454,7 @@ var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merg
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _SketchFields = __webpack_require__(/*! ./SketchFields */ "./node_modules/react-color/lib/components/sketch/SketchFields.js");
 
@@ -11651,11 +11651,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SketchFields = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11663,7 +11663,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11834,19 +11834,19 @@ exports.SketchPresetColors = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11940,15 +11940,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Slider = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -11956,7 +11956,7 @@ var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merg
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _SliderSwatches = __webpack_require__(/*! ./SliderSwatches */ "./node_modules/react-color/lib/components/slider/SliderSwatches.js");
 
@@ -12037,11 +12037,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SliderPointer = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12083,11 +12083,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SliderSwatch = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12159,11 +12159,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SliderSwatches = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12275,15 +12275,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Swatches = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12303,7 +12303,7 @@ var _materialColors = __webpack_require__(/*! material-colors */ "./node_modules
 
 var material = _interopRequireWildcard(_materialColors);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _SwatchesGroup = __webpack_require__(/*! ./SwatchesGroup */ "./node_modules/react-color/lib/components/swatches/SwatchesGroup.js");
 
@@ -12412,11 +12412,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SwatchesColor = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12424,7 +12424,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 var _CheckIcon = __webpack_require__(/*! @icons/material/CheckIcon */ "./node_modules/@icons/material/CheckIcon.js");
 
@@ -12530,11 +12530,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SwatchesGroup = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12601,15 +12601,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Twitter = undefined;
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/index.jsx");
+var _reactcss = __webpack_require__(/*! reactcss */ "./node_modules/reactcss/lib/ConnectionProvider.jsx");
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
@@ -12625,7 +12625,7 @@ var _color = __webpack_require__(/*! ../../helpers/color */ "./node_modules/reac
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/index.jsx");
+var _common = __webpack_require__(/*! ../common */ "./node_modules/react-color/lib/components/common/ConnectionProvider.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12895,7 +12895,7 @@ var render = exports.render = function render(c1, c2, size, serverCanvas) {
   var ctx = canvas.getContext('2d');
   if (!ctx) {
     return null;
-  } // If no context can be found, return early.
+  } // If no providers can be found, return early.
   ctx.fillStyle = c1;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = c2;
@@ -13102,7 +13102,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13204,7 +13204,7 @@ var calculateChange = exports.calculateChange = function calculateChange(e, hsl,
 
 /***/ "./node_modules/react-color/lib/index.js":
 /*!***********************************************!*\
-  !*** ./node_modules/react-color/lib/index.jsx ***!
+  !*** ./node_modules/react-color/lib/ConnectionProvider.jsx ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -13504,7 +13504,7 @@ exports.active = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13571,7 +13571,7 @@ exports.hover = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var _react = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13683,7 +13683,7 @@ exports.default = flattenNames;
 
 /***/ "./node_modules/reactcss/lib/index.js":
 /*!********************************************!*\
-  !*** ./node_modules/reactcss/lib/index.jsx ***!
+  !*** ./node_modules/reactcss/lib/ConnectionProvider.jsx ***!
   \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

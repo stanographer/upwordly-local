@@ -194,7 +194,7 @@ module.exports = __webpack_require__(/*! core-js/library/fn/set */ "./node_modul
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/index.jsx");
+module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -937,7 +937,7 @@ var runtime = (function (exports) {
   exports.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
+  // record like providers.tryEntries[i].completion. This interface could
   // have been (and was previously) designed to take a closure to be
   // invoked without arguments, but in all the cases we care about we
   // already have an existing method we want to call, so there's no need
@@ -1156,7 +1156,7 @@ var runtime = (function (exports) {
         }
 
         if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
+          // Setting providers._sent for legacy support of Babel's
           // function.sent implementation.
           context.sent = context._sent = context.arg;
 
@@ -1194,7 +1194,7 @@ var runtime = (function (exports) {
         } else if (record.type === "throw") {
           state = GenStateCompleted;
           // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
+          // providers.dispatchException(providers.arg) call above.
           context.method = "throw";
           context.arg = record.arg;
         }
@@ -1202,10 +1202,10 @@ var runtime = (function (exports) {
     };
   }
 
-  // Call delegate.iterator[context.method](context.arg) and handle the
+  // Call delegate.iterator[providers.method](providers.arg) and handle the
   // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
+  // delegate iterator, or by modifying providers.method and providers.arg,
+  // setting providers.delegate to null, and returning the ContinueSentinel.
   function maybeInvokeDelegate(delegate, context) {
     var method = delegate.iterator[context.method];
     if (method === undefined) {
@@ -1223,7 +1223,7 @@ var runtime = (function (exports) {
           maybeInvokeDelegate(delegate, context);
 
           if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
+            // If maybeInvokeDelegate(providers) changed providers.method from
             // "return" to "throw", let that override the TypeError below.
             return ContinueSentinel;
           }
@@ -1263,10 +1263,10 @@ var runtime = (function (exports) {
       // Resume execution at the desired location (see delegateYield).
       context.next = delegate.nextLoc;
 
-      // If context.method was "throw" but the delegate handled the
+      // If providers.method was "throw" but the delegate handled the
       // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
+      // providers.method was "next", forget providers.arg since it has been
+      // "consumed" by the delegate iterator. If providers.method was
       // "return", allow the original .return call to continue in the
       // outer generator.
       if (context.method !== "return") {
@@ -1408,7 +1408,7 @@ var runtime = (function (exports) {
     reset: function(skipTempReset) {
       this.prev = 0;
       this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
+      // Resetting providers._sent for legacy support of Babel's
       // function.sent implementation.
       this.sent = this._sent = undefined;
       this.done = false;
@@ -1580,7 +1580,7 @@ var runtime = (function (exports) {
         }
       }
 
-      // The context.catch method must only be called with a location
+      // The providers.catch method must only be called with a location
       // argument that corresponds to a known catch block.
       throw new Error("illegal catch attempt");
     },
@@ -1636,7 +1636,7 @@ try {
 
 /***/ "./node_modules/@babel/runtime-corejs2/regenerator/index.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/regenerator/index.jsx ***!
+  !*** ./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1729,7 +1729,7 @@ var DEFAULT_ENTRY_NAME = '[DEFAULT]';
 // exist
 var tokenListeners = [];
 /**
- * Global context object for a collection of services using
+ * Global providers object for a collection of services using
  * a shared authentication state.
  */
 var FirebaseAppImpl = /** @class */ (function () {
@@ -1855,7 +1855,7 @@ var FirebaseAppImpl = /** @class */ (function () {
          *
          * TODO: This function is required due to our current module
          * structure. Once we are able to rely strictly upon a single module
-         * implementation, this code should be refactored and Auth should
+         * implementation, this code should be refactored and WithAuth should
          * provide these stubs and the upgrade logic
          */
         if (props.INTERNAL && props.INTERNAL.addAuthTokenListener) {
@@ -2495,12 +2495,12 @@ var kf="auth/",lf={"admin-restricted-operation":"This operation is restricted to
 "internal-error":"An internal error has occurred.","invalid-app-credential":"The phone verification request contains an invalid application verifier. The reCAPTCHA token response is either invalid or expired.","invalid-app-id":"The mobile app identifier is not registed for the current project.","invalid-user-token":"This user's credential isn't valid for this project. This can happen if the user's token has been tampered with, or if the user isn't for the project associated with this API key.","invalid-auth-event":"An internal error has occurred.",
 "invalid-verification-code":"The SMS verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.","invalid-continue-uri":"The continue URL provided in the request is invalid.","invalid-cordova-configuration":"The following Cordova plugins must be installed to enable OAuth sign-in: cordova-plugin-buildinfo, cordova-universal-links-plugin, cordova-plugin-browsertab, cordova-plugin-inappbrowser and cordova-plugin-customurlscheme.",
 "invalid-custom-token":"The custom token format is incorrect. Please check the documentation.","invalid-dynamic-link-domain":"The provided dynamic link domain is not configured or authorized for the current project.","invalid-email":"The email address is badly formatted.","invalid-api-key":"Your API key is invalid, please check you have copied it correctly.","invalid-cert-hash":"The SHA-1 certificate hash provided is invalid.","invalid-credential":"The supplied auth credential is malformed or has expired.",
-"invalid-message-payload":"The email template corresponding to this action contains invalid characters in its message. Please fix by going to the Auth email templates section in the Firebase Console.","invalid-oauth-provider":"EmailAuthProvider is not supported for this operation. This operation only supports OAuth providers.","invalid-oauth-client-id":"The OAuth client ID provided is either invalid or does not match the specified API key.","unauthorized-domain":"This domain is not authorized for OAuth operations for your Firebase project. Edit the list of authorized domains from the Firebase console.",
+"invalid-message-payload":"The email template corresponding to this action contains invalid characters in its message. Please fix by going to the WithAuth email templates section in the Firebase Console.","invalid-oauth-provider":"EmailAuthProvider is not supported for this operation. This operation only supports OAuth providers.","invalid-oauth-client-id":"The OAuth client ID provided is either invalid or does not match the specified API key.","unauthorized-domain":"This domain is not authorized for OAuth operations for your Firebase project. Edit the list of authorized domains from the Firebase console.",
 "invalid-action-code":"The action code is invalid. This can happen if the code is malformed, expired, or has already been used.","wrong-password":"The password is invalid or the user does not have a password.","invalid-persistence-type":"The specified persistence type is invalid. It can only be local, session or none.","invalid-phone-number":"The format of the phone number provided is incorrect. Please enter the phone number in a format that can be parsed into E.164 format. E.164 phone numbers are written in the format [+][country code][subscriber number including area code].",
-"invalid-provider-id":"The specified provider ID is invalid.","invalid-recipient-email":"The email corresponding to this action failed to send as the provided recipient email address is invalid.","invalid-sender":"The email template corresponding to this action contains an invalid sender email or name. Please fix by going to the Auth email templates section in the Firebase Console.","invalid-verification-id":"The verification ID used to create the phone auth credential is invalid.","missing-android-pkg-name":"An Android Package Name must be provided if the Android App is required to be installed.",
+"invalid-provider-id":"The specified provider ID is invalid.","invalid-recipient-email":"The email corresponding to this action failed to send as the provided recipient email address is invalid.","invalid-sender":"The email template corresponding to this action contains an invalid sender email or name. Please fix by going to the WithAuth email templates section in the Firebase Console.","invalid-verification-id":"The verification ID used to create the phone auth credential is invalid.","missing-android-pkg-name":"An Android Package Name must be provided if the Android App is required to be installed.",
 "auth-domain-config-required":"Be sure to include authDomain when calling firebase.initializeApp(), by following the instructions in the Firebase console.","missing-app-credential":"The phone verification request is missing an application verifier assertion. A reCAPTCHA response token needs to be provided.","missing-verification-code":"The phone auth credential was created with an empty SMS verification code.","missing-continue-uri":"A continue URL must be provided in the request.","missing-iframe-start":"An internal error has occurred.",
 "missing-ios-bundle-id":"An iOS Bundle ID must be provided if an App Store ID is provided.","missing-or-invalid-nonce":"The OIDC ID token requires a valid unhashed nonce.","missing-phone-number":"To send verification codes, provide a phone number for the recipient.","missing-verification-id":"The phone auth credential was created with an empty verification ID.","app-deleted":"This instance of FirebaseApp has been deleted.","account-exists-with-different-credential":"An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.",
-"network-request-failed":"A network error (such as timeout, interrupted connection or unreachable host) has occurred.","no-auth-event":"An internal error has occurred.","no-such-provider":"User was not linked to an account with the given provider.","null-user":"A null user object was provided as the argument for an operation which requires a non-null user object.","operation-not-allowed":"The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.",
+"network-request-failed":"A network error (such as timeout, interrupted connection or unreachable host) has occurred.","no-auth-event":"An internal error has occurred.","no-such-provider":"User was not linked to an account with the given provider.","null-user":"A null user object was provided as the argument for an operation which requires a non-null user object.","operation-not-allowed":"The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the WithAuth section.",
 "operation-not-supported-in-this-environment":'This operation is not supported in the environment this application is running on. "location.protocol" must be http, https or chrome-extension and web storage must be enabled.',"popup-blocked":"Unable to establish a connection with the popup. It may have been blocked by the browser.","popup-closed-by-user":"The popup has been closed by the user before finalizing the operation.","provider-already-linked":"User can only be linked to one identity for the given provider.",
 "quota-exceeded":"The project's quota for this operation has been exceeded.","redirect-cancelled-by-user":"The redirect operation has been cancelled by the user before finalizing.","redirect-operation-pending":"A redirect sign-in operation is already pending.","rejected-credential":"The request contains malformed or mismatching credentials.",timeout:"The operation has timed out.","user-token-expired":"The user's credential is no longer valid. The user must sign in again.","too-many-requests":"We have blocked all requests from this device due to unusual activity. Try again later.",
 "unauthorized-continue-uri":"The domain of the continue URL is not whitelisted.  Please whitelist the domain in the Firebase console.","unsupported-persistence-type":"The current environment does not support the specified persistence type.","user-cancelled":"User did not grant your application the permissions it requested.","user-not-found":"There is no user record corresponding to this identifier. The user may have been deleted.","user-disabled":"The user account has been disabled by an administrator.",
@@ -2530,7 +2530,7 @@ ug.prototype.b=function(a,b){return this.signInMethod==vg.EMAIL_LINK_SIGN_IN_MET
 function Bg(a,b){b=Cg(b);if(!b)throw new M("argument-error","Invalid email link!");return new ug(a,b,vg.EMAIL_LINK_SIGN_IN_METHOD)}function Cg(a){a=Yf(a);a=new Xf(a);var b=kd(a.a,"oobCode")||null;return"signIn"===(kd(a.a,"mode")||null)&&b?b:null}L(vg,{PROVIDER_ID:"password"});L(vg,{EMAIL_LINK_SIGN_IN_METHOD:"emailLink"});L(vg,{EMAIL_PASSWORD_SIGN_IN_METHOD:"password"});
 function Dg(a){if(!(a.Ta&&a.Sa||a.Fa&&a.$))throw new M("internal-error");this.a=a;K(this,"providerId","phone");K(this,"signInMethod","phone")}Dg.prototype.la=function(a){return a.Ua(Eg(this))};Dg.prototype.b=function(a,b){var c=Eg(this);c.idToken=b;return O(a,Fg,c)};Dg.prototype.f=function(a,b){var c=Eg(this);c.operation="REAUTH";a=O(a,Gg,c);return $f(a,b)};
 Dg.prototype.w=function(){var a={providerId:"phone"};this.a.Ta&&(a.verificationId=this.a.Ta);this.a.Sa&&(a.verificationCode=this.a.Sa);this.a.Fa&&(a.temporaryProof=this.a.Fa);this.a.$&&(a.phoneNumber=this.a.$);return a};function Hg(a){if(a&&"phone"===a.providerId&&(a.verificationId&&a.verificationCode||a.temporaryProof&&a.phoneNumber)){var b={};x(["verificationId","verificationCode","temporaryProof","phoneNumber"],function(c){a[c]&&(b[c]=a[c])});return new Dg(b)}return null}
-function Eg(a){return a.a.Fa&&a.a.$?{temporaryProof:a.a.Fa,phoneNumber:a.a.$}:{sessionInfo:a.a.Ta,code:a.a.Sa}}function Ig(a){try{this.a=a||_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth()}catch(b){throw new M("argument-error","Either an instance of firebase.auth.Auth must be passed as an argument to the firebase.auth.PhoneAuthProvider constructor, or the default firebase App instance must be initialized via firebase.initializeApp().");}L(this,{providerId:"phone",isOAuthProvider:!1})}
+function Eg(a){return a.a.Fa&&a.a.$?{temporaryProof:a.a.Fa,phoneNumber:a.a.$}:{sessionInfo:a.a.Ta,code:a.a.Sa}}function Ig(a){try{this.a=a||_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth()}catch(b){throw new M("argument-error","Either an instance of firebase.auth.WithAuth must be passed as an argument to the firebase.auth.PhoneAuthProvider constructor, or the default firebase App instance must be initialized via firebase.initializeApp().");}L(this,{providerId:"phone",isOAuthProvider:!1})}
 Ig.prototype.Ua=function(a,b){var c=this.a.c;return D(b.verify()).then(function(d){if(!n(d))throw new M("argument-error","An implementation of firebase.auth.ApplicationVerifier.prototype.verify() must return a firebase.Promise that resolves with a string.");switch(b.type){case "recaptcha":return Jg(c,{phoneNumber:a,recaptchaToken:d}).then(function(e){"function"===typeof b.reset&&b.reset();return e},function(e){"function"===typeof b.reset&&b.reset();throw e;});default:throw new M("argument-error",
 'Only firebase.auth.ApplicationVerifiers with type="recaptcha" are currently supported.');}})};function Kg(a,b){if(!a)throw new M("missing-verification-id");if(!b)throw new M("missing-verification-code");return new Dg({Ta:a,Sa:b})}L(Ig,{PROVIDER_ID:"phone"});L(Ig,{PHONE_SIGN_IN_METHOD:"phone"});
 function Lg(a){if(a.temporaryProof&&a.phoneNumber)return new Dg({Fa:a.temporaryProof,$:a.phoneNumber});var b=a&&a.providerId;if(!b||"password"===b)return null;var c=a&&a.oauthAccessToken,d=a&&a.oauthTokenSecret,e=a&&a.nonce,f=a&&a.oauthIdToken,g=a&&a.pendingToken;try{switch(b){case "google.com":return rg(f,c);case "facebook.com":return ng(c);case "github.com":return pg(c);case "twitter.com":return tg(c,d);default:return c||d||f||g?g?0==b.indexOf("saml.")?new bg(b,g):new hg(b,{pendingToken:g,idToken:a.oauthIdToken,
@@ -2551,7 +2551,7 @@ Ng.prototype.w=function(){return{type:this.c,eventId:this.b,urlResponse:this.g,s
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-function Pg(){this.b=null;this.a=[]}var Qg=null;Pg.prototype.subscribe=function(a){var b=this;this.a.push(a);this.b||(this.b=function(c){for(var d=0;d<b.a.length;d++)b.a[d](c)},a=J("universalLinks.subscribe",l),"function"===typeof a&&a(null,this.b))};Pg.prototype.unsubscribe=function(a){y(this.a,function(b){return b==a})};function Rg(a){var b="unauthorized-domain",c=void 0,d=md(a);a=d.b;d=d.f;"chrome-extension"==d?c=gb("This chrome extension ID (chrome-extension://%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.",a):"http"==d||"https"==d?c=gb("This domain (%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.",a):b="operation-not-supported-in-this-environment";
+function Pg(){this.b=null;this.a=[]}var Qg=null;Pg.prototype.subscribe=function(a){var b=this;this.a.push(a);this.b||(this.b=function(c){for(var d=0;d<b.a.length;d++)b.a[d](c)},a=J("universalLinks.subscribe",l),"function"===typeof a&&a(null,this.b))};Pg.prototype.unsubscribe=function(a){y(this.a,function(b){return b==a})};function Rg(a){var b="unauthorized-domain",c=void 0,d=md(a);a=d.b;d=d.f;"chrome-extension"==d?c=gb("This chrome extension ID (chrome-extension://%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> WithAuth section -> Sign in method tab.",a):"http"==d||"https"==d?c=gb("This domain (%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> WithAuth section -> Sign in method tab.",a):b="operation-not-supported-in-this-environment";
 M.call(this,b,c)}u(Rg,M);function Sg(a,b,c){M.call(this,a,c);a=b||{};a.Ab&&K(this,"email",a.Ab);a.$&&K(this,"phoneNumber",a.$);a.credential&&K(this,"credential",a.credential)}u(Sg,M);Sg.prototype.w=function(){var a={code:this.code,message:this.message};this.email&&(a.email=this.email);this.phoneNumber&&(a.phoneNumber=this.phoneNumber);var b=this.credential&&this.credential.w();b&&fb(a,b);return a};Sg.prototype.toJSON=function(){return this.w()};
 function Tg(a){if(a.code){var b=a.code||"";0==b.indexOf(kf)&&(b=b.substring(kf.length));var c={credential:Lg(a)};if(a.email)c.Ab=a.email;else if(a.phoneNumber)c.$=a.phoneNumber;else if(!c.credential)return new M(b,a.message||void 0);return new Sg(b,c,a.message)}return null};function Ug(){}Ug.prototype.c=null;function Vg(a){return a.c||(a.c=a.b())};var Wg;function Xg(){}u(Xg,Ug);Xg.prototype.a=function(){var a=Yg(this);return a?new ActiveXObject(a):new XMLHttpRequest};Xg.prototype.b=function(){var a={};Yg(this)&&(a[0]=!0,a[1]=!0);return a};
 function Yg(a){if(!a.f&&"undefined"==typeof XMLHttpRequest&&"undefined"!=typeof ActiveXObject){for(var b=["MSXML2.XMLHTTP.6.0","MSXML2.XMLHTTP.3.0","MSXML2.XMLHTTP","Microsoft.XMLHTTP"],c=0;c<b.length;c++){var d=b[c];try{return new ActiveXObject(d),a.f=d}catch(e){}}throw Error("Could not create ActiveXObject. ActiveX might be disabled, or MSXML might not be installed");}return a.f}Wg=new Xg;function Zg(){}u(Zg,Ug);Zg.prototype.a=function(){var a=new XMLHttpRequest;if("withCredentials"in a)return a;if("undefined"!=typeof XDomainRequest)return new $g;throw Error("Unsupported browser");};Zg.prototype.b=function(){return{}};
@@ -2674,7 +2674,7 @@ ml.prototype.stop=function(){this.b&&(this.b.cancel(),this.b=null)};function pl(
 function tl(a,b){return ni(a.f,b).then(function(c){a.b=c.access_token;a.c=rl(c.expires_in);a.a=c.refresh_token;return{accessToken:a.b,expirationTime:a.c,refreshToken:a.a}}).s(function(c){"auth/user-token-expired"==c.code&&(a.a=null);throw c;})}pl.prototype.getToken=function(a){a=!!a;return this.b&&!this.a?E(new M("user-token-expired")):a||!this.b||va()>this.c-3E4?this.a?tl(this,{grant_type:"refresh_token",refresh_token:this.a}):D(null):D({accessToken:this.b,expirationTime:this.c,refreshToken:this.a})};function ul(a,b){this.a=a||null;this.b=b||null;L(this,{lastSignInTime:Pe(b||null),creationTime:Pe(a||null)})}function vl(a){return new ul(a.a,a.b)}ul.prototype.w=function(){return{lastLoginAt:this.b,createdAt:this.a}};function wl(a,b,c,d,e,f){L(this,{uid:a,displayName:d||null,photoURL:e||null,email:c||null,phoneNumber:f||null,providerId:b})}function xl(a,b){kc.call(this,a);for(var c in b)this[c]=b[c]}u(xl,kc);
 function P(a,b,c){this.G=[];this.l=a.apiKey;this.o=a.appName;this.u=a.authDomain||null;a=_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.SDK_VERSION?Be(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.SDK_VERSION):null;this.c=new bi(this.l,If(Jf),a);this.h=new pl(this.c);yl(this,b[ag]);ql(this.h,b);K(this,"refreshToken",this.h.a);zl(this,c||{});F.call(this);this.I=!1;this.u&&Ee()&&(this.a=bl(this.u,this.l,this.o));this.N=[];this.i=null;this.A=Al(this);this.V=t(this.Ha,this);var d=this;this.ka=null;this.ta=function(e){d.pa(e.g)};this.X=null;this.O=[];this.sa=function(e){Bl(d,
 e.c)};this.W=null}u(P,F);P.prototype.pa=function(a){this.ka=a;hi(this.c,a)};P.prototype.ea=function(){return this.ka};function Cl(a,b){a.X&&Hc(a.X,"languageCodeChanged",a.ta);(a.X=b)&&xc(b,"languageCodeChanged",a.ta)}function Bl(a,b){a.O=b;ii(a.c,_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.SDK_VERSION?Be(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.SDK_VERSION,a.O):null)}P.prototype.ya=function(){return Pa(this.O)};function Dl(a,b){a.W&&Hc(a.W,"frameworkChanged",a.sa);(a.W=b)&&xc(b,"frameworkChanged",a.sa)}P.prototype.Ha=function(){this.A.b&&(this.A.stop(),this.A.start())};
-function El(a){try{return _firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.app(a.o).auth()}catch(b){throw new M("internal-error","No firebase.auth.Auth instance is available for the Firebase App '"+a.o+"'!");}}function Al(a){return new ml(function(){return a.F(!0)},function(b){return b&&"auth/network-request-failed"==b.code?!0:!1},function(){var b=a.h.c-va()-3E5;return 0<b?b:0})}function Fl(a){a.D||a.A.b||(a.A.start(),Hc(a,"tokenChanged",a.V),xc(a,"tokenChanged",a.V))}function Gl(a){Hc(a,"tokenChanged",a.V);a.A.stop()}
+function El(a){try{return _firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.app(a.o).auth()}catch(b){throw new M("internal-error","No firebase.auth.WithAuth instance is available for the Firebase App '"+a.o+"'!");}}function Al(a){return new ml(function(){return a.F(!0)},function(b){return b&&"auth/network-request-failed"==b.code?!0:!1},function(){var b=a.h.c-va()-3E5;return 0<b?b:0})}function Fl(a){a.D||a.A.b||(a.A.start(),Hc(a,"tokenChanged",a.V),xc(a,"tokenChanged",a.V))}function Gl(a){Hc(a,"tokenChanged",a.V);a.A.stop()}
 function yl(a,b){a.ra=b;K(a,"_lat",b)}function Hl(a,b){y(a.N,function(c){return c==b})}function Il(a){for(var b=[],c=0;c<a.N.length;c++)b.push(a.N[c](a));return Bb(b).then(function(){return a})}function Jl(a){a.a&&!a.I&&(a.I=!0,a.a.subscribe(a))}
 function zl(a,b){L(a,{uid:b.uid,displayName:b.displayName||null,photoURL:b.photoURL||null,email:b.email||null,emailVerified:b.emailVerified||!1,phoneNumber:b.phoneNumber||null,isAnonymous:b.isAnonymous||!1,metadata:new ul(b.createdAt,b.lastLoginAt),providerData:[]})}K(P.prototype,"providerId","firebase");function Kl(){}function Ll(a){return D().then(function(){if(a.D)throw new M("app-deleted");})}function Ml(a){return Ia(a.providerData,function(b){return b.providerId})}
 function Nl(a,b){b&&(Ol(a,b.providerId),a.providerData.push(b))}function Ol(a,b){y(a.providerData,function(c){return c.providerId==b})}function Pl(a,b,c){("uid"!=b||c)&&a.hasOwnProperty(b)&&K(a,b,c)}
@@ -2740,9 +2740,9 @@ function bn(a){if(a.D)throw new M("internal-error","RecaptchaVerifier instance h
 function cn(a,b,c){var d=!1;try{this.b=c||_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.app()}catch(g){throw new M("argument-error","No firebase.app.App instance is currently initialized.");}if(this.b.options&&this.b.options.apiKey)c=this.b.options.apiKey;else throw new M("invalid-api-key");var e=this,f=null;try{f=this.b.auth().ya()}catch(g){}try{d=this.b.auth().settings.appVerificationDisabledForTesting}catch(g){}f=_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.SDK_VERSION?Be(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.SDK_VERSION,f):null;Um.call(this,c,a,b,function(){try{var g=e.b.auth().ea()}catch(h){g=
 null}return g},f,If(Jf),d)}u(cn,Um);function dn(a,b,c,d){a:{c=Array.prototype.slice.call(c);var e=0;for(var f=!1,g=0;g<b.length;g++)if(b[g].optional)f=!0;else{if(f)throw new M("internal-error","Argument validator encountered a required argument after an optional argument.");e++}f=b.length;if(c.length<e||f<c.length)d="Expected "+(e==f?1==e?"1 argument":e+" arguments":e+"-"+f+" arguments")+" but got "+c.length+".";else{for(e=0;e<c.length;e++)if(f=b[e].optional&&void 0===c[e],!b[e].M(c[e])&&!f){b=b[e];if(0>e||e>=en.length)throw new M("internal-error",
 "Argument validator received an unsupported number of arguments.");c=en[e];d=(d?"":c+" argument ")+(b.name?'"'+b.name+'" ':"")+"must be "+b.K+".";break a}d=null}}if(d)throw new M("argument-error",a+" failed: "+d);}var en="First Second Third Fourth Fifth Sixth Seventh Eighth Ninth".split(" ");function V(a,b){return{name:a||"",K:"a valid string",optional:!!b,M:n}}function fn(a,b){return{name:a||"",K:"a boolean",optional:!!b,M:ha}}
-function W(a,b){return{name:a||"",K:"a valid object",optional:!!b,M:r}}function gn(a,b){return{name:a||"",K:"a function",optional:!!b,M:q}}function hn(a,b){return{name:a||"",K:"null",optional:!!b,M:ma}}function jn(){return{name:"",K:"an HTML element",optional:!1,M:function(a){return!!(a&&a instanceof Element)}}}function kn(){return{name:"auth",K:"an instance of Firebase Auth",optional:!0,M:function(a){return!!(a&&a instanceof sm)}}}
+function W(a,b){return{name:a||"",K:"a valid object",optional:!!b,M:r}}function gn(a,b){return{name:a||"",K:"a function",optional:!!b,M:q}}function hn(a,b){return{name:a||"",K:"null",optional:!!b,M:ma}}function jn(){return{name:"",K:"an HTML element",optional:!1,M:function(a){return!!(a&&a instanceof Element)}}}function kn(){return{name:"auth",K:"an instance of Firebase WithAuth",optional:!0,M:function(a){return!!(a&&a instanceof sm)}}}
 function ln(){return{name:"app",K:"an instance of Firebase App",optional:!0,M:function(a){return!!(a&&a instanceof _firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.app.App)}}}function mn(a){return{name:a?a+"Credential":"credential",K:a?"a valid "+a+" credential":"a valid credential",optional:!1,M:function(b){if(!b)return!1;var c=!a||b.providerId===a;return!(!b.la||!c)}}}
-function nn(){return{name:"authProvider",K:"a valid Auth provider",optional:!1,M:function(a){return!!(a&&a.providerId&&a.hasOwnProperty&&a.hasOwnProperty("isOAuthProvider"))}}}function on(){return{name:"applicationVerifier",K:"an implementation of firebase.auth.ApplicationVerifier",optional:!1,M:function(a){return!!(a&&n(a.type)&&q(a.verify))}}}function X(a,b,c,d){return{name:c||"",K:a.K+" or "+b.K,optional:!!d,M:function(e){return a.M(e)||b.M(e)}}};function Y(a,b){for(var c in b){var d=b[c].name;a[d]=pn(d,a[c],b[c].j)}}function qn(a,b){for(var c in b){var d=b[c].name;d!==c&&Object.defineProperty(a,d,{get:ua(function(e){return this[e]},c),set:ua(function(e,f,g,h){dn(e,[g],[h],!0);this[f]=h},d,c,b[c].vb),enumerable:!0})}}function Z(a,b,c,d){a[b]=pn(b,c,d)}
+function nn(){return{name:"authProvider",K:"a valid WithAuth provider",optional:!1,M:function(a){return!!(a&&a.providerId&&a.hasOwnProperty&&a.hasOwnProperty("isOAuthProvider"))}}}function on(){return{name:"applicationVerifier",K:"an implementation of firebase.auth.ApplicationVerifier",optional:!1,M:function(a){return!!(a&&n(a.type)&&q(a.verify))}}}function X(a,b,c,d){return{name:c||"",K:a.K+" or "+b.K,optional:!!d,M:function(e){return a.M(e)||b.M(e)}}};function Y(a,b){for(var c in b){var d=b[c].name;a[d]=pn(d,a[c],b[c].j)}}function qn(a,b){for(var c in b){var d=b[c].name;d!==c&&Object.defineProperty(a,d,{get:ua(function(e){return this[e]},c),set:ua(function(e,f,g,h){dn(e,[g],[h],!0);this[f]=h},d,c,b[c].vb),enumerable:!0})}}function Z(a,b,c,d){a[b]=pn(b,c,d)}
 function pn(a,b,c){function d(){var g=Array.prototype.slice.call(arguments);dn(e,c,g);return b.apply(this,g)}if(!c)return b;var e=rn(a),f;for(f in b)d[f]=b[f];for(f in b.prototype)d.prototype[f]=b.prototype[f];return d}function rn(a){a=a.split(".");return a[a.length-1]};Y(sm.prototype,{Wa:{name:"applyActionCode",j:[V("code")]},Ka:{name:"checkActionCode",j:[V("code")]},Za:{name:"confirmPasswordReset",j:[V("code"),V("newPassword")]},Vb:{name:"createUserWithEmailAndPassword",j:[V("email"),V("password")]},Yb:{name:"fetchSignInMethodsForEmail",j:[V("email")]},fa:{name:"getRedirectResult",j:[]},oc:{name:"isSignInWithEmailLink",j:[V("emailLink")]},uc:{name:"onAuthStateChanged",j:[X(W(),gn(),"nextOrObserver"),gn("opt_error",!0),gn("opt_completed",!0)]},vc:{name:"onIdTokenChanged",
 j:[X(W(),gn(),"nextOrObserver"),gn("opt_error",!0),gn("opt_completed",!0)]},kb:{name:"sendPasswordResetEmail",j:[V("email"),X(W("opt_actionCodeSettings",!0),hn(null,!0),"opt_actionCodeSettings",!0)]},lb:{name:"sendSignInLinkToEmail",j:[V("email"),W("actionCodeSettings")]},mb:{name:"setPersistence",j:[V("persistence")]},nb:{name:"signInAndRetrieveDataWithCredential",j:[mn()]},ob:{name:"signInAnonymously",j:[]},Nb:{name:"signInWithCredential",j:[mn()]},Ec:{name:"signInWithCustomToken",j:[V("token")]},
 Fc:{name:"signInWithEmailAndPassword",j:[V("email"),V("password")]},Gc:{name:"signInWithEmailLink",j:[V("email"),V("emailLink",!0)]},Hc:{name:"signInWithPhoneNumber",j:[V("phoneNumber"),on()]},Ic:{name:"signInWithPopup",j:[nn()]},Jc:{name:"signInWithRedirect",j:[nn()]},Oc:{name:"updateCurrentUser",j:[X(function(a){return{name:"user",K:"an instance of Firebase User",optional:!!a,M:function(b){return!!(b&&b instanceof P)}}}(),hn(),"user")]},pb:{name:"signOut",j:[]},toJSON:{name:"toJSON",j:[V(null,!0)]},
@@ -3470,7 +3470,7 @@ var exceptionGuard = function (fn) {
         // Re-throw exception when it's safe.
         setTimeout(function () {
             // It used to be that "throw e" would result in a good console error with
-            // relevant context, but as of Chrome 39, you just get the firebase.js
+            // relevant providers, but as of Chrome 39, you just get the firebase.js
             // file/line number where we re-throw it, which is useless. So we log
             // e.stack explicitly.
             var stack = e.stack || '';
@@ -7861,11 +7861,11 @@ var Query = /** @class */ (function () {
         return sameRepo && samePath && sameQueryIdentifier;
     };
     /**
-     * Helper used by .on and .once to extract the context and or cancel arguments.
+     * Helper used by .on and .once to extract the providers and or cancel arguments.
      * @param {!string} fnName The function name (on or once)
      * @param {(function(Error)|Object)=} cancelOrContext
      * @param {Object=} context
-     * @return {{cancel: ?function(Error), context: ?Object}}
+     * @return {{cancel: ?function(Error), providers: ?Object}}
      * @private
      */
     Query.getCancelAndContextArgs_ = function (fnName, cancelOrContext, context) {
@@ -7877,9 +7877,9 @@ var Query = /** @class */ (function () {
             util.validateContextObject(fnName, 4, ret.context, true);
         }
         else if (cancelOrContext) {
-            // we have either a cancel callback or a context.
+            // we have either a cancel callback or a providers.
             if (typeof cancelOrContext === 'object' && cancelOrContext !== null) {
-                // it's a context!
+                // it's a providers!
                 ret.context = cancelOrContext;
             }
             else if (typeof cancelOrContext === 'function') {
@@ -7887,7 +7887,7 @@ var Query = /** @class */ (function () {
             }
             else {
                 throw new Error(util.errorPrefix(fnName, 3, true) +
-                    ' must either be a cancel callback or a context object.');
+                    ' must either be a cancel callback or a providers object.');
             }
         }
         return ret;
@@ -13994,7 +13994,7 @@ var Connection = /** @class */ (function () {
          * Firefox doesn't like when code from one iframe tries to create another iframe by way of the parent frame.
          * This can occur in the case of a redirect, i.e. we guessed wrong on what server to connect to and received a reset.
          * Somehow, setTimeout seems to make this ok. That doesn't make sense from a security perspective, since you should
-         * still have the context of your originating frame.
+         * still have the providers of your originating frame.
          */
         setTimeout(function () {
             // this.conn_ gets set to null in some of the tests. Check to make sure it still exists before using it
@@ -14542,7 +14542,7 @@ var PersistentConnection = /** @class */ (function (_super) {
         _this.lastConnectionAttemptTime_ = null;
         _this.lastConnectionEstablishedTime_ = null;
         if (authOverride_ && !util.isNodeSdk()) {
-            throw new Error('Auth override specified in options, but not supported on non Node.js platforms');
+            throw new Error('WithAuth override specified in options, but not supported on non Node.js platforms');
         }
         _this.scheduleConnect_(0);
         VisibilityMonitor.getInstance().on('visible', _this.onVisible_, _this);
@@ -14655,7 +14655,7 @@ var PersistentConnection = /** @class */ (function (_super) {
      */
     PersistentConnection.prototype.refreshAuthToken = function (token) {
         this.authToken_ = token;
-        this.log_('Auth token refreshed');
+        this.log_('WithAuth token refreshed');
         if (this.authToken_) {
             this.tryAuth();
         }
@@ -15151,7 +15151,7 @@ var PersistentConnection = /** @class */ (function (_super) {
         return listen;
     };
     PersistentConnection.prototype.onAuthRevoked_ = function (statusCode, explanation) {
-        log('Auth token revoked: ' + statusCode + '/' + explanation);
+        log('WithAuth token revoked: ' + statusCode + '/' + explanation);
         this.authToken_ = null;
         this.forceTokenRefresh_ = true;
         this.realtime_.close();
@@ -20210,7 +20210,7 @@ function validateContextObject(fnName, argumentNumber, context, optional) {
     }
     if (typeof context !== 'object' || context === null) {
         throw new Error(errorPrefix(fnName, argumentNumber, optional) +
-            'must be a valid context object.');
+            'must be a valid providers object.');
     }
 }
 
@@ -21689,7 +21689,7 @@ var perf = {
 
 /**
  * Internal helper to bind a function known to have 4 arguments
- * to a given context.
+ * to a given providers.
  */
 
 var bindInternal4 = function bindInternal4(func, thisContext) {
@@ -21706,7 +21706,7 @@ var bindInternal4 = function bindInternal4(func, thisContext) {
  * @param  {Object}   subject      The object to reduce over.
  * @param  {Function} fn           The reducer function.
  * @param  {mixed}    initialValue The initial value for the reducer, defaults to subject[0].
- * @param  {Object}   thisContext  The context for the reducer.
+ * @param  {Object}   thisContext  The providers for the reducer.
  * @return {mixed}                 The final result.
  */
 
@@ -29702,9 +29702,9 @@ var _iconsCache = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontAwesomeIcon", function() { return FontAwesomeIcon; });
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -30405,7 +30405,7 @@ module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/cor
 
 /***/ "./node_modules/core-js/library/fn/symbol/index.js":
 /*!*********************************************************!*\
-  !*** ./node_modules/core-js/library/fn/symbol/index.jsx ***!
+  !*** ./node_modules/core-js/library/fn/symbol/ConnectionProvider.jsx ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -30521,7 +30521,7 @@ module.exports = function (iter, ITERATOR) {
 // true  -> Array#includes
 var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
 var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/library/modules/_to-length.js");
-var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-index.jsx");
+var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx");
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -31017,7 +31017,7 @@ module.exports = function (object, index, value) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// optional / simple context binding
+// optional / simple providers binding
 var aFunction = __webpack_require__(/*! ./_a-function */ "./node_modules/core-js/library/modules/_a-function.js");
 module.exports = function (fn, that, length) {
   aFunction(fn);
@@ -31165,7 +31165,7 @@ var $export = function (type, name, source) {
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
     exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
+    // bind timers to global for call from export providers
     : IS_BIND && own ? ctx(out, global)
     // wrap global constructors for prevent change them in library
     : IS_WRAP && target[key] == out ? (function (C) {
@@ -32564,7 +32564,7 @@ module.exports = {
 
 /***/ "./node_modules/core-js/library/modules/_to-absolute-index.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/_to-absolute-index.jsx ***!
+  !*** ./node_modules/core-js/library/modules/_to-absolute-ConnectionProvider.jsx ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -33961,7 +33961,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ "./node_modules/define-properties/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/define-properties/index.jsx ***!
+  !*** ./node_modules/define-properties/ConnectionProvider.jsx ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -33969,7 +33969,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 "use strict";
 
 
-var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.jsx");
+var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/ConnectionProvider.jsx");
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
@@ -34199,7 +34199,7 @@ module.exports = function bind(that) {
 
 /***/ "./node_modules/function-bind/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/function-bind/index.jsx ***!
+  !*** ./node_modules/function-bind/ConnectionProvider.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -34270,7 +34270,7 @@ module.exports = function hasSymbols() {
 
 /***/ "./node_modules/has/src/index.js":
 /*!***************************************!*\
-  !*** ./node_modules/has/src/index.jsx ***!
+  !*** ./node_modules/has/src/ConnectionProvider.jsx ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -34278,7 +34278,7 @@ module.exports = function hasSymbols() {
 "use strict";
 
 
-var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.jsx");
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/ConnectionProvider.jsx");
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
@@ -34287,7 +34287,7 @@ module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 /***/ "./node_modules/next-server/dist/lib/amp-context.js":
 /*!**********************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/amp-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/amp-providers.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -34313,7 +34313,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.AmpStateContext = React.createContext({});
 
@@ -34343,9 +34343,9 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/next-server/dist/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-providers */ "./node_modules/next-server/dist/lib/amp-providers.js");
 
 function isInAmpMode() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -34401,7 +34401,7 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var loadable_1 = __importDefault(__webpack_require__(/*! ./loadable */ "./node_modules/next-server/dist/lib/loadable.js"));
 
@@ -34533,7 +34533,7 @@ exports["default"] = dynamic;
 
 /***/ "./node_modules/next-server/dist/lib/head-manager-context.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/head-manager-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/head-manager-providers.js ***!
   \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -34559,7 +34559,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.HeadManagerContext = React.createContext(null);
 
@@ -34591,13 +34591,13 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var side_effect_1 = __importDefault(__webpack_require__(/*! ./side-effect */ "./node_modules/next-server/dist/lib/side-effect.js"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/next-server/dist/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-providers */ "./node_modules/next-server/dist/lib/amp-providers.js");
 
-var head_manager_context_1 = __webpack_require__(/*! ./head-manager-context */ "./node_modules/next-server/dist/lib/head-manager-context.js");
+var head_manager_context_1 = __webpack_require__(/*! ./head-manager-providers */ "./node_modules/next-server/dist/lib/head-manager-providers.js");
 
 var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/next-server/dist/lib/amp.js");
 
@@ -34744,7 +34744,7 @@ exports["default"] = Head;
 
 /***/ "./node_modules/next-server/dist/lib/loadable-context.js":
 /*!***************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/loadable-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/loadable-providers.js ***!
   \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -34770,7 +34770,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx")); // @ts-ignore for some reason the React types don't like this, but it's correct.
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx")); // @ts-ignore for some reason the React types don't like this, but it's correct.
 
 
 exports.LoadableContext = React.createContext(null);
@@ -34843,9 +34843,9 @@ var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var loadable_context_1 = __webpack_require__(/*! ./loadable-context */ "./node_modules/next-server/dist/lib/loadable-context.js");
+var loadable_context_1 = __webpack_require__(/*! ./loadable-providers */ "./node_modules/next-server/dist/lib/loadable-providers.js");
 
 var ALL_INITIALIZERS = [];
 var READY_INITIALIZERS = [];
@@ -35229,7 +35229,7 @@ exports["default"] = mitt;
 
 /***/ "./node_modules/next-server/dist/lib/request-context.js":
 /*!**************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/request-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/request-providers.js ***!
   \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -35255,7 +35255,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.RequestContext = React.createContext(null);
 
@@ -35263,7 +35263,7 @@ exports.RequestContext = React.createContext(null);
 
 /***/ "./node_modules/next-server/dist/lib/router-context.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/next-server/dist/lib/router-context.js ***!
+  !*** ./node_modules/next-server/dist/lib/router-providers.js ***!
   \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -35289,7 +35289,7 @@ var __importStar = void 0 && (void 0).__importStar || function (mod) {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 exports.RouterContext = React.createContext(null);
 
@@ -35351,7 +35351,7 @@ exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js"));
 
@@ -35730,7 +35730,7 @@ function () {
         var Component = routeInfo.Component;
 
         if (true) {
-          var _require = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx"),
+          var _require = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx"),
               isValidElementType = _require.isValidElementType;
 
           if (!isValidElementType(Component)) {
@@ -36200,7 +36200,7 @@ var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runt
   value: true
 });
 
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 
 var isServer = "object" === 'undefined';
 
@@ -36287,7 +36287,7 @@ exports["default"] = function () {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.jsx"));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/ConnectionProvider.jsx"));
 
 var _keys = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js"));
 
@@ -36465,11 +36465,11 @@ exports.formatWithValidation = formatWithValidation;
 
 
     (window.__NEXT_P=window.__NEXT_P||[]).push(["/signin", function() {
-      var page = __webpack_require__(/*! ./pages/signin/index.jsx */ "./pages/signin/index.jsx")
+      var page = __webpack_require__(/*! ./pages/signin/ConnectionProvider.jsx */ "./pages/signin/ConnectionProvider.jsx")
       if(true) {
-        module.hot.accept(/*! ./pages/signin/index.jsx */ "./pages/signin/index.jsx", function() {
+        module.hot.accept(/*! ./pages/signin/ConnectionProvider.jsx */ "./pages/signin/ConnectionProvider.jsx", function() {
           if(!next.router.components["/signin"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/signin/index.jsx */ "./pages/signin/index.jsx")
+          var updatedPage = __webpack_require__(/*! ./pages/signin/ConnectionProvider.jsx */ "./pages/signin/ConnectionProvider.jsx")
           next.router.update("/signin", updatedPage.default || updatedPage)
         })
       }
@@ -36512,9 +36512,9 @@ var _map = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2
 
 var _url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
 
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"));
 
 var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
 
@@ -36771,7 +36771,7 @@ Link.defaultProps = {
 if (true) {
   var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
 
-  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.jsx");
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/ConnectionProvider.jsx");
 
   Link.propTypes = exact({
     href: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
@@ -36824,15 +36824,15 @@ var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-co
 
 var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
 var _router2 = _interopRequireDefault(__webpack_require__(/*! next-server/dist/lib/router/router */ "./node_modules/next-server/dist/lib/router/router.js"));
 
 exports.Router = _router2["default"];
 
-var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-context */ "./node_modules/next-server/dist/lib/router-context.js");
+var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-providers */ "./node_modules/next-server/dist/lib/router-providers.js");
 
-var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-context */ "./node_modules/next-server/dist/lib/request-context.js");
+var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-providers */ "./node_modules/next-server/dist/lib/request-providers.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
@@ -37015,9 +37015,9 @@ exports["default"] = withRouter;
 
 var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/extends */ "./node_modules/@babel/runtime-corejs2/helpers/extends.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.jsx"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"));
 
 function withRouter(ComposedComponent) {
   var WithRouteWrapper =
@@ -37671,12 +37671,12 @@ module.exports = function(module) {
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/object-assign/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/object-assign/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/object-assign/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -37816,7 +37816,7 @@ module.exports = keysShim;
 
 /***/ "./node_modules/object-keys/index.js":
 /*!*******************************************!*\
-  !*** ./node_modules/object-keys/index.jsx ***!
+  !*** ./node_modules/object-keys/ConnectionProvider.jsx ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -37898,8 +37898,8 @@ module.exports = function isArguments(value) {
 
 
 // modified from https://github.com/es-shims/es6-shim
-var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/index.jsx");
-var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.jsx");
+var keys = __webpack_require__(/*! object-keys */ "./node_modules/object-keys/ConnectionProvider.jsx");
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/ConnectionProvider.jsx");
 var canBeObject = function (obj) {
 	return typeof obj !== 'undefined' && obj !== null;
 };
@@ -37942,7 +37942,7 @@ module.exports = function assign(target, source1) {
 
 /***/ "./node_modules/object.assign/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/object.assign/index.jsx ***!
+  !*** ./node_modules/object.assign/ConnectionProvider.jsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -37950,7 +37950,7 @@ module.exports = function assign(target, source1) {
 "use strict";
 
 
-var defineProperties = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.jsx");
+var defineProperties = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/ConnectionProvider.jsx");
 
 var implementation = __webpack_require__(/*! ./implementation */ "./node_modules/object.assign/implementation.js");
 var getPolyfill = __webpack_require__(/*! ./polyfill */ "./node_modules/object.assign/polyfill.js");
@@ -38042,7 +38042,7 @@ module.exports = function getPolyfill() {
 "use strict";
 
 
-var define = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/index.jsx");
+var define = __webpack_require__(/*! define-properties */ "./node_modules/define-properties/ConnectionProvider.jsx");
 var getPolyfill = __webpack_require__(/*! ./polyfill */ "./node_modules/object.assign/polyfill.js");
 
 module.exports = function shimAssign() {
@@ -38120,7 +38120,7 @@ function runTimeout(fun) {
             // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
             return cachedSetTimeout.call(null, fun, 0);
         } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our providers correct otherwise it will throw a global error
             return cachedSetTimeout.call(this, fun, 0);
         }
     }
@@ -38145,7 +38145,7 @@ function runClearTimeout(marker) {
             // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
             return cachedClearTimeout.call(null, marker);
         } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our providers correct otherwise it will throw a global error.
             // Some versions of I.E. have different rules for clearTimeout vs setTimeout
             return cachedClearTimeout.call(this, marker);
         }
@@ -38277,7 +38277,7 @@ module.exports = exports['default'];
 
 /***/ "./node_modules/prop-types-exact/build/index.js":
 /*!******************************************************!*\
-  !*** ./node_modules/prop-types-exact/build/index.jsx ***!
+  !*** ./node_modules/prop-types-exact/build/ConnectionProvider.jsx ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -38287,11 +38287,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports['default'] = forbidExtraProps;
 
-var _object = __webpack_require__(/*! object.assign */ "./node_modules/object.assign/index.jsx");
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/object.assign/ConnectionProvider.jsx");
 
 var _object2 = _interopRequireDefault(_object);
 
-var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.jsx");
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/ConnectionProvider.jsx");
 
 var _has2 = _interopRequireDefault(_has);
 
@@ -38338,7 +38338,7 @@ function forbidExtraProps(propTypes) {
   }())));
 }
 module.exports = exports['default'];
-//# sourceMappingURL=index.jsx.map
+//# sourceMappingURL=ConnectionProvider.jsx.map
 
 /***/ }),
 
@@ -38370,8 +38370,8 @@ module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226
 
 
 
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.jsx");
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/ConnectionProvider.jsx");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
@@ -38406,7 +38406,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   /**
    * Returns the iterator method function contained on the iterable object.
    *
-   * Be sure to invoke the function with the iterable as context:
+   * Be sure to invoke the function with the iterable as providers:
    *
    *     var iteratorFn = getIteratorFn(myIterable);
    *     if (iteratorFn) {
@@ -38958,7 +38958,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 /***/ "./node_modules/prop-types/index.js":
 /*!******************************************!*\
-  !*** ./node_modules/prop-types/index.jsx ***!
+  !*** ./node_modules/prop-types/ConnectionProvider.jsx ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -38971,7 +38971,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -39188,7 +39188,7 @@ var objectKeys = Object.keys || function (obj) {
 
 /***/ "./node_modules/querystring-es3/index.js":
 /*!***********************************************!*\
-  !*** ./node_modules/querystring-es3/index.jsx ***!
+  !*** ./node_modules/querystring-es3/ConnectionProvider.jsx ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -39443,7 +39443,7 @@ exports.isSuspense = isSuspense;
 
 /***/ "./node_modules/react-is/index.js":
 /*!****************************************!*\
-  !*** ./node_modules/react-is/index.jsx ***!
+  !*** ./node_modules/react-is/ConnectionProvider.jsx ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -39460,12 +39460,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.jsx from dll-reference dll_7aff549c98b978433226 ***!
+  !*** delegated ./node_modules/react/ConnectionProvider.jsx from dll-reference dll_7aff549c98b978433226 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/index.jsx");
+module.exports = (__webpack_require__(/*! dll-reference dll_7aff549c98b978433226 */ "dll-reference dll_7aff549c98b978433226"))("./node_modules/react/ConnectionProvider.jsx");
 
 /***/ }),
 
@@ -39849,7 +39849,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/index.jsx");
+    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/ConnectionProvider.jsx");
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -40516,7 +40516,7 @@ module.exports = {
 
 /***/ "./pages/signin/index.jsx":
 /*!********************************!*\
-  !*** ./pages/signin/index.jsx ***!
+  !*** ./pages/signin/ConnectionProvider.jsx ***!
   \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -40531,7 +40531,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _src_components_Session_Provider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../src/components/Session/Provider */ "./src/components/Session/Provider.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/head */ "./node_modules/next-server/dist/lib/head.js");
@@ -40544,7 +40544,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _src_firebase__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../src/firebase */ "./src/firebase/index.jsx");
+/* harmony import */ var _src_firebase__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../src/firebase */ "./src/firebase/ConnectionProvider.jsx");
 /* harmony import */ var _src_constants_routes__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../src/constants/routes */ "./src/constants/routes.js");
 
 
@@ -40554,7 +40554,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signin/index.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/pages/signin/ConnectionProvider.jsx";
 
 
 
@@ -40875,9 +40875,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
+/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../providers/widget-providers */ "./src/providers/widget-providers.js");
 
 
 
@@ -41043,14 +41043,14 @@ var VIEW = '/view';
 
 /***/ "./src/context/widget-context.js":
 /*!***************************************!*\
-  !*** ./src/context/widget-context.js ***!
+  !*** ./src/providers/widget-providers.js ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
@@ -41105,7 +41105,7 @@ var doPasswordUpdate = function doPasswordUpdate(password) {
 
 /***/ "./src/firebase/context.js":
 /*!*********************************!*\
-  !*** ./src/firebase/context.js ***!
+  !*** ./src/firebase/providers.js ***!
   \*********************************/
 /*! exports provided: default, withFirebase */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -41114,10 +41114,10 @@ var doPasswordUpdate = function doPasswordUpdate(password) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withFirebase", function() { return withFirebase; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/firebase/context.js";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/firebase/providers.js";
 
 var FirebaseContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.createContext(null);
 
@@ -41227,7 +41227,7 @@ var auth = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth();
 
 /***/ "./src/firebase/index.js":
 /*!*******************************!*\
-  !*** ./src/firebase/index.jsx ***!
+  !*** ./src/firebase/ConnectionProvider.jsx ***!
   \*******************************/
 /*! exports provided: auth, db, Firebase, FirebaseContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -41240,7 +41240,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "db", function() { return _db__WEBPACK_IMPORTED_MODULE_1__; });
 /* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./firebase */ "./src/firebase/firebase.js");
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "Firebase", function() { return _firebase__WEBPACK_IMPORTED_MODULE_2__; });
-/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./context */ "./src/firebase/context.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers */ "./src/firebase/providers.js");
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "FirebaseContext", function() { return _context__WEBPACK_IMPORTED_MODULE_3__; });
 
 

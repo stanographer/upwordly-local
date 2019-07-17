@@ -168,7 +168,7 @@ var unitlessKeys = {
 
 /***/ "./node_modules/@fortawesome/free-solid-svg-icons/index.js":
 /*!*****************************************************************!*\
-  !*** ./node_modules/@fortawesome/free-solid-svg-icons/index.jsx ***!
+  !*** ./node_modules/@fortawesome/free-solid-svg-icons/ConnectionProvider.jsx ***!
   \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6893,13 +6893,13 @@ var unitlessKeys = {
 
 /***/ "./node_modules/@fortawesome/react-fontawesome/index.js":
 /*!**************************************************************!*\
-  !*** ./node_modules/@fortawesome/react-fontawesome/index.jsx ***!
+  !*** ./node_modules/@fortawesome/react-fontawesome/ConnectionProvider.jsx ***!
   \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx"), __webpack_require__(/*! react */ "./node_modules/react/index.jsx")) :
+   true ? factory(exports, __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx"), __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx")) :
   undefined;
 }(this, function (exports, fontawesomeSvgCore, PropTypes, React) { 'use strict';
 
@@ -7816,15 +7816,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS", function() { return __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS; });
 /* harmony import */ var stylis_stylis_min__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stylis/stylis.min */ "./node_modules/stylis/stylis.min.js");
 /* harmony import */ var stylis_stylis_min__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(stylis_stylis_min__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var stylis_rule_sheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stylis-rule-sheet */ "./node_modules/stylis-rule-sheet/index.jsx");
+/* harmony import */ var stylis_rule_sheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stylis-rule-sheet */ "./node_modules/stylis-rule-sheet/ConnectionProvider.jsx");
 /* harmony import */ var stylis_rule_sheet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(stylis_rule_sheet__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _emotion_unitless__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/unitless */ "./node_modules/@emotion/unitless/dist/unitless.browser.esm.js");
-/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.jsx");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/ConnectionProvider.jsx");
 /* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var memoize_one__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! memoize-one */ "./node_modules/memoize-one/dist/memoize-one.esm.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _emotion_is_prop_valid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @emotion/is-prop-valid */ "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js");
 /* harmony import */ var merge_anything__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! merge-anything */ "./node_modules/merge-anything/dist/index.esm.js");
@@ -7972,7 +7972,7 @@ var IS_BROWSER =  true && 'HTMLElement' in window;
 
 var DISABLE_SPEEDY = typeof SC_DISABLE_SPEEDY === 'boolean' && SC_DISABLE_SPEEDY || typeof process !== 'undefined' && (process.env.REACT_APP_SC_DISABLE_SPEEDY || process.env.SC_DISABLE_SPEEDY) || "development" !== 'production';
 
-// Shared empty execution context when generating static styles
+// Shared empty execution providers when generating static styles
 var STATIC_EXECUTION_CONTEXT = {};
 
 // 
@@ -8786,7 +8786,7 @@ var StyleSheet = function () {
 
   /* retrieve a "master" instance of StyleSheet which is typically used when no other is available
    * The master StyleSheet is targeted by createGlobalStyle, keyframes, and components outside of any
-    * StyleSheetManager's context */
+    * StyleSheetManager's providers */
 
 
   /* reset the internal "master" instance */
@@ -9510,7 +9510,7 @@ var ThemeContext = Object(react__WEBPACK_IMPORTED_MODULE_2__["createContext"])()
 var ThemeConsumer = ThemeContext.Consumer;
 
 /**
- * Provide a theme to an entire react component tree via context
+ * Provide a theme to an entire react component tree via providers
  */
 
 var ThemeProvider = function (_Component) {
@@ -9923,7 +9923,7 @@ var StyledComponent = function (_Component) {
         componentStyle = _props$forwardedCompo2.componentStyle,
         warnTooManyClasses = _props$forwardedCompo2.warnTooManyClasses;
 
-    // statically styled-components don't need to build an execution context object,
+    // statically styled-components don't need to build an execution providers object,
     // and shouldn't be increasing the number of class names
 
     if (componentStyle.isStatic && !attrs.length) {
@@ -10109,7 +10109,7 @@ var GlobalStyle = function () {
 
 // 
 
-// place our cache into shared context so it'll persist between HMRs
+// place our cache into shared providers so it'll persist between HMRs
 if (IS_BROWSER) {
   window.scCGSHMRCache = {};
 }
@@ -10315,7 +10315,7 @@ if ( true && typeof navigator !== 'undefined' && typeof navigator.userAgent === 
 
 /***/ "./node_modules/stylis-rule-sheet/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/stylis-rule-sheet/index.jsx ***!
+  !*** ./node_modules/stylis-rule-sheet/ConnectionProvider.jsx ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10385,7 +10385,7 @@ if ( true && typeof navigator !== 'undefined' && typeof navigator.userAgent === 
 
 /***/ "./src/components/Controls/ButtonGroup.jsx":
 /*!*************************************************!*\
-  !*** ./src/components/Controls/ButtonGroup.jsx ***!
+  !*** ./src/components/General/ButtonGroup.jsx ***!
   \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10393,11 +10393,11 @@ if ( true && typeof navigator !== 'undefined' && typeof navigator.userAgent === 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/ButtonGroup.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/ButtonGroup.jsx";
 
 function _templateObject() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  font-size: 1.3rem;\n  padding: 1.2rem;\n"]);
@@ -10466,7 +10466,7 @@ var ButtonGroup = function ButtonGroup() {
 
 /***/ "./src/components/Controls/Modal.jsx":
 /*!*******************************************!*\
-  !*** ./src/components/Controls/ModalComponentComponent.jsx ***!
+  !*** ./src/components/General/ModalComponentComponent.jsx ***!
   \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10474,13 +10474,13 @@ var ButtonGroup = function ButtonGroup() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_3__);
 
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/ModalComponentComponent.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/ModalComponentComponent.jsx";
 
 function _templateObject() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  padding-top: 0.5rem;\n  padding-bottom: 2rem;\n  text-align: center;\n  text-transform: uppercase;\n  font-weight: 700;\n  line-height: 1.2;\n  font-size: 1.2rem;\n  border-bottom: 1px solid #eee;\n  display: block;\n  width: 100%;\n"]);
@@ -10614,20 +10614,20 @@ var Modal = function Modal(_ref) {
 
 /***/ "./src/components/Controls/ModalCloseButton.jsx":
 /*!******************************************************!*\
-  !*** ./src/components/Controls/ModalCloseButton.jsx ***!
+  !*** ./src/components/General/ModalCloseButton.jsx ***!
   \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/index.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/ConnectionProvider.jsx");
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/index.jsx");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/ConnectionProvider.jsx");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/ModalCloseButton.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/ModalCloseButton.jsx";
 
 
 
@@ -10663,20 +10663,20 @@ var ModalCloseButton = function ModalCloseButton(_ref) {
 
 /***/ "./src/components/Controls/ModalSaveButton.jsx":
 /*!*****************************************************!*\
-  !*** ./src/components/Controls/ModalSaveButton.jsx ***!
+  !*** ./src/components/General/ModalSaveButton.jsx ***!
   \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/index.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/ConnectionProvider.jsx");
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/index.jsx");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/ConnectionProvider.jsx");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/ModalSaveButton.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/ModalSaveButton.jsx";
 
 
 
@@ -10712,23 +10712,23 @@ var ModalSaveButton = function ModalSaveButton(_ref) {
 
 /***/ "./src/components/Controls/Nav.jsx":
 /*!*****************************************!*\
-  !*** ./src/components/Controls/Nav.jsx ***!
+  !*** ./src/components/General/Nav.jsx ***!
   \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./src/components/Controls/index.jsx");
-/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/index.jsx");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./src/components/General/ConnectionProvider.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome/index */ "./node_modules/@fortawesome/react-fontawesome/ConnectionProvider.jsx");
 /* harmony import */ var _fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome_index__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/index.jsx");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/index */ "./node_modules/@fortawesome/free-solid-svg-icons/ConnectionProvider.jsx");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/widget-context */ "./src/context/widget-context.js");
+/* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../providers/widget-providers */ "./src/providers/widget-providers.js");
 /* harmony import */ var _Logos_NavLogo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Logos/NavLogo */ "./src/components/Logos/NavLogo.jsx");
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/Nav.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/Nav.jsx";
 
 
 
@@ -10886,18 +10886,18 @@ var Nav = function Nav() {
 
 /***/ "./src/components/Controls/NavButton.jsx":
 /*!***********************************************!*\
-  !*** ./src/components/Controls/NavButton.jsx ***!
+  !*** ./src/components/General/NavButton.jsx ***!
   \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/NavButton.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/NavButton.jsx";
 
 
 
@@ -10935,18 +10935,18 @@ NavButton.propTypes = {
 
 /***/ "./src/components/Controls/ScrollButton.jsx":
 /*!**************************************************!*\
-  !*** ./src/components/Controls/ScrollButton.jsx ***!
+  !*** ./src/components/General/ScrollButton.jsx ***!
   \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/ConnectionProvider.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Controls/ScrollButton.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/ScrollButton.jsx";
 
 
 
@@ -11123,32 +11123,32 @@ ScrollButton.propTypes = {
 
 /***/ "./src/components/Controls/index.js":
 /*!******************************************!*\
-  !*** ./src/components/Controls/index.jsx ***!
+  !*** ./src/components/General/ConnectionProvider.jsx ***!
   \******************************************/
 /*! exports provided: ButtonGroup, ModalComponent, ModalCloseButton, ModalSaveButton, Nav, NavButton, ScrollButton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonGroup */ "./src/components/Controls/ButtonGroup.jsx");
+/* harmony import */ var _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonGroup */ "./src/components/General/ButtonGroup.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonGroup", function() { return _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalComponent */ "./src/components/Controls/ModalComponent.jsxonent.jsx");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalComponent */ "./src/components/General/ModalComponent.jsxonent.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModalComponent", function() { return _Modal__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _ModalCloseButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalCloseButton */ "./src/components/Controls/ModalCloseButton.jsx");
+/* harmony import */ var _ModalCloseButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalCloseButton */ "./src/components/General/ModalCloseButton.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModalCloseButton", function() { return _ModalCloseButton__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony import */ var _ModalSaveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalSaveButton */ "./src/components/Controls/ModalSaveButton.jsx");
+/* harmony import */ var _ModalSaveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalSaveButton */ "./src/components/General/ModalSaveButton.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModalSaveButton", function() { return _ModalSaveButton__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Nav */ "./src/components/Controls/Nav.jsx");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Nav */ "./src/components/General/Nav.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Nav", function() { return _Nav__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
-/* harmony import */ var _NavButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NavButton */ "./src/components/Controls/NavButton.jsx");
+/* harmony import */ var _NavButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NavButton */ "./src/components/General/NavButton.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NavButton", function() { return _NavButton__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
-/* harmony import */ var _ScrollButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ScrollButton */ "./src/components/Controls/ScrollButton.jsx");
+/* harmony import */ var _ScrollButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ScrollButton */ "./src/components/General/ScrollButton.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollButton", function() { return _ScrollButton__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
 
@@ -11170,7 +11170,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/ConnectionProvider.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/Logos/NavLogo.jsx";
 

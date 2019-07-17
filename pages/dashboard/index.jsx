@@ -1,19 +1,19 @@
 import React, { Fragment, useState } from 'react';
 import dynamic from 'next/dynamic';
-import withAuth from '../../src/helpers/withAuth';
+import withAuth from '../../src/components/Session/WithAuth';
 import Head from 'next/head';
-import NavDashboard from '../../src/components/Controls/NavDashboard';
+import NavDashboard from '../../src/components/General/NavDashboard';
 
 const ArchiveComponent = dynamic(() =>
-    import('../../src/components/DashboardComponents/ArchiveComponent'));
+    import('../../src/components/Dashboard/ArchiveComponent'));
 const AccountComponent = dynamic(() =>
-    import('../../src/components/DashboardComponents/AccountComponent'));
+    import('../../src/components/Dashboard/AccountComponent'));
 const BatchJobCreatorComponent = dynamic(() =>
-    import('../../src/components/DashboardComponents/BatchJobCreator'));
+    import('../../src/components/Dashboard/BatchJobCreatorComponent'));
 const DashboardComponent = dynamic(() =>
-    import('../../src/components/DashboardComponents/DashboardComponent'));
+    import('../../src/components/Dashboard/DashboardComponent'));
 const SettingsComponent = dynamic(() =>
-    import('../../src/components/DashboardComponents/SettingsComponent'));
+    import('../../src/components/Dashboard/SettingsComponent'));
 
 const Dashboard = props => {
   let [active, setActive] = useState(0);

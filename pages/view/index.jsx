@@ -4,18 +4,20 @@ import { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
 
 // Components.
-import TextArea from '../../src/components/LiveTranscript/TextArea';
-import LiveTranscript from '../../src/components/LiveTranscript';
+import Document from '../../src/components/ShareDB/Document';
+import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
 import Provider from '../../src/components/Session/Provider';
-import WidgetContext from '../../src/context/widget-context';
+import WidgetContext from '../../src/providers/WidgetContext';
+
+import { DisconnectedToast, ReconnectedToast } from '../../src/components/Toasts';
 
 // Dynamic imports.
-const ScrollButton = dynamic(() => import('../../src/components/Controls')
-    .then(el => el.ScrollButton));
-const Nav = dynamic(() => import('../../src/components/Controls')
-    .then(el => el.Nav));
+const ScrollButton = dynamic(() => import('../../src/components/General')
+    .then(mod => mod.ScrollButton));
+const Nav = dynamic(() => import('../../src/components/General')
+    .then(mod => mod.Nav));
 const Modal = dynamic(() => import('react-modal'));
-const ModalComponent = dynamic(() => import('../../src/components/Modal/ModalComponent'));
+const ModalComponent = dynamic(() => import('../../src/components/Modals/ModalComponent'));
 
 const modalStyles = {
   content: {
@@ -123,12 +125,13 @@ class View extends React.Component {
                   }}
                        onTouchStart={() => this.stopScrolling()}
                        onClick={() => this.stopScrolling()}>
-                    <LiveTranscript
-                        toasts={true}
+                    <ConnectionProvider
+                        onDisconnect={DisconnectedToast}
+                        onReconnect={ReconnectedToast}
                         user={router.query.user}
                         job={router.query.job}
-                        render={(state) => (
-                            <TextArea
+                        render={state => (
+                            <Document
                                 editable={false}
                                 {...state}
                             />
