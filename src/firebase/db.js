@@ -70,6 +70,7 @@ export const batchCreateJobs = (user, uid, batch, cb) => {
 };
 
 // Job methods ===========================================================
+
 export const createJob = (job, user, uid) => {
   return new Promise((resolve, reject) => {
     const newJob = {
@@ -83,17 +84,29 @@ export const createJob = (job, user, uid) => {
       username: user,
     };
 
+    // First check to make sure a job with the same shortname/user combo
+    // does not exist.
     checkDupeJob(newJob.shortName, user)
+
+    // If no dupe found, push the newJob object to db.
         .then(() => {
           db.ref('jobs')
               .push(newJob)
               .then(job => {
+
+                // Assign the job to the user (add it to their user object).
                 db.ref(`users/${uid}/jobs`)
-                    .push({
-                      key: job.key,
-                      shortName: newJob.shortName,
+
+                // Use the uuid key Firebase generated for the job and assign it as key.
+                    .set({
+                      [job.key]: {
+                        shortName: newJob.shortName,
+                      }
+                    })
+                    .then(() => resolve('Job created successfully.'))
+                    .catch(err => {
+                      reject('Could not assign job to user.', err);
                     });
-                resolve('Job created successfully.');
               })
               .catch(err => {
                 reject('Could not push job to the database.', err);
@@ -105,6 +118,7 @@ export const createJob = (job, user, uid) => {
   });
 };
 
+// Checks for duplicate jobs (matches by shortname and username).
 export const checkDupeJob = (shortName, user) => {
   return new Promise((resolve, reject) => {
     db.ref('jobs')
@@ -112,15 +126,20 @@ export const checkDupeJob = (shortName, user) => {
         .equalTo(shortName)
         .once('value', snapshot => {
           if (!snapshot.val()) {
-            console.log('no existing node was found; everything is good!');
-            resolve(true);
+            resolve('No existing node was found; everything is good!');
           } else {
+
+            // In Firebase, the first key to a "snapshot," or really "node,"
+            // is the unique uuid that it's assigned on creation.
+            // Here, I'm using that key to access the actual data inside.
+            // Object returned looks like: {xxx: {name: "stanley"}}.
+            // const key is getting the "xxx" value.
             const node = snapshot.val();
             const key = Object.keys(snapshot.val())[0];
             const jobUsername = node[key]['username'];
 
             if (user === jobUsername) {
-              reject(false);
+              reject('A job with the same username and shortname combo was found. Do not continue.');
             }
           }
         })
@@ -129,10 +148,13 @@ export const checkDupeJob = (shortName, user) => {
 };
 
 export const deleteJob = (uid, id, cb) => {
+  // Delete jobs from the global job list.
   db.ref(`jobs/${id}`)
       .remove()
-      .then(deleted => {
-        db.ref(`users/${uid}/jobs/${deleted.key}`)
+      .then(() => {
+
+        // Delete the job from the user.
+        db.ref(`users/${uid}/jobs/${id}`)
             .remove()
             .then(() => cb(true))
             .catch(err => cb(err));

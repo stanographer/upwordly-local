@@ -11,6 +11,7 @@ const JobCreator = ({
                       errors,
                       getUserData,
                       job,
+                      resetJobCreator,
                       setErrors,
                       setShortName,
                       setTitleAndSpeakers,
@@ -151,8 +152,9 @@ const JobCreator = ({
                     Schedule Job
                   </button>
                   <button type="button"
-                          className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4 mx-4">
-                   Reset
+                          className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4 mx-4"
+                          onClick={() => resetJobCreator()}>
+                    Reset
                   </button>
                 </div>
               </div>

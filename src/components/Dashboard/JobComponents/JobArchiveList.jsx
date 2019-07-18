@@ -3,6 +3,9 @@ import JobArchiveItem from './JobArchiveItem';
 import JobsNull from './JobsNull';
 
 const JobList = ({deleteAJob, getUserData, jobs}) => {
+  const list = Object.keys(jobs)
+      .filter(key => jobs[key].started === true);
+
   return (
       <div className="w-full mb-6 lg:mb-0 px-4 flex flex-col">
         <div className="flex-grow flex flex-col bg-bg2 border-t border-b sm:rounded sm:border shadow overflow-hidden">
@@ -12,8 +15,8 @@ const JobList = ({deleteAJob, getUserData, jobs}) => {
             </div>
           </div>
           {
-            jobs
-                ? Object.keys(jobs)
+            list && list.length > 0
+                ? list
                     .map(key => {
                       if (jobs[key].started === true) {
                         return <JobArchiveItem
@@ -28,7 +31,7 @@ const JobList = ({deleteAJob, getUserData, jobs}) => {
                     .reverse()
                 : <JobsNull
                     heading="No jobs in your Archive"
-                    info="Jobs only appear here after you have scheduled them and started them. Otherwise they appear on your queue."
+                    info="Jobs only appear in your Archive after you have scheduled them and started them. Otherwise they appear on your Upcoming Job Queue."
                 />
           }
         </div>
