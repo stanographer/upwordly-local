@@ -9,14 +9,11 @@ import PropTypes from 'prop-types';
 function Document(props) {
   const {doc, flag} = props;
   
-  console.log('PRAWPZ', props);
-
   let [text, setText] = useState('');
   let binding;
 
   useEffect(() => {
     FetchingToast();
-
     doc.subscribe(err => {
       if (err) {
         setText('There was a connection error: ' + err);

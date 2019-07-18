@@ -6,7 +6,7 @@ const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
 
   const areYouSureToDelete = () => {
     setConfirmDelete(true);
-    setTimeout(() => setConfirmDelete(false), 5000);
+    setTimeout(() => setConfirmDelete(false), 6000);
   };
 
   console.log('key', id);
