@@ -2,7 +2,6 @@ import React from 'react';
 import router from 'next/router';
 
 const JobItem = ({id, job, startJob}) => {
-  console.log('key', id);
   const location = () => {
     return `${document.location.protocol}//${document.location.host}/editor?user=${job.username}&job=${job.shortName}`;
   };

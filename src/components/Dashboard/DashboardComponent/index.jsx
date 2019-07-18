@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import JobCreator from '../JobComponents/JobCreator';
-import JobList from '../JobComponents/JobList';
+import JobQueue from '../JobComponents/JobQueue';
 import Typed from 'react-typed';
 import {
   startJob,
@@ -88,9 +88,9 @@ const DashboardComponent = ({auth, getUserData, jobs, user}) => {
               setTitleAndSpeakers={setTitleAndSpeakers}
               uid={auth.uid}
           />
-          <JobList
+          <JobQueue
               startJob={startJob}
-              jobList={jobs}
+              jobs={jobs}
           />
         </div>
       </Fragment>

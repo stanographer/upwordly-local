@@ -2,8 +2,10 @@ import React from 'react';
 import JobItem from './JobItem';
 import JobsNull from './JobsNull';
 
-const JobList = ({jobList, startJob}) => {
-  console.log('jobList', jobList);
+const JobQueue = ({jobs, startJob}) => {
+  const list = Object.keys(jobs)
+      .filter(key => jobs[key].started === false || null || undefined);
+
   return (
       <div className="w-full mb-6 lg:mb-0 lg:w-1/2 px-4 flex flex-col">
         <div
@@ -14,22 +16,23 @@ const JobList = ({jobList, startJob}) => {
             </div>
           </div>
           {
-            jobList
-                ? Object.keys(jobList)
+            list && list.length > 0
+                ? list
                     .map(key => {
-                      if (!jobList[key].started) {
+                      if (!jobs[key].started) {
                         return <JobItem
                             key={key}
                             id={key}
-                            job={jobList[key]}
+                            job={jobs[key]}
                             startJob={startJob}
                         />;
                       }
                     })
                     .reverse()
                 : <JobsNull
-                    heading="You don't have any jobs yet!"
-                    info="Use the widget on the left to schedule one!"
+                    heading={<>Your <span className="text-red-200">Upcoming Job Queue</span> is empty.</>}
+                    info={<>Use the <span className="text-green-200 underline">Start a Job</span> tool to schedule new jobs or visit your <span
+                        className="text-teal-200 underline">Archive</span> to view past jobs.</>}
                 />
           }
         </div>
@@ -37,4 +40,4 @@ const JobList = ({jobList, startJob}) => {
   );
 };
 
-export default JobList;
+export default JobQueue;
