@@ -1,5 +1,8 @@
+// Nav component shown to the logged-in user.
+
 import React from 'react';
-import { NavButton } from './index';
+import router from 'next/router';
+import { NavButton } from '../General';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import {
   faArchive,
@@ -9,20 +12,19 @@ import {
   faTasks,
   faUser,
 } from '@fortawesome/free-solid-svg-icons/index';
-import NavLogo from '../Logos/NavLogo';
-import router from 'next/router';
+import Logo from '../Logos/Logo';
 import { doSignOut } from '../../firebase/auth';
 import * as ROUTES from '../../constants/routes';
 
-const NavDashboard = ({setActive}) => {
+const NavDashboard = ({active, setActive}) => {
   return (
-      <nav
-          className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky">
-        <NavLogo />
+      <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 sticky">
+        <Logo />
         <div
             className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
-          <div className="lg:flex-grow my-2">
+          <div className="lg:flex-grow py-2">
             <NavButton
+                active={active === 0}
                 icon={<FontAwesomeIcon icon={faTasks} />}
                 title="Dashboard"
                 onClick={e => {
@@ -31,6 +33,7 @@ const NavDashboard = ({setActive}) => {
                 }}
             />
             <NavButton
+                active={active === 4}
                 icon={<FontAwesomeIcon icon={faArchive} />}
                 title="Archive"
                 onClick={e => {
@@ -39,6 +42,7 @@ const NavDashboard = ({setActive}) => {
                 }}
             />
             <NavButton
+                active={active === 5}
                 icon={<FontAwesomeIcon icon={faLayerGroup} />}
                 title="Batch Jobs"
                 onClick={e => {
@@ -47,6 +51,7 @@ const NavDashboard = ({setActive}) => {
                 }}
             />
             <NavButton
+                active={active === 1}
                 icon={<FontAwesomeIcon icon={faUser} />}
                 title="My Account"
                 onClick={e => {
@@ -55,6 +60,7 @@ const NavDashboard = ({setActive}) => {
                 }}
             />
             <NavButton
+                active={active === 2}
                 icon={<FontAwesomeIcon icon={faCog} />}
                 title="Settings"
                 onClick={e => {

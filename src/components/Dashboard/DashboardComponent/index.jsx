@@ -6,7 +6,7 @@ import {
   startJob,
 } from '../../../firebase/db';
 
-const DashboardComponent = ({auth, getUserData, jobs, user}) => {
+const DashboardComponent = ({activeComponent, auth, getUserData, jobs, setActiveComponent, user}) => {
   console.log('dashboard props', user.uid);
 
   let [job, setJob] = useState({});
@@ -89,6 +89,7 @@ const DashboardComponent = ({auth, getUserData, jobs, user}) => {
               uid={auth.uid}
           />
           <JobQueue
+              setActiveComponent={setActiveComponent}
               startJob={startJob}
               jobs={jobs}
           />

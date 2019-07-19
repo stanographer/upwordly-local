@@ -10,7 +10,7 @@ import { auth } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
 import Footer from '../../src/components/General/Footer';
 
-const NavLogo = dynamic(() => import('../../src/components/Logos/NavLogo'));
+const Logo = dynamic(() => import('../../src/components/Logos/Logo'));
 const Typed = dynamic(() => import('react-typed'));
 
 const SignIn = () => (
@@ -76,7 +76,7 @@ class SignInComponent extends Component {
           </Head>
           <div className="container mx-auto h-full flex flex-1 justify-center items-center">
             <div className="w-full max-w-sm mt-20">
-              <NavLogo center={true} />
+              <Logo center={true} />
               <div className="font-sans font-hairline mb-10 mt-2 text-center justify-center">
                 <Typed
                     className="marquee"

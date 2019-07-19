@@ -15,6 +15,7 @@ module.exports = {
       bg2: '#282c34',
       brightBlue: '#93ddfd',
       fg: '#fffce1',
+      highlighter: '#e5ff7a',
       brightGreen: 'rgb(181, 244, 165)',
       black: '#000',
       white: '#fff',

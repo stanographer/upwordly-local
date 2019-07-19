@@ -6,7 +6,7 @@ import { auth, db } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
 import Footer from '../../src/components/General/Footer';
 
-const NavLogo = dynamic(() => import('../../src/components/Logos/NavLogo'));
+const Logo = dynamic(() => import('../../src/components/Logos/Logo'));
 const Typed = dynamic(() => import('react-typed'));
 
 // Sign-up components.
@@ -364,7 +364,7 @@ class SignUp extends React.Component {
           <div className="container mx-auto h-full flex flex-1 justify-center items-center">
             <div className="w-full max-w-sm mt-20">
               <div className="my-4 lg:my-8">
-                <NavLogo center={true} />
+                <Logo center={true} />
                 <div className="font-sans mb-10 mt-4 text-center justify-center">
                   <Typed
                       className="marquee"

@@ -1,5 +1,6 @@
 import React from 'react';
 import router from 'next/router';
+import Link from 'next/link';
 
 const JobItem = ({id, job, startJob}) => {
   const location = () => {
@@ -29,15 +30,18 @@ const JobItem = ({id, job, startJob}) => {
             </div>
           </div>
           <div className="w-1/3 pl-4 text-right">
-            <button type="button"
-                    className="bg-blue hover:bg-brightGreen hover:text-bg2 text-white border border-blue-dark rounded px-4 py-2"
-                    onClick={e => {
-                      startJob(id, () => console.log('Job started!'));
-                      router.push(location());
-                      e.preventDefault();
-                    }}>
-              <p className="px-2 inline">Start</p>
-            </button>
+            <Link href={{
+              pathname: '/editor',
+              query: {
+                user: job.username,
+                job: job.shortName
+              }
+            }} prefetch>
+              <button type="button"
+                      className="bg-blue hover:bg-brightGreen hover:text-bg2 text-white border border-blue-dark rounded px-4 py-2">
+                <p className="px-2 inline">Start</p>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
