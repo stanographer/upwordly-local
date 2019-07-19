@@ -4,6 +4,7 @@ import { faClipboard } from '@fortawesome/free-solid-svg-icons/index';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { createJob } from '../../../firebase/db';
 import { auth as currentAuth } from '../../../firebase/firebase';
+import Button from '../Button';
 
 const JobCreator = ({
                       auth,
@@ -147,15 +148,17 @@ const JobCreator = ({
               }
               <div className="py-8">
                 <div className="mb-4">
-                  <button type="submit"
-                          className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4">
-                    Schedule Job
-                  </button>
-                  <button type="button"
-                          className="bg-blue hover:bg-blue-dark text-white border border-blue-dark rounded px-6 py-4 mx-4"
-                          onClick={() => resetJobCreator()}>
-                    Reset
-                  </button>
+                    <Button color="green"
+                            margin="mx-2"
+                            text="Schedule Job"
+                            type="submit"
+                    />
+                  <Button color="red"
+                          margin="mx-2"
+                          text="Reset fields"
+                          type="button"
+                          onClick={resetJobCreator}
+                  />
                 </div>
               </div>
             </div>

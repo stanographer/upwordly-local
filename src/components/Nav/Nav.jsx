@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavButton } from './index';
+import { NavButton } from '../General';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import {
   faAdjust,

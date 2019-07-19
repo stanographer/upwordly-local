@@ -5,7 +5,7 @@ import { auth } from '../../firebase/firebase';
 import * as ROUTES from '../../constants/routes';
 import { getAllJobsByUser, getUser } from '../../firebase/db';
 
-const NavLogo = dynamic(() => import('../Logos/NavLogo'));
+const Logo = dynamic(() => import('../Logos/Logo'));
 
 const INITIAL_STATE = {
   auth: {},
@@ -74,7 +74,7 @@ const withAuth = Component => {
         return (
             <div className="container mx-auto h-full flex justify-center items-center">
               <div className="w-full max-w-sm mt-20">
-                <NavLogo center={true} />
+                <Logo center={true} />
                 <p className="text-center mt-2">Loading...</p>
               </div>
             </div>
@@ -93,7 +93,7 @@ const withAuth = Component => {
         return (
             <div className="container mx-auto h-full flex justify-center items-center">
               <div className="w-full max-w-sm mt-20">
-                <NavLogo center={true} />
+                <Logo center={true} />
                 <p className="text-center mt-2">Error logging in.</p>
                 <p className="text-center mt-2 text-sm">{error}</p>
               </div>

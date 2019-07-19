@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import dynamic from 'next/dynamic';
 import withAuth from '../../src/components/Session/WithAuth';
 import Head from 'next/head';
-import NavDashboard from '../../src/components/General/NavDashboard';
+import NavDashboard from '../../src/components/Nav/NavDashboard';
 import Footer from '../../src/components/General/Footer';
 
 const ArchiveComponent = dynamic(() =>
@@ -18,13 +18,16 @@ const SettingsComponent = dynamic(() =>
 
 const Dashboard = props => {
   let [active, setActive] = useState(0);
-  console.log(props);
 
   // Switches the active component based on the number.
   const ActiveComponent = number => {
     switch (number) {
       case 0:
-        return <DashboardComponent {...props} />;
+        return <DashboardComponent
+            {...props}
+            activeComponent={active}
+            setActiveComponent={setActive}
+        />;
       case 1:
         return <AccountComponent />;
       case 2:

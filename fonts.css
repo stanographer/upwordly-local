@@ -63,3 +63,25 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Apercu';
+    src: url('/static/fonts/Apercu/Apercu-MediumItalic.eot');
+    src: url('/static/fonts/Apercu/Apercu-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('/static/fonts/Apercu/Apercu-MediumItalic.woff2') format('woff2'),
+    url('/static/fonts/Apercu/Apercu-MediumItalic.woff') format('woff'),
+    url('/static/fonts/Apercu/Apercu-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Apercu';
+    src: url('/static/fonts/Apercu/Apercu-BoldItalic.eot');
+    src: url('/static/fonts/Apercu/Apercu-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('/static/fonts/Apercu/Apercu-BoldItalic.woff2') format('woff2'),
+    url('/static/fonts/Apercu/Apercu-BoldItalic.woff') format('woff'),
+    url('/static/fonts/Apercu/Apercu-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}

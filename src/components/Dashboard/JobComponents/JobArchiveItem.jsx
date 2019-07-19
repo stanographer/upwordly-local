@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import router from 'next/router';
+import Link from 'next/link';
 
 const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
   let [confirmDelete, setConfirmDelete] = useState(false);
@@ -7,11 +7,6 @@ const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
   const areYouSureToDelete = () => {
     setConfirmDelete(true);
     setTimeout(() => setConfirmDelete(false), 6000);
-  };
-
-  console.log('key', id);
-  const location = () => {
-    return `${document.location.protocol}//${document.location.host}/editor?user=${job.username}&job=${job.shortName}`;
   };
 
   return (
@@ -57,14 +52,18 @@ const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
           {
             !confirmDelete
                 ? <Fragment>
-                  <button type="button"
-                          className="bg-blue hover:bg-brightGreen hover:text-bg2 text-white border border-blue-dark rounded px-4 py-2 mr-2"
-                          onClick={e => {
-                            router.push(location());
-                            e.preventDefault();
-                          }}>
-                    <p className="px-2 inline">Open</p>
-                  </button>
+                  <Link href={{
+                    pathname: 'editor',
+                    query: {
+                      user: job.username,
+                      job: job.shortName,
+                    }
+                  }} prefetch>
+                    <button type="button"
+                            className="bg-blue hover:bg-brightGreen hover:text-bg2 text-white border border-blue-dark rounded px-4 py-2 mr-2">
+                      <p className="px-2 inline">Open</p>
+                    </button>
+                  </Link>
                   <button type="button"
                           className="bg-red-600 hover:bg-red-400 text-white border border-blue-dark rounded px-4 py-2"
                           onClick={e => {

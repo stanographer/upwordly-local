@@ -2,7 +2,7 @@ import React from 'react';
 import JobItem from './JobItem';
 import JobsNull from './JobsNull';
 
-const JobQueue = ({jobs, startJob}) => {
+const JobQueue = ({jobs, setActiveComponent, startJob}) => {
   const list = Object.keys(jobs)
       .filter(key => jobs[key].started === false || null || undefined);
 
@@ -31,8 +31,15 @@ const JobQueue = ({jobs, startJob}) => {
                     .reverse()
                 : <JobsNull
                     heading={<>Your <span className="text-red-200">Upcoming Job Queue</span> is empty.</>}
-                    info={<>Use the <span className="text-green-200 underline">Start a Job</span> tool to schedule new jobs or visit your <span
-                        className="text-teal-200 underline">Archive</span> to view past jobs.</>}
+                    info={<>Use the <span className="text-green-200 underline cursor-pointer">Start a Job</span> tool to
+                            schedule new jobs or visit your <a className="text-teal-200 underline cursor-pointer"
+                                                               href="#"
+                                                               onClick={e => {
+                                                                 e.preventDefault();
+                                                                 setActiveComponent(4);
+                                                               }}>
+                        Archive
+                      </a> to view past jobs.</>}
                 />
           }
         </div>
