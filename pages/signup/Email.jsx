@@ -1,6 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons/index';
 
 const Email = ({emailValue, errors, handleInput, nextStep}) => {
   const errorMessages = errors.map((e, i) => (

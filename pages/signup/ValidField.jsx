@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/index';
 
 const ValidField = ({message}) => {
   return (

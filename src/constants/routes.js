@@ -1,3 +1,4 @@
+export const ARCHIVE = '/archive';
 export const DASHBOARD = '/dashboard';
 export const EDITOR = '/editor';
 export const LANDING = '/';

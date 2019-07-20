@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
-import { animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll/modules';
 
 // Components.
 import Document from '../../src/components/ShareDB/Document';

@@ -1,6 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify/index';
 import 'react-toastify/dist/ReactToastify.min.css';
 import '../fonts.css';
 import '../style.css';
