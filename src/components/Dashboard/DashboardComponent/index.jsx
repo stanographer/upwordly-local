@@ -6,7 +6,7 @@ import {
   startJob,
 } from '../../../firebase/db';
 
-const DashboardComponent = ({activeComponent, auth, getUserData, jobs, setActiveComponent, user}) => {
+const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user}) => {
   console.log('dashboard props', user.uid);
 
   let [job, setJob] = useState({});
@@ -75,7 +75,7 @@ const DashboardComponent = ({activeComponent, auth, getUserData, jobs, setActive
         {user
             ? <p className="pt-4 pb-2 text-green-200">Logged in as {user.fullName}</p>
             : ''}
-        <div className="flex flex-wrap -mx-4 my-10">
+        <main className="flex flex-wrap flex-row -mx-2 my-10 md:flex-no-wrap md:-mx-4">
           <JobCreator
               auth={auth}
               user={user}
@@ -93,7 +93,7 @@ const DashboardComponent = ({activeComponent, auth, getUserData, jobs, setActive
               startJob={startJob}
               jobs={jobs}
           />
-        </div>
+        </main>
       </Fragment>
   );
 };

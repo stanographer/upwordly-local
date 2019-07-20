@@ -3,7 +3,7 @@ import React from 'react';
 const JobsNull = ({heading, info}) => {
   return (
       <div>
-        <div className="text-center px-6 py-20">
+        <div className="text-center px-4 py-8 lg:px-6 lg:py-20 ">
           <div className="py-8">
             <div className="mb-4">
               <svg className="inline-block fill-current text-highlighter h-16 w-16" xmlns="http://www.w3.org/2000/svg"

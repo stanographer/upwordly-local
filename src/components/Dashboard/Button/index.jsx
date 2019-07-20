@@ -1,31 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({color, onClick, margin, text, type}) => {
-  const classes = color => `bg-bg2 text-${color}-200 border border-${color}-200 hover:bg-${color}-200 hover:text-bg2 hover:border-${color}-200`;
+const Button = ({classNames, color, onClick, text, type}) => {
+  const classes = color => `text-${color}-200 border-${color}-200 hover:bg-${color}-200 hover:border-${color}-200`;
 
   return (
       onClick
           ? <button
               data-test="dashboard-button"
               type={type}
-              className={`rounded px-6 py-4 ${margin} ${classes(color)}`}
+              className={`rounded bg-bg2 border hover:text-bg2 px-6 py-4 ${classNames} ${classes(color)}`}
               onClick={e => onClick(e)}>
             {text}
           </button>
           : <button
               data-test="dashboard-button"
               type={type}
-              className={`rounded px-6 py-4 ${margin} ${classes(color)}`}>
+              className={`rounded bg-bg2 border hover:text-bg2 px-6 py-4 ${classNames} ${classes(color)}`}>
             {text}
           </button>
   );
 };
 
 Button.propTypes = {
+  classNames: PropTypes.string,
   color: PropTypes.oneOf(['blue', 'green', 'red']).isRequired,
   onClick: PropTypes.func,
-  margin: PropTypes.string,
   text: PropTypes.any.isRequired,
   type: PropTypes.oneOf(['button', 'submit']).isRequired,
 };
