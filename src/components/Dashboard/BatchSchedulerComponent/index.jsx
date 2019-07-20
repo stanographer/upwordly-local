@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Typed from 'react-typed';
 import { batchCreateJobs, getUser } from '../../../firebase/db';
 
-const BatchJobCreatorComponent = ({user}) => {
+const BatchSchedulerComponent = ({user}) => {
 
   let [batch, setBatch] = useState('');
   let [authUser, setAuthUser] = useState({});
@@ -18,7 +18,6 @@ const BatchJobCreatorComponent = ({user}) => {
       setTimeout(() => setMessage(''), 3000);
     }
   };
-
 
   useEffect(() => {
     try {
@@ -64,4 +63,4 @@ const BatchJobCreatorComponent = ({user}) => {
   );
 };
 
-export default BatchJobCreatorComponent;
+export default BatchSchedulerComponent;
