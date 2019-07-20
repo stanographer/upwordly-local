@@ -1,9 +1,11 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import dynamic from 'next/dynamic';
 import { ToastContainer } from 'react-toastify/index';
 import 'react-toastify/dist/ReactToastify.min.css';
-import '../fonts.css';
-import '../style.css';
+dynamic(() => import('../style.css'));
+dynamic(() => import('../fonts.css'));
+
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
