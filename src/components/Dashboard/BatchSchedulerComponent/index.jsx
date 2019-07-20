@@ -30,7 +30,7 @@ const BatchJobCreatorComponent = ({user}) => {
 
   return (
       <Fragment>
-        <p className="font-apercu text-5xl">Batch Job Creator</p>
+        <p className="font-apercu text-5xl">Batch Job Scheduler</p>
         <Typed
             className="marquee text-teal-200"
             strings={[

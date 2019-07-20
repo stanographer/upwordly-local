@@ -37,7 +37,8 @@ const JobQueue = ({jobs, startJob}) => {
                             schedule new jobs or visit your <Link href={ROUTES.ARCHIVE} prefetch><a
                           className="text-teal-200 underline cursor-pointer">
                         Archive
-                      </a></Link> to view past jobs.</>}
+                      </a></Link> to view past jobs.</>
+                    }
                 />
           }
         </div>
