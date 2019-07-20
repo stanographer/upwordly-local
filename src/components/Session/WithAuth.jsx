@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import dynamic from 'next/dynamic';
+import React from 'react';
 import router from 'next/router';
 import { auth } from '../../firebase/firebase';
 import * as ROUTES from '../../constants/routes';
 import { getAllJobsByUser, getUser } from '../../firebase/db';
+import Logo from '../Logos/Logo';
+import { ImpulseSpinner } from 'react-spinners-kit';
 
-const Logo = dynamic(() => import('../Logos/Logo'));
 
 const INITIAL_STATE = {
   auth: {},
@@ -75,7 +75,12 @@ const withAuth = Component => {
             <div className="container mx-auto h-full flex justify-center items-center">
               <div className="w-full max-w-sm mt-20">
                 <Logo center={true} />
-                <p className="text-center mt-2">Loading...</p>
+                <div className="flex justify-center mt-8">
+                  <ImpulseSpinner
+                      frontColor="#e5ff7a"
+                      size={40}
+                  />
+                </div>
               </div>
             </div>
         );
@@ -103,11 +108,7 @@ const withAuth = Component => {
     }
 
     render() {
-      return (
-          <Fragment>
-            {this.renderContent()}
-          </Fragment>
-      );
+      return (this.renderContent());
     }
   };
 };

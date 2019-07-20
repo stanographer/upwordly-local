@@ -5,9 +5,8 @@ import dynamic from 'next/dynamic';
 import { auth, db } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
 import Footer from '../../src/components/General/Footer';
-
-const Logo = dynamic(() => import('../../src/components/Logos/Logo'));
-const Typed = dynamic(() => import('react-typed'));
+import Logo from '../../src/components/Logos/Logo';
+import Typed from 'react-typed';
 
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons/index';
 
 const Token = ({errors, handleInput, nextStep, tokenValue}) => {
 

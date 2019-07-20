@@ -6,7 +6,7 @@
   "scripts": {
     "env": "scp ~/Developer/upwordly-local/.env stanley@upword.ly:~/upwordly-local",
     "build": "NODE_ENV=production next build",
-    "buildlocal": "NODE_ENVIRONMENT=local next build",
+    "buildlocal": "NODE_ENVIRONMENT=local next build ",
     "dev": "next",
     "test": "jest --watchAll",
     "start": "NODE_ENVIRONMENT=production next start",
@@ -58,6 +58,7 @@
     "react-geosuggest": "^2.12.0",
     "react-modal": "^3.9.1",
     "react-scroll": "^1.7.12",
+    "react-spinners-kit": "^1.9.0",
     "react-toastify": "^5.3.2",
     "react-typed": "^1.1.2",
     "reconnecting-websocket": "^4.1.10",
