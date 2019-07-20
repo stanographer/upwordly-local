@@ -73,8 +73,10 @@ class SignInComponent extends Component {
         <>
           <Head>
             <title>Sign in to Upword.ly</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta charSet="utf-8" />
           </Head>
-          <div className="container mx-auto h-full flex flex-1 justify-center items-center">
+          <main className="container mx-auto h-full flex flex-1 justify-center items-center">
             <div className="w-full max-w-sm mt-20">
               <Logo center={true} />
               <div className="font-sans font-hairline mb-10 mt-2 text-center justify-center">
@@ -142,7 +144,7 @@ class SignInComponent extends Component {
               </form>
               <Footer />
             </div>
-          </div>
+          </main>
         </>
     );
   }

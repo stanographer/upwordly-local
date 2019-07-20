@@ -1,11 +1,7 @@
 import React from 'react';
-import router from 'next/router';
 import Link from 'next/link';
 
 const JobItem = ({id, job, startJob}) => {
-  const location = () => {
-    return `${document.location.protocol}//${document.location.host}/editor?user=${job.username}&job=${job.shortName}`;
-  };
 
   return (
       <div className="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4">
@@ -38,7 +34,11 @@ const JobItem = ({id, job, startJob}) => {
               }
             }} prefetch>
               <button type="button"
-                      className="bg-blue hover:bg-brightGreen hover:text-bg2 text-white border border-blue-dark rounded px-4 py-2">
+                      className="bg-blue hover:bg-brightGreen hover:text-bg2 text-white border border-blue-dark rounded px-4 py-2"
+                      onClick={() => {
+                        console.log('job IDDDDD', id);
+                        startJob(id)
+                      }}>
                 <p className="px-2 inline">Start</p>
               </button>
             </Link>
