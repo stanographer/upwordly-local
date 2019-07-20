@@ -6,7 +6,7 @@ import withAuth from '../../src/components/Session/WithAuth';
 const BatchJobs = props => {
   return (
       <Wrapper
-          htmlTitle="Upword.ly - Batch Job Creator"
+          htmlTitle="Upword.ly - Batch Job Scheduler"
           title="batch-job-creator">
         <BatchSchedulerComponent {...props} />
       </Wrapper>
