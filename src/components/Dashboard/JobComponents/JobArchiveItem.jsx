@@ -53,7 +53,7 @@ const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
             !confirmDelete
                 ? <Fragment>
                   <Link href={{
-                    pathname: 'editor',
+                    pathname: '/editor',
                     query: {
                       user: job.username,
                       job: job.shortName,

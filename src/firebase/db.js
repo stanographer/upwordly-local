@@ -162,6 +162,15 @@ export const deleteJob = (uid, id, cb) => {
       .catch(err => cb(err));
 };
 
+export const getJobDetails = async (user, job) => {
+  await db.ref('jobs')
+      .orderByChild('username')
+      .equalTo(user)
+      .once('value', snapshot => {
+        console.log(snapshot.key);
+      });
+};
+
 export const getAllJobsByUser = (user, cb) => {
   db.ref('jobs')
       .orderByChild('username')
