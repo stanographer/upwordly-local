@@ -4,7 +4,7 @@ import EditorComponent from '../../src/components/EditorComponent';
 import withAuth from '../../src/components/Session/WithAuth';
 import Wrapper from '../../src/components/Dashboard/Wrapper';
 import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
-import {getJobDetails} from './functions';
+import { getJobDetails } from './functions';
 
 const Editor = props => {
   const {jobs, router} = props;
@@ -13,8 +13,8 @@ const Editor = props => {
   useEffect(() => {
     getJobDetails(router.query.job, jobs)
         .then(job => {
-         setCurrentJob(job);
-        })
+          setCurrentJob(job);
+        });
   }, [jobs]);
 
   return (
