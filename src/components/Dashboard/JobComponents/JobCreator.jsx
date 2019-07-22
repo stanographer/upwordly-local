@@ -56,12 +56,6 @@ const JobCreator = ({
             <div className="border-b">
               <div className="flex justify-between px-6 -mb-px">
                 <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
-                <div className="flex">
-                  <button type="button"
-                          className="appearance-none py-4 text-orange-200 border-b border-blue-dark mr-3">
-                    Batch Style
-                  </button>
-                </div>
               </div>
             </div>
             <div>

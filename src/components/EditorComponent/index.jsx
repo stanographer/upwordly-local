@@ -3,14 +3,22 @@ import { attachTextarea } from '../ShareDB/TextAreaBinding';
 import otText from 'ot-text';
 import Typed from 'react-typed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAlignJustify,
+  faClipboard,
+  faDownload,
+  faExpand,
+  faFont,
+  faPaperPlane,
+  faTint,
+} from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import ToolbarButton from './ToolbarButton';
 
 class EditorComponent extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.doc = props.doc;
     this.state = {
       copied: false,
       docAttached: false,
@@ -18,6 +26,7 @@ class EditorComponent extends Component {
       lastIndex: 0,
     };
 
+    this.doc = props.doc;
     this.reconnectInterval = '';
   }
 
@@ -136,6 +145,16 @@ class EditorComponent extends Component {
                 'When the bar turns green, you are connected &amp; ready to write live.'
               ]}
               typeSpeed={20} />
+          {
+            currentJob
+                ? <p className="pt-4 pb-1 text-green-200">{`"${currentJob.title || currentJob.shortName}"`}</p>
+                : ''
+          }
+          {
+            currentJob
+                ? <p className="pt-4 pb-2 text-red-200">{`${currentJob.speakers}`}</p>
+                : ''
+          }
           <section className="mt-6">
             <CopyToClipboard
                 text={this.generateUrl()}
@@ -172,23 +191,37 @@ class EditorComponent extends Component {
             <section className="w-full h-auto mb-6 my-4 lg:mb-0 lg:my-0 flex flex-col">
               <div className="flex-grow flex flex-col bg-bg2 border rounded shadow overflow-hidden">
                 <div className="border-b">
-                  <div className="flex justify-between px-6 -mb-px">
-                    <h3 className="text-green-200 py-4 font-normal text-lg">
-                      {
-                        currentJob
-                            ? `"${currentJob.title || currentJob.shortName}"`
-                            : ''
-                      }
-                    </h3>
-                    <div className="flex">
-                      <h3 className="text-red-200 py-4 font-normal text-md">
-                        {
-                          currentJob
-                              ? `${currentJob.speakers}`
-                              : ''
-                        }
-                      </h3>
-                    </div>
+                  <div className="flex justify-center px-6 -mb-px">
+                    <ToolbarButton
+                        title="Font"
+                        icon={<FontAwesomeIcon icon={faFont} />}
+                        onClick={() => console.log('click!')}
+                    />
+                    <ToolbarButton
+                        title="Line Height"
+                        icon={<FontAwesomeIcon icon={faAlignJustify} />}
+                        onClick={() => console.log('click!')}
+                    />
+                    <ToolbarButton
+                        title="Colors"
+                        icon={<FontAwesomeIcon icon={faTint} />}
+                        onClick={() => console.log('click!')}
+                    />
+                    <ToolbarButton
+                        title="Download"
+                        icon={<FontAwesomeIcon icon={faDownload} />}
+                        onClick={() => console.log('click!')}
+                    />
+                    <ToolbarButton
+                        title="Email"
+                        icon={<FontAwesomeIcon icon={faPaperPlane} />}
+                        onClick={() => console.log('click!')}
+                    />
+                    <ToolbarButton
+                      title="Expand"
+                      icon={<FontAwesomeIcon icon={faExpand} />}
+                      onClick={() => console.log('click!')}
+                  />
                   </div>
                 </div>
                 <div className={

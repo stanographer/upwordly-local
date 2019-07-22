@@ -4,11 +4,16 @@ import EditorComponent from '../../src/components/EditorComponent';
 import withAuth from '../../src/components/Session/WithAuth';
 import Wrapper from '../../src/components/Dashboard/Wrapper';
 import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
-import { getJobDetails } from './functions';
 
 const Editor = props => {
   const {jobs, router} = props;
   const [currentJob, setCurrentJob] = useState({});
+
+  // Finds the job details by shortName.
+  const getJobDetails = async (shortName, jobs) => {
+    const key = await Object.keys(jobs).find(key => jobs[key].shortName === shortName);
+    return jobs[key];
+  };
 
   useEffect(() => {
     getJobDetails(router.query.job, jobs)

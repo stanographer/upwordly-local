@@ -17,7 +17,7 @@ import { doSignOut } from '../../firebase/auth';
 import * as ROUTES from '../../constants/routes';
 import Link from 'next/link';
 
-const NavDashboard = ({active, setActive}) => {
+const NavDashboard = ({active}) => {
   return (
       <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg sticky">
         <Logo />
@@ -26,30 +26,35 @@ const NavDashboard = ({active, setActive}) => {
           <div className="lg:flex-grow py-2">
             <Link href={ROUTES.DASHBOARD} prefetch>
               <NavButton
+                  active={active === 'dashboard'}
                   icon={<FontAwesomeIcon icon={faTasks} />}
                   title="Dashboard"
               />
             </Link>
             <Link href={ROUTES.ARCHIVE} prefetch>
               <NavButton
+                  active={active === 'archive'}
                   icon={<FontAwesomeIcon icon={faArchive} />}
                   title="Archive"
               />
             </Link>
             <Link href={ROUTES.BATCH_SCHEDULER} prefetch>
               <NavButton
+                  active={active === 'batch-scheduler'}
                   icon={<FontAwesomeIcon icon={faLayerGroup} />}
                   title="Batch Scheduler"
               />
             </Link>
             <Link href={ROUTES.ACCOUNT} prefetch>
               <NavButton
+                  active={active === 'account'}
                   icon={<FontAwesomeIcon icon={faUser} />}
                   title="Account"
               />
             </Link>
             <Link href={ROUTES.SETTINGS} prefetch>
             <NavButton
+                active={active === 'settings'}
                 icon={<FontAwesomeIcon icon={faCog} />}
                 title="Settings"
             />

@@ -7,7 +7,7 @@ const Settings = props => {
   return (
       <Wrapper
           htmlTitle="Upword.ly - Settings"
-          title="Settings">
+          title="settings">
         <SettingsComponent {...props} />
       </Wrapper>
   );

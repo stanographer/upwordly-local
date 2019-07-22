@@ -7,7 +7,7 @@ const BatchJobs = props => {
   return (
       <Wrapper
           htmlTitle="Upword.ly - Batch Job Scheduler"
-          title="batch-job-creator">
+          title="batch-scheduler">
         <BatchSchedulerComponent {...props} />
       </Wrapper>
   );
