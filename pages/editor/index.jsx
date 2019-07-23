@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'next/router';
-import EditorComponent from '../../src/components/EditorComponent';
+import EditorComponent from '../../src/components/Editor';
 import withAuth from '../../src/components/Session/WithAuth';
 import Wrapper from '../../src/components/Dashboard/Wrapper';
 import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
