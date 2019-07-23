@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Provider from '../../src/components/Session/Provider';
 import Head from 'next/head';
 import Link from 'next/link';
 import router from 'next/router';

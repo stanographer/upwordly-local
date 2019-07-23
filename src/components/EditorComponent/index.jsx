@@ -90,10 +90,10 @@ class EditorComponent extends Component {
       message = `${op[0].d} characters deleted`;
     }
 
-    return this.setState({
+    return setTimeout(() => this.setState({
       lastOp: message,
       lastIndex: index,
-    });
+    }), 0);
   };
 
   generateUrl = () => {
@@ -218,10 +218,10 @@ class EditorComponent extends Component {
                         onClick={() => console.log('click!')}
                     />
                     <ToolbarButton
-                      title="Expand"
-                      icon={<FontAwesomeIcon icon={faExpand} />}
-                      onClick={() => console.log('click!')}
-                  />
+                        title="Expand"
+                        icon={<FontAwesomeIcon icon={faExpand} />}
+                        onClick={() => console.log('click!')}
+                    />
                   </div>
                 </div>
                 <div className={
