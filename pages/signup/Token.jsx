@@ -6,7 +6,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons/index';
 const Token = ({errors, handleInput, nextStep, tokenValue}) => {
 
   const errorMessages = errors.map((e, i) => (
-      <p className="text-sm text-red-400 mb-2" key={i}>{e}</p>
+      <p className="text-sm text-red-400 mb-2" title="errors" key={i}>{e}</p>
   ));
 
   return (
@@ -17,7 +17,7 @@ const Token = ({errors, handleInput, nextStep, tokenValue}) => {
             }}>
         <div className="mb-4">
           <label className="block text-grey-darker text-md font-hairline mb-6" htmlFor="username">
-            Please enter your <strong>Registration Token</strong>.
+            Please enter your <span className="font-bold">Registration Token</span>.
           </label>
           <input autoFocus={true}
                  autoComplete="off"

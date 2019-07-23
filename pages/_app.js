@@ -1,7 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import dynamic from 'next/dynamic';
-import { ToastContainer } from 'react-toastify/index';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 dynamic(() => import('../style.css'));
 dynamic(() => import('../fonts.css'));
