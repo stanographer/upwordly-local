@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import router from 'next/router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { auth } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
 import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
