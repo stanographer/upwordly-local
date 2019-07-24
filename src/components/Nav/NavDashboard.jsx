@@ -15,59 +15,50 @@ import {
 import Logo from '../Logos/Logo';
 import { doSignOut } from '../../firebase/auth';
 import * as ROUTES from '../../constants/routes';
+import Link from 'next/link';
 
-const NavDashboard = ({active, setActive}) => {
+const NavDashboard = ({active}) => {
   return (
-      <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg px-1 sticky">
+      <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg sticky">
         <Logo />
         <div
             className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
           <div className="lg:flex-grow py-2">
+            <Link href={ROUTES.DASHBOARD} prefetch>
+              <NavButton
+                  active={active === 'dashboard'}
+                  icon={<FontAwesomeIcon icon={faTasks} />}
+                  title="Dashboard"
+              />
+            </Link>
+            <Link href={ROUTES.ARCHIVE} prefetch>
+              <NavButton
+                  active={active === 'archive'}
+                  icon={<FontAwesomeIcon icon={faArchive} />}
+                  title="Archive"
+              />
+            </Link>
+            <Link href={ROUTES.BATCH_SCHEDULER} prefetch>
+              <NavButton
+                  active={active === 'batch-scheduler'}
+                  icon={<FontAwesomeIcon icon={faLayerGroup} />}
+                  title="Batch Scheduler"
+              />
+            </Link>
+            <Link href={ROUTES.ACCOUNT} prefetch>
+              <NavButton
+                  active={active === 'account'}
+                  icon={<FontAwesomeIcon icon={faUser} />}
+                  title="Account"
+              />
+            </Link>
+            <Link href={ROUTES.SETTINGS} prefetch>
             <NavButton
-                active={active === 0}
-                icon={<FontAwesomeIcon icon={faTasks} />}
-                title="Dashboard"
-                onClick={e => {
-                  e.preventDefault();
-                  setActive(0);
-                }}
-            />
-            <NavButton
-                active={active === 4}
-                icon={<FontAwesomeIcon icon={faArchive} />}
-                title="Archive"
-                onClick={e => {
-                  e.preventDefault();
-                  setActive(4);
-                }}
-            />
-            <NavButton
-                active={active === 5}
-                icon={<FontAwesomeIcon icon={faLayerGroup} />}
-                title="Batch Jobs"
-                onClick={e => {
-                  e.preventDefault();
-                  setActive(5);
-                }}
-            />
-            <NavButton
-                active={active === 1}
-                icon={<FontAwesomeIcon icon={faUser} />}
-                title="My Account"
-                onClick={e => {
-                  e.preventDefault();
-                  setActive(1);
-                }}
-            />
-            <NavButton
-                active={active === 2}
+                active={active === 'settings'}
                 icon={<FontAwesomeIcon icon={faCog} />}
                 title="Settings"
-                onClick={e => {
-                  e.preventDefault();
-                  setActive(2);
-                }}
             />
+            </Link>
           </div>
           <div className="my-2">
             <NavButton

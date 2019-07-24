@@ -1,30 +1,39 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'next/router';
 import EditorComponent from '../../src/components/Editor';
 import withAuth from '../../src/components/Session/WithAuth';
-
-const ConnectionProvider = dynamic(() => import('../../src/components/ShareDB/ConnectionProvider'));
+import Wrapper from '../../src/components/Dashboard/Wrapper';
+import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
 
 const Editor = props => {
-  const {router} = props;
+  const {jobs, router} = props;
+  const [currentJob, setCurrentJob] = useState({});
+
+  // Finds the job details by shortName.
+  const getJobDetails = async (shortName, jobs) => {
+    const key = await Object.keys(jobs).find(key => jobs[key].shortName === shortName);
+    return jobs[key];
+  };
+
+  useEffect(() => {
+    getJobDetails(router.query.job, jobs)
+        .then(job => {
+          setCurrentJob(job);
+        });
+  }, [jobs]);
 
   return (
-      <div>
-        <div className="flex bg-gray-200 h-screen">
-          <div className="flex-1 text-green-200 text-center bg-gray-400 h-auto">
-            <ConnectionProvider
-                user={router.query.user}
-                job={router.query.job}
-                render={(state) => (
-                    <EditorComponent
-                        {...state}
-                    />
-                )}
-            />
-          </div>
-        </div>
-      </div>
+      <Wrapper
+          htmlTitle="Upword.ly - Editor"
+          title="editor">
+        <ConnectionProvider
+            user={router.query.user}
+            job={router.query.job}
+            render={props => {
+              return <EditorComponent {...props} currentJob={currentJob} />;
+            }}
+        />
+      </Wrapper>
   );
 };
 

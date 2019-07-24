@@ -1,21 +1,19 @@
 import React, { Fragment } from 'react';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
-import { animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll/modules';
 
 // Components.
 import Document from '../../src/components/ShareDB/Document';
 import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
 import Provider from '../../src/components/Session/Provider';
 import WidgetContext from '../../src/providers/WidgetContext';
-
 import { DisconnectedToast, ReconnectedToast } from '../../src/components/Toasts';
 
 // Dynamic imports.
 const ScrollButton = dynamic(() => import('../../src/components/General')
     .then(mod => mod.ScrollButton));
-const Nav = dynamic(() => import('../../src/components/General')
-    .then(mod => mod.Nav));
+const Nav = dynamic(() => import('../../src/components/Nav/Nav'));
 const Modal = dynamic(() => import('react-modal'));
 const ModalComponent = dynamic(() => import('../../src/components/Modals/ModalComponent'));
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavButton } from '../General';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAdjust,
   faAlignJustify,
@@ -8,9 +8,9 @@ import {
   faFont,
   faShareAlt,
   faTextHeight,
-} from '@fortawesome/free-solid-svg-icons/index';
+} from '@fortawesome/free-solid-svg-icons';
 import WidgetContext from '../../providers/WidgetContext';
-import NavLogo from '../Logos/NavLogo';
+import Logo from '../Logos/Logo';
 
 const icons = {
   colors: <FontAwesomeIcon icon={faFillDrip} />,
@@ -25,18 +25,11 @@ const Nav = () => {
   return (
       <WidgetContext.Consumer>
         {context => (
-            <nav className="flex items-center justify-center md:justify-between flex-wrap bg-bg px-1 py-4 md:py-6 sticky">
-              <NavLogo />
-              <div className="
-        flex
-        w-full
-        flex-grow
-        content-center
-        justify-center
-        md:w-1/2
-        md:content-left
-        md:justify-start
-        tab">
+            <nav aria-label="Menu"
+                 role="menu"
+                className="flex items-center justify-center md:justify-between flex-wrap bg-bg px-1 sticky">
+              <Logo />
+              <div className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
                 <div className="lg:flex-grow my-2">
                   <NavButton
                       icon={icons.font}

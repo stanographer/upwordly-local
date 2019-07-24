@@ -5,7 +5,7 @@ const Logo = ({center}) => {
   return (
       <div className={
         center
-            ? 'nav-logo flex items-center flex-grow-0 text-white mr-6 justify-center'
+            ? 'nav-logo flex items-center flex-grow-0 text-white justify-center'
             : 'nav-logo flex items-center flex-grow-0 text-white mr-6'
       }>
 

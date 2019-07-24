@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import router from 'next/router';
 import { auth } from '../../firebase/firebase';
 import * as ROUTES from '../../constants/routes';
 import { getAllJobsByUser, getUser } from '../../firebase/db';
+import Logo from '../Logos/Logo';
 
-const Logo = dynamic(() => import('../Logos/Logo'));
+const Loading = dynamic(() => import('../../components/General/Loading'));
 
 const INITIAL_STATE = {
   auth: {},
@@ -71,14 +72,7 @@ const withAuth = Component => {
       } = this.state;
 
       if (status === 'LOADING') {
-        return (
-            <div className="container mx-auto h-full flex justify-center items-center">
-              <div className="w-full max-w-sm mt-20">
-                <Logo center={true} />
-                <p className="text-center mt-2">Loading...</p>
-              </div>
-            </div>
-        );
+        return <Loading />;
       } else if (status === 'SIGNED_IN') {
         return (
             <Component
@@ -103,11 +97,7 @@ const withAuth = Component => {
     }
 
     render() {
-      return (
-          <Fragment>
-            {this.renderContent()}
-          </Fragment>
-      );
+      return (this.renderContent());
     }
   };
 };

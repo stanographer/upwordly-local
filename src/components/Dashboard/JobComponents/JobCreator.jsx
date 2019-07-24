@@ -1,3 +1,5 @@
+// Component on main Dashboard to create jobs.
+
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons/index';
@@ -43,129 +45,124 @@ const JobCreator = ({
   ));
 
   return (
-      <form className="w-full lg:w-1/2 px-4" onSubmit={e => {
-        e.preventDefault();
-        createJob(job, user.username, uid)
-            .then(res => scheduleJobOutcome(true, res))
-            .catch(err => scheduleJobOutcome(false, err));
-      }}>
-        <div className="bg-bg2 border-t border-b sm:rounded sm:border shadow">
-          <div className="border-b">
-            <div className="flex justify-between px-6 -mb-px">
-              <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
-              <div className="flex">
-                <button type="button"
-                        className="appearance-none py-4 text-orange-200 border-b border-blue-dark mr-3">
-                  Batch Style
-                </button>
+      <section className="w-full h-auto mb-6 my-4 lg:mb-0 lg:my-0 lg:w-2/3 px-4 flex flex-col">
+        <form onSubmit={e => {
+          e.preventDefault();
+          createJob(job, user.username, uid)
+              .then(res => scheduleJobOutcome(true, res))
+              .catch(err => scheduleJobOutcome(false, err));
+        }}>
+          <div className="flex-grow flex flex-col bg-bg2 border rounded shadow overflow-hidden">
+            <div className="border-b">
+              <div className="flex justify-between px-6 -mb-px">
+                <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
               </div>
             </div>
-          </div>
-          <div>
-            <div className="mb-4 px-8 pt-8">
-              <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="shortname">
-                Shortname (required)
-              </label>
-              <input autoFocus={true}
-                     autoComplete="off"
-                     spellCheck={false}
-                     className={
-                       !!errors && errors.length > 0
-                           ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
-                           : 'shadow-lg bg-orange-200 appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"'
-                     }
-                     id="shortname"
-                     name="shortname"
-                     type="shortname"
-                     placeholder="(i.e. coachella2019)"
-                     value={job.shortName || ''}
-                     onChange={e => setShortName(e.target.value)}
-                     required
-              />
-            </div>
-            <div className="mb-4 px-8">
-              <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="title">
-                Title (optional)
-              </label>
-              <input autoComplete="off"
-                     spellCheck={false}
-                     className="shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"
-                     id="title"
-                     name="title"
-                     type="title"
-                     placeholder="(i.e. Spreadsheets IRL: The How and Why)"
-                     value={job.title || ''}
-                     onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
-              />
-            </div>
-            <div className="mb-4 px-8">
-              <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="speakers">
-                Speakers (optional)
-              </label>
-              <input autoComplete="off"
-                     spellCheck={false}
-                     className="shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"
-                     id="speakers"
-                     name="speakers"
-                     type="speakers"
-                     placeholder="(i.e. Christopher Hagan, Stanley Sakai)"
-                     value={job.speakers || ''}
-                     onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
-              />
-              {
-                !errors.length && job.shortName && job.shortName.length > 0
-                    ? <CopyToClipboard
-                        text={`${document.location.protocol}//${document.location.host}/${user.username}/${job.shortName}`}
-                        onCopy={() => copiedLink()}
-                    >
-                      <p className={
-                        copied
-                            ? 'underline border py-4 px-4 mt-6 bg-green-200 text-bg2 font-mono break-words cursor-pointer'
-                            : 'underline border py-4 px-4 mt-6 text-teal-200 font-mono break-words cursor-pointer'
-                      }>
-                        <FontAwesomeIcon className="mx-4" icon={faClipboard} />
-                        {`${document.location.protocol}//${document.location.host}/${user.username}/${job.shortName}`}
-                      </p>
-                    </CopyToClipboard>
-                    : ''
-              }
-            </div>
-            <div className="text-center px-6 py-4">
-              {
-                errors
-                    ? errorMessages
-                    : ''
-              }
-              {
-                copied
-                    ? <p className="text-lg text-green-400 mb-4">Link copied to clipboard!</p>
-                    : ''
-              }
-              {
-                message
-                    ? <p className="text-lg text-green-400 mb-4">{message}</p>
-                    : ''
-              }
-              <div className="py-8">
-                <div className="mb-4">
+            <div>
+              <div className="px-4 lg:px-8 pt-8">
+                <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="shortname">
+                  Shortname (required)
+                </label>
+                <input autoFocus={true}
+                       autoComplete="off"
+                       spellCheck={false}
+                       className={
+                         !!errors && errors.length > 0
+                             ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
+                             : 'shadow-lg bg-orange-200 appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"'
+                       }
+                       id="shortname"
+                       name="shortname"
+                       type="shortname"
+                       placeholder="(i.e. coachella2019)"
+                       value={job.shortName || ''}
+                       onChange={e => setShortName(e.target.value)}
+                       required
+                />
+              </div>
+              <div className="px-4 lg:px-8 pt-8">
+                <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="title">
+                  Title (optional)
+                </label>
+                <input autoComplete="off"
+                       spellCheck={false}
+                       className="shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"
+                       id="title"
+                       name="title"
+                       type="title"
+                       placeholder="(i.e. Spreadsheets IRL: The How and Why)"
+                       value={job.title || ''}
+                       onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
+                />
+              </div>
+              <div className="px-4 lg:px-8 pt-8">
+                <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="speakers">
+                  Speakers (optional)
+                </label>
+                <input autoComplete="off"
+                       spellCheck={false}
+                       className="shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"
+                       id="speakers"
+                       name="speakers"
+                       type="speakers"
+                       placeholder="(i.e. Christopher Hagan, Stanley Sakai)"
+                       value={job.speakers || ''}
+                       onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
+                />
+                {
+                  !errors.length && job.shortName && job.shortName.length > 0
+                      ? <CopyToClipboard
+                          text={`${document.location.protocol}//${document.location.host}/${user.username}/${job.shortName}`}
+                          onCopy={() => copiedLink()}
+                      >
+                        <p className={
+                          copied
+                              ? 'underline border py-4 px-4 mt-6 bg-green-200 text-bg2 font-mono break-words cursor-pointer'
+                              : 'underline border py-4 px-4 mt-6 text-teal-200 font-mono break-words cursor-pointer'
+                        }>
+                          <FontAwesomeIcon className="mx-4" icon={faClipboard} />
+                          {`${document.location.protocol}//${document.location.host}/${user.username}/${job.shortName}`}
+                        </p>
+                      </CopyToClipboard>
+                      : ''
+                }
+              </div>
+              <div className="text-center px-6 py-4">
+                {
+                  errors
+                      ? errorMessages
+                      : ''
+                }
+                {
+                  copied
+                      ? <p className="text-lg text-green-400 mb-4">Link copied to clipboard!</p>
+                      : ''
+                }
+                {
+                  message
+                      ? <p className="text-lg text-green-400 mb-4">{message}</p>
+                      : ''
+                }
+                <div className="flex flex-grow justify-center py-1 lg:py-8">
+                  <div className="mb-0">
                     <Button color="green"
-                            margin="mx-2"
+                            classNames="mx-2 mb-2 lg:mx-2 lg:my-0"
                             text="Schedule Job"
                             type="submit"
                     />
-                  <Button color="red"
-                          margin="mx-2"
-                          text="Reset fields"
-                          type="button"
-                          onClick={resetJobCreator}
-                  />
+                    <Button color="red"
+                            classNames="mx-2 my-1 lg:mx-2 lg:my-0"
+                            text="Reset fields"
+                            type="button"
+                            onClick={resetJobCreator}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
-
+        </form>
+      </section>
   );
 };
 

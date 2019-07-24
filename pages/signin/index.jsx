@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import Provider from '../../src/components/Session/Provider';
 import Head from 'next/head';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import router from 'next/router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/index';
 import { auth } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
 import Footer from '../../src/components/General/Footer';
-
-const Logo = dynamic(() => import('../../src/components/Logos/Logo'));
-const Typed = dynamic(() => import('react-typed'));
+import Logo from '../../src/components/Logos/Logo';
+import Typed from 'react-typed';
 
 const SignIn = () => (
-    <div>
       <SignInComponent />
-    </div>
 );
 
 const INITIAL_STATE = {
@@ -60,6 +55,10 @@ class SignInComponent extends Component {
     });
   };
 
+  componentDidMount() {
+    router.prefetch(ROUTES.DASHBOARD);
+  }
+
   render() {
     const {
       email,
@@ -70,11 +69,13 @@ class SignInComponent extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-        <Provider>
+        <>
           <Head>
             <title>Sign in to Upword.ly</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta charSet="utf-8" />
           </Head>
-          <div className="container mx-auto h-full flex flex-1 justify-center items-center">
+          <main className="container mx-auto h-full flex flex-1 justify-center items-center">
             <div className="w-full max-w-sm mt-20">
               <Logo center={true} />
               <div className="font-sans font-hairline mb-10 mt-2 text-center justify-center">
@@ -88,7 +89,7 @@ class SignInComponent extends Component {
               </div>
               <form className="bg-bg2 shadow-lg rounded px-8 pt-6 pb-8 mb-4" onSubmit={e => this.onSubmit(e)}>
                 <div className="mb-4">
-                  <label className="block text-grey-darker text-md font-hairline mb-2"
+                  <label className="block text-grey-darker text-md mb-2"
                          htmlFor="username">
                     Email
                   </label>
@@ -104,7 +105,7 @@ class SignInComponent extends Component {
                   />
                 </div>
                 <div className="mb-6">
-                  <label className="block text-grey-darker text-md font-hairline mb-2"
+                  <label className="block text-grey-darker text-md mb-2"
                          htmlFor="password">
                     Password
                   </label>
@@ -135,15 +136,15 @@ class SignInComponent extends Component {
                   error && <p>{error.message}</p>
                 }
                 <div className="text-center mt-6">
-                  <Link href="/signup" prefetch><a className="text-green-200 underline">
+                  <Link href={ROUTES.SIGN_UP} prefetch><a className="text-green-200 underline">
                     Create an account
                   </a></Link>
                 </div>
               </form>
               <Footer />
             </div>
-          </div>
-        </Provider>
+          </main>
+        </>
     );
   }
 }

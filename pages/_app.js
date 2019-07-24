@@ -1,23 +1,25 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import dynamic from 'next/dynamic';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import '../fonts.css';
-import '../style.css';
+dynamic(() => import('../style.css'));
+dynamic(() => import('../fonts.css'));
+
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({Component, ctx}) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return {pageProps};
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const {Component, pageProps} = this.props;
 
     return (
         <Container>

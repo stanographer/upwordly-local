@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
-import Router, { withRouter } from 'next/router';
+import router from 'next/router';
 import dynamic from 'next/dynamic';
 import { auth, db } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
 import Footer from '../../src/components/General/Footer';
-
-const Logo = dynamic(() => import('../../src/components/Logos/Logo'));
-const Typed = dynamic(() => import('react-typed'));
+import Logo from '../../src/components/Logos/Logo';
+import Typed from 'react-typed';
 
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));
@@ -87,8 +86,12 @@ class SignUp extends React.Component {
     } = this.state;
 
     if (emailValid && fullNameValid && locationValid && passwordValid && tokenValid && usernameValid) {
+
+      // Create user in auth.
       auth.doCreateUserWithEmailAndPassword(email, password)
           .then(authUser => {
+
+            // Create user object for account deets in db.
             db.doCreateUser(
                 email,
                 fullName,
@@ -99,8 +102,35 @@ class SignUp extends React.Component {
                 username,
             )
                 .then(() => {
-                  this.setState(() => ({...INITIAL_STATE}));
-                  Router.push(ROUTES.DASHBOARD);
+
+                  // Add fullName to displayName in user auth object.
+                  // (Yes, it has to be in a separate step -_-.)
+                  authUser.user.updateProfile({
+                    displayName: fullName,
+                  })
+                      .then(() => {
+
+                        // Send user a verification email.
+                       authUser.user.sendEmailVerification()
+                           .then(() => {
+
+                             // Finally, now logged in, reset state and redirect to Dashboard.
+                             this.setState(() => ({...INITIAL_STATE}));
+                             router.push(ROUTES.DASHBOARD);
+                           })
+                           .catch(err => this.setState({
+                             errors: [
+                               ...this.state.errors,
+                               err.message,
+                             ]
+                           }))
+                      })
+                      .catch(err => this.setState({
+                        errors: [
+                          ...this.state.errors,
+                          err.message,
+                        ]
+                      }))
                 })
                 .catch(err => this.setState({
                   errors: [
@@ -121,6 +151,8 @@ class SignUp extends React.Component {
   };
 
   validateStepZero = token => {
+
+    // Checks for correct registration token.
     if (token === process.env.REGISTRATION_TOKEN.trim().toLowerCase()) {
       this.setState({
         errors: [],
@@ -169,6 +201,8 @@ class SignUp extends React.Component {
   };
 
   validateStepTwo = email => {
+
+    // Email validation.
     try {
 
       // Regex to make sure that emails have @ signs and all that.
@@ -183,7 +217,7 @@ class SignUp extends React.Component {
         });
       } else {
 
-        // Makes sure that there's no duplicate emails.
+        // Checks DB to make sure that there's no duplicate emails.
         db.checkDupeEmail(email, dupe => {
           if (dupe === true) {
             this.setState({
@@ -206,6 +240,9 @@ class SignUp extends React.Component {
   };
 
   validateStepThree = (username, password) => {
+
+    // Prevents usernames like st@nleySa-Kai.
+    // Makes sure passwords are reasonably strong.
     const usernameRe = /^[a-zA-Z0-9_-]+$/;
     const passwordRe = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
@@ -242,6 +279,12 @@ class SignUp extends React.Component {
       });
     }
   };
+
+  componentDidMount() {
+
+    // Load next page in the background for quick redirect.
+    router.prefetch(ROUTES.DASHBOARD);
+  }
 
   render() {
     const {
@@ -384,6 +427,6 @@ class SignUp extends React.Component {
   }
 }
 
-export default withRouter(SignUp);
+export default SignUp;
 
 
