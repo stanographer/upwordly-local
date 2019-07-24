@@ -41,12 +41,13 @@ const JobCreator = ({
   };
 
   const errorMessages = errors.map((e, i) => (
-      <p className="text-sm text-red-400 mb-4" key={i}>{e}</p>
+      <p className="text-md text-red-400 my-4" key={i}>{e}</p>
   ));
 
   return (
       <section className="w-full h-auto mb-6 my-4 lg:mb-0 lg:my-0 lg:w-2/3 px-4 flex flex-col">
-        <form onSubmit={e => {
+        <form
+            onSubmit={e => {
           e.preventDefault();
           createJob(job, user.username, uid)
               .then(res => scheduleJobOutcome(true, res))
@@ -58,8 +59,8 @@ const JobCreator = ({
                 <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
               </div>
             </div>
-            <div>
-              <div className="px-4 py-auto lg:px-8 pt-8">
+            <div className="px-4 lg:px-8">
+              <div className="pt-8">
                 <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="shortname">
                   Shortname (required)
                 </label>
@@ -69,7 +70,7 @@ const JobCreator = ({
                        className={
                          !!errors && errors.length > 0
                              ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
-                             : 'shadow-lg bg-orange-200 appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"'
+                             : 'shadow-lg bg-orange-200 appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md'
                        }
                        id="shortname"
                        name="shortname"
@@ -80,13 +81,13 @@ const JobCreator = ({
                        required
                 />
               </div>
-              <div className="px-4 lg:px-8 pt-8">
+              <div className="pt-8">
                 <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="title">
                   Title (optional)
                 </label>
                 <input autoComplete="off"
                        spellCheck={false}
-                       className="shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md"
+                       className="shadow-lg appearance-none border rounded w-full py-2 px-3 leading-tight focus:bg-blue-100 text-bg font-mono text-md"
                        id="title"
                        name="title"
                        type="title"
@@ -95,7 +96,7 @@ const JobCreator = ({
                        onChange={e => setTitleAndSpeakers(e.target.name, e.target.value)}
                 />
               </div>
-              <div className="px-4 lg:px-8 pt-8">
+              <div className="pt-8">
                 <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="speakers">
                   Speakers (optional)
                 </label>
@@ -127,7 +128,7 @@ const JobCreator = ({
                       : ''
                 }
               </div>
-              <div className="text-center px-6 py-4">
+              <div className="text-center my-6 lg:my-8">
                 {
                   errors
                       ? errorMessages
@@ -143,7 +144,7 @@ const JobCreator = ({
                       ? <p className="text-lg text-green-400 mb-4">{message}</p>
                       : ''
                 }
-                <div className="flex flex-grow justify-center py-1 lg:py-8">
+                <div className="flex flex-grow justify-center py-1">
                   <div className="mb-0">
                     <Button color="green"
                             classNames="mx-2 mb-2 lg:mx-2 lg:my-0"
