@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/index';
 import { auth } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
-import Footer from '../../src/components/General/Footer';
-import Logo from '../../src/components/Logos/Logo';
-import Typed from 'react-typed';
+import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
 
 const SignIn = () => (
-      <SignInComponent />
+    <SignInComponent />
 );
 
 const INITIAL_STATE = {
   email: '',
   password: '',
-  error: null,
+  error: '',
 };
 
 class SignInComponent extends Component {
@@ -30,23 +27,23 @@ class SignInComponent extends Component {
   onSubmit = e => {
     const {
       email,
-      password
+      password,
+      error,
     } = this.state;
 
     e.preventDefault();
 
-    try {
-      auth.doSignInWithEmailAndPassword(email, password)
-          .then(() => {
-            this.setState({...INITIAL_STATE});
-            router.push(ROUTES.DASHBOARD);
-          })
-          .catch(error => {
-            this.setState({error});
-          });
-    } catch (err) {
-      this.setState({err});
-    }
+    auth.doSignInWithEmailAndPassword(email, password)
+        .then(() => {
+          this.setState({...INITIAL_STATE});
+          router.push(ROUTES.DASHBOARD);
+        })
+        .catch(err => {
+          this.setState({error: err.message});
+          console.log('error', err);
+        });
+
+    console.log(this.state.error);
   };
 
   onChange = event => {
@@ -63,88 +60,81 @@ class SignInComponent extends Component {
     const {
       email,
       password,
-      error
+      error,
     } = this.state;
 
     const isInvalid = password === '' || email === '';
 
     return (
-        <>
-          <Head>
-            <title>Sign in to Upword.ly</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta charSet="utf-8" />
-          </Head>
-          <main className="container mx-auto h-full flex flex-1 justify-center items-center">
-            <div className="w-full max-w-sm mt-20">
-              <Logo center={true} />
-              <div className="font-sans font-hairline mb-10 mt-2 text-center justify-center">
-                <Typed
-                    className="marquee"
-                    strings={[
-                      'Welcome back.',
-                      'Sign in here.'
-                    ]}
-                    typeSpeed={40} />
-              </div>
-              <form className="bg-bg2 shadow-lg rounded px-8 pt-6 pb-8 mb-4" onSubmit={e => this.onSubmit(e)}>
-                <div className="mb-4">
-                  <label className="block text-grey-darker text-md mb-2"
-                         htmlFor="username">
-                    Email
-                  </label>
-                  <input autoFocus={true}
-                         className="shadow appearance-none border rounded w-full py-2 px-3 text-bg text-lg"
-                         id="email"
-                         name="email"
-                         type="text"
-                         placeholder="Email"
-                         value={email}
-                         onChange={this.onChange}
-                         required
-                  />
-                </div>
-                <div className="mb-6">
-                  <label className="block text-grey-darker text-md mb-2"
-                         htmlFor="password">
-                    Password
-                  </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-bg text-lg"
-                         id="password"
-                         name="password"
-                         type="password"
-                         placeholder="Password"
-                         value={password}
-                         onChange={this.onChange}
-                         required
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <a className="inline-block align-baseline font-bold text-md text-blue hover:text-blue-darker underline"
-                     href="#">
-                    Forgot Password?
-                  </a>
-                  <button
-                      disabled={isInvalid}
-                      className="bg-blue hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200"
-                      type="submit">
-                    Sign In
-                    <FontAwesomeIcon icon={faSignInAlt} className="mx-2" />
-                  </button>
-                </div>
-                {
-                  error && <p>{error.message}</p>
-                }
-                <div className="text-center mt-6">
-                  <Link href={ROUTES.SIGN_UP} prefetch><a className="text-green-200 underline">
-                    Create an account
-                  </a></Link>
-                </div>
-              </form>
-              <Footer />
+        <LoginSignInLayout title="Upword.ly Sign-In" typedText={['Welcome back, Sign in here.']}>
+          <form
+              className="bg-bg2 shadow-lg rounded px-8 pt-6 pb-8 mb-4"
+              data-test="signin-form"
+              aria-label="sign-in form"
+              onSubmit={e => this.onSubmit(e)}>
+            <div className="mb-4">
+              <label className="block text-grey-darker text-md mb-2"
+                     htmlFor="username">
+                Email
+              </label>
+              <input autoFocus={true}
+                     data-test="signin-email"
+                     className="shadow appearance-none border rounded w-full py-2 px-3 text-bg text-lg"
+                     id="email"
+                     name="email"
+                     type="text"
+                     placeholder="Email"
+                     value={email}
+                     onChange={this.onChange}
+                     required
+              />
             </div>
-          </main>
-        </>
+            <div className="mb-6">
+              <label className="block text-grey-darker text-md mb-2" htmlFor="password">
+                Password
+              </label>
+              <input className="shadow appearance-none border rounded w-full py-2 px-3 text-bg text-lg"
+                     data-test="signin-password"
+                     id="password"
+                     name="password"
+                     type="password"
+                     placeholder="Password"
+                     value={password}
+                     onChange={this.onChange}
+                     required
+              />
+            </div>
+            <div className="flex items-center justify-between">
+              <Link href={ROUTES.RESET_PASSWORD} prefetch>
+                <a className="inline-block align-baseline font-bold text-md text-blue hover:text-blue-darker underline"
+                   href="#" title="reset password">
+                  Reset Password
+                </a>
+              </Link>
+              <button
+                  disabled={isInvalid}
+                  title="sign in"
+                  className={
+                    isInvalid
+                        ? 'bg-blue hover:bg-blue-dark text-gray-600 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-grey-600'
+                        : 'bg-blue hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200'
+                  }
+                  type="submit">
+                Sign In
+                <FontAwesomeIcon icon={faSignInAlt} title="sign-in button icon" className="mx-2" />
+              </button>
+            </div>
+            {
+              !!error && <p className="text-md text-red-300 mt-4">{error}</p>
+            }
+            <div className="text-center mt-6">
+              <Link href={ROUTES.SIGN_UP} prefetch>
+                <a className="text-green-200 underline">
+                  Create an account
+                </a></Link>
+            </div>
+          </form>
+        </LoginSignInLayout>
     );
   }
 }

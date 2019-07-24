@@ -7,8 +7,8 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
 // Sign-in.
 export const doSignInWithEmailAndPassword = (email, password) =>
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-        .then(() => auth.signInWithEmailAndPassword(email, password))
-        .catch(err => console.error(err.code, err.message));
+        .then(() => auth.signInWithEmailAndPassword(email, password));
+
 
 // Sign-out.
 export const doSignOut = () =>

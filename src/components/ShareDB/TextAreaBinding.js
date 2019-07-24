@@ -122,7 +122,7 @@ export const attachTextarea = (elem, doc) => {
     }
   };
 
-  replaceText(doc.data);
+  setTimeout(() => replaceText(doc.data), 0);
 
   // *** remote -> local changes
 

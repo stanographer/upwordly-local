@@ -54,12 +54,12 @@ const JobCreator = ({
         }}>
           <div className="flex-grow flex flex-col bg-bg2 border rounded shadow overflow-hidden">
             <div className="border-b">
-              <div className="flex justify-between px-6 -mb-px">
+              <div className="flex justify-between px-6">
                 <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
               </div>
             </div>
             <div>
-              <div className="px-4 lg:px-8 pt-8">
+              <div className="px-4 py-auto lg:px-8 pt-8">
                 <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="shortname">
                   Shortname (required)
                 </label>

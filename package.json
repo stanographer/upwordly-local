@@ -6,13 +6,13 @@
   "scripts": {
     "env": "scp ~/Developer/upwordly-local/.env stanley@upword.ly:~/upwordly-local",
     "build": "NODE_ENV=production next build",
-    "buildlocal": "NODE_ENVIRONMENT=local next build ",
+    "buildlocal": "NODE_ENV=local next build ",
     "dev": "next",
     "pm2dev": "pm2 start npm --name \"next\" -- run dev",
     "pm2prod": "npm run build && pm2 start npm --name \"next\" -- start",
     "test": "jest --watchAll",
-    "start": "NODE_ENVIRONMENT=production next start",
-    "startlocal": "NODE_ENVIRONMENT=local next start"
+    "start": "NODE_ENV=production next start",
+    "startlocal": "NODE_ENV=local next start"
   },
   "jest": {
     "setupFilesAfterEnv": [

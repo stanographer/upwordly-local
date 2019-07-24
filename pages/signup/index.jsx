@@ -1,12 +1,9 @@
 import React, { Fragment } from 'react';
-import Head from 'next/head';
 import router from 'next/router';
 import dynamic from 'next/dynamic';
 import { auth, db } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
-import Footer from '../../src/components/General/Footer';
-import Logo from '../../src/components/Logos/Logo';
-import Typed from 'react-typed';
+import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout'
 
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));
@@ -395,34 +392,11 @@ class SignUp extends React.Component {
     };
 
     return (
-        <Fragment>
-          <Head>
-            <title>Create an Upword.ly account</title>
-            <meta
-                name="viewport"
-                content="initial-scale=1.0, width=device-width"
-                key="viewport"
-            />
-          </Head>
-          <div className="container mx-auto h-full flex flex-1 justify-center items-center">
-            <div className="w-full max-w-sm mt-20">
-              <div className="my-4 lg:my-8">
-                <Logo center={true} />
-                <div className="font-sans mb-10 mt-4 text-center justify-center">
-                  <Typed
-                      className="marquee"
-                      strings={[
-                        'Welcome to Upword.ly.',
-                        'Let\'s create you an account.',
-                      ]}
-                      typeSpeed={40} />
-                </div>
-              </div>
-              {stage()}
-              <Footer />
-            </div>
-          </div>
-        </Fragment>
+       <LoginSignInLayout
+           title="Upword.ly - Sign Up"
+           typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}>
+         {stage()}
+       </LoginSignInLayout>
     );
   }
 }

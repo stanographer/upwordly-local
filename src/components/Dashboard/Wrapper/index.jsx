@@ -16,7 +16,7 @@ const Wrapper = props => {
         <NavDashboard
             active={title}
         />
-        <section className="container mx-auto px-8 py-8 lg:mx-auto lg:px-16 lg:py-14 lg:py-13">
+        <section className="container mx-auto px-8 py-1 lg:mx-auto lg:px-16 lg:py-2">
           {props.children}
         </section>
         <Footer />

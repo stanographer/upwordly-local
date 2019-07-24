@@ -6,7 +6,7 @@ require('dotenv').config();
 
 module.exports = withCSS({
   cssLoaderOptions: {
-    url: false,
+    url: true,
   },
   optimization: {
     minimizer: [

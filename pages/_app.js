@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.min.css';
 dynamic(() => import('../style.css'));
 dynamic(() => import('../fonts.css'));
 
-
 class MyApp extends App {
   static async getInitialProps({Component, ctx}) {
     let pageProps = {};

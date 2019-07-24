@@ -4,7 +4,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   return (
-      <footer>
+      <footer data-test="footer">
         <p className="text-center text-grey text-xs mt-10">
           ©2019 Upword.ly
         </p>
