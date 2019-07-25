@@ -9,10 +9,11 @@ const JobItem = ({id, job, startJob}) => {
 
   return (
       <div className="flex-grow flex px-3 py-3 lg:px-4 lg:py-4 text-grey-darker border-b -mx-4">
-        <div className="flex flex-grow">
-          <div className="flex-1">
-            <div className="flex flex-col flex-grow justify-between px-6 py-6 lg:px-4 lg:py-2">
-              <div>
+        <div className="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4">
+        <div className="w-2/5 xl:w-1/4 px-4 flex items-center">
+          <div className="rounded-full bg-grey inline-flex mr-3">
+            <div className="bg-gray-500 px-6 py-6 lg:px-4 lg:py-2 border-b">
+              <div className="mb-4">
                 {
                   job.title
                       ? <span className="font-bold text-xl">"{job.title}"</span>
@@ -27,26 +28,29 @@ const JobItem = ({id, job, startJob}) => {
                 <p className="text-gray-600">{job.createdTime}</p>
               </div>
             </div>
+            <div className="hidden md:flex lg:hidden xl:flex w-1/4 px-4 items-center">
+              <div className="bg-grey h-2 w-2 rounded-full mr-2">
+                <Link href={{
+                  pathname: EDITOR,
+                  query: {
+                    user: job.username,
+                    job: job.shortName
+                  }
+                }} prefetch>
+                  <JobComponentButton
+                      color="green"
+                      icon={<FontAwesomeIcon icon={faPlayCircle} title="play icon" />}
+                      text="Start"
+                      onClick={() => {
+                        console.log('job IDDDDD', id);
+                        startJob(id);
+                      }}
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-            <Link href={{
-              pathname: EDITOR,
-              query: {
-                user: job.username,
-                job: job.shortName
-              }
-            }} prefetch>
-              <JobComponentButton
-                  color="green"
-                  icon={<FontAwesomeIcon icon={faPlayCircle} title="play icon" />}
-                  text="Start"
-                  onClick={() => {
-                    console.log('job IDDDDD', id);
-                    startJob(id);
-                  }}
-              />
-            </Link>
-          </div>
+        </div>
         </div>
       </div>
   );

@@ -3,7 +3,7 @@ import router from 'next/router';
 import dynamic from 'next/dynamic';
 import { auth, db } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
-import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout'
+import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
 
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));
@@ -108,26 +108,26 @@ class SignUp extends React.Component {
                       .then(() => {
 
                         // Send user a verification email.
-                       authUser.user.sendEmailVerification()
-                           .then(() => {
+                        authUser.user.sendEmailVerification()
+                            .then(() => {
 
-                             // Finally, now logged in, reset state and redirect to Dashboard.
-                             this.setState(() => ({...INITIAL_STATE}));
-                             router.push(ROUTES.DASHBOARD);
-                           })
-                           .catch(err => this.setState({
-                             errors: [
-                               ...this.state.errors,
-                               err.message,
-                             ]
-                           }))
+                              // Finally, now logged in, reset state and redirect to Dashboard.
+                              this.setState(() => ({...INITIAL_STATE}));
+                              router.push(ROUTES.DASHBOARD);
+                            })
+                            .catch(err => this.setState({
+                              errors: [
+                                ...this.state.errors,
+                                err.message,
+                              ]
+                            }));
                       })
                       .catch(err => this.setState({
                         errors: [
                           ...this.state.errors,
                           err.message,
                         ]
-                      }))
+                      }));
                 })
                 .catch(err => this.setState({
                   errors: [
@@ -392,11 +392,11 @@ class SignUp extends React.Component {
     };
 
     return (
-       <LoginSignInLayout
-           title="Upword.ly - Sign Up"
-           typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}>
-         {stage()}
-       </LoginSignInLayout>
+        <LoginSignInLayout
+            title="Upword.ly - Sign Up"
+            typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}>
+          {stage()}
+        </LoginSignInLayout>
     );
   }
 }
