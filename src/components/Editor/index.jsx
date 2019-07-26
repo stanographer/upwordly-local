@@ -49,7 +49,6 @@ class EditorComponent extends Component {
             () => {
               attachTextarea(this.sharedTextarea, this.doc);
               this.setState({docAttached: true});
-              this.reconnectInterval = '';
             }
         );
       }

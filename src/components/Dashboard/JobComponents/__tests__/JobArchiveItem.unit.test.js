@@ -20,7 +20,7 @@ describe('JobArchiveItem', () => {
         shortName: 'testjob',
         speakers: 'Stanley Sakai',
         title: 'Test Job',
-      }
+      },
     };
 
     beforeEach(() => {
@@ -41,8 +41,6 @@ describe('JobArchiveItem', () => {
       expect(shortName.text()).toEqual(props.job.shortName);
       expect(speakers.text()).toEqual(props.job.speakers);
       expect(title.text()).toEqual(`"${props.job.title}"`);
-    })
+    });
   });
-
-
 });

@@ -1,7 +1,6 @@
 // Downloads transcripts to txt.
 
 function fetchTranscript(job, user) {
-
   // Added BOM so that it opens in UTF-8 encoding.
   const BOM = '\uFEFF';
   const fileName = `${job} (${user}).txt`;

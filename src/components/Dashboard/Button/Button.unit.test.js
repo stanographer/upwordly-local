@@ -34,7 +34,7 @@ describe('Dashboard button', () => {
     it('should contain the correct proptypes.', () => {
       const propsErr = checkProps(Button, props);
       expect(propsErr).toBe(undefined);
-    })
+    });
   });
 
   describe('provided appropriate props with no onClick func.', () => {
@@ -53,7 +53,9 @@ describe('Dashboard button', () => {
     });
 
     it('should render with the correct color class.', () => {
-      const component = findByTestAttr(wrapper, 'dashboard-button').find('.text-red-200');
+      const component = findByTestAttr(wrapper, 'dashboard-button').find(
+        '.text-red-200',
+      );
       expect(component.length).toBe(1);
     });
 
@@ -64,7 +66,7 @@ describe('Dashboard button', () => {
 
     it('should be a button of type submit.', () => {
       const component = findByTestAttr(wrapper, 'dashboard-button');
-      expect(component.find(`[type='submit']`).length).toBe(1);
+      expect(component.find("[type='submit']").length).toBe(1);
     });
   });
 });

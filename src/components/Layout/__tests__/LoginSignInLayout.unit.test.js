@@ -29,11 +29,13 @@ describe('LoginSignInLayout', () => {
       wrapper = setup(props);
     });
 
-    it(`should have a title matching passed prop "title"`, () => {
-      expect(wrapper.find('title').text()).toEqual('Stanley\'s Marvelous Component');
+    it('should have a title matching passed prop "title"', () => {
+      expect(wrapper.find('title').text()).toEqual(
+        'Stanley\'s Marvelous Component',
+      );
     });
 
-    it(`should type out the text passed in the prop array "typedText"`, () => {
+    it('should type out the text passed in the prop array "typedText"', () => {
       const component = findByTestAttr(wrapper, 'typed-header');
 
       // Gotta wait because it has to type it out first.
@@ -55,9 +57,10 @@ describe('LoginSignInLayout', () => {
       };
 
       const component = mount(
-          <LoginSignInLayout {...props}>
-            <Button color="red" type="submit" text="hello" />
-          </LoginSignInLayout>);
+        <LoginSignInLayout {...props}>
+          <Button color="red" type="submit" text="hello" />
+        </LoginSignInLayout>,
+      );
 
       const foundButton = findByTestAttr(component, 'dashboard-button');
 

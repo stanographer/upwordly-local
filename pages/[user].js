@@ -5,9 +5,9 @@ export default function Post() {
   const router = useRouter();
 
   return (
-      <>
-        <h1>{router.query.user}</h1>
-        <p>This is the blog post content.</p>
-      </>
+    <>
+      <h1>{router.query.user}</h1>
+      <p>This is the blog post content.</p>
+    </>
   );
 }

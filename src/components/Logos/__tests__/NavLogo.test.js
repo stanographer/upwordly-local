@@ -19,14 +19,14 @@ describe('NavLogo component', () => {
   });
 
   it('should render with justify-center class if center prop is passed as true.', () => {
-    const component = setup({center: true});
+    const component = setup({ center: true });
     const hasJustifyCenter = component.find('.justify-center');
 
     expect(hasJustifyCenter.length).toBe(1);
   });
 
   it('should render the logo.', () => {
-    const component = shallow(<NavLogo center={true} />);
+    const component = shallow(<NavLogo center />);
     const logo = findByTestAttr(component, 'upwordly-logo');
 
     expect(logo.length).toBe(1);
@@ -37,5 +37,5 @@ describe('NavLogo component', () => {
     const logoText = findByTestAttr(component, 'logo-text');
 
     expect(logoText.text()).toEqual('Upword.ly');
-  })
+  });
 });

@@ -42,17 +42,18 @@ export const attachTextarea = (elem, doc) => {
   elem.onkeydown = e => {
     // Tab was pressed
     if (e.key === 'Tab') {
-
       // Prevent normal behavior of switching element focus.
       e.preventDefault();
 
       // Get caret position/selection
-      let val = elem.value,
-          start = elem.selectionStart,
-          end = elem.selectionEnd;
+      const val = elem.value;
+
+      const start = elem.selectionStart;
+
+      const end = elem.selectionEnd;
 
       // Set textarea value to: text before caret + tab + text after caret
-      elem.value = val.substring(0, start) + '\t' + val.substring(end);
+      elem.value = `${val.substring(0, start)}\t${val.substring(end)}`;
 
       // Put caret at right position again
       elem.selectionStart = elem.selectionEnd = start + 1;
@@ -63,7 +64,6 @@ export const attachTextarea = (elem, doc) => {
   };
 
   const applyChange = (doc, oldVal, newVal) => {
-
     // Strings are immutable and have reference equality. I think this tests is O(1), so its worth doing.
     if (oldVal === newVal) {
       return;
@@ -77,36 +77,46 @@ export const attachTextarea = (elem, doc) => {
 
     let commonEnd = 0;
 
-    while (oldVal.charAt(oldVal.length - 1 - commonEnd) === newVal.charAt(newVal.length - 1 - commonEnd) &&
-    commonEnd + commonStart < oldVal.length && commonEnd + commonStart < newVal.length) {
+    while (
+      oldVal.charAt(oldVal.length - 1 - commonEnd) ===
+        newVal.charAt(newVal.length - 1 - commonEnd) &&
+      commonEnd + commonStart < oldVal.length &&
+      commonEnd + commonStart < newVal.length
+    ) {
       commonEnd++;
     }
 
     if (oldVal.length !== commonStart + commonEnd) {
-      let op = [
+      const op = [
         commonStart,
         '',
-        {d: oldVal.length - commonStart - commonEnd}
+        { d: oldVal.length - commonStart - commonEnd },
       ];
       doc.submitOp(op);
     }
 
     if (newVal.length !== commonStart + commonEnd) {
-      doc.submitOp([commonStart, newVal.slice(commonStart, newVal.length - commonEnd)]);
+      doc.submitOp([
+        commonStart,
+        newVal.slice(commonStart, newVal.length - commonEnd),
+      ]);
     }
   };
 
   /* Replace the content of the text area with newText, and transform the
    current cursor by the specified function. */
 
-  const replaceText = function (newText, transformCursor) {
+  const replaceText = function(newText, transformCursor) {
     if (transformCursor) {
-      newSelection = [transformCursor(elem.selectionStart), transformCursor(elem.selectionEnd)];
+      newSelection = [
+        transformCursor(elem.selectionStart),
+        transformCursor(elem.selectionEnd),
+      ];
     }
 
     // Fixate the window's scroll while we set the element's value. Otherwise
     // the browser scrolls to the element.
-    let scrollTop = elem.scrollTop;
+    const scrollTop = elem.scrollTop;
     elem.value = newText;
     prevValue = elem.value; // Not done on one line so the browser can do newline conversion.
     if (elem.scrollTop !== scrollTop) {
@@ -136,23 +146,22 @@ export const attachTextarea = (elem, doc) => {
 
     // Loop through the ops object.
     for (let i = 0; i < op.length; i++) {
-      let component = op[i];
+      const component = op[i];
 
       // Classifies the different components of the op.
       switch (typeof component) {
-
-          // If it is a number, make it the index.
+        // If it is a number, make it the index.
         case 'number':
           newDoc.push(prev.slice(0, component));
           prev = prev.slice(component);
           break;
 
-          // If it is a string, we know to insert it into the temp variable.
+        // If it is a string, we know to insert it into the temp variable.
         case 'string':
           newDoc.push(component);
           break;
 
-          // If it is an object, we know it's a delete command.
+        // If it is an object, we know it's a delete command.
         case 'object':
           prev = prev.slice(component.d);
           break;
@@ -170,7 +179,6 @@ export const attachTextarea = (elem, doc) => {
 
   // This function generates operations from the changed content in the textarea.
   const genOp = () => {
-
     // In a timeout so the browser has time to propagate the event's changes to the DOM.
     setTimeout(() => {
       if (elem.value !== prevValue) {
@@ -186,27 +194,27 @@ export const attachTextarea = (elem, doc) => {
     'keyup',
     'select',
     'cut',
-    'paste'
+    'paste',
   ];
 
   for (let i = 0; i < eventNames.length; i++) {
-    let e = eventNames[i];
+    const e = eventNames[i];
 
     if (elem.addEventListener) {
       elem.addEventListener(e, genOp, false);
     } else {
-      elem.attachEvent('on' + e, genOp);
+      elem.attachEvent(`on${e}`, genOp);
     }
   }
 
   doc.detach = () => {
     for (let i = 0; i < eventNames.length; i++) {
-      let e = eventNames[i];
+      const e = eventNames[i];
 
       if (elem.removeEventListener) {
         elem.removeEventListener(e, genOp, false);
       } else {
-        elem.detachEvent('on' + e, genOp);
+        elem.detachEvent(`on${e}`, genOp);
       }
     }
   };

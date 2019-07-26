@@ -21,7 +21,7 @@ describe('ArchiveComponent', () => {
         user: {
           username: 'stanley',
           jobs: {
-            'job1': {}
+            job1: {},
           },
         },
       };
@@ -34,18 +34,17 @@ describe('ArchiveComponent', () => {
 
       expect(component.length).toBe(1);
     });
-
   });
 
   describe('props is empty', () => {
-    let wrapper = setup();
+    const wrapper = setup();
 
     it('should not render archive component job item.', () => {
-      const component = findByTestAttr(wrapper, 'archive-component-list')
-          .find('.job-archive-item');
+      const component = findByTestAttr(wrapper, 'archive-component-list').find(
+        '.job-archive-item',
+      );
 
       expect(component.length).toBe(0);
-    })
-
+    });
   });
 });

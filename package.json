@@ -8,6 +8,7 @@
     "build": "NODE_ENV=production next build",
     "buildlocal": "NODE_ENV=local next build ",
     "dev": "next",
+    "lint": "DEBUG=eslint:cli-engine eslint --fix . && echo 'Lint complete.'",
     "pm2dev": "pm2 start npm --name \"next\" -- run dev",
     "pm2prod": "npm run build && pm2 start npm --name \"next\" -- start",
     "test": "jest --watchAll",
