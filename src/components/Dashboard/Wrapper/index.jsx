@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Head from 'next/head';
 import NavDashboard from '../../Nav/NavDashboard';
 import Footer from '../../General/Footer';
+import PropTypes from 'prop-types';
 
 const Wrapper = props => {
   const {htmlTitle, title} = props;
@@ -22,6 +23,11 @@ const Wrapper = props => {
         <Footer />
       </Fragment>
   );
+};
+
+Wrapper.propTypes = {
+  htmlTitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Wrapper;

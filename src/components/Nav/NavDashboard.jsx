@@ -3,7 +3,7 @@
 import React from 'react';
 import router from 'next/router';
 import { NavButton } from '../General';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArchive,
   faCog,
@@ -11,18 +11,29 @@ import {
   faSignOutAlt,
   faTasks,
   faUser,
-} from '@fortawesome/free-solid-svg-icons/index';
+} from '@fortawesome/free-solid-svg-icons';
 import Logo from '../Logos/Logo';
 import { doSignOut } from '../../firebase/auth';
 import * as ROUTES from '../../constants/routes';
 import Link from 'next/link';
 
+// TODO: Muting error, fix as soon as zeit/next.js/issues/7915 resolved.
+
+const originalError = console.error;
+
+console.error = (...args) => {
+  if (/Warning.*Function components cannot be given refs/.test(args[0])) {
+    return;
+  }
+  originalError.call(console, ...args);
+};
+
 const NavDashboard = ({active}) => {
   return (
-      <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg sticky">
+      <nav className="flex items-center justify-center mb-10 md:justify-between flex-wrap bg-bg sticky"
+      data-test="nav-dashboard">
         <Logo />
-        <div
-            className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
+        <div className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
           <div className="lg:flex-grow py-2">
             <Link href={ROUTES.DASHBOARD} prefetch>
               <NavButton
