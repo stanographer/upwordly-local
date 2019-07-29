@@ -9,7 +9,6 @@ const JobList = ({deleteAJob, getUserData, jobs}) => {
       .filter(key => jobs[key].started === true);
   }
 
-  console.log('testtttttttttttttt')
   return (
       <div className="w-full mb-6 lg:mb-0 px-4 flex flex-col">
         <div className="flex-grow flex flex-col bg-bg2 border-t border-b sm:rounded sm:border shadow overflow-hidden">
