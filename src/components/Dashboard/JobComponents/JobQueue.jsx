@@ -10,13 +10,13 @@ const JobQueue = ({jobs, startJob}) => {
 
   return (
       <section className="w-full mb-6 my-4 lg:mb-0 lg:my-0 lg:w-2/3 px-4">
-        <div className="flex flex-col bg-bg2 border rounded shadow overflow-hidden">
+        <div className="flex-col flex-grow bg-bg2 border rounded shadow overflow-hidden">
           <div className="border-b">
             <div className="flex justify-between px-6 -mb-px">
               <h3 className="text-red-200 py-4 font-normal text-lg">Upcoming Job Queue</h3>
             </div>
           </div>
-          <div className="flex flex-col text-fg overflow-y-scroll">
+          <div className="flex flex-col flex-1 text-fg overflow-y-scroll">
             {
               list && list.length > 0
                   ? list
