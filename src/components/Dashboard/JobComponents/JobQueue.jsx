@@ -5,8 +5,15 @@ import JobsNull from './JobsNull';
 import * as ROUTES from '../../../constants/routes';
 
 const JobQueue = ({jobs, startJob}) => {
-  const list = Object.keys(jobs)
-      .filter(key => !jobs[key].started || jobs[key].started === false || null || undefined);
+  let list;
+  if (jobs) {
+    list = Object.keys(jobs)
+      .filter(key =>
+        !jobs[key].started ||
+        jobs[key].started === false ||
+        jobs[key].started === null ||
+        jobs[key].started === undefined);
+  }
 
   return (
       <section className="w-full mb-6 my-4 lg:mb-0 lg:my-0 lg:w-2/3 px-4">
@@ -21,14 +28,12 @@ const JobQueue = ({jobs, startJob}) => {
               list && list.length > 0
                   ? list
                       .map(key => {
-                        if (!jobs[key].started) {
                           return <JobItem
                               key={key}
                               id={key}
                               job={jobs[key]}
                               startJob={startJob}
                           />;
-                        }
                       })
                       .reverse()
                   : <JobsNull
