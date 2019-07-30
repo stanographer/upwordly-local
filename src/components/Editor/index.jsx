@@ -28,7 +28,6 @@ class EditorComponent extends Component {
     };
 
     this.doc = props.doc;
-    this.reconnectInterval = '';
   }
 
   attachDocument = () => {
@@ -65,7 +64,6 @@ class EditorComponent extends Component {
   };
 
   displayOp = op => {
-    console.log(op);
     let message = '';
     let index = 0;
 
@@ -137,8 +135,6 @@ class EditorComponent extends Component {
       expandEditor,
       toggleExpand,
     } = this.props;
-
-    console.log('editor component', this.props);
 
     return (
         <Fragment>
@@ -256,14 +252,18 @@ class EditorComponent extends Component {
                       ? ''
                       : <div className="flex justify-between px-6 py-4 border-t">
                         <p className="font-mono text-teal-200">
-                          {lastOp
-                              ? `"${lastOp}"`
-                              : 'Ready'}
+                          {docAttached
+                              ? lastOp
+                                  ? `"${lastOp}"`
+                                  : 'Ready'
+                              : 'Connecting the parts...'
+                          }
                         </p>
                         <p className="font-mono text-red-200">
                           {lastIndex
                               ? lastIndex
-                              : '0'}
+                              : '0'
+                          }
                         </p>
                       </div>
                 }
