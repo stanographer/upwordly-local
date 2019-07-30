@@ -12,6 +12,7 @@ out
 
 # travis
 travis_rsa
+./travis_rsa
 
 # testing
 /coverage

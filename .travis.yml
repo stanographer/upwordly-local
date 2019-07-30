@@ -1,9 +1,17 @@
-language: bash
+sudo: false
 
-sudo: required
+language: node_js
 
-services:
-  - docker
+node_js:
+  - node
+
+env:
+  global:
+    - 'NODE_ENV=production'
 
 script:
-  - echo "hello world!"
+  - npm run lint
+  - npm run test:coverage
+
+notifications:
+  email: true
