@@ -125,7 +125,9 @@ class SignInComponent extends Component {
               </button>
             </div>
             {
-              !!error && <p className="text-md text-red-300 mt-4">{error}</p>
+              !!error && <p className="text-md text-red-300 mt-4">
+                Something went wrong. Please refresh or try again later.
+              </p>
             }
             <div className="text-center mt-6">
               <Link href={ROUTES.SIGN_UP} prefetch>
