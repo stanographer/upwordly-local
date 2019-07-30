@@ -10,6 +10,9 @@
 .next/
 out
 
+# travis
+travis_rsa
+
 # testing
 /coverage
 
