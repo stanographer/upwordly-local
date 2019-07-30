@@ -5,6 +5,7 @@ import Typed from 'react-typed';
 import {
   startJob,
 } from '../../../firebase/db';
+import PropTypes from 'prop-types';
 
 const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user}) => {
   console.log('dashboard props', user.uid);
@@ -96,6 +97,19 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
         </main>
       </Fragment>
   );
+};
+
+DashboardComponent.propTypes = {
+  auth: PropTypes.object,
+  jobs: PropTypes.object,
+  user: PropTypes.object,
+  errors: PropTypes.array,
+  getUserData: PropTypes.func,
+  resetJobCreator: PropTypes.func,
+  setShortName: PropTypes.func,
+  setTitleAndSpeakers: PropTypes.func,
+  setErrors: PropTypes.func,
+  startJob: PropTypes.func
 };
 
 export default DashboardComponent;
