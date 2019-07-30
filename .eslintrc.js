@@ -24,6 +24,7 @@ module.exports = {
     'max-len': ['error', 100],
   },
   'env': {
+    'amd': true,
     'browser': true,
     'es6': true,
   },

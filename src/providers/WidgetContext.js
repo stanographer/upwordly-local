@@ -5,6 +5,6 @@ export default React.createContext({
   onChangeSettings: () => {},
   settings: {},
   widgetOpen: false,
-  openWidget: widget => {},
-  closeWidget: widget => {},
+  openWidget: () => {},
+  closeWidget: () => {},
 });
