@@ -100,7 +100,7 @@ class EditorComponent extends Component {
     const {currentJob} = this.props;
 
     return currentJob && Object.keys(currentJob).length > 0
-        ? `${document.location.protocol}//${document.location.host}/${currentJob.username}/${currentJob.shortName}`
+        ? `${document.location.protocol}//${document.location.host}/view?user=${currentJob.username}&job=${currentJob.shortName}`
         : '';
   };
 
@@ -251,18 +251,22 @@ class EditorComponent extends Component {
                         : 'bg-gray-800 h-full text-2xl px-4 py-4 input font-mono'}
                     ref={ref => (this.sharedTextarea = ref)}
                 />
-                <div className="flex justify-between px-6 py-4 border-t">
-                  <p className="font-mono text-teal-200">
-                    {lastOp
-                        ? `"${lastOp}"`
-                        : 'Ready'}
-                  </p>
-                  <p className="font-mono text-red-200">
-                    {lastIndex
-                        ? lastIndex
-                        : '0'}
-                  </p>
-                </div>
+                {
+                  expandEditor
+                      ? ''
+                      : <div className="flex justify-between px-6 py-4 border-t">
+                        <p className="font-mono text-teal-200">
+                          {lastOp
+                              ? `"${lastOp}"`
+                              : 'Ready'}
+                        </p>
+                        <p className="font-mono text-red-200">
+                          {lastIndex
+                              ? lastIndex
+                              : '0'}
+                        </p>
+                      </div>
+                }
               </div>
             </section>
           </main>
