@@ -153,7 +153,7 @@ class EditorComponent extends Component {
                   : ''
             }
             {
-              currentJob
+              currentJob && currentJob.speakers
                   ? <p className="pt-4 pb-2 text-red-200">{`${currentJob.speakers}`}</p>
                   : ''
             }
