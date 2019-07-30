@@ -10,7 +10,6 @@ env:
     - 'NODE_ENV=production'
 
 script:
-  - npm run lint
   - npm run test:coverage
 
 notifications:
