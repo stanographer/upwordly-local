@@ -1,4 +1,4 @@
-# 🚀 UPWORD.LY Front-end Microservice 🚀
+# 🚀 UPWORD.LY Front-End Microservice 🚀
 
 This app runs a Next.js front-end microservice that communicates with Upword.ly's backend server allowing stenographers to create accounts, view, edit, and modify their transcriptions, and their consumers to view and edit them, as well.
 
