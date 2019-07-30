@@ -72,7 +72,7 @@ export const attachTextarea = (elem, doc) => {
     let commonStart = 0;
 
     while (oldVal.charAt(commonStart) === newVal.charAt(commonStart)) {
-      commonStart++;
+      commonStart += 1;
     }
 
     let commonEnd = 0;
@@ -83,7 +83,7 @@ export const attachTextarea = (elem, doc) => {
       commonEnd + commonStart < oldVal.length &&
       commonEnd + commonStart < newVal.length
     ) {
-      commonEnd++;
+      commonEnd += 1;
     }
 
     if (oldVal.length !== commonStart + commonEnd) {
@@ -145,7 +145,7 @@ export const attachTextarea = (elem, doc) => {
     const newDoc = [];
 
     // Loop through the ops object.
-    for (let i = 0; i < op.length; i++) {
+    for (let i = 0; i < op.length; i += 1) {
       const component = op[i];
 
       // Classifies the different components of the op.
@@ -197,7 +197,7 @@ export const attachTextarea = (elem, doc) => {
     'paste',
   ];
 
-  for (let i = 0; i < eventNames.length; i++) {
+  for (let i = 0; i < eventNames.length; i += 1) {
     const e = eventNames[i];
 
     if (elem.addEventListener) {
@@ -208,7 +208,7 @@ export const attachTextarea = (elem, doc) => {
   }
 
   doc.detach = () => {
-    for (let i = 0; i < eventNames.length; i++) {
+    for (let i = 0; i < eventNames.length; i += 1) {
       const e = eventNames[i];
 
       if (elem.removeEventListener) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme/build';
-import WrapperComponent from '../Wrapper';
+import WrapperComponent from '.';
 import { checkProps, findByTestAttr } from '../../../../utils';
 import Logo from '../../Logos/Logo';
 
@@ -9,7 +9,6 @@ const setup = (props = {}) => {
 };
 
 describe('Wrapper component', () => {
-
   const props = {
     htmlTitle: 'Just say no to chains and snapbacks',
     title: 'Archive',
@@ -41,9 +40,9 @@ describe('Wrapper component', () => {
 
       beforeAll(() => {
         mountedComponent = mount(
-            <WrapperComponent htmlTitle={props.htmlTitle} title={props.title}>
-              <Logo />
-            </WrapperComponent>,
+          <WrapperComponent htmlTitle={props.htmlTitle} title={props.title}>
+            <Logo />
+          </WrapperComponent>,
         );
       });
 
@@ -62,4 +61,3 @@ describe('Wrapper component', () => {
     });
   });
 });
-

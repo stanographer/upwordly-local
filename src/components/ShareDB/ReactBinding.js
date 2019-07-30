@@ -22,7 +22,7 @@ class Binding {
     const newDoc = [];
 
     // Loop through the ops object.
-    for (let i = 0; i < op.length; i++) {
+    for (let i = 0; i < op.length; i += 1) {
       const component = op[i];
       // Classifies the different components of the op.
       switch (typeof component) {

@@ -9,7 +9,6 @@ export default function Transcript() {
 
   // router.push(`${router.query.user}/`);
   return (
-
     <>
       <h1>{}</h1>
       <h1>{router.query.id}</h1>

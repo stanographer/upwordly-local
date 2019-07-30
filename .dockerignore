@@ -9,6 +9,9 @@ Dockerfile
 .git
 .gitignore
 
+# travis
+travis_rsa
+
 # dependencies
 /node_modules
 /.pnp
