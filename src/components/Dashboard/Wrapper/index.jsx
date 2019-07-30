@@ -5,7 +5,7 @@ import Footer from '../../General/Footer';
 import PropTypes from 'prop-types';
 
 const Wrapper = props => {
-  const {htmlTitle, title} = props;
+  const {expandEditor, htmlTitle, title} = props;
 
   return (
       <Fragment>
@@ -14,18 +14,23 @@ const Wrapper = props => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
         </Head>
-        <NavDashboard
-            active={title}
-        />
-        <section className="container mx-auto px-8 py-1 lg:mx-auto lg:px-16 lg:py-2">
+        {
+         expandEditor
+              ? ''
+              : <NavDashboard
+                  active={title}
+              />
+        }
+        <section className={expandEditor ? 'mx-auto my-auto' : 'container mx-auto px-8 py-1 lg:mx-auto lg:px-16 lg:py-2'}>
           {props.children}
         </section>
-        <Footer />
+        <Footer expandEditor={expandEditor} />
       </Fragment>
   );
 };
 
 Wrapper.propTypes = {
+  expandEditor: PropTypes.bool,
   htmlTitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

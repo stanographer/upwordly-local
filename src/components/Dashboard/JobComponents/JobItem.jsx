@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons/index';
 import { EDITOR } from '../../../constants/routes';
@@ -11,17 +12,19 @@ const JobItem = ({id, job, startJob}) => {
       <section className="flex px-4 py-4 lg:px-5 lg:py-5 border-b">
         <article className="flex-1">
           <div className="mb-4">
-            <p className="text-xl text-fg">
+            <p className="text-xl font-bold text-fg">
               "{job.title ? job.title : <span className="capitalize">{job.shortName}</span>}"
             </p>
             <p className="text-red-200 italic">
               {job.speakers ? job.speakers : 'No speakers designated.'}
             </p>
-            <p className="font-mono text-green-200 mt-2">{job.shortName}</p>
-
+            <p className="font-mono text-green-200 mt-2">
+              {job.shortName}
+            </p>
           </div>
-
-          <p className="text-gray-500">{job.createdTime}</p>
+          <p className="text-gray-500 text-sm">
+            {job.createdTime}
+          </p>
         </article>
         <article className="flex-initial">
           <Link href={{
@@ -44,6 +47,12 @@ const JobItem = ({id, job, startJob}) => {
         </article>
       </section>
   );
+};
+
+JobItem.propTypes = {
+  id: PropTypes.string,
+  job: PropTypes.object,
+  startJob: PropTypes.func,
 };
 
 export default JobItem;
