@@ -40,7 +40,7 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
         <Typed
             className="marquee text-teal-200"
             strings={[
-              'View your all jobs here.'
+              'View your all your archived jobs here.'
             ]}
             typeSpeed={40}
         />
