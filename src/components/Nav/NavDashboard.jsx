@@ -71,7 +71,7 @@ const NavDashboard = ({active}) => {
             />
             </Link>
           </div>
-          <div className="my-2">
+          <div className="my-2 flex flex-wrap">
             <NavButton
                 icon={<FontAwesomeIcon icon={faSignOutAlt} />}
                 title="Sign out"
