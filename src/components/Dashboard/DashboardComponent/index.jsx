@@ -19,6 +19,7 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
 
     if (!val.match(re) && val !== '') {
       setJob({
+        ...job,
         shortName: val.trim().toLowerCase()
       });
 
@@ -31,6 +32,7 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
       ]);
     } else {
       setJob({
+        ...job,
         shortName: val.trim().toLowerCase()
       });
 
