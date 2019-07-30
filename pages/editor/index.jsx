@@ -8,6 +8,11 @@ import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider'
 const Editor = props => {
   const {jobs, router} = props;
   const [currentJob, setCurrentJob] = useState({});
+  const [expandEditor, setExpandEditor] = useState(false);
+
+  const toggleExpand = () => {
+    setExpandEditor(!expandEditor);
+  };
 
   // Finds the job details by shortName.
   const getJobDetails = async (shortName, jobs) => {
@@ -24,13 +29,19 @@ const Editor = props => {
 
   return (
       <Wrapper
+          expandEditor={expandEditor}
           htmlTitle="Upword.ly - Editor"
           title="editor">
         <ConnectionProvider
             user={router.query.user}
             job={router.query.job}
             render={props => {
-              return <EditorComponent {...props} currentJob={currentJob} />;
+              return <EditorComponent
+                  {...props}
+                  expandEditor={expandEditor}
+                  toggleExpand={toggleExpand}
+                  currentJob={currentJob}
+              />;
             }}
         />
       </Wrapper>

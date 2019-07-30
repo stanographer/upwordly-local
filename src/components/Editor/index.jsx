@@ -22,6 +22,7 @@ class EditorComponent extends Component {
     this.state = {
       copied: false,
       docAttached: false,
+      expanded: false,
       lastOp: '',
       lastIndex: 0,
     };
@@ -49,7 +50,7 @@ class EditorComponent extends Component {
             () => {
               attachTextarea(this.sharedTextarea, this.doc);
               this.setState({docAttached: true});
-            }
+            },
         );
       }
 
@@ -131,63 +132,72 @@ class EditorComponent extends Component {
       lastOp,
     } = this.state;
 
-    const {currentJob} = this.props;
+    const {
+      currentJob,
+      expandEditor,
+      toggleExpand,
+    } = this.props;
 
     console.log('editor component', this.props);
 
     return (
         <Fragment>
-          <p className="font-apercu text-5xl">Live Editor</p>
-          <Typed
-              className="marquee text-teal-200"
-              strings={[
-                'When the bar turns green, you are connected &amp; ready to write live.'
-              ]}
-              typeSpeed={20} />
-          {
-            currentJob
-                ? <p className="pt-4 pb-1 text-green-200">{`"${currentJob.title || currentJob.shortName}"`}</p>
-                : ''
-          }
-          {
-            currentJob
-                ? <p className="pt-4 pb-2 text-red-200">{`${currentJob.speakers}`}</p>
-                : ''
-          }
-          <section className="mt-6">
-            <CopyToClipboard
-                text={this.generateUrl()}
-                onCopy={() => this.copiedUrl()}
-            >
-              <div className={
-                copied
-                    ? 'flex-wrap px-2 py-2 md:flex justify-between border cursor-pointer bg-green-200 text-bg2'
-                    : 'flex-wrap px-2 py-2 md:flex justify-between border cursor-pointer'
-              }>
-                <p className={
+          <div hidden={expandEditor}>
+            <p className="font-apercu text-5xl">Live Editor</p>
+            <Typed
+                className="marquee text-teal-200"
+                strings={[
+                  'When the bar turns green, you are connected &amp; ready to write live.',
+                ]}
+                typeSpeed={20}
+            />
+            {
+              currentJob
+                  ? <p className="pt-4 pb-1 text-green-200">{`"${currentJob.title || currentJob.shortName}"`}</p>
+                  : ''
+            }
+            {
+              currentJob
+                  ? <p className="pt-4 pb-2 text-red-200">{`${currentJob.speakers}`}</p>
+                  : ''
+            }
+            <section className="mt-6">
+              <CopyToClipboard
+                  text={this.generateUrl()}
+                  onCopy={() => this.copiedUrl()}
+              >
+                <div className={
                   copied
-                      ? 'underline px-2 py-2 md:py-2 md:px-4 my-0 bg-green-200 text-bg2 font-mono break-words cursor-pointer'
-                      : 'underline px-2 py-2 md:py-2 md:px-4 my-0 text-teal-200 font-mono break-words cursor-pointer'
+                      ? 'flex-wrap px-2 py-2 md:flex justify-between border cursor-pointer bg-green-200 text-bg2'
+                      : 'flex-wrap px-2 py-2 md:flex justify-between border cursor-pointer'
                 }>
-                  <FontAwesomeIcon className="mx-4" icon={faClipboard} />
-                  {this.generateUrl()}
-                </p>
-                <p className={
-                  copied
-                      ? 'px-2 py-2 md:py-2 md:px-4 my-0 font-mono text-bg inline-block'
-                      : 'px-2 py-2 md:py-2 md: px-4 my-0 font-mono text-teal-200 inline-block'
-                }>
-                  {
+                  <p className={
                     copied
-                        ? 'Copied to clipboard!'
-                        : 'Click to copy URL'
-                  }
-                </p>
-              </div>
-            </CopyToClipboard>
-          </section>
-          <main className="flex flex-wrap flex-row mx-auto my-4 lg:my-6 md:flex-no-wrap">
-            <section className="w-full h-auto mb-6 my-4 lg:mb-0 lg:my-0 flex flex-col">
+                        ? 'underline px-2 py-2 md:py-2 md:px-4 my-0 bg-green-200 text-bg2 font-mono break-words cursor-pointer'
+                        : 'underline px-2 py-2 md:py-2 md:px-4 my-0 text-teal-200 font-mono break-words cursor-pointer'
+                  }>
+                    <FontAwesomeIcon className="mx-4" icon={faClipboard} />
+                    {this.generateUrl()}
+                  </p>
+                  <p className={
+                    copied
+                        ? 'px-2 py-2 md:py-2 md:px-4 my-0 font-mono text-bg inline-block'
+                        : 'px-2 py-2 md:py-2 md: px-4 my-0 font-mono text-teal-200 inline-block'
+                  }>
+                    {
+                      copied
+                          ? 'Copied to clipboard!'
+                          : 'Click to copy URL'
+                    }
+                  </p>
+                </div>
+              </CopyToClipboard>
+            </section>
+          </div>
+          <main
+              className={expandEditor ? 'flex flex-grow' : 'flex flex-wrap flex-row mx-auto my-4 lg:my-6 md:flex-no-wrap'}>
+            <section
+                className={expandEditor ? 'w-full h-full' : 'w-full h-auto mb-6 my-4 lg:mb-0 lg:my-0 flex flex-col'}>
               <div className="flex-grow flex flex-col bg-bg2 border rounded shadow overflow-hidden">
                 <div className="border-b">
                   <div className="flex justify-center px-6 -mb-px">
@@ -219,7 +229,7 @@ class EditorComponent extends Component {
                     <ToolbarButton
                         title="Expand"
                         icon={<FontAwesomeIcon icon={faExpand} />}
-                        onClick={() => console.log('click!')}
+                        onClick={() => toggleExpand()}
                     />
                   </div>
                 </div>
@@ -229,24 +239,28 @@ class EditorComponent extends Component {
                       : 'w-full py-1 bg-yellow-300'
                 } />
                 <textarea
-                    rows={10}
-                    placeholder="This is your Live Editor text field."
+                    style={{
+                      height: expandEditor ? '100vh' : '23rem',
+                    }}
+
                     disabled={!docAttached}
                     autoFocus={true}
                     spellCheck={false}
-                    className="bg-bg h-full text-2xl px-4 py-4 input font-mono"
+                    className={docAttached
+                        ? 'bg-bg h-full text-2xl px-4 py-4 input font-mono'
+                        : 'bg-gray-800 h-full text-2xl px-4 py-4 input font-mono'}
                     ref={ref => (this.sharedTextarea = ref)}
                 />
-                <div className="flex justify-between px-6 py-4 -mb-px">
+                <div className="flex justify-between px-6 py-4 border-t">
                   <p className="font-mono text-teal-200">
                     {lastOp
                         ? `"${lastOp}"`
-                        : ''}
+                        : 'Ready'}
                   </p>
                   <p className="font-mono text-red-200">
                     {lastIndex
                         ? lastIndex
-                        : ''}
+                        : '0'}
                   </p>
                 </div>
               </div>
