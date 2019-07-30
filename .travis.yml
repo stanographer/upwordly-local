@@ -1,9 +1,20 @@
-language: bash
+language: node_js
 
-sudo: required
+node_js:
+  - "10"
 
-services:
-  - docker
+dist: trusty
+
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
 
 script:
-  - echo "hello world!"
+  - npm run test:headless
+  - npm run build
+  - xvfb-run npm run e2e
