@@ -27,6 +27,7 @@ before_script:
 script:
   - npm run build
 after_success:
+  - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv -in deploy.enc -out deploy -d
   - set x
   - tar -czf package.tgz .next
   - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
