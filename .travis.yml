@@ -24,13 +24,13 @@ install:
 before_script:
   - chmod 600 deploy
   - cat deploy > ~/.ssh/id_rsa
-  - ssh-add ~/.ssh/idrsa
+  - ssh-add ~/.ssh/id_rsa
 script:
   - npm run build
 after_success:
   - eval "$(ssh-agent -s)"
   - cat deploy > ~/.ssh/id_rsa
-  - ssh-add ~/.ssh/idrsa
+  - ssh-add ~/.ssh/id_rsa
   - set x
   - tar -czf package.tgz build
   - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
