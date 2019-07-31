@@ -27,4 +27,6 @@ before_script:
 script:
   - npm run build
 after_success:
-  - '.travis/deploy.sh'
+  - set x
+  - tar -czf package.tgz .next
+  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
