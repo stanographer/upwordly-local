@@ -11,8 +11,8 @@
 out
 
 # travis
-travis_rsa
-./travis_rsa
+.travis/travis_rsa
+.travis/travis_rsa
 
 # testing
 /coverage
