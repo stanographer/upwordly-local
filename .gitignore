@@ -12,7 +12,8 @@ out
 
 # travis
 .travis/travis_rsa
-deploy
+deploy_key
+./deploy_key
 
 #testing
 /coverage
