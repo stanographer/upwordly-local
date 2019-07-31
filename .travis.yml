@@ -14,7 +14,6 @@ branches:
     - master
 env:
   global:
-    - REMOTE_APP_DIR=~/builds
     - REMOTE_USER=deploy
     - REMOTE_HOST=206.189.169.212
     - PORT=3000
