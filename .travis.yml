@@ -32,7 +32,7 @@ script:
   - npm run test:coverage
 after_success:
   - npm run build
-  - env PASSKEY=$PASSKEY /.travis/deploy.sh production
+  - env PASSKEY=$PASSKEY .travis/deploy.sh production
 
 #              - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 #                - set x
