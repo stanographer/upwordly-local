@@ -29,10 +29,10 @@ after_success:
   - set x
   - tar -czf package.tgz ./
   - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR -o StrictHostKeyChecking=no
-  - ssh $REMOTE_USER@$REMOTE_HOST 'bash -s'
+  - ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' -o StrictHostKeyChecking=no
   - export NODE_ENV=production
   - cd /var/www/upword.ly
   - tar -zxvf package.tgz -C .
-  - mv build/package.json .
+  - mv package.json .
   - npm install
   - npm start
