@@ -14,7 +14,7 @@ branches:
 env:
   global:
   - REMOTEAPPDIR=/var/www/upword.ly/
-  - REMOTEUSER=travis
+  - REMOTEUSER=deploy
   - REMOTEHOST=206.189.169.212
   - PORT=8080
 beforeinstall:
