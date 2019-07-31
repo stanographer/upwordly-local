@@ -40,8 +40,8 @@ after_success:
   - mv * build
   - export SSHPASS=$PASSKEY
   - tar -czf package.tgz build
-  - sshpass -e scp -o package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
-  - sshpass -e ssh $REMOTE_USER@$REMOTE_HOST $REMOTE_APP_DIR/.travis/deploy.sh
+  - sshpass -e scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+#  - sshpass -e ssh $REMOTE_USER@$REMOTE_HOST $REMOTE_APP_DIR/.travis/deploy.sh
 
 #                - ls
 #
