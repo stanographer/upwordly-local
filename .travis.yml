@@ -1,4 +1,5 @@
 sudo: true
+dist: trusty
 language: node_js
 node_js:
   - stable
@@ -28,17 +29,28 @@ install:
 before_script:
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 script:
-  - npm run build
+  - npm run test:coverage
 after_success:
+  - npm run build
+before_deploy:
+  - eval "$(ssh-agent -s)"
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
-  - set x
-  - ls
-  - tar -czf package.tgz build
-  - sshpass -p $PASSKEY scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
-  - sshpass -p $PASSKEY ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
-  - export NODE_ENV=production
-  - cd /var/www/upword.ly
-  - tar -zxvf package.tgz -C .
-  - mv build/package.json .
-  - npm install
-  - npm start
+deploy:
+  on:
+    branch: master
+  provider: script
+    - script: ./travis/deploy.sh production
+
+#              - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
+#                - set x
+#                - ls
+#                - tar -czf package.tgz build
+#                - sshpass -p $PASSKEY scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+#                - sshpass -p $PASSKEY ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
+#                - export NODE_ENV=production
+#                - cd /var/www/upword.ly
+#                - tar -zxvf package.tgz -C .
+#                - mv build/package.json .
+#                - npm install
+#                - npm start
+
