@@ -34,12 +34,16 @@ script:
   - npm run test:coverage
 after_success:
   - npm run build
-  - .travis/deploy.sh production
+  - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
+  - set x
+  - mkdir build
+  - mv * build
+  - export SSHPASS=$PASSKEY
+  - tar -czf package.tgz build
+  - sshpass -e scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
 
-#              - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
-#                - set x
 #                - ls
-#                - tar -czf package.tgz build
+#
 #                - sshpass -p $PASSKEY scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
 #                - sshpass -p $PASSKEY ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
 #                - export NODE_ENV=production
