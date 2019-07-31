@@ -28,9 +28,7 @@ before_script:
 script:
   - npm run build
 after_success:
-  - chmod 600 deploy
-  - eval "$(ssh-agent -s)"
-  - ssh-add deploy
+  - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
   - set x
   - tar -czf - -C build . | ssh $REMOTE_USER@$REMOTE_HOST 'tar -xzf - -C $REMOTE_APP_DIR'
 #  - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
