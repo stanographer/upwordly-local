@@ -21,10 +21,10 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv -in deploy.enc -out deploy -d
   - npm install -g npm
 install:
-  - echo $KEY >> $HOME/.ssh/known_hosts
+  - echo deploy >> $HOME/.ssh/known_hosts
   - npm install
 before_script:
-  - chmod 600 deploy && mv deploy ~/.ssh/idrsa
+  - chmod 600 deploy && mv deploy ~/.ssh/id_rsa
 script:
   - npm run build
 after_success:
