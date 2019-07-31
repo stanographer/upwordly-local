@@ -29,8 +29,8 @@ before_script:
 script:
   - npm run build
 after_success:
-  - eval "$(ssh-agent -s)"
   - chmod 600 deploy
+  - eval `ssh-agent -s`
   - ssh-add deploy
   - set x
   - tar -czf - -C build . | ssh $REMOTE_USER@$REMOTE_HOST 'tar -xzf - -C $REMOTE_APP_DIR'
