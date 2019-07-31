@@ -9,10 +9,6 @@ notifications:
     on_success: change
 ssh_known_hosts:
   - 206.189.169.212
-addons:
-  apt:
-    packages:
-      - sshpass
 branches:
   only:
     - master
@@ -28,18 +24,22 @@ before_install:
 install:
   - npm install
 before_script:
-  - chmod 600 deploy && mv deploy ~/.ssh/id_rsa
+  - chmod 600 deploy
+  - ssh-add deploy
 script:
   - npm run build
 after_success:
-  - set x
-  - tar -czf package.tgz build
-  - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
-  - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
   - eval "$(ssh-agent -s)"
-  - export NODE_ENV=production
-  - cd /var/www/upword.ly
-  - tar -zxvf package.tgz -C .
-  - mv build/package.json .
-  - npm install
-  - npm start
+  - chmod 600 deploy
+  - ssh-add deploy
+  - set x
+  - tar -czf - -C build . | ssh $REMOTE_USER@$REMOTE_HOST 'tar -xzf - -C $REMOTE_APP_DIR'
+#  - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+#  - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
+#  - eval "$(ssh-agent -s)"
+#  - export NODE_ENV=production
+#  - cd /var/www/upword.ly
+#  - tar -zxvf package.tgz -C .
+#  - mv build/package.json .
+#  - npm install
+#  - npm start
