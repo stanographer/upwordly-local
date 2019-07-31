@@ -12,9 +12,9 @@ out
 
 # travis
 .travis/travis_rsa
-.travis/travis_rsa
+deploy
 
-# testing
+#testing
 /coverage
 
 # production
