@@ -1,8 +1,6 @@
 #!/bin/bash
 set -x
-mkdir app
-mv ./* app
-tar -czf package.tgz app
+tar -czf package.tgz ./
 scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR" || exit 1
 ssh -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST"
 cd "$REMOTE_APP_DIR" || exit 1
