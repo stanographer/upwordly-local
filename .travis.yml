@@ -32,6 +32,7 @@ script:
 after_success:
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
   - set x
+  - tar -czf package.tgz build
   - sshpass -p $PASSKEY scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
   - sshpass -p $PASSKEY ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
   - export NODE_ENV=production
