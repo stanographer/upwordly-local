@@ -36,10 +36,8 @@ after_success:
   - npm run build
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
   - set x
-  - mkdir build
-  - mv * build
   - export SSHPASS=$PASSKEY
-  - tar -czf package.tgz build
+  - tar -czf package.tgz ./
   - sshpass -e scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
 #  - sshpass -e ssh $REMOTE_USER@$REMOTE_HOST $REMOTE_APP_DIR/.travis/deploy.sh
 
