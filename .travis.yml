@@ -24,9 +24,7 @@ before_install:
 install:
   - npm install
 before_script:
-  - chmod 600 deploy
-  - eval "$(ssh-agent -s)"
-  - ssh-add deploy
+  - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 script:
   - npm run build
 after_success:
