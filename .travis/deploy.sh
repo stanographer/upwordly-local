@@ -1,4 +1,8 @@
 #!/bin/bash
+set -x
+touch hello_upwordly
+echo "what is up" > hello_upwordly
+scp -o stricthostkeychecking=no hello_upwordly deploy@206.189.169.212:~/upwordly-build || exit 1
 #if [ "$TRAVIS_BRANCH" == "master" ]; then
 #  set -x
 #  tar -czf package.tgz build && \
@@ -7,14 +11,14 @@
 #  exit 0
 #f
 #
-
-set x
-cd ~/upwordly-build || exit 1
-
-# Extract the package
-tar zxvf package.tgz -C .
-rm package.tgz
-mv build/package.json .
-npm run start
-exit 0
-
+#
+#set x
+#cd ~/upwordly-build || exit 1
+#
+## Extract the package
+#tar zxvf package.tgz -C .
+#rm package.tgz
+#mv build/package.json .
+#npm run start
+#exit 0
+#
