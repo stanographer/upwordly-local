@@ -22,12 +22,15 @@ before_install:
 install:
   - npm install
 before_script:
-  - chmod 600 deploy && mv deploy ~/.ssh/idrsa
+  - chmod 600 deploy
+  - cat deploy > ~/.ssh/id_rsa
+  - ssh-add ~/.ssh/idrsa
 script:
   - npm run build
 after_success:
   - eval "$(ssh-agent -s)"
-  - ssh-add ~/.ssh/idrsa/deploy
+  - cat deploy > ~/.ssh/id_rsa
+  - ssh-add ~/.ssh/idrsa
   - set x
   - tar -czf package.tgz build
   - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
