@@ -18,7 +18,6 @@ env:
     - PORT=3000
 before_install:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv -in deploy.enc -out deploy -d
-  - ssh-keyscan -H REMOTE_HOST >> ~/.ssh/known_hosts
   - npm install -g npm
 install:
   - npm install
@@ -29,4 +28,4 @@ script:
 after_success:
   - set x
   - tar -czf package.tgz .next
-  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR -o StrictHostKeyChecking=no
