@@ -39,7 +39,7 @@ deploy:
   on:
     branch: master
   provider: script
-    - script: ./travis/deploy.sh production
+    - script: env PASSKEY=$PASSKEY ./travis/deploy.sh production
 
 #              - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 #                - set x
