@@ -28,8 +28,8 @@ script:
 after_success:
   - set x
   - tar -czf package.tgz ./
-  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR -o StrictHostKeyChecking=no
-  - ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' -o StrictHostKeyChecking=no
+  - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST 'bash -s'
   - export NODE_ENV=production
   - cd /var/www/upword.ly
   - tar -zxvf package.tgz -C .
