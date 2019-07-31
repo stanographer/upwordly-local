@@ -38,7 +38,7 @@ after_success:
   - set x
   - export SSHPASS=$PASSKEY
   - tar -czf package.tgz ./
-  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - scp -o stricthostkeychecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
 #  - sshpass -e ssh $REMOTE_USER@$REMOTE_HOST $REMOTE_APP_DIR/.travis/deploy.sh
 
 #                - ls
