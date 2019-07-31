@@ -1,8 +1,12 @@
 #!/bin/bash
 set -x
-touch hello_upwordly
-echo "what is up" > hello_upwordly
-scp -o stricthostkeychecking=no hello_upwordly deploy@206.189.169.212:~/upwordly-build || exit 1
+mkdir build
+mv ./* build
+tar -czf package.tgz build
+scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR" || exit 1
+ssh -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST"
+cd "$REMOTE_APP_DIR" || exit 1
+tar -zxvf package.tgz
 #if [ "$TRAVIS_BRANCH" == "master" ]; then
 #  set -x
 #  tar -czf package.tgz build && \
