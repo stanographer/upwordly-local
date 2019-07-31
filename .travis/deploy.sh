@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
-tar -czf package.tgz ./
+mkdir latest
+mv -- * latest
+tar -czf package.tgz latest
 scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR" || exit 1
 ssh -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST"
 cd "$REMOTE_APP_DIR" || exit 1

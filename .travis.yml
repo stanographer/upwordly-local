@@ -1,4 +1,4 @@
-sudo: true
+sudo: false
 dist: trusty
 language: node_js
 node_js:
@@ -34,7 +34,6 @@ before_script:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
-#  - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 script:
   - npm run test:coverage
 before_deploy:
