@@ -17,15 +17,16 @@ env:
   - REMOTEUSER=deploy
   - REMOTEHOST=206.189.169.212
   - PORT=8080
-beforeinstall:
-- npm install -g
+before_install:
+  - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
+    -in deploy.enc -out deploy -d
+  - npm install --only=dev
 install:
-- openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv -in deploy.enc -out deploy -d
-- npm install --only=dev
-beforescript:
+- openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
+  -in deploy.enc -out deploy -d
+before_script:
 - chmod 600 deploy && mv deploy ~/.ssh/idrsa
 script:
 - npm run build
 after_success:
 - ".travis/deploy.sh"
-
