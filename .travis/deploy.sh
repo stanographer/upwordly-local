@@ -6,7 +6,7 @@ mv !(latest) latest
 tar -czf package.tgz latest
 scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds" || exit 1
 ssh -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST"
-cd "$REMOTE_APP_DIR" || exit 1
+cd ~/builds || exit 1
 tar -zxvf package.tgz
 #if [ "$TRAVIS_BRANCH" == "master" ]; then
 #  set -x
