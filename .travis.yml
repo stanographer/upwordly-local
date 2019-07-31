@@ -27,8 +27,7 @@ script:
   - npm run build
 after_success:
   - eval "$(ssh-agent -s)"
-  - chmod 600 deploy
-  - ssh-add deploy
+  - ssh-add ~/.ssh/idrsa/deploy
   - set x
   - tar -czf package.tgz build
   - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
