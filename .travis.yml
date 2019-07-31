@@ -28,4 +28,4 @@ script:
 after_success:
   - set x
   - tar -czf package.tgz .next
-  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - yes | scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
