@@ -9,6 +9,8 @@ notifications:
     on_success: change
 ssh_known_hosts:
   - 206.189.169.212
+apt_packages:
+  - sshpass
 branches:
   only:
     - master
@@ -30,10 +32,8 @@ script:
 after_success:
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
   - set x
-  - eval "$(ssh-agent -s)"
-  - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
-  - eval "$(ssh-agent -s)"
-  - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
+  - sshpass -p $PASSKEY scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - sshpass -p $PASSKEY ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
   - export NODE_ENV=production
   - cd /var/www/upword.ly
   - tar -zxvf package.tgz -C .
