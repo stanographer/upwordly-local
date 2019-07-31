@@ -26,10 +26,14 @@ before_script:
 script:
   - npm run build
 after_success:
+  - eval "$(ssh-agent -s)"
+  - chmod 600 deploy
+  - ssh-add
   - set x
   - tar -czf package.tgz build
   - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
-  - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST 'bash -s'
+  - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
+  - eval "$(ssh-agent -s)"
   - export NODE_ENV=production
   - cd /var/www/upword.ly
   - tar -zxvf package.tgz -C .
