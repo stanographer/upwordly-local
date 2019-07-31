@@ -38,7 +38,7 @@ after_success:
   - export SSHPASS=$PASSKEY
   - touch hello_upwordly
   - echo "what is up" > hello_upwordly
-  - sshpass -e scp -o stricthostkeychecking=no hello_upwordly deploy@206.189.169.212:~/upwordly-build
+  - sshpass -e rsync -o stricthostkeychecking=no hello_upwordly deploy@206.189.169.212:~/upwordly-build
 after_failure:
   - exit 1
 #  - npm run build
