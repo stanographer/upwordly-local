@@ -36,10 +36,10 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 deploy:
-  on:
-    branch: master
   provider: script
     - script: env PASSKEY=$PASSKEY ./travis/deploy.sh production
+  on:
+    branch: master
 
 #              - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
 #                - set x
