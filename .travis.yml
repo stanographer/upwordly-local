@@ -39,7 +39,7 @@ after_success:
   - export SSHPASS=$PASSKEY
   - touch hello_upwordly
   - echo "what is up" > hello_upwordly
-  - sshpass -e scp -o stricthostkeychecking=no hello_upwordly deploy206.189.169.212:~/upwordly-build
+  - sshpass -e scp -o stricthostkeychecking=no hello_upwordly deploy@206.189.169.212:~/upwordly-build
 #  - tar -czf package.tgz ./
 #  - sshpass -e scp -o stricthostkeychecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
 #  - sshpass -e ssh $REMOTE_USER@$REMOTE_HOST $REMOTE_APP_DIR/.travis/deploy.sh
