@@ -29,15 +29,14 @@ script:
   - npm run build
 after_success:
   - chmod 600 deploy && cp deploy ~/.ssh/id_rsa
-  - eval "$(ssh-agent -s)"
   - set x
-  - tar -czf - -C build . | ssh $REMOTE_USER@$REMOTE_HOST 'tar -xzf - -C $REMOTE_APP_DIR'
-#  - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
-#  - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
-#  - eval "$(ssh-agent -s)"
-#  - export NODE_ENV=production
-#  - cd /var/www/upword.ly
-#  - tar -zxvf package.tgz -C .
-#  - mv build/package.json .
-#  - npm install
-#  - npm start
+  - eval "$(ssh-agent -s)"
+  - scp -o StrictHostKeyChecking=no package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - eval "$(ssh-agent -s)"
+  - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST
+  - export NODE_ENV=production
+  - cd /var/www/upword.ly
+  - tar -zxvf package.tgz -C .
+  - mv build/package.json .
+  - npm install
+  - npm start
