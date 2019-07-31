@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - stable
+cache: npm
 notifications:
   email:
     on_failure: change
