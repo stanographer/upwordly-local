@@ -28,4 +28,5 @@ script:
 after_success:
   - set x
   - tar -czf package.tgz .next
-  - yes | scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
+  - ssh-keyscan -H ${SSH_HOST} >> ~/.ssh/known_hosts
+  - scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR
