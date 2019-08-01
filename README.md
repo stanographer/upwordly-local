@@ -3,6 +3,7 @@
 This app runs a Next.js front-end microservice that communicates with Upword.ly's backend server allowing stenographers to create accounts, view, edit, and modify their transcriptions, and their consumers to view and edit them, as well.
 
 To get started you will need Docker, Node 10+, and npm.
+Your deployment server will need latest version of npm and pm2 installed.
 
 ## Commands
 
