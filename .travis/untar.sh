@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Now extracting and deploying..."
+
 # Debug mode so we can see what's happening.
 set -x
 
@@ -22,7 +24,7 @@ cd latest || exit 1
 npm install
 
 # Stop the running old deployment.
-pm2 stop "upwordly-frontend:latest"
+pm2 stop 'upwordly-frontend:latest'
 
 # Start a new process in cluster mode using all available processors.
 pm2 start -i "max" npm --name "upwordly-frontend:latest" -- start

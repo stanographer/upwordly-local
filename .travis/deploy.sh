@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Packing up build..."
+
 # Debug mode so we can see what's happening.
 set -x
 
@@ -14,6 +16,8 @@ mv !(latest) latest
 
 # Compress contents into tarball.
 tar -czf package.tgz latest
+
+echo "Sending package to remote host..."
 
 # scp into remote host and place tarball into builds in home.
 scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds" || exit 1
