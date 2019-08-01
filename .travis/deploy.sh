@@ -1,8 +1,19 @@
 #!/usr/bin/env bash
-set -x
-shopt -s extglob
-mkdir latest
-mv !(latest) latest
-tar -czf package.tgz latest
-scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds" || exit 1
+
+# Use extended glob.
+shopt -s extglob &&
+
+# Make a folder called latest for latest build.
+mkdir latest &&
+
+# Move all contents of Travis working dir into latest.
+mv !(latest) latest &&
+
+# Compress contents into tarball.
+tar -czf package.tgz latest &&
+
+# scp into remote host and place tarball into builds in home.
+scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds" || exit 1 &&
+
+# Open a new ssh connection to the remote host, explicitly set tty with -t, run extract script.
 ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" 'bash -s -t' < .travis/untar.sh
