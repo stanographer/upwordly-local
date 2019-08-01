@@ -19,6 +19,8 @@ env:
     - PORT=3000
 before_install:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
+    -in .env.enc -out .env -d
+  - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
     -in deploy_key.enc -out ./deploy_key -d
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
@@ -42,7 +44,7 @@ before_deploy:
   - ssh-add ./deploy_key
 deploy:
   provider: script
-  script: ".env '.travis/deploy.sh production'"
+  script: ".travis/deploy.sh production"
   skip_cleanup: true
   on:
     branch: master
