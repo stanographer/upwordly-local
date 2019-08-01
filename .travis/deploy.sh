@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Debug mode so we can see what's happening.
+set -x
+
 # Use extended glob.
 shopt -s extglob
 
