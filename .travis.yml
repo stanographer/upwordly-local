@@ -2,7 +2,7 @@ sudo: true
 dist: trusty
 language: node_js
 node_js:
-  - stable
+  - "10"
 cache: npm
 notifications:
   email:

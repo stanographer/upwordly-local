@@ -6,4 +6,5 @@ tar -xzf package.tgz
 rm package.tgz
 cd latest || exit 1
 npm install
+npm run build
 npm run start
