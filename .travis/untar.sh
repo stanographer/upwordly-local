@@ -1,11 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/bash
 set -x
-
 export NODE_ENV=production
-#export NVM_BIN=$HOME/.nvm/versions/node/v6.9.0/bin
-
-cd /var/www/upword.ly && \
-tar -zxvf package.tgz -C . && \
-mv build/package.json . && \
-npm install && \
+cd ~/builds || exit 1
+tar -zxvf package.tgz -C .
+mv latest/package.json .
+npm install
 npm run start

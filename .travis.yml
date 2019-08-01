@@ -27,6 +27,7 @@ before_install:
   - ssh -i ./deploy_key root@$REMOTE_HOST pwd
   - npm install -g npm
   - chmod +x .travis/deploy.sh
+  - chmod +x .travis/untar.sh
 install:
   - npm install
 before_script:
