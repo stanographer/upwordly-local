@@ -39,14 +39,14 @@ before_script:
 script:
   - npm run test:coverage
 before_deploy:
+  - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
+    -in .env.enc -out .env -d
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
-  - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
-      -in .env.enc -out .env -d
 deploy:
   provider: script
-  script: .env '.travis/deploy.sh production'
+  script: ".env '.travis/deploy.sh production'"
   skip_cleanup: true
   on:
     branch: master
