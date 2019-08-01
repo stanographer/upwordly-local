@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import Heading from '../Heading';
 import JobCreator from '../JobComponents/JobCreator';
 import JobQueue from '../JobComponents/JobQueue';
-import Typed from 'react-typed';
 import {
   startJob,
 } from '../../../firebase/db';
@@ -68,16 +68,14 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
 
   return (
       <Fragment>
-        <p className="font-apercu text-5xl">Dashboard</p>
-        <Typed
-            className="marquee text-teal-200"
-            strings={[
-              `Welcome to your control center.`
-            ]}
-            typeSpeed={40} />
-        {user
-            ? <p className="pt-4 pb-2 text-green-200">Logged in as {user.fullName}</p>
-            : ''}
+      <Heading
+          heading="Dashboard"
+          typedText={['Welcome to your control center.']}
+          additionalText={
+            user
+                ? <p className="pt-4 pb-2 text-green-200" data-test="logged-in-text">Logged in as {user.fullName}</p>
+                : ''}
+          />
         <main className="flex flex-wrap flex-row -mx-2 my-10 md:flex-no-wrap md:-mx-4">
           <JobCreator
               auth={auth}

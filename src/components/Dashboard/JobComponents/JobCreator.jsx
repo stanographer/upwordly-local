@@ -59,8 +59,8 @@ const JobCreator = ({
                 <h3 className="text-green-200 py-4 font-normal text-lg">Start a Job</h3>
               </div>
             </div>
-            <div className="px-4 lg:px-8">
-              <div className="pt-8">
+            <div className="flex flex-col mx-4 lg:mx-8">
+              <div className="flex-grow pt-8">
                 <label className="block text-grey-darker text-md text-bold mb-2" htmlFor="shortname">
                   Shortname (required)
                 </label>

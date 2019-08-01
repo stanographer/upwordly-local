@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Typed from 'react-typed';
 import { deleteJob } from '../../../firebase/db';
 import { deleteShareDbJob } from '../../ShareDB/actions';
+import Heading from '../Heading';
 import JobArchiveList from '../JobComponents/JobArchiveList';
 import { auth as currentAuth } from '../../../firebase/firebase';
 import PropTypes from 'prop-types';
@@ -36,13 +37,9 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
 
   return (
       <Fragment>
-        <p className="font-apercu text-5xl">Job Archive</p>
-        <Typed
-            className="marquee text-teal-200"
-            strings={[
-              'View your all your archived jobs here.'
-            ]}
-            typeSpeed={40}
+        <Heading
+            heading="Archive"
+            typedText={['View your all your archived jobs here.']}
         />
         {
           errors

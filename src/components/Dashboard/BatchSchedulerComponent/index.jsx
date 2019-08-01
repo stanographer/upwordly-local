@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import Typed from 'react-typed';
 import { batchCreateJobs, getUser } from '../../../firebase/db';
+import Heading from '../Heading';
 
 const BatchSchedulerComponent = ({user}) => {
 
@@ -29,13 +29,10 @@ const BatchSchedulerComponent = ({user}) => {
 
   return (
       <Fragment>
-        <p className="font-apercu text-5xl">Batch Job Scheduler</p>
-        <Typed
-            className="marquee text-teal-200"
-            strings={[
-              'Type in your preformatted batched jobs here.'
-            ]}
-            typeSpeed={40} />
+        <Heading
+            heading='Batch Job Scheduler'
+            typedText={['Type in your preformatted batched jobs here.']}
+            />
         {
           !!message
               ? <p className="text-green-200">{message}</p>
