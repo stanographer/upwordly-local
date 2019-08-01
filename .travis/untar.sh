@@ -6,7 +6,7 @@ tar -xzf package.tgz
 rm package.tgz
 cd latest || exit 1
 npm install
-sudo touch .env
-echo sudo tee ../../env > .env
-npm run build
+#sudo touch .env
+#echo sudo tee ../../env > .env
+#npm run build
 npm run start

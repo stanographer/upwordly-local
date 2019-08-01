@@ -38,6 +38,7 @@ before_script:
   - ssh-add ./deploy_key
 script:
   - npm run test:coverage
+  - npm run build
 before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
