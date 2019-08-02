@@ -16,7 +16,7 @@ const JobQueue = ({jobs, startJob}) => {
   }
 
   return (
-      <section className="w-full flex flex-grow mb-6 my-4 lg:mb-0 lg:my-0 lg:w-2/3 px-4">
+      <section className="w-full flex flex-grow my-4 lg:my-0 px-4">
         <div className="flex-col flex-grow bg-bg2 border rounded shadow overflow-hidden">
           <div className="border-b">
             <div className="flex justify-between px-6 -mb-px">
@@ -48,7 +48,9 @@ const JobQueue = ({jobs, startJob}) => {
             }
           </div>
           <div className="flex justify-between px-6 -mb-px">
-            <h3 className="text-red-200 py-4 font-normal text-lg">Upcoming Job Queue</h3>
+            <h3 className="text-red-200 py-4 font-normal text-lg">
+              Add Footer Here
+            </h3>
           </div>
         </div>
       </section>

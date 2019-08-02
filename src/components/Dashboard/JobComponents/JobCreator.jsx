@@ -41,17 +41,18 @@ const JobCreator = ({
   };
 
   const errorMessages = errors.map((e, i) => (
-      <p className="text-md text-red-400 my-4" key={i}>{e}</p>
+      <p className="text-md text-red-400 mt-0 mb-6" key={i}>{e}</p>
   ));
 
   return (
-      <section className="w-full h-auto mb-6 my-4 lg:mb-0 lg:my-0 lg:w-2/3 px-4 flex flex-col">
-        <form
-            onSubmit={e => {
+      <section className="w-full h-auto my-4 lg:my-0 px-4 flex flex-col">
+        <form onSubmit={e => {
           e.preventDefault();
-          createJob(job, user.username, uid)
-              .then(res => scheduleJobOutcome(true, res))
-              .catch(err => scheduleJobOutcome(false, err));
+          if (!errors || errors.length === 0) {
+            createJob(job, user.username, uid)
+                .then(res => scheduleJobOutcome(true, res))
+                .catch(err => scheduleJobOutcome(false, err));
+          }
         }}>
           <div className="flex-grow flex flex-col bg-bg2 border rounded shadow overflow-hidden">
             <div className="border-b">
@@ -67,11 +68,19 @@ const JobCreator = ({
                 <input autoFocus={true}
                        autoComplete="off"
                        spellCheck={false}
-                       className={
-                         !!errors && errors.length > 0
-                             ? 'border-red-500 bg-red-100 shadow-lg appearance-none border rounded w-full py-2 px-3 focus:bg-red-2100 text-bg font-mono text-md'
-                             : 'shadow-lg bg-orange-200 appearance-none border rounded w-full py-2 px-3 focus:bg-blue-100 text-bg font-mono text-md'
-                       }
+                       className={`
+                       ${!!errors && errors.length > 0 ? 'border-red-500 bg-red-100' : ''}
+                       shadow-lg
+                       bg-orange-200
+                       appearance-none
+                       border rounded
+                       w-full
+                       py-2
+                       px-3 
+                       focus:bg-blue-100
+                       text-bg 
+                       font-mono
+                       text-md`}
                        id="shortname"
                        name="shortname"
                        type="shortname"
@@ -128,7 +137,7 @@ const JobCreator = ({
                       : ''
                 }
               </div>
-              <div className="text-center my-6 lg:my-8">
+              <div className="text-center mt-0 mb-4 lg:my-8">
                 {
                   errors
                       ? errorMessages
