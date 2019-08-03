@@ -41,7 +41,7 @@ const JobCreator = ({
   };
 
   const errorMessages = errors.map((e, i) => (
-      <p className="text-md text-red-400 mt-0 mb-6" key={i}>{e}</p>
+      <p className="text-md text-red-400 my-4" key={i}>{e}</p>
   ));
 
   return (
@@ -137,7 +137,7 @@ const JobCreator = ({
                       : ''
                 }
               </div>
-              <div className="text-center mt-0 mb-4 lg:my-8">
+              <div className="text-center my-6 lg:my-8">
                 {
                   errors
                       ? errorMessages

@@ -20,7 +20,9 @@ const JobQueue = ({jobs, startJob}) => {
         <div className="flex-col flex-grow bg-bg2 border rounded shadow overflow-hidden">
           <div className="border-b">
             <div className="flex justify-between px-6 -mb-px">
-              <h3 className="text-red-200 py-4 font-normal text-lg">Upcoming Job Queue</h3>
+              <h3 className="text-red-200 py-4 font-normal text-lg">
+                Upcoming Job Queue
+              </h3>
             </div>
           </div>
           <div className="flex flex-col flex-1 text-fg overflow-y-scroll">
