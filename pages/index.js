@@ -22,7 +22,7 @@ const Index = () => {
                 loop
               />
           </div>
-          <p className="w-9/12 text-center mx-auto my-5 sm:text-lg lg:text-2xl">
+          <p className="w-9/12 lg:w-7/12 text-center mx-auto my-5 sm:text-lg lg:text-2xl">
               Upword.ly is a real-time transcription delivery tool and a content
               management system (CMS) for real-time stenographers. You log in,
               create a job, connect your CAT software via a small helper app,
@@ -32,10 +32,10 @@ const Index = () => {
               it's your choice to use the variety of tools to save or
               disseminate the transcript or to delete it. Simple.
           </p>
-          <Footer/>
-            {/*<Link href="/dashboard" prefetch>*/}
-            {/*  <a>Dashboard</a>*/}
-            {/*</Link>*/}
+          <Footer />
+          {/*<Link href="/dashboard" prefetch>*/}
+          {/*  <a>Dashboard</a>*/}
+          {/*</Link>*/}
         </section>
       </div>
     </Provider>
