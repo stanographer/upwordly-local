@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Provider from '../src/components/Session/Provider';
 import Logo from '../src/components/Logos/Logo'
 import Footer from '../src/components/General/Footer'
+import {SIGN_IN, SIGN_UP} from '../src/constants/routes';
 
 const Index = () => {
   return (
@@ -30,7 +31,7 @@ const Index = () => {
               it's your choice to use the variety of tools to save or
               disseminate the transcript or to delete it. Simple.
           </p>
-            <Link href='/signin' prefetch={true}>
+            <Link href={SIGN_IN} prefetch={true}>
               <button
                 title='sign in'
                 className='bg-blue hover:bg-blue-dark text-teal-200 font-bold md:text-lg py-2 px-4 mx-2 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200'
@@ -38,7 +39,7 @@ const Index = () => {
                 Sign In
               </button>
             </Link>
-            <Link href='/signup' prefetch={true}>
+            <Link href={SIGN_UP} prefetch={true}>
               <button
                 title='sign up'
                 className='bg-blue hover:bg-blue-dark text-teal-200 font-bold md:text-lg py-2 px-4 mx-2 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200'
