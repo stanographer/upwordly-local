@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faUnlock } from '@fortawesome/free-solid-svg-icons/index';
 import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
-import * as ROUTES from '../../src/constants/routes';
+import {SIGN_IN} from '../../src/constants/routes';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -37,11 +37,10 @@ const ForgotPassword = () => {
           {
             !!errors
                 ? <p className="text-sm text-red-400 mb-2" title="errors">{errors}</p>
-
                 : ''
           }
           <div className="flex items-center justify-between">
-            <Link href="/signin" prefetch>
+            <Link href={SIGN_IN} prefetch>
               <a className="text-green-200 underline">
                 Forgot email
               </a>

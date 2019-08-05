@@ -39,7 +39,6 @@ const JobItem = ({id, job, startJob}) => {
                 icon={<FontAwesomeIcon icon={faPlayCircle} title="play icon" />}
                 text="Start"
                 onClick={() => {
-                  console.log('job IDDDDD', id);
                   startJob(id);
                 }}
             />

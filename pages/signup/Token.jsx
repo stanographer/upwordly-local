@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/index';
+import { SIGN_IN } from '../../src/constants/routes';
 
 const Token = ({errors, handleInput, nextStep, tokenValue}) => {
 
@@ -38,7 +39,7 @@ const Token = ({errors, handleInput, nextStep, tokenValue}) => {
               : ''
         }
         <div className="flex items-center justify-between">
-          <Link href="/signin" prefetch={true}><a className="text-green-200 underline">
+          <Link href={SIGN_IN} prefetch={true}><a className="text-green-200 underline">
             Request a token</a></Link>
           <button
               className="bg-blue hover:bg-blue-dark text-teal-200 font-bold py-2 px-4 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200"
