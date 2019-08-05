@@ -61,7 +61,7 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
 
 ArchiveComponent.propTypes = {
   user: PropTypes.object,
-  getUserData: PropTypes.func,s
+  getUserData: PropTypes.func,
   deleteAJob: PropTypes.func,
   deleteSuccess: PropTypes.bool,
   jobs: PropTypes.object,
