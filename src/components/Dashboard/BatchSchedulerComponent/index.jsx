@@ -5,12 +5,12 @@ import Heading from '../Heading';
 const BatchSchedulerComponent = ({user}) => {
 
   let [batch, setBatch] = useState('');
-  let [authUser, setAuthUser] = useState({});
+  // let [authUser, setAuthUser] = useState({});
   let [message, setMessage] = useState('');
 
-  const loadUser = user => {
-    setAuthUser(user);
-  };
+  // const loadUser = user => {
+  //   setAuthUser(user);
+  // };
 
   const batchSuccessMessage = status => {
     if (status === true) {
@@ -19,13 +19,13 @@ const BatchSchedulerComponent = ({user}) => {
     }
   };
 
-  useEffect(() => {
-    try {
-      getUser(user.uid, loadUser);
-    } catch (err) {
-      console.error('error', err);
-    }
-  }, []);
+  // useEffect(() => {
+  //   try {
+  //     getUser(user.uid, loadUser);
+  //   } catch (err) {
+  //     console.error('error', err);
+  //   }
+  // }, []);
 
   return (
       <Fragment>
@@ -40,7 +40,9 @@ const BatchSchedulerComponent = ({user}) => {
         }
         <form onSubmit={e => {
           e.preventDefault();
-          batchCreateJobs(authUser.username, user.uid, batch, batchSuccessMessage);
+          batchCreateJobs(user.username, user.uid, batch, batchSuccessMessage(true));
+          setBatch('');
+          // batchCreateJobs(authUser.username, user.uid, batch, batchSuccessMessage);
         }}>
         <textarea
             autoFocus={true}
