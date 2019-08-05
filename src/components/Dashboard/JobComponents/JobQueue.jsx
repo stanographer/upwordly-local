@@ -49,11 +49,6 @@ const JobQueue = ({jobs, startJob}) => {
                   />
             }
           </div>
-          <div className="flex justify-between px-6 -mb-px">
-            <h3 className="text-red-200 py-4 font-normal text-lg">
-              Add Footer Here
-            </h3>
-          </div>
         </div>
       </section>
   );
