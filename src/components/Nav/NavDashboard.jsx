@@ -1,4 +1,4 @@
-// Nav component shown to the logged-in user.
+// NavTranscriptView component shown to the logged-in user.
 
 import React from 'react';
 import router from 'next/router';

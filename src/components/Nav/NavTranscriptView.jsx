@@ -21,7 +21,7 @@ const icons = {
   text: <FontAwesomeIcon icon={faAlignJustify} />,
 };
 
-const Nav = () => {
+const NavTranscriptView = () => {
   return (
       <WidgetContext.Consumer>
         {context => (
@@ -73,4 +73,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavTranscriptView;
