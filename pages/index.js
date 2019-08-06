@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Logo from '../src/components/Logos/Logo';
+import LogoInverted from '../src/components/Logos/LogoInverted';
 import Footer from '../src/components/General/Footer';
 import Typed from 'react-typed';
 import { FullPage, Slide } from 'react-full-page';
 import { SIGN_IN, SIGN_UP } from '../src/constants/routes';
 import NavLandingNoAuth from '../src/components/Nav/NavLandingNoAuth';
+import BgImage from '../src/components/General/BgImage';
 
 const Index = () => {
   return (
@@ -17,21 +18,22 @@ const Index = () => {
         <NavLandingNoAuth />
         <FullPage>
           <Slide>
-            <section className="flex flex-col justify-center items-center text-center h-full -my-20">
-              <Logo center={true} />
-              <div className='mt-5'>
-                <Typed
-                    className='marquee text-teal-200 text-md lg:text-lg'
-                    data-test='typed-text'
-                    strings={[
-                      'One platform to sync, send, and integrate your real-time transcriptions.',
-                      'Web-based live stenography, anywhere.',
-                    ]}
-                    typeSpeed={40}
-                    loop
-                />
-              </div>
-            </section>
+              <section className="flex flex-col justify-center items-center text-center h-full -my-10 bg-bgOverlay">
+                <LogoInverted center={true} />
+                <div className='mt-1'>
+                  <Typed
+                      className='marquee text-teal-200 text-md lg:text-lg'
+                      data-test='typed-text'
+                      strings={[
+                        'One platform to sync, send, and integrate your real-time transcriptions.',
+                        'Web-based live stenography, anywhere.',
+                      ]}
+                      typeSpeed={40}
+                      loop
+                  />
+                </div>
+                {/*<BgImage />*/}
+              </section>
           </Slide>
           <Slide>
             <div className='landing-wrapper' id='landing-wrapper'>

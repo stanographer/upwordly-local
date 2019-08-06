@@ -13,6 +13,7 @@ module.exports = {
       transparent: 'transparent',
       bg: 'rgb(30,34,39)',
       bg2: '#282c34',
+      bgOverlay: 'rgba(0, 0, 0, .6)',
       brightBlue: '#93ddfd',
       fg: '#fffce1',
       highlighter: '#e5ff7a',

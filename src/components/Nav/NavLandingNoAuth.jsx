@@ -16,8 +16,7 @@ const NavLandingNoAuth = () => {
            role="menu"
            className="flex items-center justify-center md:justify-between flex-wrap bg-bg px-1 sticky">
         <Logo />
-        <div
-            className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
+        <div className="flex w-full flex-grow content-center justify-center md:w-1/2 md:content-left md:justify-start tab">
           <div className="lg:flex-grow my-2">
             <NavButton
                 icon={<FontAwesomeIcon icon={faInfoCircle} />}

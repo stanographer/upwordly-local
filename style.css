@@ -25,6 +25,21 @@ textarea {
 /*noinspection CssInvalidAtRule*/
 @tailwind utilities;
 
+.bg-image {
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -100;
+}
+
 .fade-in-out {
   transition: opacity 3s ease-in-out;
 }
@@ -59,14 +74,17 @@ textarea {
 .geosuggest__item:focus {
   background: #f5f5f5;
 }
+
 .geosuggest__item--active {
   background: #267dc0;
   color: theme('colors.bg');
 }
+
 .geosuggest__item--active:hover,
 .geosuggest__item--active:focus {
   color: theme('colors.teal.500');
 }
+
 .geosuggest__item__matched-text {
   font-weight: bold;
 }
