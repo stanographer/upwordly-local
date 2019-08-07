@@ -48,6 +48,8 @@ cd ~/builds || exit 1
 # npm install dependencies.
 npm ci
 
+cd latest || 1
+
 echo "Stopping and deleting old processes."
 
 # Stop the running old deployment.
