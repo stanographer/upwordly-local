@@ -12,6 +12,9 @@ const TranscriptionDemo = () => {
   const [text, setText] = useState(captions.text);
 
   useEffect(() => {
+
+    // Basically using setInterval to print out the next word
+    // with 300ms delay in between.
     let print = setInterval(() => {
       const data = wordIterator.next();
 
