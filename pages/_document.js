@@ -14,9 +14,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head crossOrigin={true}>
+        <Head crossOrigin="true">
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <title>Upword.ly</title>
           <script
             async
             defer
