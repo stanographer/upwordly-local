@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Typed from 'react-typed';
 import ReactFullpage from '@fullpage/react-fullpage';
-import Index from '../src/components/Landing/Button';
+import Button from '../src/components/Landing/Button';
 import LogoInverted from '../src/components/Logos/LogoInverted';
 import Footer from '../src/components/General/Footer';
 import { SIGN_IN, SIGN_UP } from '../src/constants/routes';
@@ -11,11 +11,12 @@ import TranscriptionDemo from '../src/components/Landing/TranscriptionDemo';
 
 const Index = () => {
   useEffect(() => {
+
     // Scrolls the latest text in the demo into view.
     const scroller = setInterval(() => {
       const elem = document.getElementById('transcription-demo');
       elem.scrollTop = elem.scrollHeight;
-    }, 2300);
+    }, 1200);
 
     return () => clearInterval(scroller);
   });
@@ -49,11 +50,11 @@ const Index = () => {
                         />
                       </div>
                       <div className="mt-10">
-                        <Index
+                        <Button
                             color="green"
                             text="Learn more"
                             type="button"
-
+                            name="learn-more"
                             onClick={() => fullpageApi.moveSectionDown()}
                         />
                       </div>
