@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import * as ROUTES from '../../constants/routes';
+import {LANDING} from '../../constants/routes';
 
 const LogoInverted = ({center}) => {
   return (
-      <Link href={ROUTES.LANDING} prefetch>
+      <Link href={LANDING} prefetch>
         <div data-test="logo-inverted"
             className={
           center

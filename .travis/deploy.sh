@@ -12,6 +12,7 @@ shopt -s extglob
 mkdir latest
 
 # Move all contents of Travis working dir into latest.
+# Glob expression matches everything other than "latest
 mv !(latest) latest
 
 echo "Packaging up build files."
