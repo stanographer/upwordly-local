@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 
 echo "Packing up build..."
 
@@ -30,7 +30,14 @@ export NODE_ENV=production
 
 echo "Extracting package."
 
-cd ~/builds || exit 1
+# Go into current latest.
+cd ~/builds/latest || exit 1
+
+# Clear it all out.
+rm -rf *
+
+# Come back out to builds.
+cd ..
 
 # Extract the package we just scp'd over.
 tar -zxvf package.tgz -C .
@@ -47,7 +54,7 @@ echo "Stopping and deleting old processes."
 # Stop the running old deployment.
 pm2 stop "all"
 
-#Delete old deployments.
+# Delete old deployments.
 pm2 delete "all"
 
 echo "Starting up pm2."
