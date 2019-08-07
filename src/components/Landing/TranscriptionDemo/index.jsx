@@ -7,6 +7,9 @@ const TranscriptionDemo = () => {
     addText: function (newText) {
       this.text += newText + ' ';
     },
+    resetText: function () {
+      this.text = '';
+    },
   };
 
   const [text, setText] = useState(captions.text);
@@ -22,15 +25,17 @@ const TranscriptionDemo = () => {
         captions.addText(data.word);
         setText(text + captions.text);
       } else {
-        clearInterval(print);
-      }
 
+        // Delete the text that's already there and reset the iterator.
+        captions.resetText();
+        wordIterator.reset();
+        setText('');
+      }
     }, 300);
 
     // Cleanup.
-    return () => {
-      clearInterval(print);
-    };
+    return () => clearInterval(print);
+
   });
 
   return (

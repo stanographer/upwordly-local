@@ -14,7 +14,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head crossOrigin="true">
+        <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <script
             async
