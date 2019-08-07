@@ -8,9 +8,6 @@ set -x
 # Make a folder called latest for latest build.
 mkdir latest
 
-# Move all files into latest folder.
-tar -czf package.tgz latest
-
 echo "Packaging up build files."
 
 # Compress contents into tarball.
@@ -37,7 +34,7 @@ echo "Extracting package."
 cd ~/builds/latest || exit 1
 
 # Clear it all out.
-rm -rf *
+rm -rf -- *
 
 # Come back out to builds.
 cd .. || exit 1
