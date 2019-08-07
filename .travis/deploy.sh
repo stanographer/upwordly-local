@@ -1,10 +1,5 @@
 #!/usr/bin/sh
 
-echo "Packing up build..."
-
-# Debug mode so we can see what's happening.
-set -x
-
 echo "Packaging up build files."
 
 # Compress contents into tarball.
@@ -25,7 +20,7 @@ export NODE_ENV=production
 cd ~/builds || exit 1
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C latest -U
+tar -zxvf package.tgz -C latest --unlink-first
 
 rm package.tgz
 
