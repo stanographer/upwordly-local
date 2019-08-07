@@ -17,7 +17,7 @@ chmod 600 -R latest
 rm -rf latest
 
 # Extract the package we just scp'd over.
-tar -xzf --overwrite package.tgz
+tar -xzf package.tgz
 
 # Remove the tarball after extraction.
 rm package.tgz
