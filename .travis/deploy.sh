@@ -25,7 +25,7 @@ export NODE_ENV=production
 cd ~/builds || exit 1
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz --strip-components=1 latest
+tar -zxvf package.tgz -C latest -U
 
 rm package.tgz
 
