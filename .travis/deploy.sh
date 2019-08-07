@@ -1,20 +1,14 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
 echo "Packing up build..."
 
 # Debug mode so we can see what's happening.
 set -x
 
-# Make a folder called latest for latest build.
-mkdir latest
-
-# Move all files into latest folder.
-tar -czf package.tgz latest
-
 echo "Packaging up build files."
 
 # Compress contents into tarball.
-tar -czf package.tgz latest
+tar -czf package.tgz . --warning=no-file-changed
 
 echo "Sending package to remote host..."
 
@@ -28,26 +22,23 @@ ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
 export NODE_ENV=production
 
-echo "Extracting package."
-
-# Go into current latest.
 cd ~/builds/latest || exit 1
 
-# Clear it all out.
-rm -rf *
+echo "Removing previous build."
 
-# Come back out to builds.
-cd ..
+rm -rf ./*
+
+cd ~/builds || exit 1
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C .
+tar -zxvf package.tgz -C latest
 
 rm package.tgz
 
 cd latest || exit 1
 
 # npm install dependencies.
-npm ci
+npm install
 
 echo "Stopping and deleting old processes."
 
