@@ -48,6 +48,4 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  script: ".travis/deploy.sh production"
-  on:
-    branch: master
+  script: ".travis/deploy.sh"
