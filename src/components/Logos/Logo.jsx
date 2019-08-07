@@ -1,19 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import * as ROUTES from '../../constants/routes';
+import { LANDING } from '../../constants/routes';
 
 const Logo = ({center}) => {
   return (
-      <Link href={ROUTES.LANDING} prefetch>
+      <Link href={LANDING} prefetch>
         <div className={
           center
               ? 'nav-logo cursor-pointer flex items-center flex-grow-0 text-white justify-center'
               : 'nav-logo cursor-pointer flex items-center flex-grow-0 text-white mr-6'
         }>
 
-          <div
-              className="font-bold text-bg bg-highlighter py-4 pl-0 pr-4 italic text-2xl tracking-tight md:content-center"
+          <div className="font-bold text-bg bg-highlighter py-4 pl-0 pr-4 italic text-2xl tracking-tight md:content-center"
               data-test="logo-text">
             <svg className="inline-block fill-current text-grey h-10 w-10 mx-2"
                  xmlns="http://www.w3.org/2000/svg"

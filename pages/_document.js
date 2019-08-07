@@ -16,12 +16,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <script
-            async
-            defer
-            type="text/javascript"
-            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`}
-          />
+          <meta name="Description" content="Upword.ly - Cloud-Based Transcription CMS for Live Captioners and Stenographers" />
           <style>{'body { margin: 0 } /* custom! */'}</style>
         </Head>
         <body className="custom_class">

@@ -392,11 +392,19 @@ class SignUp extends React.Component {
     };
 
     return (
-        <LoginSignInLayout
-            title="Upword.ly - Sign Up"
-            typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}>
-          {stage()}
-        </LoginSignInLayout>
+        <Fragment>
+          <LoginSignInLayout
+              title="Upword.ly - Sign Up"
+              typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}>
+            {stage()}
+          </LoginSignInLayout>
+          <script
+              async
+              defer
+              type="text/javascript"
+              src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`}
+          />
+        </Fragment>
     );
   }
 }
