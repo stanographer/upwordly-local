@@ -46,8 +46,8 @@ before_deploy:
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
 deploy:
+  skip_cleanup: true
   provider: script
   script: ".travis/deploy.sh production"
-  skip_cleanup: true
   on:
     branch: master
