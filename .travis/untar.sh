@@ -27,9 +27,6 @@ npm ci
 # Stop the running old deployment.
 pm2 stop "all"
 
-# Remove all old pm2 processes.
-pm2 delete "all"
-
 echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
