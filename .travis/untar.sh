@@ -16,8 +16,12 @@ chmod 600 -R latest
 # Remove old "latest" directory.
 rm -rf latest
 
+echo "Extracting package."
+
 # Extract the package we just scp'd over.
 tar -xzf package.tgz
+
+echo "Removing package file."
 
 # Remove the tarball after extraction.
 rm package.tgz
@@ -33,6 +37,8 @@ pm2 stop all
 
 # Remove all old pm2 processes.
 pm2 delete all
+
+echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
 pm2 start -i "max" npm --name "upwordly-frontend:latest" -- start

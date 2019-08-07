@@ -14,6 +14,8 @@ mkdir latest
 # Move all contents of Travis working dir into latest.
 mv !(latest) latest
 
+echo "Packaging up build files."
+
 # Compress contents into tarball.
 tar -czf package.tgz latest
 
