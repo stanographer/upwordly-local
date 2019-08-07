@@ -2,7 +2,7 @@ sudo: true
 dist: trusty
 language: node_js
 node_js:
-  - '10'
+  - 'stable'
 cache: npm
 notifications:
   email:
@@ -49,6 +49,7 @@ deploy:
   skip_cleanup: true
   provider: script
   script: .travis/deploy.sh
+  project: .next
   on:
     branch: master
 
