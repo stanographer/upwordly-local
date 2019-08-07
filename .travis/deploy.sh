@@ -36,17 +36,17 @@ export NODE_ENV=production
 
 echo "Extracting package."
 
+cd ~/builds || exit 1
+
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C builds
+tar -zxvf package.tgz -C latest
 
 rm package.tgz
 
-cd ~/builds || exit 1
+cd latest || exit 1
 
 # npm install dependencies.
 npm ci
-
-cd latest || 1
 
 echo "Stopping and deleting old processes."
 
