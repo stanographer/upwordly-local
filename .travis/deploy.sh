@@ -5,14 +5,8 @@ echo "Packing up build..."
 # Debug mode so we can see what's happening.
 set -x
 
-## Use extended glob.
-#shopt -s extglob
-#
 # Make a folder called latest for latest build.
 mkdir latest
-#
-## Move all contents of Travis working dir into latest.
-#mv !(latest) latest
 
 # Move all files into latest folder.
 tar -czf package.tgz latest
@@ -39,7 +33,7 @@ echo "Extracting package."
 cd ~/builds || exit 1
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C latest
+tar -zxvf package.tgz -C .
 
 rm package.tgz
 
