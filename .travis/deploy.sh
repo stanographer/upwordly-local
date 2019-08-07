@@ -8,8 +8,8 @@ set -x
 ## Use extended glob.
 #shopt -s extglob
 #
-## Make a folder called latest for latest build.
-#mkdir latest
+# Make a folder called latest for latest build.
+mkdir latest
 #
 ## Move all contents of Travis working dir into latest.
 #mv !(latest) latest
