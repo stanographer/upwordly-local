@@ -26,6 +26,9 @@ scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds"
 
 ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
+# Debug mode so we can see what's happening.
+set -x
+
 export NODE_ENV=production
 
 echo "Extracting package."
