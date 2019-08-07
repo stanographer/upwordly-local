@@ -21,6 +21,7 @@ scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds"
 # Open a new ssh connection to the remote host, explicitly set tty with -t, run extract script.
 #ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" 'sh -s' < .travis/untar.sh
 
+
 ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
 # Debug mode so we can see what's happening.
@@ -30,14 +31,11 @@ export NODE_ENV=production
 
 echo "Extracting package."
 
-# Go into current latest.
-cd ~/builds/latest || exit 1
+cd ~/builds || exit 1
 
-# Clear it all out.
-rm -rf -- *
+echo "Removing previous build."
 
-# Come back out to builds.
-cd .. || exit 1
+rm -rf latest
 
 # Extract the package we just scp'd over.
 tar -zxvf package.tgz -C .
@@ -47,7 +45,7 @@ rm package.tgz
 cd latest || exit 1
 
 # npm install dependencies.
-npm ci
+npm install
 
 echo "Stopping and deleting old processes."
 
