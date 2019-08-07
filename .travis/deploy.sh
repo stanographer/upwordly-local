@@ -5,6 +5,9 @@ echo "Packing up build..."
 # Debug mode so we can see what's happening.
 set -x
 
+# Build next.js production files.
+npm run build
+
 # Use extended glob.
 shopt -s extglob
 
