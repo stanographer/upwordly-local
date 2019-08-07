@@ -26,4 +26,4 @@ echo "Sending package to remote host..."
 scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds" || exit 1
 
 # Open a new ssh connection to the remote host, explicitly set tty with -t, run extract script.
-ssh -t -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" 'bash -s' < .travis/untar.sh
+ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" 'sh -s' < .travis/untar.sh

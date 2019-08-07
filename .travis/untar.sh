@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 echo "Now extracting and deploying..."
 
@@ -25,10 +25,10 @@ cd latest || exit 1
 npm install
 
 # Stop the running old deployment.
-pm2 stop all
+pm2 stop "all"
 
 # Remove all old pm2 processes.
-pm2 delete all
+pm2 delete "all"
 
 echo "Starting up pm2."
 
