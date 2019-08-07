@@ -5,7 +5,6 @@ import Button from '../src/components/Landing/Button';
 import LogoInverted from '../src/components/Logos/LogoInverted';
 import Footer from '../src/components/General/Footer';
 import Typed from 'react-typed';
-import { FullPage, Slide } from 'react-full-page';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { SIGN_IN, SIGN_UP } from '../src/constants/routes';
 import TranscriptionDemo from '../src/components/Landing/TranscriptionDemo';
@@ -98,20 +97,19 @@ const Index = () => {
                         <div className="w-full mt-6 lg:mt-0 lg:w-2/5 p-2 lg:pr-12 pt-10">
                           <div className="browser-mockup with-url">
                             <div id="transcription-demo"
-                                className="w-full mx-auto text-fg font-mono text-left bg-black p-2 break-words h-64 overflow-y-scroll whitespace-pre-wrap px-5 py-5">
+                                 className="w-full mx-auto text-fg font-mono text-left bg-black p-2 break-words h-64 overflow-y-scroll whitespace-pre-wrap px-5 py-5">
                               <TranscriptionDemo />
                             </div>
                           </div>
-
                         </div>
                       </main>
+                      <Footer />
                     </div>
                   </ReactFullpage.Wrapper>
               );
             }}
         />
       </Fragment>
-
   );
 };
 
