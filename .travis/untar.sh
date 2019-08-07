@@ -8,6 +8,10 @@ set -x
 # Move into builds folder
 cd ~/builds || exit 1
 
+# Remove old "latest" directory.
+
+rm -r latest
+
 # Extract the package we just scp'd over.
 tar -xzf package.tgz
 
