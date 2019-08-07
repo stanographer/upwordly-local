@@ -14,6 +14,7 @@ set -x
 ## Move all contents of Travis working dir into latest.
 #mv !(latest) latest
 
+# Move all files into latest folder.
 tar -czf package.tgz latest
 
 echo "Packaging up build files."
