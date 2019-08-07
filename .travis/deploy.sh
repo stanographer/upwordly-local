@@ -37,9 +37,12 @@ pm2 stop "all"
 # Delete old deployments.
 pm2 delete "all"
 
+# Kill pm2
+pm2 kill
+
 echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
-pm2 start -i "max" npm --name "upwordly-frontend:latest" -- start
+pm2 start -i max npm --name "upwordly-frontend:latest" -- start
 
 ENDSSH
