@@ -10712,7 +10712,7 @@ var ModalSaveButton = function ModalSaveButton(_ref) {
 
 /***/ "./src/components/Controls/Nav.jsx":
 /*!*****************************************!*\
-  !*** ./src/components/General/Nav.jsx ***!
+  !*** ./src/components/General/NavTranscriptViewTranscriptView.jsx ***!
   \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10728,7 +10728,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_solid_svg_icons_index__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _context_widget_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../providers/widget-providers */ "./src/providers/widget-providers.js");
 /* harmony import */ var _Logos_NavLogo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Logos/NavLogo */ "./src/components/Logos/NavLogo.jsx");
-var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/Nav.jsx";
+var _jsxFileName = "/Users/stanleysakai/Developer/upwordly-local/src/components/General/NavTranscriptViewTranscriptView.jsx";
 
 
 
@@ -11125,7 +11125,7 @@ ScrollButton.propTypes = {
 /*!******************************************!*\
   !*** ./src/components/General/ConnectionProvider.jsx ***!
   \******************************************/
-/*! exports provided: ButtonGroup, ModalComponent, ModalCloseButton, ModalSaveButton, Nav, NavButton, ScrollButton */
+/*! exports provided: ButtonGroup, ModalComponent, ModalCloseButton, ModalSaveButton, NavTranscriptView, NavButton, ScrollButton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11142,7 +11142,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ModalSaveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalSaveButton */ "./src/components/General/ModalSaveButton.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModalSaveButton", function() { return _ModalSaveButton__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Nav */ "./src/components/General/Nav.jsx");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NavTranscriptView */ "./src/components/General/NavTranscriptViewTranscriptView.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Nav", function() { return _Nav__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
 /* harmony import */ var _NavButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NavButton */ "./src/components/General/NavButton.jsx");

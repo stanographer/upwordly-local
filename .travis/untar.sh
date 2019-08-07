@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
+
+export NODE_ENV=production
 
 echo "Now extracting and deploying..."
 
@@ -8,8 +10,13 @@ set -x
 # Move into builds folder
 cd ~/builds || exit 1
 
+echo "Extracting package."
+
 # Extract the package we just scp'd over.
-tar -xzf package.tgz
+#tar -xzf package.tgz
+tar zxvf package.tgz -C .
+
+echo "Removing package file."
 
 # Remove the tarball after extraction.
 rm package.tgz
@@ -21,7 +28,14 @@ cd latest || exit 1
 npm install
 
 # Stop the running old deployment.
-pm2 stop 'all'
+pm2 stop "all"
+
+#Delete old deployments.
+pm2 delete "all"
+
+echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
-pm2 start -i "max" npm --name "upwordly-frontend:latest" -- start
+pm2 start --name "upwordly-frontend:latest" -- start
+
+pm2 scale "upwordly-frontend:latest" 4

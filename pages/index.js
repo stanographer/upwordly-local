@@ -1,61 +1,130 @@
-import React from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import Typed from 'react-typed';
-import Link from 'next/link';
-import Provider from '../src/components/Session/Provider';
-import Logo from '../src/components/Logos/Logo'
-import Footer from '../src/components/General/Footer'
-import {SIGN_IN, SIGN_UP} from '../src/constants/routes';
+import ReactFullpage from '@fullpage/react-fullpage';
+import Button from '../src/components/Landing/Button';
+import LogoInverted from '../src/components/Logos/LogoInverted';
+import Footer from '../src/components/General/Footer';
+import TranscriptionDemo from '../src/components/Landing/TranscriptionDemo';
+
+const Loading = dynamic(() => import('../src/components/General/Loading'));
 
 const Index = () => {
-  return (
-    <Provider>
-      <div className='landing-wrapper' id='landing-wrapper'>
-        <section className='intro my-auto'>
-          <Logo center={true} />
-          <div className='mt-5'>
-            <Typed
-                className='marquee text-teal-200 sm:text-lg lg:text-2xl'
-                data-test='typed-text'
-                strings={['One platform to sync, send, and integrate your real-time transcriptions.', 'Web-based live stenography, anywhere.']}
-                typeSpeed={60}
-                loop
-              />
-          </div>
-          <p className='w-9/12 lg:w-7/12 text-center mx-auto my-5 sm:text-lg lg:text-2xl'>
-              Upword.ly is a real-time transcription delivery tool and a content
-              management system (CMS) for real-time stenographers. You log in,
-              create a job, connect your CAT software via a small helper app,
-              and start writing. Distribute your live feed to anyone via a short
-              URL and that's it! Since it is web-based, there's no need for your
-              consumers to install anything on their end. When the job is over,
-              it's your choice to use the variety of tools to save or
-              disseminate the transcript or to delete it. Simple.
-          </p>
-            <Link href={SIGN_IN} prefetch={true}>
-              <button
-                title='sign in'
-                className='bg-blue hover:bg-blue-dark text-teal-200 font-bold md:text-lg py-2 px-4 mx-2 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200'
-                type='button'>
-                Sign In
-              </button>
-            </Link>
-            <Link href={SIGN_UP} prefetch={true}>
-              <button
-                title='sign up'
-                className='bg-blue hover:bg-blue-dark text-teal-200 font-bold md:text-lg py-2 px-4 mx-2 rounded border-white hover:border-transparent hover:text-bg hover:bg-teal-200'
-                type='button'>
-                Sign Up
-              </button>
-            </Link>
-          <Footer />
-        </section>
-      </div>
-    </Provider>
-  );
-};
+  const [loading, setLoading] = useState(true);
 
-Index.getInitialProps = async ({query, res}) => {
-  console.log('query, res', query, res);
+  useEffect(() => {
+
+    // Scrolls the latest text in the demo into view.
+    const scroller = setInterval(() => {
+      const elem = document.getElementById('transcription-demo');
+      elem.scrollTop = elem.scrollHeight;
+    }, 1200);
+
+    setLoading(false);
+
+    return () => clearInterval(scroller);
+  }, []);
+
+  return (
+      <Fragment>
+        {
+          loading
+              ? <Loading />
+              : <Fragment>
+                <Head>
+                  <title>Upword.ly - Live Transcription CMS</title>
+                </Head>
+                <ReactFullpage
+                    navigation
+                    licenseKey={process.env.FULL_PAGE_KEY}
+                    scrollingSpeed={1000}
+                    sectionsColor={[]}
+                    render={({state, fullpageApi}) => {
+                      return (
+                          <ReactFullpage.Wrapper>
+                            <header
+                                className="section flex flex-col justify-center items-center text-center h-full bg-bgOverlay">
+                              <LogoInverted center />
+                              <div className="mt-1">
+                                <Typed
+                                    className="marquee text-teal-200 text-md lg:text-lg"
+                                    data-test="typed-text"
+                                    strings={[
+                                      'One platform to sync, send, and integrate your real-time transcriptions.',
+                                      'Web-based live stenography, anywhere.',
+                                    ]}
+                                    typeSpeed={40}
+                                    loop={false}
+                                />
+                              </div>
+                              <div className="mt-10">
+                                <Button
+                                    color="green"
+                                    text="Learn more"
+                                    type="button"
+                                    name="learn-more"
+                                    onClick={() => fullpageApi.moveSectionDown()}
+                                />
+                              </div>
+                            </header>
+                            <section className="section flex">
+                              <header
+                                  className="text-center mb-10 text-5xl font-bold italic text-bg bg-highlighter flex-shrink-0">
+                                About Upword.ly
+                              </header>
+                              <main className="flex flex-wrap">
+                                <section className="w-full lg:w-1/2 p-2">
+                                  <div className="text-fg text-center p-2">
+                                    <p className="w-9/12 lg:w-7/12 text-left mx-auto my-5 text-md lg:text-lg">
+                        <span className="text-highlighter font-bold italic">
+                          Upword.ly
+                        </span>{' '}
+                                      is a real-time transcription delivery tool and a content
+                                      management system (CMS) for real-time stenographers. You
+                                      log in, create a job, connect your CAT software via a
+                                      small helper app, and start writing.
+                                    </p>
+                                    <p className="w-9/12 lg:w-7/12 text-left mx-auto my-5 text-md lg:text-lg">
+                                      Since it is web-based, there's{' '}
+                                      <span className="font-bold italic text-green-200">
+                          no need
+                        </span>{' '}
+                                      for your consumers to install anything on their end.
+                                      Distribute your live feed to anyone via a personalized
+                                      URL and that's it!
+                                    </p>
+                                    <p className="w-9/12 lg:w-7/12 text-left mx-auto my-5 text-md lg:text-lg">
+                                      When the job is over, it's your choice to use the
+                                      variety of tools to save or disseminate the transcript
+                                      or to delete it.{' '}
+                                      <span className="font-bold italic text-green-200">
+                          Simple.
+                        </span>
+                                    </p>
+                                  </div>
+                                </section>
+                                <section className="w-full mt-6 lg:mt-0 lg:w-2/5 p-2 lg:pr-12 pt-10">
+                                  <div className="browser-mockup with-url">
+                                    <div
+                                        id="transcription-demo"
+                                        className="w-full mx-auto text-fg font-mono text-left bg-black p-2 break-words h-64 overflow-y-scroll whitespace-pre-wrap px-5 py-5"
+                                    >
+                                      <TranscriptionDemo />
+                                    </div>
+                                  </div>
+                                </section>
+                              </main>
+                              <Footer />
+                            </section>
+                          </ReactFullpage.Wrapper>
+                      );
+                    }}
+                />
+              </Fragment>
+        }
+      </Fragment>
+  );
 };
 
 export default Index;

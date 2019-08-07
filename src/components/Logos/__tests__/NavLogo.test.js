@@ -13,8 +13,6 @@ describe('NavLogo component', () => {
     const component = setup();
     const isLogo = component.find('.nav-logo');
 
-    // console.log(component.debug());
-
     expect(isLogo.length).toBe(1);
   });
 

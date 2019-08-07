@@ -29,10 +29,10 @@ before_install:
   - chmod +x .travis/deploy.sh
   - chmod +x .travis/untar.sh
 install:
-  - npm install
+  - npm ci
 before_script:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
-      -in deploy_key.enc -out ./deploy_key -d
+    -in deploy_key.enc -out ./deploy_key -d
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
@@ -40,12 +40,14 @@ script:
   - npm run test:coverage
   - npm run build
 before_deploy:
+  - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
+    -in deploy_key.enc -out ./deploy_key -d
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
 deploy:
-  provider: script
-  script: ".travis/deploy.sh production"
   skip_cleanup: true
+  provider: script
+  script: bash .travis/deploy.sh production
   on:
     branch: master

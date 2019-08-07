@@ -1,20 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { LANDING } from '../../constants/routes';
+import {LANDING} from '../../constants/routes';
 
-const Logo = ({center}) => {
+const LogoInverted = ({center}) => {
   return (
       <Link href={LANDING} prefetch>
-        <div className={
+        <div data-test="logo-inverted"
+            className={
           center
               ? 'nav-logo cursor-pointer flex items-center flex-grow-0 text-white justify-center'
               : 'nav-logo cursor-pointer flex items-center flex-grow-0 text-white mr-6'
         }>
 
-          <div className="font-bold text-bg bg-highlighter py-4 pl-0 pr-4 italic text-2xl tracking-tight md:content-center"
-              data-test="logo-text">
-            <svg className="inline-block fill-current text-grey h-10 w-10 mx-2"
+          <div className="font-bold text-highlighter py-4 pl-0 pr-4 italic text-6xl tracking-tight md:content-center"
+              data-test="logo-title">
+            <svg className="inline-block fill-current text-grey h-20 w-20 mx-2 -mt-4"
                  xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 20 20">
               <path
@@ -27,8 +28,8 @@ const Logo = ({center}) => {
   );
 };
 
-Logo.propTypes = {
+LogoInverted.propTypes = {
   center: PropTypes.bool,
 };
 
-export default Logo;
+export default LogoInverted;

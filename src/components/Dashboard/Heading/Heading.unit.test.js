@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Heading from '../Heading';
+import Heading from '.';
 import { checkProps, findByTestAttr } from '../../../../utils';
 
 const setup = (props = {}) => {
@@ -11,7 +11,11 @@ describe('Heading component', () => {
   describe('should render correctly with props.', () => {
     let wrapper;
     const props = {
-      additionalText: <p className="pt-4 pb-2 text-green-200" data-test="logged-in-text">Logged in as Mike Wazowski</p>,
+      additionalText: (
+        <p className="pt-4 pb-2 text-green-200" data-test="logged-in-text">
+          Logged in as Mike Wazowski
+        </p>
+      ),
       heading: 'Looper by ANML',
       typedText: ['The best vape juice evar.'],
     };
