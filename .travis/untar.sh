@@ -8,14 +8,6 @@ set -x
 # Move into builds folder
 cd ~/builds || exit 1
 
-echo "Removing old latest directory."
-
-# Changing permissions so we can delete.
-chmod 600 -R latest
-
-# Remove old "latest" directory.
-rm -rf latest
-
 echo "Extracting package."
 
 # Extract the package we just scp'd over.

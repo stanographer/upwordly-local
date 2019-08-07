@@ -24,7 +24,7 @@ describe('LogoInverted Component', () => {
   });
 
   describe('with center prop', () => {
-    const wrapper = setup({center: true});
+    const wrapper = setup({ center: true });
     it('should render with justify-center class.', () => {
       const logoInverted = findByTestAttr(wrapper, 'logo-inverted');
       const centered = wrapper.find('.justify-center');
@@ -38,4 +38,3 @@ describe('LogoInverted Component', () => {
     });
   });
 });
-
