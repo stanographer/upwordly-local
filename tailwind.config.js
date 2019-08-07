@@ -13,6 +13,7 @@ module.exports = {
       transparent: 'transparent',
       bg: 'rgb(30,34,39)',
       bg2: '#282c34',
+      bgOverlay: 'rgba(0, 0, 0, .6)',
       brightBlue: '#93ddfd',
       fg: '#fffce1',
       highlighter: '#e5ff7a',
@@ -282,6 +283,9 @@ module.exports = {
       ...theme('spacing'),
       full: '100%',
       screen: '100vh',
+      '9/12': '75%',
+      '10/12': '83.33333%',
+      '11/12': '91.66667%',
     }),
     inset: {
       '0': '0',
