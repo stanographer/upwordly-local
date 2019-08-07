@@ -30,6 +30,9 @@ npm install
 # Stop the running old deployment.
 pm2 stop "all"
 
+#Delete old deployments.
+pm2 delete "all"
+
 echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
