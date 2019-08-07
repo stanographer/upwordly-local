@@ -32,8 +32,6 @@ scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds"
 
 ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
-ENDSSH
-
 export NODE_ENV=production
 
 echo "Extracting package."
@@ -62,3 +60,5 @@ echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
 pm2 start -i "max" npm --name "upwordly-frontend:latest" -- start
+
+ENDSSH
