@@ -8,12 +8,16 @@ set -x
 # Move into builds folder
 cd ~/builds || exit 1
 
-# Remove old "latest" directory.
+echo "Removing old latest directory."
 
+# Changing permissions so we can delete.
+chmod 600 -R latest
+
+# Remove old "latest" directory.
 rm -r latest
 
 # Extract the package we just scp'd over.
-tar -xzf package.tgz
+tar -xzf --overwrite package.tgz
 
 # Remove the tarball after extraction.
 rm package.tgz
