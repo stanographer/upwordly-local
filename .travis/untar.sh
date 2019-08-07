@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+export NODE_ENV=production
+
 echo "Now extracting and deploying..."
 
 # Debug mode so we can see what's happening.
