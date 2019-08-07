@@ -3,9 +3,7 @@ dist: trusty
 language: node_js
 node_js:
   - 'stable'
-cache:
-  directories:
-    - 'node_modules'
+cache: npm
 notifications:
   email:
     on_failure: change
