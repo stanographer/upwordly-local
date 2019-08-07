@@ -39,7 +39,7 @@ export NODE_ENV=production
 echo "Extracting package."
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C builds/latest
+tar -zxvf package.tgz -C builds
 
 rm package.tgz
 
