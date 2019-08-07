@@ -2,7 +2,7 @@ sudo: true
 dist: trusty
 language: node_js
 node_js:
-  - 'stable'
+  - '10'
 cache: npm
 notifications:
   email:
@@ -17,7 +17,6 @@ env:
     - REMOTE_USER=deploy
     - REMOTE_HOST=206.189.169.212
     - PORT=3000
-    - NODE_ENV=production
 before_install:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
     -in deploy_key.enc -out ./deploy_key -d
@@ -30,7 +29,7 @@ before_install:
   - chmod +x .travis/deploy.sh
   - chmod +x .travis/untar.sh
 install:
-  - npm install
+  - npm ci
 before_script:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
     -in deploy_key.enc -out ./deploy_key -d
@@ -49,6 +48,6 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  script: .travis/deploy.sh
+  script: bash .travis/deploy.sh production
   on:
     branch: master
