@@ -52,7 +52,6 @@ deploy:
   skip_cleanup: true
   provider: script
   script: .travis/deploy.sh
-  local_dir: .next
   on:
     branch: master
 
