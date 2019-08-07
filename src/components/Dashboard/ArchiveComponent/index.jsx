@@ -40,7 +40,7 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
         />
         {
           errors
-              ? <p className="text-lg text-green-400 my-4"
+              ? <p className="text-lg text-red-200 my-4"
                    data-test="archive-component-errors">
                 {errors}
               </p>

@@ -1,11 +1,13 @@
 module.exports = {
   'extends': ['airbnb', 'prettier', 'prettier/react'],
-  'plugins': ['react', 'prettier', 'jsx-a11y'],
+  'plugins': ['react', 'prettier', 'jsx-a11y', 'react-hooks'],
   'rules': {
     'func-names': [
       'error',
       'never',
     ],
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'semi': [
       'error',
       'always',
