@@ -40,7 +40,7 @@ cd ~/builds/latest || exit 1
 rm -rf *
 
 # Come back out to builds.
-cd ..
+cd .. || exit 1
 
 # Extract the package we just scp'd over.
 tar -zxvf package.tgz -C .
