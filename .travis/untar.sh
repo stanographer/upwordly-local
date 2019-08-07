@@ -24,7 +24,7 @@ rm package.tgz
 cd latest || exit 1
 
 # npm install dependencies.
-npm ci
+npm install
 
 # Stop the running old deployment.
 pm2 stop "all"
