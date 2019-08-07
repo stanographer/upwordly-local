@@ -5,14 +5,16 @@ echo "Packing up build..."
 # Debug mode so we can see what's happening.
 set -x
 
-# Use extended glob.
-shopt -s extglob
+## Use extended glob.
+#shopt -s extglob
+#
+## Make a folder called latest for latest build.
+#mkdir latest
+#
+## Move all contents of Travis working dir into latest.
+#mv !(latest) latest
 
-# Make a folder called latest for latest build.
-mkdir latest
-
-# Move all contents of Travis working dir into latest.
-mv !(latest) latest
+tar -czf package.tgz latest
 
 echo "Packaging up build files."
 
