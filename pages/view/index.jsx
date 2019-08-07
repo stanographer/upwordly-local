@@ -13,7 +13,7 @@ import { DisconnectedToast, ReconnectedToast } from '../../src/components/Toasts
 // Dynamic imports.
 const ScrollButton = dynamic(() => import('../../src/components/General')
     .then(mod => mod.ScrollButton));
-const Nav = dynamic(() => import('../../src/components/Nav/Nav'));
+const Nav = dynamic(() => import('../../src/components/Nav/NavTranscriptView'));
 const Modal = dynamic(() => import('react-modal'));
 const ModalComponent = dynamic(() => import('../../src/components/Modals/ModalComponent'));
 
