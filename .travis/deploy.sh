@@ -22,16 +22,10 @@ ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
 export NODE_ENV=production
 
-cd ~/builds/latest || exit 1
-
-echo "Removing previous build."
-
-rm -rf ./*
-
 cd ~/builds || exit 1
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C latest
+tar -zxvf package.tgz --strip-components=1 latest
 
 rm package.tgz
 
