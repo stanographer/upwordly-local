@@ -19,6 +19,7 @@ const sampleText = 'DAVID MALAN: Okay. So today we peel back the layers that we\
     '\n' +
     'DAVID MALAN: Okay. So she thinks she\'s going to need another cup. And okay, so good. I came prepared. So we need another variable, if you will. Okay. So here we go, Kate. Set us up.';
 
+// Using an iterator to iterate throughout array of text blobs.
 function iter(arr) {
   let i = 0;
 
@@ -38,6 +39,7 @@ function iter(arr) {
   };
 }
 
+// Create blobs by dividing up the text into chunks by spacing.
 const textBlocks = sampleText
     .trim()
     .split(' ');
