@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
 echo "Packing up build..."
 
@@ -11,7 +11,7 @@ mkdir latest
 echo "Packaging up build files."
 
 # Compress contents into tarball.
-tar -czf package.tgz latest
+tar -czf package.tgz . --warning=no-file-changed
 
 echo "Sending package to remote host..."
 
@@ -21,7 +21,6 @@ scp -o stricthostkeychecking=no package.tgz "$REMOTE_USER@$REMOTE_HOST:~/builds"
 # Open a new ssh connection to the remote host, explicitly set tty with -t, run extract script.
 #ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" 'sh -s' < .travis/untar.sh
 
-
 ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
 # Debug mode so we can see what's happening.
@@ -29,16 +28,16 @@ set -x
 
 export NODE_ENV=production
 
-echo "Extracting package."
-
 cd ~/builds || exit 1
 
 echo "Removing previous build."
 
 rm -rf latest
 
+mkdir latest
+
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C .
+tar -zxvf package.tgz -C latest
 
 rm package.tgz
 
