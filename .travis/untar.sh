@@ -14,7 +14,7 @@ echo "Removing old latest directory."
 chmod 600 -R latest
 
 # Remove old "latest" directory.
-rm -r latest
+rm -rf latest
 
 # Extract the package we just scp'd over.
 tar -xzf --overwrite package.tgz
