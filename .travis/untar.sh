@@ -13,7 +13,8 @@ cd ~/builds || exit 1
 echo "Extracting package."
 
 # Extract the package we just scp'd over.
-tar -xzf package.tgz
+#tar -xzf package.tgz
+tar zxvf package.tgz -C .
 
 echo "Removing package file."
 
