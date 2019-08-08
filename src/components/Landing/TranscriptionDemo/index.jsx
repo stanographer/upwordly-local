@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { wordIterator } from './TextGenerator';
 
 const TranscriptionDemo = () => {
-  let captions = {
+  const captions = {
     text: '',
     addText: function (newText) {
       this.text += newText + ' ';
     },
-    resetText: function () {
+    resetText: function() {
       this.text = '';
     },
   };

@@ -68,9 +68,9 @@ class ConnectionProvider extends Component {
 
   // Outputs the websockets URI depending on app environment.
   assembleUrl = async host => {
-    const domain = await process.env.NODE_ENV === 'production' ? 'upword.ly/ws' : host;
-    const port = await process.env.NODE_ENV === 'production' ? '' : ':9090';
-    const protocol = await process.env.NODE_ENV === 'production' ? 'wss://' : 'ws://';
+    const domain = process.env.NODE_ENV === 'production' ? 'upword.ly/ws' : host;
+    const port = process.env.NODE_ENV === 'production' ? '' : ':9090';
+    const protocol = process.env.NODE_ENV === 'production' ? 'wss://' : 'ws://';
 
     return protocol + domain + port;
   };
