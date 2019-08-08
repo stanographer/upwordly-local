@@ -1,10 +1,5 @@
 #!/usr/bin/sh
 
-echo "Packing up build..."
-
-# Debug mode so we can see what's happening.
-set -x
-
 echo "Packaging up build files."
 
 # Compress contents into tarball.
@@ -22,16 +17,10 @@ ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
 export NODE_ENV=production
 
-cd ~/builds/latest || exit 1
-
-echo "Removing previous build."
-
-rm -rf ./*
-
 cd ~/builds || exit 1
 
 # Extract the package we just scp'd over.
-tar -zxvf package.tgz -C latest
+tar -zxf package.tgz -C latest --unlink-first
 
 rm package.tgz
 
@@ -48,9 +37,12 @@ pm2 stop "all"
 # Delete old deployments.
 pm2 delete "all"
 
+# Kill pm2
+pm2 kill
+
 echo "Starting up pm2."
 
 # Start a new process in cluster mode using all available processors.
-pm2 start -i "max" npm --name "upwordly-frontend:latest" -- start
+pm2 start -i max npm --name "upwordly-frontend:latest" -- start
 
 ENDSSH

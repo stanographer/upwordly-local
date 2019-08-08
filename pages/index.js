@@ -7,6 +7,7 @@ import Button from '../src/components/Landing/Button';
 import LogoInverted from '../src/components/Logos/LogoInverted';
 import Footer from '../src/components/General/Footer';
 import TranscriptionDemo from '../src/components/Landing/TranscriptionDemo';
+import NavLandingNoAuth from '../src/components/Nav/NavLandingNoAuth';
 
 const Loading = dynamic(() => import('../src/components/General/Loading'));
 
@@ -35,6 +36,7 @@ const Index = () => {
                 <Head>
                   <title>Upword.ly - Live Transcription CMS</title>
                 </Head>
+                <NavLandingNoAuth />
                 <ReactFullpage
                     navigation
                     licenseKey={process.env.FULL_PAGE_KEY}
