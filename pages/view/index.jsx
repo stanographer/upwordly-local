@@ -30,7 +30,7 @@ const modalStyles = {
   },
   overlay: {
     backgroundColor: 'rgb(0, 0, 0, 0.3)',
-  }
+  },
 };
 
 class View extends React.Component {

@@ -1,6 +1,15 @@
 module.exports = {
-  'extends': ['airbnb', 'prettier', 'prettier/react'],
-  'plugins': ['react', 'prettier', 'jsx-a11y', 'react-hooks'],
+  'extends': [
+    'airbnb',
+    'prettier',
+    'prettier/react',
+  ],
+  'plugins': [
+    'react',
+    'prettier',
+    'jsx-a11y',
+    'react-hooks',
+  ],
   'rules': {
     'func-names': [
       'error',
@@ -29,5 +38,6 @@ module.exports = {
     'amd': true,
     'browser': true,
     'es6': true,
+    'node': true,
   },
 };
