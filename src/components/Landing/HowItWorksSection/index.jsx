@@ -35,7 +35,7 @@ const HowItWorksSection = () => {
       </p>
       <main className="flex flex-wrap mx-10">
         <div className="flex flex-grow flex-wrap mb-4">
-          <div className="flex w-full lg:w-1/3 h-auto px-6 py-4 lg:py-10 justify-center">
+          <div className="flex w-full lg:w-1/3 h-auto px-4 py-4 lg:py-10 justify-center">
             <div className="bg-bg2 max-w-sm rounded overflow-hidden shadow-lg">
               <div className="flex flex-col items-center mx-8 mb-4 mt-8 text-5xl text-highlighter">
                 <FontAwesomeIcon icon={faCalendarAlt} />
