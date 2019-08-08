@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import Typed from 'react-typed';
 import { deleteJob } from '../../../firebase/db';
 import { deleteShareDbJob } from '../../ShareDB/actions';
 import Heading from '../Heading';
@@ -26,8 +25,6 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
         ? `${document.location.protocol}//${document.location.host}`
         : `${document.location.protocol}//${document.location.hostname}:9090`;
 
-    console.log(id, user, shortName);
-
     deleteShareDbJob(url, user, shortName)
         .then(() => deleteJob(auth.uid, id, deleteSuccessMessage))
         .catch(err => deleteSuccessMessage(false));
@@ -43,7 +40,7 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
         />
         {
           errors
-              ? <p className="text-lg text-green-400 my-4"
+              ? <p className="text-lg text-red-200 my-4"
                    data-test="archive-component-errors">
                 {errors}
               </p>
@@ -64,6 +61,10 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
 
 ArchiveComponent.propTypes = {
   user: PropTypes.object,
+  getUserData: PropTypes.func,
+  deleteAJob: PropTypes.func,
+  deleteSuccess: PropTypes.bool,
+  jobs: PropTypes.object,
 };
 
 export default ArchiveComponent;

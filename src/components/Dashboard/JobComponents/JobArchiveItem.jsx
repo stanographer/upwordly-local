@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
-  let [confirmDelete, setConfirmDelete] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const areYouSureToDelete = () => {
     setConfirmDelete(true);
@@ -84,6 +85,13 @@ const JobArchiveItem = ({deleteAJob, getUserData, id, job}) => {
         </div>
       </div>
   );
+};
+
+JobArchiveItem.propTypes = {
+  deleteAJob: PropTypes.func.isRequired,
+  getUserData: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  job: PropTypes.object.isRequired,
 };
 
 export default JobArchiveItem;
