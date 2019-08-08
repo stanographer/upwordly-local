@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Typed from 'react-typed';
 import ReactFullpage from '@fullpage/react-fullpage';
 import AboutSection from '../src/components/Landing/AboutSection';
@@ -9,6 +10,7 @@ import HowItWorksSection from '../src/components/Landing/HowItWorksSection';
 import LogoInverted from '../src/components/Logos/LogoInverted';
 import PricingSection from '../src/components/Landing/PricingSection';
 import ContactSection from '../src/components/Landing/ContactSection';
+import { SIGN_IN } from '../src/constants/routes';
 
 const Loading = dynamic(() => import('../src/components/General/Loading'));
 
@@ -58,6 +60,15 @@ const Index = () => {
                         name="learn-more"
                         onClick={() => fullpageApi.moveSectionDown()}
                       />
+                      <Link href={SIGN_IN} prefetch>
+                        <Button
+                          classNames="ml-3"
+                          color="blue"
+                          text="Sign In"
+                          type="button"
+                          name="sign-in button"
+                        />
+                      </Link>
                     </div>
                   </header>
                   <section className="section flex">
