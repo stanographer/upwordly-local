@@ -33,7 +33,7 @@ const Index = () => {
           <ReactFullpage
             navigation
             licenseKey={process.env.FULL_PAGE_KEY}
-            scrollingSpeed={400}
+            scrollingSpeed={700}
             sectionsColor={[]}
             render={({ state, fullpageApi }) => {
               return (
