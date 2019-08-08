@@ -18,7 +18,7 @@ const TranscriptionDemo = () => {
 
     // Basically using setInterval to print out the next word
     // with 300ms delay in between.
-    let print = setInterval(() => {
+    const print = setInterval(() => {
       const data = wordIterator.next();
 
       if (data.done !== true) {
