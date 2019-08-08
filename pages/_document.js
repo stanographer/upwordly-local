@@ -111,7 +111,7 @@ class MyDocument extends Document {
             name="msapplication-TileImage"
             content="/static/favicons/ms-icon-310x310.png"
           />
-          <meta name="theme-color" content="#282c34" />
+          <meta name="theme-color" content="#fffce1" />
           <style>{'body { margin: 0 } /* custom! */'}</style>
         </Head>
         <body className="custom_class">

@@ -1,5 +1,5 @@
 /*Prevents FontAwesome icons from loading HUGE during SSR loading.*/
-@import 'node_modules/@fortawesome/fontawesome-svg-core/styles.css';
+@import '../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
 @font-face {
     font-family: 'Apercu';
