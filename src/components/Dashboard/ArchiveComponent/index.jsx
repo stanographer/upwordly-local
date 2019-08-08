@@ -27,7 +27,7 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
 
     deleteShareDbJob(url, user, shortName)
         .then(() => deleteJob(auth.uid, id, deleteSuccessMessage))
-        .catch(err => deleteSuccessMessage(false));
+        .catch(() => deleteSuccessMessage(false));
 
     return cb(currentAuth, {uid: auth.uid});
   };

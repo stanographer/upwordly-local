@@ -8,10 +8,8 @@ import {
 import PropTypes from 'prop-types';
 
 const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user}) => {
-  console.log('dashboard props', user.uid);
-
-  let [job, setJob] = useState({});
-  let [errors, setErrors] = useState([]);
+  const [job, setJob] = useState({});
+  const [errors, setErrors] = useState([]);
 
   const setShortName = val => {
     const re = /^[a-z0-9_\-]+$/i;
@@ -49,11 +47,11 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
 
     // Escapes curly braces.
     if (val.includes('{')) {
-      val = val.replace('{', '\{');
+      val = val.replace('{', '{');
     }
 
     if (val.includes('}')) {
-      val = val.replace('{', '\}');
+      val = val.replace('{', '}');
     }
 
     setJob({
