@@ -27,8 +27,6 @@ before_install:
   - ssh -i ./deploy_key root@$REMOTE_HOST pwd
   - npm install -g npm
   - chmod +x .travis/deploy.sh
-  on:
-    branch: master
 install:
   - npm ci
 before_script:
@@ -37,8 +35,6 @@ before_script:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
-  on:
-    branch: master
 script:
   - npm run test:coverage
   - npm run build
@@ -48,8 +44,6 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
-  on:
-    branch: master
 deploy:
   skip_cleanup: true
   provider: script
