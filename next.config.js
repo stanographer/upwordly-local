@@ -26,9 +26,7 @@ module.exports = withCSS({
 
     if (config.mode === 'production') {
       if (Array.isArray(config.optimization.minimizer)) {
-        config.optimization.minimizer.push(
-            new OptimizeCssAssetsPlugin({})
-        )
+        config.optimization.minimizer.push(new OptimizeCssAssetsPlugin({}));
       }
     }
 

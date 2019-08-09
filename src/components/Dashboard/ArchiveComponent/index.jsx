@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import { deleteJob } from '../../../firebase/db';
 import { deleteShareDbJob } from '../../ShareDB/actions';
 import Heading from '../Heading';
 import JobArchiveList from '../JobComponents/JobArchiveList';
 import { auth as currentAuth } from '../../../firebase/firebase';
-import PropTypes from 'prop-types';
 
 const ArchiveComponent = ({auth, getUserData, jobs}) => {
-  let [deleteSuccess, setDeleteSuccess] = useState(false);
-  let [errors, setErrors] = useState('');
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const [errors, setErrors] = useState('');
 
   const deleteSuccessMessage = status => {
     if (status === true) {
@@ -21,41 +21,44 @@ const ArchiveComponent = ({auth, getUserData, jobs}) => {
   };
 
   const deleteAJob = (id, user, shortName, cb) => {
-    const url = process.env.NODE_ENV === 'production'
+    const url =
+      process.env.NODE_ENV === 'production'
         ? `${document.location.protocol}//${document.location.host}`
         : `${document.location.protocol}//${document.location.hostname}:9090`;
 
     deleteShareDbJob(url, user, shortName)
-        .then(() => deleteJob(auth.uid, id, deleteSuccessMessage))
-        .catch(() => deleteSuccessMessage(false));
+      .then(() => deleteJob(auth.uid, id, deleteSuccessMessage))
+      .catch(() => deleteSuccessMessage(false));
 
     return cb(currentAuth, {uid: auth.uid});
   };
 
   return (
-      <Fragment>
-        <Heading
-            heading="Archive"
-            typedText={['View your all your archived jobs here.']}
+    <Fragment>
+      <Heading
+        heading="Archive"
+        typedText={['View your all your archived jobs here.']}
+      />
+      {errors ? (
+        <p
+          className="text-lg text-red-200 my-4"
+          data-test="archive-component-errors"
+        >
+          {errors}
+        </p>
+      ) : (
+        ''
+      )}
+      <div className="flex flex-wrap -mx-4 my-10">
+        <JobArchiveList
+          data-test="archive-component-list"
+          jobs={jobs}
+          getUserData={getUserData}
+          deleteAJob={deleteAJob}
+          deleteSuccess={deleteSuccess}
         />
-        {
-          errors
-              ? <p className="text-lg text-red-200 my-4"
-                   data-test="archive-component-errors">
-                {errors}
-              </p>
-              : ''
-        }
-        <div className="flex flex-wrap -mx-4 my-10">
-          <JobArchiveList
-              data-test="archive-component-list"
-              jobs={jobs}
-              getUserData={getUserData}
-              deleteAJob={deleteAJob}
-              deleteSuccess={deleteSuccess}
-          />
-        </div>
-      </Fragment>
+      </div>
+    </Fragment>
   );
 };
 
