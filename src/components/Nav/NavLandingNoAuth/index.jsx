@@ -2,15 +2,13 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import NavOptions from './NavOptions';
 import PropTypes from 'prop-types';
+import NavOptions from './NavOptions';
 import './styles.css';
 import { SIGN_IN } from '../../../constants/routes';
 
 const NavLandingNoAuth = ({ atTop, destination, fullpageApi }) => {
   const router = useRouter();
-
-  console.log(atTop, destination, fullpageApi);
 
   const menuOnChange = event => {
     if (event.value === 'signIn') {
