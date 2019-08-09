@@ -7,7 +7,9 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import AboutSection from '../src/components/Landing/AboutSection';
 import Button from '../src/components/Landing/Button';
 import HowItWorksSection from '../src/components/Landing/HowItWorksSection';
+import { InView } from 'react-intersection-observer';
 import LogoInverted from '../src/components/Logos/LogoInverted';
+import NavLandingNoAuth from '../src/components/Nav/NavLandingNoAuth';
 import PricingSection from '../src/components/Landing/PricingSection';
 import ContactSection from '../src/components/Landing/ContactSection';
 import { SIGN_IN } from '../src/constants/routes';
@@ -16,6 +18,7 @@ const Loading = dynamic(() => import('../src/components/General/Loading'));
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
+  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
     setLoading(false);
@@ -31,14 +34,32 @@ const Index = () => {
             <title>Upword.ly - Live Transcription CMS</title>
           </Head>
           <ReactFullpage
+            controlArrows={true}
             navigation
+            lazyLoading={true}
             licenseKey={process.env.FULL_PAGE_KEY}
+            onLeave={(_, destination) => {}}
+            responsiveWidth={500}
+            scrollBar={true}
             scrollingSpeed={1100}
-            sectionsColor={[]}
+            sectionsColor={['#0C0F11']}
+            touchSensitivity={7}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>
-                  <header className="section flex flex-col justify-center items-center text-center h-full bg-bgOverlay">
+                  <NavLandingNoAuth
+                    destination={
+                      state && state.destination
+                        ? state.destination.anchor
+                        : 'landing'
+                    }
+                    fullpageApi={fullpageApi}
+                    atTop={atTop}
+                  />
+                  <header
+                    className="section flex flex-col justify-center items-center text-center"
+                    data-anchor="landing"
+                  >
                     <LogoInverted center />
                     <div className="mt-1">
                       <Typed
@@ -70,17 +91,32 @@ const Index = () => {
                         />
                       </Link>
                     </div>
+                    <InView
+                      as="div"
+                      onChange={inView => {
+                        setAtTop(inView);
+                      }}
+                    />
                   </header>
-                  <section className="section flex">
+                  <section className="section flex" data-anchor="about">
                     <AboutSection />
                   </section>
-                  <section className="section flex my-12 lg:my-4">
+                  <section
+                    className="section flex my-12 lg:my-4"
+                    data-anchor="howItWorks"
+                  >
                     <HowItWorksSection />
                   </section>
-                  <section className="section flex my-12 lg:my-4">
+                  <section
+                    className="section flex my-12 lg:my-4"
+                    data-anchor="pricing"
+                  >
                     <PricingSection />
                   </section>
-                  <section className="section flex my-12 lg:my-4">
+                  <section
+                    className="section flex my-12 lg:my-4"
+                    data-anchor="contact"
+                  >
                     <ContactSection />
                   </section>
                 </ReactFullpage.Wrapper>
