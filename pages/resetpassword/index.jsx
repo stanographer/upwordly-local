@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index';
 import { faUnlock } from '@fortawesome/free-solid-svg-icons/index';
 import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
-import {SIGN_IN} from '../../src/constants/routes';
+import { SIGN_IN } from '../../src/constants/routes';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');

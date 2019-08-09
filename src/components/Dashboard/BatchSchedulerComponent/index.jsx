@@ -4,9 +4,9 @@ import Heading from '../Heading';
 
 const BatchSchedulerComponent = ({user}) => {
 
-  let [batch, setBatch] = useState('');
-  let [authUser, setAuthUser] = useState({});
-  let [message, setMessage] = useState('');
+  const [batch, setBatch] = useState('');
+  const [authUser, setAuthUser] = useState({});
+  const [message, setMessage] = useState('');
 
   const loadUser = user => {
     setAuthUser(user);

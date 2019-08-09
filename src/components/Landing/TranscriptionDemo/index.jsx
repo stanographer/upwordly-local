@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { wordIterator } from './TextGenerator';
 
 const TranscriptionDemo = () => {
-  let captions = {
+  const captions = {
     text: '',
     addText: function (newText) {
       this.text += newText + ' ';
     },
-    resetText: function () {
+    resetText: function() {
       this.text = '';
     },
   };
@@ -18,7 +18,7 @@ const TranscriptionDemo = () => {
 
     // Basically using setInterval to print out the next word
     // with 300ms delay in between.
-    let print = setInterval(() => {
+    const print = setInterval(() => {
       const data = wordIterator.next();
 
       if (data.done !== true) {

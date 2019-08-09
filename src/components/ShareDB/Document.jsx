@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 function Document(props) {
   const {doc, flag} = props;
-  
+
   let [text, setText] = useState('');
   let binding;
 
@@ -16,7 +16,7 @@ function Document(props) {
     FetchingToast();
     doc.subscribe(err => {
       if (err) {
-        setText('There was a connection error: ' + err);
+        setText(`There was a connection error: ${err}`);
       }
     }, []);
 

@@ -21,8 +21,8 @@ const JobCreator = ({
                       uid
                     }) => {
 
-  let [copied, setCopied] = useState(false);
-  let [message, setMessage] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [message, setMessage] = useState(false);
 
   const copiedLink = () => {
     setCopied(true);

@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import { deleteJob } from '../../../firebase/db';
 import { deleteShareDbJob } from '../../ShareDB/actions';
 import Heading from '../Heading';
 import JobArchiveList from '../JobComponents/JobArchiveList';
 import { auth as currentAuth } from '../../../firebase/firebase';
-import PropTypes from 'prop-types';
 
-const ArchiveComponent = ({ auth, getUserData, jobs }) => {
-  let [deleteSuccess, setDeleteSuccess] = useState(false);
-  let [errors, setErrors] = useState('');
+const ArchiveComponent = ({auth, getUserData, jobs}) => {
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const [errors, setErrors] = useState('');
 
   const deleteSuccessMessage = status => {
     if (status === true) {
@@ -28,9 +28,9 @@ const ArchiveComponent = ({ auth, getUserData, jobs }) => {
 
     deleteShareDbJob(url, user, shortName)
       .then(() => deleteJob(auth.uid, id, deleteSuccessMessage))
-      .catch(err => deleteSuccessMessage(false));
+      .catch(() => deleteSuccessMessage(false));
 
-    return cb(currentAuth, { uid: auth.uid });
+    return cb(currentAuth, {uid: auth.uid});
   };
 
   return (
