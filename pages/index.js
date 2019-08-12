@@ -13,6 +13,7 @@ import NavLandingNoAuth from '../src/components/Nav/NavLandingNoAuth';
 import PricingSection from '../src/components/Landing/PricingSection';
 import ContactSection from '../src/components/Landing/ContactSection';
 import { SIGN_IN } from '../src/constants/routes';
+import { initGA, logPageView } from '../src/utils/analytics';
 
 const Loading = dynamic(() => import('../src/components/General/Loading'));
 
@@ -22,6 +23,11 @@ const Index = () => {
 
   useEffect(() => {
     setLoading(false);
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
   }, []);
 
   return (
@@ -38,8 +44,7 @@ const Index = () => {
             navigation
             lazyLoading={true}
             licenseKey={process.env.FULL_PAGE_KEY}
-            onLeave={(_, destination) => {}}
-            responsiveWidth={500}
+            responsiveWidth={800}
             scrollBar={true}
             scrollingSpeed={1100}
             sectionsColor={['#0C0F11']}

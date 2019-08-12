@@ -4,7 +4,6 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import PropTypes from 'prop-types';
 import NavOptions from './NavOptions';
-import './styles.css';
 import { SIGN_IN } from '../../../constants/routes';
 
 const NavLandingNoAuth = ({ atTop, destination, fullpageApi }) => {
