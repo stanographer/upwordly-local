@@ -16,7 +16,6 @@ const AboutSection = () => {
     <Fragment>
       <header
         className="text-center
-        mb-10
         text-5xl
         font-bold
         italic

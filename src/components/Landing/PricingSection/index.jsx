@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Footer from '../../General/Footer';
 
 const PricingSection = () => {
   return (
