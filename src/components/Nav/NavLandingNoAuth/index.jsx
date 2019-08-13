@@ -15,7 +15,7 @@ const NavLandingNoAuth = ({ atTop, destination, fullpageApi }) => {
     }
     fullpageApi.moveTo(event.value);
   };
-
+   console.log(destination);
   return (
     <nav
       aria-label="Menu"
@@ -62,7 +62,7 @@ const NavLandingNoAuth = ({ atTop, destination, fullpageApi }) => {
 NavLandingNoAuth.propTypes = {
   atTop: PropTypes.bool.isRequired,
   destination: PropTypes.string.isRequired,
-  fullpageApi: PropTypes.PropTypes.shape({ version: PropTypes.number })
+  fullpageApi: PropTypes.PropTypes.shape({ version: PropTypes.string })
     .isRequired,
 };
 

@@ -50,17 +50,18 @@ const Index = () => {
             sectionsColor={['#0C0F11']}
             touchSensitivity={7}
             render={({ state, fullpageApi }) => {
+              console.log('state', state);
               return (
                 <ReactFullpage.Wrapper>
-                  <NavLandingNoAuth
-                    destination={
-                      state && state.destination
-                        ? state.destination.anchor
-                        : 'landing'
-                    }
-                    fullpageApi={fullpageApi}
-                    atTop={atTop}
-                  />
+                  {/*<NavLandingNoAuth*/}
+                  {/*  destination={*/}
+                  {/*    state && state.destination*/}
+                  {/*      ? state.destination.anchor*/}
+                  {/*      : 'landing'*/}
+                  {/*  }*/}
+                  {/*  fullpageApi={fullpageApi}*/}
+                  {/*  atTop={atTop}*/}
+                  {/*/>*/}
                   <header
                     className="section flex flex-col justify-center items-center text-center"
                     data-anchor="landing"
