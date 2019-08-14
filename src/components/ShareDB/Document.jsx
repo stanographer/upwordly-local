@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Binding from './ReactBinding';
-import {
-  FetchingToast,
-  LoadedToast,
-} from '../Toasts';
 import PropTypes from 'prop-types';
+import Binding from './ReactBinding';
+import { FetchingToast, LoadedToast } from '../Toasts';
 
 function Document(props) {
   const {doc, flag} = props;
 
-  let [text, setText] = useState('');
+  const [text, setText] = useState('');
   let binding;
 
   useEffect(() => {
