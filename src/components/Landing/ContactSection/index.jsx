@@ -23,7 +23,7 @@ const ContactSection = () => {
               UNDER CONSTRUCTION
             </h1>
             <p className="font-mono text-md">
-              A contact form should magically appear here in within the next few
+              A contact form should magically appear here within the next few
               weeks (August 8).
             </p>
           </div>
