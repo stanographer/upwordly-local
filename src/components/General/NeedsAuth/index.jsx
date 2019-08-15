@@ -6,6 +6,7 @@ import Provider from '../../Session/Provider';
 import Head from 'next/head';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { SIGN_IN } from '../../../constants/routes';
 
 const NavLogo = dynamic(() => import('../../Logos/NavLogo'));
 
@@ -20,7 +21,7 @@ const NeedsAuth = () => {
             <NavLogo center={true} />
             <div className="font-sans font-hairline mb-12 mt-12 text-center">
               <h1>Sorry. You must be signed in to view this page.</h1>
-              <p className="mt-2"><Link href="/signin" prefetch><a className="text-green-200 underline">
+              <p className="mt-2"><Link href={SIGN_IN} prefetch><a className="text-green-200 underline">
                 Click here</a></Link> to sign in.
               </p>
             </div>
