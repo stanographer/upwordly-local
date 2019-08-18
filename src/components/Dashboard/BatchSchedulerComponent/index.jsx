@@ -25,7 +25,7 @@ const BatchSchedulerComponent = ({user}) => {
     } catch (err) {
       console.error('error', err);
     }
-  }, []);
+  }, [user.uid]);
 
   return (
       <Fragment>
