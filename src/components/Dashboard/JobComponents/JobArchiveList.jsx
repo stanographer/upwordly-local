@@ -5,8 +5,7 @@ import JobsNull from './JobsNull';
 const JobList = ({deleteAJob, getUserData, jobs}) => {
   let list;
   if (jobs) {
-    list = Object.keys(jobs)
-      .filter(key => jobs[key].started === true);
+    list = Object.keys(jobs.filter(key => jobs[key].started));
   }
 
   return (
