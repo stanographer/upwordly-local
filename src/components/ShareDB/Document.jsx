@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Binding from './ReactBinding';
 import { FetchingToast, LoadedToast } from '../Toasts';
-import PropTypes from 'prop-types';
 
-const Document = props => {
-  const { doc, flag } = props;
+function Document(props) {
+  const {doc, flag} = props;
+
   const [text, setText] = useState('');
+  let binding;
 
   useEffect(() => {
-    let binding;
-
     FetchingToast();
-
     doc.subscribe(err => {
       if (err) {
-        return setText(`There was a connection error: ${err}`);
+        setText(`There was a connection error: ${err}`);
       }
-
-      return setTimeout(() => {
-        setText(binding.snapshot || 'Connection successful.');
-      }, 0);
     }, []);
 
     // Load document and bind it to local snapshot.
     doc.on('load', () => {
       binding = new Binding(doc.data, flag);
-      LoadedToast();
+
+      setTimeout(() => {
+        setText(binding.snapshot || 'Connection successful.');
+        LoadedToast();
+      }, 0);
     });
 
     // Apply remote ops to local snapshot.
@@ -41,10 +40,14 @@ const Document = props => {
       doc.destroy();
       binding = null;
     };
-  }, [doc, flag]);
+  }, []);
 
-  return <section className="transcript">{text || ''}</section>;
-};
+  return (
+      <section className="transcript">
+        {text || ''}
+      </section>
+  );
+}
 
 Document.propTypes = {
   doc: PropTypes.object,
