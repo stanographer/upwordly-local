@@ -2,7 +2,7 @@ sudo: true
 dist: trusty
 language: node_js
 node_js:
-  - '10'
+  - '12'
 cache: npm
 notifications:
   email:
@@ -28,7 +28,7 @@ before_install:
   - npm install -g npm
   - chmod +x .travis/deploy.sh
 install:
-  - npm ci
+  - npm install
 before_script:
   - openssl aes-256-cbc -K $encrypted_886e1d2bd29d_key -iv $encrypted_886e1d2bd29d_iv
     -in deploy_key.enc -out ./deploy_key -d
