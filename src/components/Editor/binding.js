@@ -10,7 +10,7 @@ export default class Binding {
   // Methods to update state text whenever ops are received
   // through WebSockets.
 
-  applyOp = (op) => {
+  applyOp = op => {
     // When an op is received, transform it, and
     // set it equal to the component snapshot.
     this.snapshot = this.transformSnapshot(op, this.snapshot);
@@ -26,16 +26,16 @@ export default class Binding {
       let component = op[i];
       // Classifies the different components of the op.
       switch (typeof component) {
-          // If it is a number, make it the index.
+        // If it is a number, make it the index.
         case 'number':
           newDoc.push(snap.slice(0, component));
           snap = snap.slice(component);
           break;
-          // If it is a string, we know to insert it into the temp variable.
+        // If it is a string, we know to insert it into the temp variable.
         case 'string':
           newDoc.push(component);
           break;
-          // If it is an object, we know it's a delete command.
+        // If it is an object, we know it's a delete command.
         case 'object':
           snap = snap.slice(component.d);
           break;
@@ -64,10 +64,11 @@ export default class Binding {
     // Scan the other end of document. While all characters in the change document
     // and the new document are the same, keep advancing toward start.
     while (
-        snap.charAt(snap.length - 1 - end) ===
+      snap.charAt(snap.length - 1 - end) ===
         change.charAt(change.length - 1 - end) &&
-    start + end < snap.length &&
-    start + end < change.length) {
+      start + end < snap.length &&
+      start + end < change.length
+    ) {
       end++;
     }
 

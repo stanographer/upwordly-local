@@ -2,12 +2,16 @@ import React, { Fragment, useState } from 'react';
 import Heading from '../Heading';
 import JobCreator from '../JobComponents/JobCreator';
 import JobQueue from '../JobComponents/JobQueue';
-import {
-  startJob,
-} from '../../../firebase/db';
+import { startJob } from '../../../firebase/db';
 import PropTypes from 'prop-types';
 
-const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user}) => {
+const DashboardComponent = ({
+  auth,
+  getUserData,
+  jobs,
+  setActiveComponent,
+  user,
+}) => {
   const [job, setJob] = useState({});
   const [errors, setErrors] = useState([]);
 
@@ -19,7 +23,7 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
     if (!val.match(re) && val !== '') {
       setJob({
         ...job,
-        shortName: val.trim().toLowerCase()
+        shortName: val.trim().toLowerCase(),
       });
 
       setErrors([
@@ -32,7 +36,7 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
     } else {
       setJob({
         ...job,
-        shortName: val.trim().toLowerCase()
+        shortName: val.trim().toLowerCase(),
       });
 
       setErrors([]);
@@ -42,7 +46,7 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
   const setTitleAndSpeakers = (key, val) => {
     // Replaces backticks with single quotes.
     if (val.includes('`')) {
-      val = val.replace('`', '\'');
+      val = val.replace('`', "'");
     }
 
     // Escapes curly braces.
@@ -65,35 +69,40 @@ const DashboardComponent = ({auth, getUserData, jobs, setActiveComponent, user})
   };
 
   return (
-      <Fragment>
+    <Fragment>
       <Heading
-          heading="Dashboard"
-          typedText={['Welcome to your control center.']}
-          additionalText={
-            user
-                ? <p className="pt-4 pb-2 text-green-200" data-test="logged-in-text">Logged in as {user.fullName}</p>
-                : ''}
-          />
-        <main className="flex flex-wrap flex-row -mx-2 my-10 md:flex-no-wrap md:-mx-4">
-          <JobCreator
-              auth={auth}
-              user={user}
-              errors={errors}
-              getUserData={getUserData}
-              job={job}
-              resetJobCreator={resetJobCreator}
-              setErrors={setErrors}
-              setShortName={setShortName}
-              setTitleAndSpeakers={setTitleAndSpeakers}
-              uid={auth.uid}
-          />
-          <JobQueue
-              setActiveComponent={setActiveComponent}
-              startJob={startJob}
-              jobs={jobs}
-          />
-        </main>
-      </Fragment>
+        heading="Dashboard"
+        typedText={['Welcome to your control center.']}
+        additionalText={
+          user ? (
+            <p className="pt-4 pb-2 text-green-200" data-test="logged-in-text">
+              Logged in as {user.fullName}
+            </p>
+          ) : (
+            ''
+          )
+        }
+      />
+      <main className="flex flex-wrap flex-row -mx-2 my-10 md:flex-no-wrap md:-mx-4">
+        <JobCreator
+          auth={auth}
+          user={user}
+          errors={errors}
+          getUserData={getUserData}
+          job={job}
+          resetJobCreator={resetJobCreator}
+          setErrors={setErrors}
+          setShortName={setShortName}
+          setTitleAndSpeakers={setTitleAndSpeakers}
+          uid={auth.uid}
+        />
+        <JobQueue
+          setActiveComponent={setActiveComponent}
+          startJob={startJob}
+          jobs={jobs}
+        />
+      </main>
+    </Fragment>
   );
 };
 
@@ -104,10 +113,11 @@ DashboardComponent.propTypes = {
   errors: PropTypes.array,
   getUserData: PropTypes.func,
   resetJobCreator: PropTypes.func,
+  setActiveComponent: PropTypes.instanceOf(PropTypes.object),
   setShortName: PropTypes.func,
   setTitleAndSpeakers: PropTypes.func,
   setErrors: PropTypes.func,
-  startJob: PropTypes.func
+  startJob: PropTypes.func,
 };
 
 export default DashboardComponent;

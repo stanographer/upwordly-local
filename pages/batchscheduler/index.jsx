@@ -5,11 +5,12 @@ import withAuth from '../../src/components/Session/WithAuth';
 
 const BatchJobs = props => {
   return (
-      <Wrapper
-          htmlTitle="Upword.ly - Batch Job Scheduler"
-          title="batch-scheduler">
-        <BatchSchedulerComponent {...props} />
-      </Wrapper>
+    <Wrapper
+      htmlTitle="Upword.ly - Batch Job Scheduler"
+      title="batch-scheduler"
+    >
+      <BatchSchedulerComponent {...props} />
+    </Wrapper>
   );
 };
 

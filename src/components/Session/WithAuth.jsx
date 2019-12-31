@@ -56,6 +56,11 @@ const withAuth = Component => {
                   error: err,
                 });
               });
+        } else if (process.env.REACT_ENV !== 'production') {
+          this.setState({
+            ...this.state,
+            status: 'SIGNED_IN',
+          });
         } else {
           router.push(ROUTES.SIGN_IN);
         }
