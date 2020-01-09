@@ -118,6 +118,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+        <script src="https://js.stripe.com/v3/" async defer />
       </Html>
     );
   }

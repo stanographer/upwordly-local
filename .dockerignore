@@ -27,6 +27,7 @@ travis_rsa
 
 # misc
 .DS_Store
+paymentPage.jsx
 
 # Docker
 .dockerignore

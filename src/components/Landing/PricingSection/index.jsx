@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const PricingSection = () => {
+const PricingSection = ({ PaymentButton }) => {
   return (
     <Fragment>
       <header

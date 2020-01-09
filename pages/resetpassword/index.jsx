@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUnlock } from '@fortawesome/free-solid-svg-icons';
-import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
+import ContentCardLayout from '../../src/components/Layout/ContentCardLayout';
 import { SIGN_IN } from '../../src/constants/routes';
 import { doPasswordReset } from '../../src/firebase/auth';
 
@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <LoginSignInLayout
+    <ContentCardLayout
       title="Upword.ly - Reset Password"
       typedText={['Forgot your password?', 'Reset it here.']}
     >
@@ -114,7 +114,7 @@ const ForgotPassword = () => {
           </button>
         </div>
       </form>
-    </LoginSignInLayout>
+    </ContentCardLayout>
   );
 };
 

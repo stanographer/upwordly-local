@@ -3,7 +3,7 @@ import router from 'next/router';
 import dynamic from 'next/dynamic';
 import { auth, db } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
-import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
+import ContentCardLayout from '../../src/components/Layout/ContentCardLayout';
 
 // Sign-up components.
 const EmailComponent = dynamic(() => import('./Email'));
@@ -393,11 +393,13 @@ class SignUp extends React.Component {
 
     return (
         <Fragment>
-          <LoginSignInLayout
+          <ContentCardLayout
               title="Upword.ly - Sign Up"
-              typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}>
+              typedText={['Welcome to Upword.ly', 'Let\'s create you an account.']}
+              cardType="signup"
+          >
             {stage()}
-          </LoginSignInLayout>
+          </ContentCardLayout>
           <script
               async
               defer

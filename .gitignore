@@ -29,6 +29,7 @@ deploy_key
 .env.development
 .env.test
 .env.production
+paymentPage.jsx
 
 npm-debug.log*
 yarn-debug.log*

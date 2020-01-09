@@ -5,11 +5,9 @@ import withAuth from '../../src/components/Session/WithAuth';
 
 const Dashboard = props => {
   return (
-      <Wrapper
-          htmlTitle="Upword.ly - Dashboard"
-          title="dashboard">
-        <DashboardComponent {...props} />
-      </Wrapper>
+    <Wrapper htmlTitle="Upword.ly - Dashboard" title="dashboard">
+      <DashboardComponent {...props} />
+    </Wrapper>
   );
 };
 

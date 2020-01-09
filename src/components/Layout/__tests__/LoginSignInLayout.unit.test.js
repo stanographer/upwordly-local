@@ -1,18 +1,18 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import LoginSignInLayout from '../LoginSignInLayout';
+import ContentCardLayout from '../ContentCardLayout';
 import Button from '../../Dashboard/Button';
 import { checkProps, findByTestAttr } from '../../../../utils';
 
 // Creates component and passes props.
 const setup = (props = {}) => {
-  return shallow(<LoginSignInLayout {...props} />);
+  return shallow(<ContentCardLayout {...props} />);
 };
 
-describe('LoginSignInLayout', () => {
+describe('ContentCardLayout', () => {
   describe('presence of correct and required props.', () => {
     it('should return PropTypes error.', () => {
-      const propsErr = checkProps(LoginSignInLayout, {});
+      const propsErr = checkProps(ContentCardLayout, {});
 
       expect(propsErr).toBeDefined();
     });
@@ -21,7 +21,7 @@ describe('LoginSignInLayout', () => {
   describe('components rendered and correct attributes based on props.', () => {
     let wrapper;
     const props = {
-      title: 'Stanley\'s Marvelous Component',
+      title: "Stanley's Marvelous Component",
       typedText: ['Welcome!'],
     };
 
@@ -31,7 +31,7 @@ describe('LoginSignInLayout', () => {
 
     it('should have a title matching passed prop "title"', () => {
       expect(wrapper.find('title').text()).toEqual(
-        'Stanley\'s Marvelous Component',
+        "Stanley's Marvelous Component"
       );
     });
 
@@ -52,14 +52,14 @@ describe('LoginSignInLayout', () => {
 
     it('should render the child component.', () => {
       const props = {
-        title: 'Stanley\'s Marvelous Component',
+        title: "Stanley's Marvelous Component",
         typedText: ['Welcome!'],
       };
 
       const component = mount(
-        <LoginSignInLayout {...props}>
+        <ContentCardLayout {...props}>
           <Button color="red" type="submit" text="hello" />
-        </LoginSignInLayout>,
+        </ContentCardLayout>
       );
 
       const foundButton = findByTestAttr(component, 'dashboard-button');

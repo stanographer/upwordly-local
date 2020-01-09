@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { auth } from '../../src/firebase';
 import * as ROUTES from '../../src/constants/routes';
-import LoginSignInLayout from '../../src/components/Layout/LoginSignInLayout';
+import ContentCardLayout from '../../src/components/Layout/ContentCardLayout';
 
 const SignIn = () => <SignInComponent />;
 
@@ -57,9 +57,10 @@ class SignInComponent extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <LoginSignInLayout
+      <ContentCardLayout
         title="Upword.ly Sign-In"
         typedText={['Welcome back, Sign in here.']}
+        cardType="signin"
       >
         <form
           className="bg-bg2 shadow-lg rounded px-8 pt-6 pb-8 mb-4"
@@ -145,7 +146,7 @@ class SignInComponent extends Component {
             </Link>
           </div>
         </form>
-      </LoginSignInLayout>
+      </ContentCardLayout>
     );
   }
 }
