@@ -97,7 +97,7 @@ class MyDocument extends Document {
             type="image/x-icon"
             href="/public/static/favicons/favicon.ico"
           />
-          <link rel="manifest" href="/public/static/favicons/manifest.json" />
+          <link rel="manifest" href="/static/favicons/manifest.json" />
           <meta name="msapplication-TileColor" content="#282c34" />
           <meta
             name="msapplication-TileImage"
