@@ -14,7 +14,7 @@ branches:
     - master
 env:
   global:
-    - REMOTE_USER=deploy
+    - REMOTE_USER=root
     - REMOTE_HOST=206.189.169.212
     - PORT=3000
 before_install:
