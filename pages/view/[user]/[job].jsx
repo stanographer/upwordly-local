@@ -1,22 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll/modules';
 
 // Components.
-import Document from '../../src/components/ShareDB/Document';
-import ConnectionProvider from '../../src/components/ShareDB/ConnectionProvider';
-import Provider from '../../src/components/Session/Provider';
-import WidgetContext from '../../src/providers/WidgetContext';
+import Document from '../../../src/components/ShareDB/Document';
+import ConnectionProvider from '../../../src/components/ShareDB/ConnectionProvider';
+import Provider from '../../../src/components/Session/Provider';
+import WidgetContext from '../../../src/providers/WidgetContext';
 import {
   DisconnectedToast,
   ReconnectedToast,
-} from '../../src/components/Toasts';
+} from '../../../src/components/Toasts';
 import Modal from 'react-modal';
-import Nav from '../../src/components/Nav/NavTranscriptView';
-import { ScrollButton } from '../../src/components/General';
+import Nav from '../../../src/components/Nav/NavTranscriptView';
+import { ScrollButton } from '../../../src/components/General';
 import ModalComponent
-  from '../../src/components/Modals/ModalComponent';
+  from '../../../src/components/Modals/ModalComponent';
 
 const modalStyles = {
   content: {
@@ -43,9 +44,9 @@ class View extends React.Component {
       scrolling: true,
       modalOpen: false,
     };
-  }
 
-  interval = 0;
+    this.interval = 0;
+  }
 
   componentDidMount() {
     // On component load, begin auto-scrolling.
@@ -88,7 +89,7 @@ class View extends React.Component {
 
   render() {
     const { scrolling } = this.state;
-    const { router } = this.props;
+    const { user, job } = this.props;
 
     return (
       <Provider>
@@ -103,8 +104,8 @@ class View extends React.Component {
                 ariaHideApp={false}
               >
                 <ModalComponent
-                  user={router.query.user}
-                  job={router.query.job}
+                  user={user}
+                  job={job}
                   title={context.currentWidget}
                 />
               </Modal>
@@ -131,8 +132,8 @@ class View extends React.Component {
                 <ConnectionProvider
                   onDisconnect={DisconnectedToast}
                   onReconnect={ReconnectedToast}
-                  user={router.query.user}
-                  job={router.query.job}
+                  user={user}
+                  job={job}
                   render={state => <Document editable={false} {...state} />}
                 />
               </div>
@@ -156,4 +157,9 @@ class View extends React.Component {
   }
 }
 
-export default withRouter(View);
+View.getInitialProps = ({ query }) => {
+  return query;
+};
+
+export default View;
+

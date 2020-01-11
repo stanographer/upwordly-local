@@ -40,17 +40,16 @@ class ConnectionProvider extends Component {
             reconnectionDelayGrowFactor: 1.2,
           });
 
-
           // To display a message to the user that the connection is re-established.
-          this.socket.onopen = () => {
-            console.log('ok ok!');
-            if (!connected) {
-              this.props.onReconnect();
-              this.setState({
-                connected: true,
-              });
-            }
-          };
+          // this.socket.onopen = () => {
+          //   console.log('ok ok!');
+          //   if (!connected) {
+          //     this.props.onReconnect();
+          //     this.setState({
+          //       connected: true,
+          //     });
+          //   }
+          // };
 
           // Register text OT type.
           ShareDB.types.register(otText.type);
@@ -88,6 +87,7 @@ class ConnectionProvider extends Component {
 
   render() {
     const {connected} = this.state;
+    console.log(this.props.user, this.props.job, this.state.doc);
 
     return (
         <Fragment>

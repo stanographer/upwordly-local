@@ -30,24 +30,6 @@ class EditorComponent extends Component {
     this.doc = props.doc;
   }
 
-  // attachDocument = () => {
-  //
-  //     this.doc.on('op', op => this.displayOp(op));
-  //
-  //     if (!this.doc.type) {
-  //       this.doc.create('', otText.type.name, true, () => {
-  //         this.binding = new TextAreaBinding(this.sharedTextarea, this.doc);
-  //         this.setState({ docAttached: true });
-  //       });
-  //     }
-  //
-  //     this.binding = new TextAreaBinding(this.sharedTextarea, this.doc);
-  //     this.setState({ docAttached: true });
-  //
-  //     this.binding.bind();
-  //   });
-  // };
-
   attachDocument = () => {
     if (!this.doc.type) {
       this.doc.create('', otText.type.name, true, () => {
@@ -94,7 +76,7 @@ class EditorComponent extends Component {
     const {currentJob} = this.props;
 
     return currentJob && Object.keys(currentJob).length > 0
-        ? `${document.location.protocol}//${document.location.host}/view?user=${currentJob.username}&job=${currentJob.shortName}`
+        ? `${document.location.protocol}//${document.location.host}/view/${currentJob.username}/${currentJob.shortName}`
         : '';
   };
 

@@ -4,13 +4,13 @@ import Binding from './ReactBinding';
 import { FetchingToast, LoadedToast } from '../Toasts';
 
 function Document(props) {
-  const {doc, flag} = props;
-
+  const { doc, flag } = props;
   const [text, setText] = useState('');
-  let binding;
 
   useEffect(() => {
+    let binding;
     FetchingToast();
+
     doc.subscribe(err => {
       if (err) {
         setText(`There was a connection error: ${err}`);
@@ -42,11 +42,7 @@ function Document(props) {
     };
   }, []);
 
-  return (
-      <section className="transcript">
-        {text || ''}
-      </section>
-  );
+  return <section className="transcript">{text || ''}</section>;
 }
 
 Document.propTypes = {
