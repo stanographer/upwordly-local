@@ -17,7 +17,7 @@ ssh -t -o stricthostkeychecking=no "$REMOTE_USER@$REMOTE_HOST" << "ENDSSH"
 
 export NODE_ENV=production
 
-cd /home/deploy/builds || exit 1
+cd /home/deploy || exit 1
 
 # Extract the package we just scp'd over.
 tar -zxf package.tgz -C latest --unlink-first
