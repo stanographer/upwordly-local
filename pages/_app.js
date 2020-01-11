@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../public/static/styles/style.css';
 import '../public/static/styles/fonts.css';
-import PropTypes from 'prop-types';
 // dynamic(() => import('../public/static/styles/style.css'));
 // dynamic(() => import('../public/static/styles/fonts.css'));
 
@@ -41,11 +40,6 @@ MyApp.getInitialProps = async appContext => {
   const appProps = await App.getInitialProps(appContext);
 
   return { ...appProps };
-};
-
-MyApp.propTypes = {
-  Component: PropTypes.instanceOf(PropTypes.object).isRequired,
-  pageProps: PropTypes.instanceOf(PropTypes.object).isRequired,
 };
 
 export default MyApp;
