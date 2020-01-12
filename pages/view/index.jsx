@@ -1,7 +1,10 @@
 import React from 'react';
+import { withRouter } from 'next/router';
+import ViewComponent from '../../src/components/View';
 
-const View = () => {
-  return <div>This is the view page.</div>;
-};
+function View(props) {
+  const { router } = props;
+  return <ViewComponent user={router.query.user} job={router.query.job} />;
+}
 
-export default View;
+export default withRouter(View);
