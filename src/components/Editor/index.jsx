@@ -76,7 +76,7 @@ class EditorComponent extends Component {
     const {currentJob} = this.props;
 
     return currentJob && Object.keys(currentJob).length > 0
-        ? `${document.location.protocol}//${document.location.host}/watch/${currentJob.username}/${currentJob.shortName}`
+        ? `${document.location.protocol}//${document.location.host}/view/${currentJob.username}/${currentJob.shortName}`
         : '';
   };
 
@@ -105,7 +105,6 @@ class EditorComponent extends Component {
 
   render() {
     const {copied, docAttached, lastIndex, lastOp} = this.state;
-
     const {currentJob, expandEditor, toggleExpand} = this.props;
 
     return (

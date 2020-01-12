@@ -3,7 +3,7 @@ import TranscriptionDemo from '../TranscriptionDemo';
 
 const AboutSection = () => {
   useEffect(() => {
-    // Scrolls the latest text in the demo into watch.
+    // Scrolls the latest text in the demo into view.
     const scroller = setInterval(() => {
       const elem = document.getElementById('transcription-demo');
       elem.scrollTop = elem.scrollHeight;

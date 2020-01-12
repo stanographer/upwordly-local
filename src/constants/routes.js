@@ -8,4 +8,4 @@ export const RESET_PASSWORD = 'resetpassword';
 export const SETTINGS = '/settings';
 export const SIGN_IN = '/signin';
 export const SIGN_UP = '/signup';
-export const VIEW = '/watch';
+export const VIEW = '/view';
