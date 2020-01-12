@@ -1,7 +1,7 @@
 import React from 'react';
 import WidgetContext from '../../providers/WidgetContext';
 
-class AppProvider extends React.Component {
+class Provider extends React.Component {
   state = {
     currentWidget: '',
     settings: {},
@@ -47,7 +47,7 @@ class AppProvider extends React.Component {
         {
           settings: JSON.parse(settings),
         },
-        () => console.log('settings state ', this.state.settings),
+        () => console.log('settings state ', this.state.settings)
       );
     } catch {
       // If settings cannot be loaded, load initial state.
@@ -91,7 +91,7 @@ class AppProvider extends React.Component {
     try {
       window.localStorage.setItem(
         'upwordly-settings',
-        JSON.stringify(this.state.settings),
+        JSON.stringify(this.state.settings)
       );
     } catch {
       console.log('Error retrieving from localstorage.');
@@ -124,4 +124,4 @@ class AppProvider extends React.Component {
   }
 }
 
-export default AppProvider;
+export default Provider;

@@ -72,63 +72,13 @@ function View(props) {
   }, [scrolling, startScrolling, stopScrolling]);
 
   return (
-    <Provider>
-      <WidgetContext.Consumer>
-        {context => (
-          <Fragment>
-            <Modal
-              isOpen={context.widgetOpen}
-              onRequestClose={context.closeWidget}
-              contentLabel="Widget Modal"
-              style={modalStyles}
-              ariaHideApp={false}
-            >
-              <ModalComponent
-                user={user}
-                job={job}
-                title={context.currentWidget}
-              />
-            </Modal>
-            <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
-              <Nav openModal={openModal} closeModal={closeModal} />
-            </div>
-            {/*px-8 py-8 text-2xl md:text-5xl*/}
-            <div
-              style={{
-                ...context.settings,
-                fontSize: context.settings.fontSize / 10 + 'rem',
-                padding:
-                  context.settings.paddingY +
-                  'rem' +
-                  ' ' +
-                  context.settings.paddingX +
-                  'rem',
-              }}
-              onTouchStart={stopScrolling}
-              onClick={stopScrolling}
-            >
-              <ConnectionProvider
-                onDisconnect={DisconnectedToast}
-                onReconnect={ReconnectedToast}
-                user={user}
-                job={job}
-                render={state => <Document editable={false} {...state} />}
-              />
-            </div>
-            <ScrollButton
-              aria-label="Scroll to Bottom"
-              click={startScrolling}
-              filter="scroll-top-a"
-              href="scroll-top-b"
-              id="scroll-top-b"
-              path="M18 22l8 8 8-8"
-              scrolling={scrolling}
-              title="Scroll to Bottom"
-            />
-          </Fragment>
-        )}
-      </WidgetContext.Consumer>
-    </Provider>
+    <ConnectionProvider
+      onDisconnect={DisconnectedToast}
+      onReconnect={ReconnectedToast}
+      user={user}
+      job={job}
+      render={state => <Document editable={false} {...state} />}
+    />
   );
 }
 

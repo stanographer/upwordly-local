@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import ViewComponent from '../../../src/components/View';
+import PropTypes from 'prop-types';
 
 const Watch = props => {
   const { user, job } = props;
@@ -22,6 +23,16 @@ const Watch = props => {
 
 Watch.getInitialProps = ({ query }) => {
   return query;
+};
+
+Watch.propTypes = {
+  user: PropTypes.string,
+  job: PropTypes.string,
+};
+
+Watch.defaultProps = {
+  user: PropTypes.string,
+  job: PropTypes.string,
 };
 
 export default Watch;
