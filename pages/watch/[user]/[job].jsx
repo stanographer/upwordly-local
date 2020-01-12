@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
+import ViewComponent from '../../../src/components/View';
 
 const Watch = props => {
   const { user, job } = props;
   return (
     <Fragment>
       {user && job ? (
-        <div>
-          User: {user}, job: {job}
-        </div>
+        <ViewComponent user={user} job={job} />
       ) : (
         <div>
           <h2>URL incorrectly formatted</h2>
