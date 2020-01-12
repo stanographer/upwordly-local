@@ -4,7 +4,13 @@ import ViewComponent from '../../src/components/View';
 
 function View(props) {
   const { router } = props;
-  return <ViewComponent user={router.query.user} job={router.query.job} />;
+  return (
+    <div>
+      <p>
+        {router.query.user} {router.query.job}
+      </p>
+    </div>
+  );
 }
 
 export default withRouter(View);
