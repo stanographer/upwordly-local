@@ -35,7 +35,7 @@ const modalStyles = {
   },
 };
 
-function View(props) {
+function Watch(props) {
   const { user, job } = props;
   const [scrolling, setScrolling] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -261,8 +261,8 @@ function View(props) {
 //   }
 // }
 
-View.getInitialProps = ({ query }) => {
+Watch.getInitialProps = ({ query }) => {
   return query;
 };
 
-export default View;
+export default Watch;
