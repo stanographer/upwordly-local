@@ -6,7 +6,6 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 require('dotenv').config();
 
 module.exports = withCSS({
-  target: 'serverless',
   cssLoaderOptions: {
     url: true,
   },

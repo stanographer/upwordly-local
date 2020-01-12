@@ -16,8 +16,7 @@ import {
 import Modal from 'react-modal';
 import Nav from '../../../src/components/Nav/NavTranscriptView';
 import { ScrollButton } from '../../../src/components/General';
-import ModalComponent
-  from '../../../src/components/Modals/ModalComponent';
+import ModalComponent from '../../../src/components/Modals/ModalComponent';
 
 const modalStyles = {
   content: {
@@ -36,33 +35,16 @@ const modalStyles = {
   },
 };
 
-class View extends React.Component {
-  constructor(props) {
-    super(props);
+function View(props) {
+  const { user, job } = props;
+  const [scrolling, setScrolling] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  let interval = 0;
 
-    this.state = {
-      scrolling: true,
-      modalOpen: false,
-    };
+  const startScrolling = () => {
+    setScrolling(true);
 
-    this.interval = 0;
-  }
-
-  componentDidMount() {
-    // On component load, begin auto-scrolling.
-    this.startScrolling();
-  }
-
-  componentWillUnmount() {
-    this.stopScrolling();
-  }
-
-  startScrolling = () => {
-    // Set the scrolling state to scrolling.
-    this.setState({ scrolling: true });
-
-    // Begin auto-scrolling.
-    this.interval = setInterval(() => {
+    interval = setInterval(() => {
       scroll.scrollToBottom({
         delay: 0,
         duration: 100,
@@ -73,93 +55,214 @@ class View extends React.Component {
     }, 500);
   };
 
-  stopScrolling = () => {
-    // Stop auto-scrolling.
-    this.setState({ scrolling: false });
-    clearInterval(this.interval);
+  const stopScrolling = () => {
+    console.log('stopscrolling');
+    setScrolling(false);
+    clearInterval(interval);
   };
 
-  openModal = () => {
-    this.setState({ modalOpen: true });
+  const openModal = () => {
+    setModalOpen(true);
   };
 
-  closeModal = () => {
-    this.setState({ modalOpen: false });
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
-  render() {
-    const { scrolling } = this.state;
-    const { user, job } = this.props;
+  useEffect(() => {
+    if (scrolling) {
+      startScrolling();
+    }
 
-    return (
-      <Provider>
-        <WidgetContext.Consumer>
-          {context => (
-            <Fragment>
-              <Modal
-                isOpen={context.widgetOpen}
-                onRequestClose={context.closeWidget}
-                contentLabel="Widget Modal"
-                style={modalStyles}
-                ariaHideApp={false}
-              >
-                <ModalComponent
-                  user={user}
-                  job={job}
-                  title={context.currentWidget}
-                />
-              </Modal>
-              <div
-                className={!scrolling ? 'visible sticky' : 'invisible sticky'}
-              >
-                <Nav openModal={this.openModal} closeModal={this.closeModal} />
-              </div>
-              {/*px-8 py-8 text-2xl md:text-5xl*/}
-              <div
-                style={{
-                  ...context.settings,
-                  fontSize: context.settings.fontSize / 10 + 'rem',
-                  padding:
-                    context.settings.paddingY +
-                    'rem' +
-                    ' ' +
-                    context.settings.paddingX +
-                    'rem',
-                }}
-                onTouchStart={() => this.stopScrolling()}
-                onClick={() => this.stopScrolling()}
-              >
-                <ConnectionProvider
-                  onDisconnect={DisconnectedToast}
-                  onReconnect={ReconnectedToast}
-                  user={user}
-                  job={job}
-                  render={state => <Document editable={false} {...state} />}
-                />
-              </div>
-              <ScrollButton
-                aria-label="Scroll to Bottom"
-                click={() => {
-                  this.startScrolling();
-                }}
-                filter="scroll-top-a"
-                href="scroll-top-b"
-                id="scroll-top-b"
-                path="M18 22l8 8 8-8"
-                scrolling={scrolling}
-                title="Scroll to Bottom"
+    return () => {
+      stopScrolling();
+    };
+  }, [scrolling, startScrolling, stopScrolling]);
+
+  return (
+    <Provider>
+      <WidgetContext.Consumer>
+        {context => (
+          <Fragment>
+            <Modal
+              isOpen={context.widgetOpen}
+              onRequestClose={context.closeWidget}
+              contentLabel="Widget Modal"
+              style={modalStyles}
+              ariaHideApp={false}
+            >
+              <ModalComponent
+                user={user}
+                job={job}
+                title={context.currentWidget}
               />
-            </Fragment>
-          )}
-        </WidgetContext.Consumer>
-      </Provider>
-    );
-  }
+            </Modal>
+            <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
+              <Nav openModal={openModal} closeModal={closeModal} />
+            </div>
+            {/*px-8 py-8 text-2xl md:text-5xl*/}
+            <div
+              style={{
+                ...context.settings,
+                fontSize: context.settings.fontSize / 10 + 'rem',
+                padding:
+                  context.settings.paddingY +
+                  'rem' +
+                  ' ' +
+                  context.settings.paddingX +
+                  'rem',
+              }}
+              onTouchStart={stopScrolling}
+              onClick={stopScrolling}
+            >
+              <ConnectionProvider
+                onDisconnect={DisconnectedToast}
+                onReconnect={ReconnectedToast}
+                user={user}
+                job={job}
+                render={state => <Document editable={false} {...state} />}
+              />
+            </div>
+            <ScrollButton
+              aria-label="Scroll to Bottom"
+              click={startScrolling}
+              filter="scroll-top-a"
+              href="scroll-top-b"
+              id="scroll-top-b"
+              path="M18 22l8 8 8-8"
+              scrolling={scrolling}
+              title="Scroll to Bottom"
+            />
+          </Fragment>
+        )}
+      </WidgetContext.Consumer>
+    </Provider>
+  );
 }
+
+// class View extends React.Component {
+//   constructor(props) {
+//     super(props);
+//
+//     this.state = {
+//       scrolling: true,
+//       modalOpen: false,
+//     };
+//
+//     this.interval = 0;
+//   }
+//
+//   componentDidMount() {
+//     // On component load, begin auto-scrolling.
+//     this.startScrolling();
+//   }
+//
+//   componentWillUnmount() {
+//     this.stopScrolling();
+//   }
+//
+//   startScrolling = () => {
+//     // Set the scrolling state to scrolling.
+//     this.setState({ scrolling: true });
+//
+//     // Begin auto-scrolling.
+//     this.interval = setInterval(() => {
+//       scroll.scrollToBottom({
+//         delay: 0,
+//         duration: 100,
+//         offset: 30,
+//         isDynamic: true,
+//         smooth: true,
+//       });
+//     }, 500);
+//   };
+//
+//   stopScrolling = () => {
+//     // Stop auto-scrolling.
+//     this.setState({ scrolling: false });
+//     clearInterval(this.interval);
+//   };
+//
+//   openModal = () => {
+//     this.setState({ modalOpen: true });
+//   };
+//
+//   closeModal = () => {
+//     this.setState({ modalOpen: false });
+//   };
+//
+//   render() {
+//     const { scrolling } = this.state;
+//     const { user, job } = this.props;
+//
+//     return (
+//       <Provider>
+//         <WidgetContext.Consumer>
+//           {context => (
+//             <Fragment>
+//               <Modal
+//                 isOpen={context.widgetOpen}
+//                 onRequestClose={context.closeWidget}
+//                 contentLabel="Widget Modal"
+//                 style={modalStyles}
+//                 ariaHideApp={false}
+//               >
+//                 <ModalComponent
+//                   user={user}
+//                   job={job}
+//                   title={context.currentWidget}
+//                 />
+//               </Modal>
+//               <div
+//                 className={!scrolling ? 'visible sticky' : 'invisible sticky'}
+//               >
+//                 <Nav openModal={this.openModal} closeModal={this.closeModal} />
+//               </div>
+//               {/*px-8 py-8 text-2xl md:text-5xl*/}
+//               <div
+//                 style={{
+//                   ...context.settings,
+//                   fontSize: context.settings.fontSize / 10 + 'rem',
+//                   padding:
+//                     context.settings.paddingY +
+//                     'rem' +
+//                     ' ' +
+//                     context.settings.paddingX +
+//                     'rem',
+//                 }}
+//                 onTouchStart={() => this.stopScrolling()}
+//                 onClick={() => this.stopScrolling()}
+//               >
+//                 <ConnectionProvider
+//                   onDisconnect={DisconnectedToast}
+//                   onReconnect={ReconnectedToast}
+//                   user={user}
+//                   job={job}
+//                   render={state => <Document editable={false} {...state} />}
+//                 />
+//               </div>
+//               <ScrollButton
+//                 aria-label="Scroll to Bottom"
+//                 click={() => {
+//                   this.startScrolling();
+//                 }}
+//                 filter="scroll-top-a"
+//                 href="scroll-top-b"
+//                 id="scroll-top-b"
+//                 path="M18 22l8 8 8-8"
+//                 scrolling={scrolling}
+//                 title="Scroll to Bottom"
+//               />
+//             </Fragment>
+//           )}
+//         </WidgetContext.Consumer>
+//       </Provider>
+//     );
+//   }
+// }
 
 View.getInitialProps = ({ query }) => {
   return query;
 };
 
 export default View;
-
