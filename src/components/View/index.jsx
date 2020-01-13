@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { animateScroll as scroll } from 'react-scroll/modules';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 import Provider from '../../components/Session/Provider';
 import WidgetContext from '../../providers/WidgetContext';
-import ModalComponent from '../Modals/ModalComponent';
-import Nav from '../Nav/NavTranscriptView';
+// import ModalComponent from '../Modals/ModalComponent';
+// import Nav from '../Nav/NavTranscriptView';
 import ConnectionProvider from '../ShareDB/ConnectionProvider';
 import { DisconnectedToast, ReconnectedToast } from '../Toasts';
 import Document from '../ShareDB/Document';
@@ -48,7 +49,6 @@ function View(props) {
   };
 
   const stopScrolling = () => {
-    console.log('stopscrolling');
     setScrolling(false);
     clearInterval(interval);
   };
@@ -76,22 +76,6 @@ function View(props) {
       <WidgetContext.Consumer>
         {context => (
           <Fragment>
-            <Modal
-              isOpen={context.widgetOpen}
-              onRequestClose={context.closeWidget}
-              contentLabel="Widget Modal"
-              style={modalStyles}
-              ariaHideApp={false}
-            >
-              <ModalComponent
-                user={user}
-                job={job}
-                title={context.currentWidget}
-              />
-            </Modal>
-            <div className={!scrolling ? 'visible sticky' : 'invisible sticky'}>
-              <Nav openModal={openModal} closeModal={closeModal} />
-            </div>
             <div
               role="article"
               style={{
@@ -128,6 +112,11 @@ function View(props) {
       </WidgetContext.Consumer>
     </Provider>
   );
+}
+
+View.propTypes = {
+  user: PropTypes.string.isRequired,
+  job: PropTypes.string.isRequired,
 }
 
 export default View;
