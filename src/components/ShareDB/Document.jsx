@@ -3,50 +3,6 @@ import PropTypes from 'prop-types';
 import Binding from './ReactBinding';
 import { FetchingToast, LoadedToast } from '../Toasts';
 
-// function Document(props) {
-//   const { doc, flag } = props;
-//   const [text, setText] = useState('');
-//   let binding;
-//
-//   useEffect(() => {
-//
-//     FetchingToast();
-//
-//     doc.subscribe(err => {
-//       if (err) {
-//         setText(`There was a connection error: ${err}`);
-//       }
-//     });
-//
-//     // Load document and bind it to local snapshot.
-//     doc.on('load', () => {
-//       binding = new Binding(doc.data, flag);
-//       console.log(binding);
-//
-//       setTimeout(() => {
-//         setText(binding.snapshot || 'Connection successful.');
-//         LoadedToast();
-//       }, 0);
-//     });
-//
-//     // Destroy listeners.
-//     return () => {
-//       doc.unsubscribe();
-//       doc.destroy();
-//       binding = null;
-//     };
-//   }, []);
-//
-//   // Apply remote ops to local snapshot.
-//   doc.on('op', op => {
-//     setTimeout(() => {
-//       setText(binding.applyOp(op));
-//     }, 0);
-//   });
-//
-//   return <section className="transcript">{text || ''}</section>;
-// }
-
 class Document extends Component {
   constructor(props) {
     super(props);
@@ -68,6 +24,8 @@ class Document extends Component {
           text: `There was a connection error: ${err}`,
         });
       }
+
+      FetchingToast();
     });
 
     // Load document and bind it to local snapshot.
@@ -78,6 +36,8 @@ class Document extends Component {
       this.setState({
         text: this.binding.snapshot || 'Connection successful.',
       });
+
+      LoadedToast();
     });
 
     // Apply remote ops to local snapshot.
@@ -105,5 +65,15 @@ class Document extends Component {
     return <div>{text || ''}</div>;
   }
 }
+
+Document.propTypes = {
+  doc: PropTypes.oneOf(['Doc']),
+  flag: PropTypes.string,
+};
+
+Document.defaultProps = {
+  doc: PropTypes.oneOf(['Doc']),
+  flag: PropTypes.string,
+};
 
 export default Document;
