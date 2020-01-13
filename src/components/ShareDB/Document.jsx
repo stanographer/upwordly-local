@@ -48,8 +48,61 @@ import { FetchingToast, LoadedToast } from '../Toasts';
 // }
 
 class Document extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: '',
+    };
+
+    this.binding = {};
+  }
+
+  componentDidMount() {
+    const { doc, flag } = this.props;
+    const { text } = this.state;
+
+    doc.subscribe(err => {
+      if (err) {
+        this.setState({
+          text: `There was a connection error: ${err}`,
+        });
+      }
+    });
+
+    // Load document and bind it to local snapshot.
+    doc.on('load', () => {
+      this.binding = new Binding(doc.data, flag);
+      console.log('binding:', this.binding);
+
+      this.setState({
+        text: this.binding.snapshot || 'Connection successful.',
+      });
+    });
+
+    // Apply remote ops to local snapshot.
+    doc.on('op', op => {
+      setTimeout(() => {
+        this.setState({
+          text: this.binding.applyOp(op),
+        });
+      }, 0);
+    });
+  }
+
+  componentWillUnmount() {
+    const { doc } = this.props;
+
+    doc.unsubscribe();
+    doc.destroy();
+    this.binding = null;
+  }
+
   render() {
-    return <div>hello, this is the document</div>;
+    const { text } = this.state;
+
+    console.log('state', this.state);
+    return <div>{text || ''}</div>;
   }
 }
 
