@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Binding from './ReactBinding';
-import { FetchingToast, LoadedToast } from '../Toasts';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Binding from "./ReactBinding";
+import { FetchingToast, LoadedToast } from "../Toasts";
+import Provider from '../../../src/components/Session/Provider';
+import WidgetContext from '../../../src/providers/WidgetContext';
+import { animateScroll as scroll } from 'react-scroll';
 
 class Document extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      scrolling: true,
       text: '',
     };
 
@@ -25,23 +29,25 @@ class Document extends Component {
         });
       }
 
+      this.startScrolling();
+
       FetchingToast();
     });
 
     // Load document and bind it to local snapshot.
-    doc.on('load', () => {
+    doc.on("load", () => {
       this.binding = new Binding(doc.data, flag);
-      console.log('binding:', this.binding);
+      console.log("binding:", this.binding);
 
       this.setState({
-        text: this.binding.snapshot || 'Connection successful.',
+        text: this.binding.snapshot || "Connection successful."
       });
 
       LoadedToast();
     });
 
     // Apply remote ops to local snapshot.
-    doc.on('op', op => {
+    doc.on("op", op => {
       setTimeout(() => {
         this.setState({
           text: this.binding.applyOp(op),
@@ -56,24 +62,68 @@ class Document extends Component {
     doc.unsubscribe();
     doc.destroy();
     this.binding = null;
+    this.stopScrolling();
   }
+
+  startScrolling = () => {
+    // Set the scrolling state to scrolling.
+    this.setState({ scrolling: true });
+
+    // Begin auto-scrolling.
+    this.interval = setInterval(() => {
+      scroll.scrollToBottom({
+        delay: 0,
+        duration: 100,
+        offset: 30,
+        isDynamic: true,
+        smooth: true,
+      });
+    }, 500);
+  };
+
+  stopScrolling = () => {
+    // Stop auto-scrolling.
+    this.setState({ scrolling: false });
+    clearInterval(this.interval);
+  };
 
   render() {
     const { text } = this.state;
 
-    console.log('state', this.state);
-    return <div>{text || ''}</div>;
+    return (
+      <Provider>
+        <WidgetContext.Consumer>
+          {context => (
+            <div
+              style={{
+                ...context.settings,
+                whiteSpace: 'pre-wrap',
+                fontSize: context.settings.fontSize / 10 + 'rem',
+                padding:
+                  context.settings.paddingY +
+                  'rem' +
+                  ' ' +
+                  context.settings.paddingX +
+                  'rem',
+              }}
+            >
+              {text || ''}
+            </div>
+          )}
+        </WidgetContext.Consumer>
+      </Provider>
+    );
   }
 }
 
 Document.propTypes = {
-  doc: PropTypes.oneOf(['Doc']),
-  flag: PropTypes.string,
+  doc: PropTypes.oneOf(["Doc"]),
+  flag: PropTypes.string
 };
 
 Document.defaultProps = {
-  doc: PropTypes.oneOf(['Doc']),
-  flag: PropTypes.string,
+  doc: PropTypes.oneOf(["Doc"]),
+  flag: PropTypes.string
 };
 
 export default Document;

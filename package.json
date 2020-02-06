@@ -109,6 +109,7 @@
     "postcss-easy-import": "^3.0.0",
     "prettier": "^1.19.1",
     "require": "^2.4.20",
+    "serialize-javascript": "^2.1.2",
     "tailwindcss": "^1.1.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
