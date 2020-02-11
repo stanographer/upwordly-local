@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Binding from './ReactBinding';
 import { FetchingToast, LoadedToast } from '../Toasts';
-import Provider from '../../../src/components/Session/Provider';
-import WidgetContext from '../../../src/providers/WidgetContext';
 import { animateScroll as scroll } from 'react-scroll';
 
 const style = {
