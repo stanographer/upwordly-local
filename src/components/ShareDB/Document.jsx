@@ -7,6 +7,7 @@ import { animateScroll as scroll } from 'react-scroll';
 const style = {
   whiteSpace: 'pre-wrap',
   fontSize: '4rem',
+  margin:'2.1rem',
 };
 
 class Document extends Component {

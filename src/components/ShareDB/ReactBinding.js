@@ -39,6 +39,9 @@ class Binding {
         case 'object':
           snap = snap.slice(component.d);
           break;
+
+        default:
+          break;
       }
     }
     // Once that is done, join the changes stored in the temp variable
