@@ -57,7 +57,7 @@
     "firebase": "^6.6.2",
     "isomorphic-ws": "^4.0.1",
     "jumprope": "^1.2.1",
-    "next": "^9.5.3",
+    "next": "^9.5.4",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "ot-text": "^1.0.2",
     "prop-types": "latest",
