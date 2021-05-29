@@ -83,7 +83,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "uuid": "^3.3.3",
     "webpack": "^4.41.5",
-    "ws": "^7.2.1"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
